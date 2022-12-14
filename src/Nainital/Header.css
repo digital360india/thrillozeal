@@ -1,0 +1,270 @@
+.nainital_header {
+    display: flex;
+    justify-content: space-between;
+    background: #57BEBE;
+    align-items: center;
+    height: 8vh;
+}
+
+.firstDiv {
+    display: flex;
+    width: 50vw;
+    align-items: center;
+    justify-content: center;
+}
+
+.N__Header__logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Nainital_logo {
+    display: flex;
+    height: 44px !important;
+    padding-left: 32px ;
+}
+
+.FirstHome__input_forheader {
+    display: flex;
+    width: 500px;
+    max-width: 40vw !important;
+    height: 35px;
+    background: #FFFFFF;
+    border-radius: 30px;
+    align-items: center;
+    padding: 5px;
+    margin-left: 10vw;
+}
+
+.TrueFirstHome__input_forheader {
+    display: flex;
+    width: 500px;
+    max-width: 40vw;
+    height: 35px;
+    background: #FFFFFF;
+    border-radius: 30px;
+    align-items: center;
+    padding: 5px;
+    margin-left: 10vw;
+}
+
+.FirstHome__input_forheader>input {
+    width: 175px;
+    max-width: 10vw;
+    height: 35px;
+    border: none;
+    outline: none;
+    margin-left: 17px;
+}
+
+.TrueFirstHome__input_forheader>input {
+    width: 175px;
+    max-width: 10vw;
+    height: 35px;
+    border: none;
+    outline: none;
+    margin-left: 17px;
+}
+
+.FirstHome__input_forheader_h6 {
+    width: 175px;
+    max-width: 10vw;
+    height: 35px;
+    border: none;
+    outline: none;
+    margin-left: 17px;
+    align-items: center;
+    justify-content: center;
+    height: fit-content;
+}
+
+.header__dropdown {
+    display: flex;
+    /* z-index: 100; */
+    flex-direction: column;
+    position: absolute;
+    height: fit-content;
+    width: 180px;
+    top: 50px;
+    margin-left: 10px;
+    background-color: white;
+    border: 1px solid lightgray;
+    border-radius: 10px;
+    color: #464242;
+    letter-spacing: 0.3px;
+    font-size: large;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    max-height: 240px;
+    overflow-y: scroll;
+}
+.header__dropdownnone{
+    display: none;
+}
+.header__dropdown::-webkit-scrollbar {
+    width: 5px;
+    /* margin: 12px 0; */
+    border-radius: 50px;
+}
+
+/* Track */
+.header__dropdown::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    margin: 4px 0;
+    border-radius: 50px;
+}
+
+/* Handle */
+.header__dropdown::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 50px;
+}
+
+/* Handle on hover */
+.header__dropdown ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.header__dropdown2 {
+    margin-left: 220px;
+}
+
+.header__dropdown_h5 {
+    display: flex;
+    padding: 6px;
+    width: fit-content;
+    height: fit-content;
+    align-items: center;
+    justify-content: center;
+}
+
+.N__divider {
+    height: 35px;
+    width: 2px !important;
+}
+
+.N__sections {
+    display: flex;
+    justify-content: space-around;
+    width: 37vw;
+    color: white;
+    font-weight: 500;
+    font-size: 18px;
+}
+
+.nainitalSearch_img {
+    display: none;
+}
+
+.TruenainitalSearch_img {
+    display: none;
+}
+
+.TrueN__Header__logo {
+    display: flex;
+}
+
+.Truesections_forM {
+    display: none;
+}
+
+.TruenainitalSearch_img {
+    display: none;
+}
+
+@media(max-width:768px) {
+    .N__sections {
+        display: none;
+    }
+
+    .TrueN__Header__logo {
+        display: none;
+    }
+
+    .FirstHome__input_forheader {
+        display: none;
+    }
+
+    .dropdown {
+        width: 15px;
+    }
+
+    .TrueFirstHome__input_forheader {
+        display: flex;
+        width: 90vw !important;
+        height: 30px;
+        max-width: 90vw;
+        background: #FFFFFF;
+        border-radius: 30px;
+        align-items: center;
+        padding: 5px;
+        margin-left: 0vw;
+        margin: 0 5vw;
+    }
+
+    .TrueFirstHome__input_forheader>input {
+        width: 40%;
+        max-width: 40% !important;
+        height: 35px;
+        border: none;
+        outline: none;
+        margin-left: 5px;
+    }
+
+    .firstDiv {
+        display: flex;
+        width: 100vw;
+        align-items: center;
+        justify-content: space-between !important;
+    }
+
+    .nainitalSearch_img {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 20%;
+    }
+
+    .search {
+        width: 20px !important;
+    }
+
+    .header__dropdown {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        height: fit-content;
+        width: 40%;
+        top: 45px;
+        margin-left: 0px;
+        background-color: white;
+        border: 1px solid lightgray;
+        font-size: medium;
+    }
+
+    .header__dropdown2 {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        height: fit-content;
+        width: 40%;
+        top: 45px;
+        margin-left: 45%;
+        background-color: white;
+        border: 1px solid lightgray;
+    }
+
+    .header__dropdown_h5 {
+        display: flex;
+        padding: 6px;
+        width: fit-content;
+        height: fit-content;
+        align-items: center;
+        justify-content: center;
+    }
+    .Nainital_logo {
+        display: flex;
+        height: 44px !important;
+        padding-left: 0px ;
+    }
+}

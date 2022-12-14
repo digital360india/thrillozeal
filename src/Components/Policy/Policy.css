@@ -1,0 +1,86 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.policy-wrapper{
+
+background: rgba(87, 190, 190, 0.56);
+border: 1px solid #909090;
+border-radius: 50px;
+margin:30px;
+}
+.policy-container{
+    padding:50px;
+}
+
+.policy-container p{
+    color: white;
+
+}
+
+@media (max-width:600px)
+{
+    .policy-wrapper{
+        border: none;
+        background-color: white;
+        width: 80vw;
+        
+    }
+    .policy-container{
+        padding: 0;
+    }
+    .confirm{
+        font-family: 'Montserrat';
+font-style: normal;
+font-weight: 600;
+font-size: 16px;
+line-height: 20px;
+
+color: rgba(0, 0, 0, 0.55);
+
+    }
+    .confirm p:first-child{
+        font-family: 'Montserrat';
+font-style: normal;
+font-weight: 600;
+font-size: 18px;
+line-height: 22px;
+
+color: #57BEBE;
+    }
+    .confirm p:last-child{
+
+        font-family: 'Montserrat';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 20px;
+        
+        color: rgba(0, 0, 0, 0.55);
+
+    }
+    .policy-container div p:first-child{
+        font-family: 'Montserrat';
+font-style: normal;
+font-weight: 600;
+font-size: 18px;
+line-height: 22px;
+
+color: #57BEBE;
+    }
+    .policy-container div p:not:first-child{
+        text-align: left;
+    }
+    .refund p:last-child{
+
+        font-family: 'Montserrat';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 20px;
+        
+        color: rgba(0, 0, 0, 0.55);
+
+    }
+}

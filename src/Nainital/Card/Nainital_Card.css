@@ -1,0 +1,322 @@
+.nainital__card {
+    display: flex;
+    flex-direction: row;
+    background: rgba(255, 254, 245, 0.67);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 50px;
+    width: 100%;
+    height: fit-content;
+    margin: 14px 0;
+}
+
+.card__c1 {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    align-items: center;
+    justify-content: center;
+    padding: 12px;
+}
+
+.card__c2 {
+    display: flex;
+    padding: 12px;
+    flex-direction: column;
+    width: 60%;
+}
+
+.card__c2_head {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 29px;
+    color: #565656;
+    padding: 12px 0;
+}
+
+.card__c2_body {
+    display: flex;
+    padding: 12px 0;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.card__c2_innner {
+    display: flex;
+}
+
+.card__c2_innner>img {
+    height: 20px;
+    width: 20px;
+}
+
+.c2__text {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 15px;
+    color: #909090;
+    display: flex;
+    padding-left: 4px;
+    align-items: center;
+    justify-content: center;
+}
+
+.naini__stars {}
+
+.naini__stars>p {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 15px;
+
+    color: #57BEBE;
+}
+
+.naini__rating {
+    display: flex;
+    padding: 12px;
+    background: #57BEBE;
+    border-radius: 20px;
+    margin-left: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.naini__rating>p {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 27px;
+    color: #FFFFFF;
+    opacity: 0.5;
+
+}
+
+
+.naini__icons_collection {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+}
+
+.naini__icons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 15%;
+}
+
+.naini__icons>p {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 8px;
+    line-height: 10px;
+    color: #565656;
+}
+
+.naini__icons>img {
+    display: flex;
+    /* width: 40px; */
+    /* height: 40px; */
+    width: 90%;
+}
+
+.nain__pricing {
+    display: flex;
+    padding: 12px 0;
+    justify-content: space-around;
+}
+
+.pricing1 {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 16px;
+    color: #909090;
+}
+
+.pricing1>span {
+    text-decoration: line-through;
+}
+
+.pricing2 {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
+    color: #000000;
+}
+
+.pricing2>span {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 10px;
+    line-height: 12px;
+
+    color: #57BEBE;
+}
+
+.naini__bottons {
+    display: flex;
+    justify-content: space-around;
+    padding: 12px 0;
+}
+
+.naini__bottons>button {
+    background: #57BEBE;
+    border-radius: 30px;
+    padding: 12px;
+    border: none;
+    outline: none;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
+    color: #FFFFFF;
+}
+
+@media(max-width:900px) {
+    .nainital__card {
+        display: flex;
+        flex-direction: row;
+        background: white;
+        /* box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); */
+        border: 1px solid #57BEBE;
+        border-radius: 0;
+    }
+    .nainital__card {
+        display: flex;
+        flex-direction: column;
+    }
+    .card__c2 {
+        display: flex;
+        flex-direction: column;
+        width: 96%;
+        padding: 2%;
+    }
+
+    .bott__img_c1 {
+        display: none;
+    }
+
+    .top__img_c1>img {
+        width: 96%;
+        padding: 2%;
+    }
+
+    .card__c2_innner {
+        display: flex;
+        width: 30% !important;
+    }
+
+    .naini__stars {
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* .naini__stars>img {
+        width: 70%;
+        height: fit-content;
+    } */
+
+    /* .naini__stars>p {
+        font-weight: 500;
+        font-size: 10px;
+        line-height: 11px;
+    }
+
+    .naini__rating {
+        display: flex;
+        padding: 2px;
+        background: #57BEBE;
+        border-radius: 10px;
+    }
+
+    .naini__rating>p {
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 18px;
+    } */
+
+    .card__c2_head {
+        padding: 12px 12px;
+    }
+}
+@media(max-width:500px) {
+    .card__c1 {
+        display: flex;
+        flex-direction: column;
+        width: 96%;
+        align-items: center;
+        justify-content: center;
+        padding: 12px 2% 0 2%;
+    }
+    .pricing1 {
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 18px;
+    }
+    .pricing2 {
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 18px;
+    }
+    .nain__pricing {
+        padding-left: 12px;
+    }
+    .naini__stars>img {
+        width: 70%;
+        height: fit-content;
+    }
+    .naini__stars>p {
+        font-weight: 500;
+        font-size: 10px;
+        line-height: 11px;
+    }
+
+    .naini__rating {
+        display: flex;
+        padding: 2px;
+        background: #57BEBE;
+        border-radius: 10px;
+    }
+
+    .naini__rating>p {
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 18px;
+    }
+    .naini__bottons {
+        display: flex;
+        justify-content: space-around;
+        padding: 4px 0;
+        margin-bottom: 12px;
+    }
+    
+    .naini__bottons>button {
+        background: #57BEBE;
+        border-radius: 30px;
+        padding: 12px;
+        border: none;
+        outline: none;
+        font-family: 'Montserrat';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 20px;
+        color: #FFFFFF;
+    }
+}

@@ -1,0 +1,17 @@
+.review-box{
+
+    height: 300px;
+    width: 100%;
+}
+.img-slider{
+    height: auto;
+    width: 100vw;
+  
+
+}
+.review-box{
+    margin-left: 60px;
+}
+.review-box h2{
+    padding:24px;
+}

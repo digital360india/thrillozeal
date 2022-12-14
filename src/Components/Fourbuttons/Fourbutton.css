@@ -1,0 +1,138 @@
+
+
+.a1,.a2,.a3,.a4,.a5{
+
+font-family: 'Montserrat';
+font-style: normal;
+font-weight: 600;
+font-size: 20px;
+line-height: 24px;
+
+color: #57BEBE;
+border: 1px solid #57BEBE;
+margin: 5px;
+width: 168.35px;
+height: 49.51px;
+border-radius: 40px;
+padding: 8px;
+}
+.a1:hover,.a2:hover,.a3:hover,.a4:hover,.a5:hover{
+    background-color: #57BEBE;
+    color: white;
+    cursor: pointer;
+}
+.button-container a:active{
+    background-color:#57BEBE;
+}
+.button-container{
+    width: 100%;
+    text-align: left;
+    margin-top: 2rem;
+    margin-left: 1.5rem;
+}
+
+.section-control{
+    width: 100%;
+}
+
+.full{
+    position: relative;
+}
+
+.card-full{
+    height: auto;
+    width: 66vw;
+    border: 2px solid black;
+    text-align: left;
+    margin-left: 2%;
+    margin-top: 2%;
+    background: #FFFFFF;
+border: 1px solid #909090;
+box-sizing: border-box;
+border-radius: 10px;
+padding: 20px;
+
+}
+.form-container{
+    width: 357px;
+height: 694px;
+
+background: #FFFFFF;
+border: 1px solid rgba(0, 0, 0, 0.55);
+position: absolute;
+right: 30px;
+top:0;
+}
+.form-container h1{
+
+font-family: 'Montserrat';
+font-style: normal;
+font-weight: 600;
+font-size: 24px;
+line-height: 29px;
+text-align: center;
+height: 29px;
+border-bottom: 1px solid black;
+padding: 20px;
+background-color: rgba(87, 190, 190, 1);
+color: #ffffff;
+
+}
+.form-container p{
+    margin-top: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.form-container input[type]:not([type="submit"]){
+    display: block;
+  margin:auto;
+
+background: #FFFFFF;
+border: 1px solid #909090;
+border-radius: 20px;
+width: 289px;
+height: 63px;
+margin-bottom: 25px;
+text-align: center;
+}
+.form-container input[type="submit"]{
+    display: block;
+background: #57BEBE;
+border-radius: 20px;
+border: none;
+color: white;
+width: 121px;
+height: 47px;
+
+margin: auto;
+margin-bottom:35px ;
+
+
+}
+
+
+@media (max-width:600px){
+
+    .form-container{
+        display: none;
+    }
+    .button-container a{
+        font-family: 'Montserrat';
+font-style: normal;
+font-weight: 600;
+font-size: 10px;
+line-height: 12px;
+
+    }
+    .card-full{
+        margin: auto;
+        margin-top: 2rem;
+
+        width: 373px;
+height: auto;
+
+background: #FFFFFF;
+border: 1px solid rgba(144, 144, 144, 0.4);
+    }
+
+}

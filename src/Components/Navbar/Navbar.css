@@ -1,0 +1,43 @@
+.Navbar-Container{
+    display: flex;
+    background-color: rgba(87, 190, 190, 1);
+    color: white;
+    width: 100%;
+}
+.First{
+
+    flex: 2;
+    margin: auto;
+}
+
+  
+.Second{
+    flex: 3;
+}
+.Third{
+    flex: 4;
+}
+.Nav-items{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.Nav-items img{
+    vertical-align: middle;
+    padding-right: 5%;
+}
+.Nav-items li{
+    list-style: none;
+}
+
+@media (max-width:600px){
+
+    .Third ul li{
+        display: none;
+    }
+    .Third ul li:last-child{
+        display: block;
+    }
+   
+
+}

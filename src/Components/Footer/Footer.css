@@ -1,0 +1,145 @@
+.footer-boundary {
+    background-color: rgba(87, 190, 190, 1);
+    width: 100%;
+    margin-top: 25px;
+}
+
+.footer-container {
+    width: 80%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 50px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+    margin: auto;
+    justify-content: center;
+    align-items: baseline;
+    color: #FFFFFF;
+}
+
+.footer-container div {
+    margin-right: 20px;
+}
+
+.footer-container h1 {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 29px;
+    color: #000000 !important;
+    margin-bottom: 20px;
+}
+
+.Thrillo-div {
+    flex: 1;
+}
+
+.Thrillo-div p {
+
+    width: 284px;
+    height: 180px;
+
+}
+
+.Links-div {
+    flex: 1;
+}
+
+.Contact-div {
+    flex: 1;
+}
+
+.Legal {
+    flex: 1;
+}
+
+.Newsletter {
+    flex: 1;
+    max-width: 194px;
+}
+
+.footer-container ul li {
+    list-style: none;
+    margin-bottom: 16px;
+}
+
+.socials {
+    text-align: center;
+    padding-bottom: 20px;
+}
+.combo__link_contact{
+    display: flex;
+    font-size: 16px !important;
+}
+.footer-form{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.footer-form>input{
+    display: flex;
+    border: 1px solid lightgray;
+    padding: 12px;
+    margin: 6px 0;
+}
+.footer-form>button{
+    display: flex;
+    border: 1px solid lightgray;
+    padding: 12px;
+    margin: 6px 0;
+    color: black;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500!important;
+}
+@media(max-width:900px) {
+    .combo__link_contact{
+        display: flex;
+        flex-direction: row;
+        padding: 21px 0;
+        justify-content: space-evenly;
+    }
+    .footer-boundary{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding-top: 21px;
+    }
+    .footer-container{
+        display: flex;
+        width: 90%;
+        padding: 2%;
+        flex-direction: column;
+        align-items: center;
+    }
+    .Legal{
+        display: none;
+    }
+    .Thrillo-div{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .Thrillo-div p {
+        width: 100%;
+        height: fit-content;
+        font-size: 14px;
+    }
+    .footer-container div {
+        margin-right: 0px;
+    }
+    .footer-container h1 {
+        margin-bottom: 10px;
+    }
+    .newsletter_li{
+        font-size: 12px;
+    }
+}

@@ -1,0 +1,236 @@
+.secondPage {
+    display: flex;
+    width: 100vw;
+    align-items: center;
+    justify-content: center;
+    padding: 21px 0;
+}
+
+.second_header {
+    display: flex;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 44px;
+    color: #000000;
+}
+
+.second_header>img {
+    display: flex;
+    height: 40px;
+    padding-right: 12px;
+    padding-top: 4px;
+}
+
+.destination-heading {
+    padding: 18px;
+}
+
+.flex-destination span {
+    display: inline-block;
+}
+
+.destination-heading {
+    display: inline-block;
+}
+
+.ek {
+    height: 20px;
+    margin-right: 5px;
+    border: 2px solid rgba(74, 242, 242, 1);
+}
+
+.do {
+    height: 25px;
+    margin-right: 5px;
+    border: 2px solid rgba(74, 242, 242, 1);
+}
+
+.teen {
+    height: 30px;
+    border: 2px solid rgba(74, 242, 242, 1);
+}
+
+.flex-destination {
+    text-align: center;
+}
+
+.slider_splideOut {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slider-splide {
+    display: flex;
+    width: 80vw;
+    text-align: center;
+}
+
+.slider_splide_react {
+    display: flex;
+    width: 80vw !important;
+}
+
+.slider_splide_react1 {
+    width: 22% !important;
+    margin: 12px 1.5%;
+}
+.one1{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 10%;
+}
+.one1> img {
+    margin-right: 6px;
+    /* width: 12px;
+    height: 12px; */
+}
+.star_text{
+    display: flex;
+
+}
+.head {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 27px;
+    color: #000000;
+
+}
+
+.head {
+    margin-top: 10px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    color: #000000;
+    /* padding-top: 6px; */
+}
+
+.one1 p:nth-child(2) {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    color: #000000;
+    /* padding: 6px 0; */
+
+}
+
+.one1 img:nth-child(3) {
+    padding: 6px 0;
+}
+
+.one1 p:nth-child(4) {
+    display: block !important;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    color: #000000;
+    padding: 6px 0;
+}
+
+.one1 p:nth-child(5) {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 23px;
+    color: #000000;
+    padding: 6px 0 3px 0;
+}
+
+.one1 p:nth-child(6) {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    text-decoration-line: line-through;
+    color: rgba(0, 0, 0, 0.55);
+}
+
+.slider_splide_react_img {
+    width: 15vw;
+}
+
+.slider_splide_react_mobile {
+    display: none;
+}
+
+@media(max-width:900px) {
+    .slider-splide {
+        display: flex;
+        width: 90vw;
+        text-align: center;
+    }
+
+    .slider_splide_react_mobile {
+        display: flex;
+        width: 90vw !important;
+    }
+
+    .slider_splide_react {
+        display: none;
+    }
+
+    .slider_splide_react1 {
+        width: 46% !important;
+        margin: 12px 2%;
+    }
+
+    .slider_splide_react_img {
+        width: 30vw;
+    }
+
+    .second_header {
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 44px;
+    }
+
+    .second_header>img {
+        display: flex;
+        height: 30px;
+        padding-right: 8px;
+        padding-top: 8px;
+    }
+
+    .head {
+        margin-top: 10px;
+        font-family: 'Montserrat';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 20px;
+        line-height: 24px;
+        color: #000000;
+        /* padding-top: 6px; */
+    }
+
+    .one1 p:nth-child(1) {
+        font-weight: 400;
+        font-size: 14px;
+    }
+
+    .one1 p:nth-child(2) {
+        font-weight: 400;
+        font-size: 14px;
+    }
+
+    .one1 p:nth-child(4) {
+        font-size: 17px;
+    }
+
+    .one1 p:nth-child(5) {
+        font-size: 20px;
+    }
+
+    .one1 p:nth-child(6) {
+        font-size: 16px;
+    }
+
+}

@@ -1,0 +1,62 @@
+.form_Container {
+    display: flex;
+    flex-direction: column;
+    width: 94%;
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.55);
+    /* border-radius: 6px; */
+}
+
+.form_Container>h1 {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 29px;
+    text-align: center;
+    border-bottom: 1px solid black;
+    padding: 20px 0;
+    background-color: rgba(87, 190, 190, 1);
+    color: #ffffff;
+}
+
+.form_Container p {
+   
+font-family: 'Montserrat';
+font-style: normal;
+font-weight: 600;
+font-size: 15px;
+line-height: 18px;
+text-align: center;
+padding: 20px 12px 0 12px;
+color: rgba(0, 0, 0, 0.55);
+}
+.input_div_form{
+    padding: 12px ;
+}
+
+.form_Container input[type]:not([type="submit"]) {
+    display: block;
+    background: #FFFFFF;
+    border: 1px solid #909090;
+    border-radius: 12px;
+    width: 94%;
+    height: 50px;
+    margin: 12px 2%;
+    padding-left: 2%;
+    /* text-align: center; */
+}
+
+.form_Container input[type="submit"] {
+    display: block;
+    background: #57BEBE;
+    border-radius: 12px;
+    border: none;
+    color: white;
+    width: 96%;
+    height: 47px;
+    margin: auto;
+    margin: 12px 2%;
+    justify-content: center;
+    align-items: center;
+}

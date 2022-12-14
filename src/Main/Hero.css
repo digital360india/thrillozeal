@@ -1,0 +1,47 @@
+.Hero-section{
+    /* background-image: url('/Users/sudhirkumar/Website/thrillozeal/public/Images/thrillo 1.png'); */
+    height: 100vh;
+    width: 100%;
+    position: relative;
+}
+
+.i1{
+    position: absolute;
+width: 150px;
+height: 150px;
+left: 732px;
+top: 352px;
+
+}
+.i2{
+    position: absolute;
+width: 150px;
+height: 150px;
+left: 835px;
+top: 215px;
+}
+.i3{
+
+
+position: absolute;
+width: 150px;
+height: 150px;
+left: 1022px;
+top: 162px;
+
+
+}
+.i4{
+    position: absolute;
+width: 150px;
+height: 150px;
+left: 1198px;
+top: 215px;
+}
+.i6{
+    position: absolute;
+width: 280px;
+height: 228.83px;
+right:180px;
+top: 541px;
+}

@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+}
+.Card-Wrapper{
+    padding:0;
+}
+.image-box{
+    
+    width: 100%;
+}
+.image-box img{
+    padding:5px;
+    width:179px;
+    height: 184px;
+}
+.box-heading{
+    font-family: 'Montserrat';
+font-style: normal;
+font-weight: 600;
+font-size: 28px;
+line-height: 34px;
+padding: 20px;
+
+color: #57BEBE;
+}
+
+@media (max-width:600px){
+    .Accordian-Wrapper .not-mobile{
+        display: none;
+    }
+}

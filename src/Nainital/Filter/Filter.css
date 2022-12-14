@@ -1,0 +1,232 @@
+.filter {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    /* padding: 0 2.5vw; */
+}
+
+.filter_top {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.images__list {
+    display: flex;
+    justify-content: space-between;
+}
+
+.filter_image__div {
+    width: 88px;
+    height: 88px;
+    display: flex;
+    flex-direction: column;
+    background: #FFFFFF;
+    border: 1px solid #57BEBE;
+    align-items: center;
+    justify-content: center;
+}
+
+.filter_image__div>img {
+    height: 20px;
+    width: 20px;
+}
+
+.filter_image__div>h6 {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 15px;
+    padding-top: 6px;
+    color: #565656;
+}
+
+.filter_image__div>p {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 8px;
+    line-height: 10px;
+
+    color: #565656;
+}
+
+.filter__t1 {
+    display: flex;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 22px;
+    color: #565656;
+    padding-bottom: 1.5vh;
+}
+
+.filter__t2 {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 17px;
+    color: #57BEBE;
+}
+
+.filter_top2_left{
+    position: absolute;
+     visibility: hidden;
+    left: -100vw !important;
+}
+.filter_top2 {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2vh;
+    padding: 12px 12px 12px 31px;
+    background: #FFFFFF;
+    border: 0.5px solid #909090;
+}
+.filter__two1 {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+    color: #57BEBE;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.filter__two2 {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 22px;
+    padding-top: 12px;
+    color: #565656;
+}
+
+.checkbox {
+    display: flex;
+    align-items: center;
+}
+
+.start_checkbox {
+    padding-bottom: 18px;
+
+}
+
+.checkbox>input {
+    background: #FFFFFF;
+    border: 1px solid #909090;
+    border-radius: 10px !important;
+    margin: 8px;
+    height: 25px;
+    width: 25px;
+}
+
+.checkbox>p {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 18px;
+    color: #565656;
+}
+
+.two_checkbox {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 22px;
+    color: #565656;
+}
+
+.loadMore {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+    /* identical to box height */
+
+    padding-bottom: 12px;
+    color: #57BEBE;
+}
+
+.two_checkbox>h6 {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 22px;
+    color: #565656;
+    padding: 12px 0 8px 0;
+}
+
+.Range {
+    width: 100% !important;
+}
+
+.range__value {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+    color: #565656;
+}
+
+.filter__slider{
+    display: none;
+}
+.show_filterArray{
+    /* float: left; */
+    width: 100%;
+    padding-top: 12px;
+}
+.show_filterArray>h5{
+    animation: 1s ease  ;
+    float: left;
+    padding: 6px;
+    background: rgb(144, 139, 139);
+    color: white;
+    padding: 6px 8px;
+    border-radius: 3px;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    width: fit-content;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    letter-spacing: 0.2px;
+}
+.dark_box{
+    background: #57bebe!important;
+    color: white; 
+}
+.filter_Cross{
+    display: flex;
+    height: 20px;
+    padding-left: 6px;
+    color: white;
+}
+@media(max-width:900px) {
+    .filter__slider{
+        display: flex;
+        padding: 12px 0;
+        justify-content: center;
+    }
+    .filter__slider>img{
+        padding: 0 12px;
+    }
+
+}

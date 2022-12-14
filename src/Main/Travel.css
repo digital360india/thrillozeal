@@ -1,0 +1,50 @@
+.Travel-Container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 26px 0;
+}
+
+.travel-img-container {
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    /* margin-left: 50px; */
+}
+
+.column {
+    flex: 25%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.column>p {
+    flex: 25%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    color: #000000;
+}
+
+.column>img {
+    width: 200px !important;
+    height: 200px !important;
+    padding: 20px 12px;
+}
+
+@media(max-width:769px){
+    .column>img {
+        width: 100px !important;
+        height: 100px !important;
+        padding: 16px 12px;
+    }
+    
+}

@@ -1,0 +1,106 @@
+:root{
+    --black: #000000;
+    --fountain-blue: #57bebe;
+    --gray: #909090;
+    --white: #ffffff;
+    --font-size-l2: 14px;
+    --font-size-s: 10px;
+    --font-size-xl2: 16px;
+    --font-size-xxl2: 18px;
+    --font-size-xxxl: 22px;
+    --font-size-xxxl2: 20px;
+    --font-size-xxxxl: 28px;
+    --font-family-montserrat: "Montserrat", Helvetica;
+}
+
+.Gallery-Container{
+    width: 100%;
+    display: flex;
+    padding-top: 1%;
+    
+
+}
+.one-one{
+    
+    flex: 1;
+
+}
+.two-two{
+
+    flex: 1;
+}
+.three-three{
+
+    flex: 1;
+}
+.four-four{
+    flex: 1;
+    position: relative;
+
+}
+
+.gallery-open{
+    width: 187px;
+    height: 60px;
+
+background: #57BEBE;
+border-radius: 20px 0px 0px 20px;
+position: absolute;
+top:40px;
+right: 10px;
+text-align: center;
+
+
+
+}
+
+.montserrat-semi-bold-black-14px {
+color: var(--black);
+font-family: var(--font-family-montserrat);
+font-size: var(--font-size-l2);
+font-style: normal;
+font-weight: 600;
+}
+
+.cities-1{
+    margin-left: 5px;
+}
+.chamoli{
+    margin-left: 5px;
+}
+
+.chopta{
+color: var(--fountain-blue);
+font-family: var(--font-family-montserrat);
+font-size: var(--font-size-l2);
+font-weight: 600;
+letter-spacing: 0;
+margin-left: 9px;
+min-height: 17px;
+}
+.below-text{
+    display: flex;
+    padding: 1.5%;
+}
+
+.Gallery-Container img:nth-child(2){
+    display: none;
+}
+
+@media (max-width:600px){
+
+    .Gallery-Container{
+        width: 100vw;
+    }
+
+    .Gallery-Container img:first-child{
+        display: none;
+    }
+
+    .Gallery-Container img:nth-child(2){
+        display: block;
+    }
+    .four-four{
+        display: none;
+    }
+}
