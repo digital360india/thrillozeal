@@ -2,12 +2,12 @@ import React, { useState, useEffect } from 'react';
 import './FirstHome.css';
 import logo from './img/logo.png';
 import call from './img/phone-call.png';
-import background1 from './img/thrillo 1.png';
-import background2 from './img/thrillo 1.jpg';
-import background3 from './img/thrillo 1 (4).jpg';
-import background4 from './img/thrillo 1 (2).jpg';
-import background5 from './img/thrillo 1 (1).jpg';
-import background6 from './img/thrillo 1 (3).jpg';
+import background1 from './img/thrillo 1.webp';
+import background2 from './img/thrillo 1 (5).webp';
+import background3 from './img/thrillo 1 (4).webp';
+import background4 from './img/thrillo 1 (2).webp';
+import background5 from './img/thrillo 1 (1).webp';
+import background6 from './img/thrillo 1 (3).webp';
 import divider from './img/Line 2.png';
 import search from './img/search.png';
 import dropdown from './img/Vector.svg';
@@ -154,7 +154,7 @@ function FirstHome() {
                             Contact
                         </div>
                         <div className="call">
-                            <img src={call} alt="" />
+                           <a href="tel:8303022306"> <img src={call} alt="" /></a>
                         </div>
                     </div>
                     <div className="sections_forM">
