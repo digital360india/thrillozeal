@@ -25,10 +25,6 @@ function Location() {
   const [data, setData] = useState(null);
   const [data_Filtered, setData_Filtered] = useState([]);
   const [dataCard, setDataCard] = useState([]);
-  const [dataCard1, setDataCard1] = useState([]);
-  const [dataCard2, setDataCard2] = useState([]);
-  const [dataCard3, setDataCard3] = useState([]);
-  const [dataCard4, setDataCard4] = useState([]);
 
   const str = location.charAt(0).toUpperCase() + location.slice(1);
 
@@ -44,9 +40,9 @@ function Location() {
   useEffect(() => {
     if (str)
       //  from the 0-5k
-      db.collection('Cities').doc('JvH2wjbXOWgoOA17X4GW' + str).collection(str + '_0-5K').onSnapshot((snapshot) => {
+      db.collection('Cities').doc('JvH2wjbXOWgoOA17X4GW' + str).collection('All_Trek').onSnapshot((snapshot) => {
         // const na=
-        setDataCard1(
+        setData_Filtered(
           snapshot.docs.map((doc) => ({
             id: doc.id,
             data: doc.data(),
@@ -55,43 +51,43 @@ function Location() {
       }
       )
     //  from the 5-10k
-    db.collection('Cities').doc('JvH2wjbXOWgoOA17X4GW' + str).collection(str + '_5-10K').onSnapshot((snapshot) => {
-      setDataCard2(
-        snapshot.docs.map((doc) => ({
-          id: doc.id,
-          data: doc.data(),
-        }))
-      )
-    }
-    )
-    //  from the 10-15k
-    db.collection('Cities').doc('JvH2wjbXOWgoOA17X4GW' + str).collection(str + '_10-15K').onSnapshot((snapshot) => {
-      setDataCard3(
-        snapshot.docs.map((doc) => ({
-          id: doc.id,
-          data: doc.data(),
-        }))
-      )
-    }
-    )
-    //  from the 15k-20k
-    db.collection('Cities').doc('JvH2wjbXOWgoOA17X4GW' + str).collection(str + '_15-20K').onSnapshot((snapshot) => {
-      setDataCard4(
-        snapshot.docs.map((doc) => ({
-          id: doc.id,
-          data: doc.data(),
-        }))
-      )
-    }
-    )
+    // db.collection('Cities').doc('JvH2wjbXOWgoOA17X4GW' + str).collection(str + '_5-10K').onSnapshot((snapshot) => {
+    //   setDataCard2(
+    //     snapshot.docs.map((doc) => ({
+    //       id: doc.id,
+    //       data: doc.data(),
+    //     }))
+    //   )
+    // }
+    // )
+    // //  from the 10-15k
+    // db.collection('Cities').doc('JvH2wjbXOWgoOA17X4GW' + str).collection(str + '_10-15K').onSnapshot((snapshot) => {
+    //   setDataCard3(
+    //     snapshot.docs.map((doc) => ({
+    //       id: doc.id,
+    //       data: doc.data(),
+    //     }))
+    //   )
+    // }
+    // )
+    // //  from the 15k-20k
+    // db.collection('Cities').doc('JvH2wjbXOWgoOA17X4GW' + str).collection(str + '_15-20K').onSnapshot((snapshot) => {
+    //   setDataCard4(
+    //     snapshot.docs.map((doc) => ({
+    //       id: doc.id,
+    //       data: doc.data(),
+    //     }))
+    //   )
+    // }
+    // )
   }, [str]);
 
 
-  useEffect(() => {
-    // if (dataCard1.length > 0 && dataCard2.length > 0 && dataCard3.length > 0 && dataCard4.length > 0) {
-    setDataCard([...dataCard1, ...dataCard2, ...dataCard3, ...dataCard4])
-    // }
-  }, [dataCard4, dataCard3, dataCard2, dataCard1])
+  // useEffect(() => {
+  //   // if (dataCard1.length > 0 && dataCard2.length > 0 && dataCard3.length > 0 && dataCard4.length > 0) {
+  //   setDataCard([...dataCard1, ...dataCard2, ...dataCard3, ...dataCard4])
+  //   // }
+  // }, [dataCard4, dataCard3, dataCard2, dataCard1])
 
   // useState
 
@@ -107,36 +103,36 @@ function Location() {
   // }, [dataCard])
 
   // filter by price range
-  const filterbyrange=()=>{
-    if(useFilter_price==="All price range"){
-      dispatch({
-        type: actionTypes.SET_USE_FILTER_DATA,
-        filter_Data: dataCard,
-      });
-    }else if(useFilter_price==="0-5K"){
-      dispatch({
-        type: actionTypes.SET_USE_FILTER_DATA,
-        filter_Data: dataCard1,
-      });
-    }else if(useFilter_price==="5K-10K"){
-      dispatch({
-        type: actionTypes.SET_USE_FILTER_DATA,
-        filter_Data: dataCard2,
-      });
-    }else if(useFilter_price==="10K-15K"){
-      dispatch({
-        type: actionTypes.SET_USE_FILTER_DATA,
-        filter_Data: dataCard3,
-      });
-    }else if(useFilter_price==="15K-20K"){
-      dispatch({
-        type: actionTypes.SET_USE_FILTER_DATA,
-        filter_Data: dataCard4,
-      });
-    }
-  }
+  // const filterbyrange=()=>{
+  //   if(useFilter_price==="All price range"){
+  //     dispatch({
+  //       type: actionTypes.SET_USE_FILTER_DATA,
+  //       filter_Data: dataCard,
+  //     });
+  //   }else if(useFilter_price==="0-5K"){
+  //     dispatch({
+  //       type: actionTypes.SET_USE_FILTER_DATA,
+  //       filter_Data: dataCard1,
+  //     });
+  //   }else if(useFilter_price==="5K-10K"){
+  //     dispatch({
+  //       type: actionTypes.SET_USE_FILTER_DATA,
+  //       filter_Data: dataCard2,
+  //     });
+  //   }else if(useFilter_price==="10K-15K"){
+  //     dispatch({
+  //       type: actionTypes.SET_USE_FILTER_DATA,
+  //       filter_Data: dataCard3,
+  //     });
+  //   }else if(useFilter_price==="15K-20K"){
+  //     dispatch({
+  //       type: actionTypes.SET_USE_FILTER_DATA,
+  //       filter_Data: dataCard4,
+  //     });
+  //   }
+  // }
   useEffect(()=>{
-    if(useFilter_price==="All price range")
+    // if(useFilter_price==="All price range")
     dispatch({
       type: actionTypes.SET_USE_FILTER_DATA,
       filter_Data: dataCard,
@@ -226,7 +222,7 @@ function Location() {
       <Header />
       {/* <PaginatedItems itemsPerPage={4} /> */}
       <div className="nainital__body">
-        <img src={data?.City_Image} alt="" />
+        <img src={data?.img} alt="" />
         <div className="nainital__body_first">
           <div className="smallHeader">
             <div className="header_name">
