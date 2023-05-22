@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './SubLocation.css';
 import Gallery from '../Gallery/Gallery';
 import Header from '../Nainital/Header';
@@ -20,9 +20,28 @@ import Package from '../Components/Trek/Package';
 import Footer from '../Components/Footer/Footer';
 import Policy from '../Components/Policy/Policy';
 import Destination from '../Components/Destinations/Destination';
+import { useParams } from 'react-router-dom';
+import db from '../firebase';
 
 function SubLocation() {
+    const param = useParams();
+
+    var { location_id, trek_id } = useParams();
+
     const [active, setActive] = useState("first");
+    const [data, setData] = useState(null);
+    const database = db.collection("Cities")
+        .doc(location_id)
+        .collection("All_Trek")
+        .doc(trek_id)
+
+    useEffect(() => {
+        database.onSnapshot((snapshot) => (
+            setData(snapshot.data())
+        ))
+    }, [])
+    console.log(data)
+
     return (
         <div className='SubLocation'>
             <Header />
@@ -30,16 +49,16 @@ function SubLocation() {
                 <div className="sublocation_img">
 
                     <div className="sub_img_one">
-                        <img src={rec1} alt="" />
+                        <img src={data?.img} alt="" />
                     </div>
                     <div className="sub_img_one">
-                        <img src={rec2} alt="" />
+                        <img src={data?.img1} alt="" />
                     </div>
                     <div className="sub_img_one">
-                        <img src={rec3} alt="" />
+                        <img src={data?.img2} alt="" />
                     </div>
                     <div className="sub_img_one sub_img_last">
-                        <img src={rec4} alt="" />
+                        <img src={data?.img3} alt="" />
                     </div>
                 </div>
                 <div className="smallHeader">
@@ -56,31 +75,31 @@ function SubLocation() {
                         {" > "}
                     </div>
                     <div className="header_name active">
-                        Chopta
+                        {data?.location}
                     </div>
                 </div>
                 <div className="sublocation_firstDiv">
                     <div className="card__c2">
                         <div className="card__c2_head">
-                            Chopta- Tungnath- Chandrashilla Trek
+                            {data?.name}
                         </div>
                         <div className="card__c2_body">
                             <div className="card__c2_innner">
                                 <img src="/Images/clock.png"></img>
-                                <div className="c2__text">5D/6N</div>
+                                <div className="c2__text">{data?.day}D/{data?.night}N</div>
                             </div>
                             <div className="card__c2_innner">
                                 <img src="/Images/map-pin.png" alt='map'></img>
-                                <div className="c2__text">Chamoli,UK </div>
+                                <div className="c2__text">{data?.location}</div>
                             </div>
                             <br />
                             <div className="card__c2_innner card__c2_innner2">
                                 <div className="naini__stars">
                                     <img src="/Images/Group 4.png"></img>
-                                    <p>based on 78 reviews</p>
+                                    <p>based on {data?.reviewNo} reviews</p>
                                 </div>
                                 <div className="naini__rating">
-                                    <p>4.5</p>
+                                    <p>{data?.review}</p>
                                 </div>
                             </div>
                         </div>
@@ -119,10 +138,10 @@ function SubLocation() {
 
                     <div className="subLocation_price">
                         <div className="subLocation_price_box">
-                            <div className="strike"><p>starting from</p> INR 6799/-</div>
-                            <div className='subLocation_price_price'>INR 3799/-</div>
+                            <div className="strike"><p>starting from</p> INR {data?.pricecross}/-</div>
+                            <div className='subLocation_price_price'>INR {data?.price}/-</div>
                             <div className="discount">
-                                <p>Flat 40% off!</p>
+                                <p>Flat {parseInt((data?.pricecross-data?.price)*100/data?.pricecross)}% off!</p>
                             </div>
                         </div>
                     </div>
@@ -150,7 +169,7 @@ function SubLocation() {
                     </div>
                 </div>
                 <Policy />
-                <Destination/>
+                <Destination />
                 <Footer />
             </div>
         </div>

@@ -1,20 +1,18 @@
 // import logo from './logo.svg';
 import './App.css';
-import Home from './Home';
+import Home from './home/Home';
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import FirstHome from './home/FirstHome';
 import Location from './Nainital/Location';
 import SubLocation from './SubLocation/SubLocation';
+import Navbar from './Components/Navbar/Navbar';
 
 function App() {
   return (
     <Router>
       <Switch>
-        <Route path="/home">
-          <Home />
-        </Route>
-        <Route path="/:location/:name/:price">
+        <Route path="/:location_id/:trek_id">
           <SubLocation/>
         </Route>
         <Route path="/:location">

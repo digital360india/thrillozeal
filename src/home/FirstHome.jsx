@@ -36,6 +36,8 @@ import Testimonials from './Testimonials';
 import Add from './Add';
 import Add2 from './Add2';
 import Travel from '../Main/Travel';
+import Navbar from '../Components/Navbar/Navbar';
+import Header from '../Nainital/Header';
 function FirstHome() {
 
     const history = useHistory();
@@ -99,6 +101,7 @@ function FirstHome() {
     }
     return (
         <>
+        <Navbar/>
             <div className='FirstHome'>
                 {number == icon1 &&
                     <>
@@ -154,7 +157,7 @@ function FirstHome() {
                             Contact
                         </div>
                         <div className="call">
-                           <a href="tel:8303022306"> <img src={call} alt="" /></a>
+                            <a href="tel:8303022306"> <img src={call} alt="" /></a>
                         </div>
                     </div>
                     <div className="sections_forM">
@@ -224,13 +227,13 @@ function FirstHome() {
                     </div>
                 </div>
             </div>
-            <Destination/>
-            <ExploreCities/>
-            <Add/>
-            <Travel/>
-            <Add2/>
-            <Testimonials/>
-            <Footer/>
+            <Destination />
+            <ExploreCities />
+            <Add />
+            <Travel />
+            <Add2 />
+            <Testimonials />
+            <Footer />
         </>
     )
 }

@@ -3,10 +3,9 @@ import "./Navbar.css";
 
 const Navbar = () => {
   return (
-    <div>
-      <div className="Navbar-Container">
+       <div className="Navbar-Container">
         <div className="First">
-          <img className="logo-thrillo" src="./Images/Logo-white.png"></img>
+          <img className="logo-thrillo" src="Images/Logo-white.png"></img>
         </div>
         <div className="Second"></div>
         <div className="Third">
@@ -17,16 +16,13 @@ const Navbar = () => {
             <li> Contact</li>
             <li>
               <a href="tel:83030 22306">
-                {" "}
-                <img className="show" src="./Images/phone-call.png">
-                  {" "}
+                <img className="show" src="/Images/phone-call.png">
                 </img>{" "}
               </a>
             </li>
           </ul>
         </div>
-      </div>
-    </div>
+      </div> 
   );
 };
 

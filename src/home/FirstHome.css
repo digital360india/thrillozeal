@@ -1,3 +1,28 @@
+/* .frame {
+    height: 90vh;
+    width: 90vw;
+    margin: 5vh 5vw;
+    background-color: #eee;
+    background-position: center;
+    background-size: cover;
+    animation: image 2s infinite alternate;
+  }
+   */
+  @keyframes image {
+    0% {
+      opacity: 0.45;
+      /* background-color: rgba(0, 0, 0, 0.484); */
+      /* z-index: 1; */
+      /* z-index: 100; */
+    }
+    100% {
+        opacity: 1;
+        z-index: 0;
+        /* background-color: rgba(0, 0, 0, 0); */
+        /* z-index: 100; */
+    }
+  }
+
 .FirstHome {
     display: flex;
     flex-direction: column;
@@ -12,15 +37,17 @@
     position: absolute;
     top: 0;
     right: 0;
-    z-index: -5;
+    z-index: 0;
+    animation: image 3s ;
 }
 
 .backimage {
     position: absolute;
     top: 0;
-    z-index: -10;
+    z-index: 0;
     width: 100vw;
     height: 100vh;
+    animation: image 3s ;
 }
 .sections_forM{
     display: none;
@@ -245,9 +272,7 @@
         
     }
     .backimage {
-        position: absolute;
         top: 0;
-        z-index: -10;
         width: 100vw;
         height: 40vh;
     }

@@ -1,8 +1,9 @@
-import React from 'react'
+import React from 'react';
 import Slider from "react-slick";
-import './Review.css'
+import './Review.css';
 
 const Review = () => {
+
     const settings = {
         dots: true,
         infinite:true,
@@ -10,6 +11,7 @@ const Review = () => {
         slidesToShow: 3,
         slidesToScroll: 3
       };
+
   return (
     <div className="review-box">
         <h2>Reviews</h2>

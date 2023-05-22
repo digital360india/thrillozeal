@@ -18,6 +18,7 @@ import { useHistory } from 'react-router-dom';
 function Location() {
 
   var { location } = useParams();
+
   const history=useHistory()
   const [{ locations, activities, useFilter_act, filter_Data, useFilter_price, useFilter_style }, dispatch] = useStateValue();
   // const [city,setCity]=useState(location);
@@ -222,7 +223,9 @@ function Location() {
       <Header />
       {/* <PaginatedItems itemsPerPage={4} /> */}
       <div className="nainital__body">
-        <img src={data?.img} alt="" />
+        <img className='nainital__body_img' src={data?.img} alt="" />
+        <div className='Name_on_img'>{data?.Name}</div>
+        <div className='offer_on_img2'>Get Flat 25% off</div>
         <div className="nainital__body_first">
           <div className="smallHeader">
             <div className="header_name">

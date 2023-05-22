@@ -3,6 +3,25 @@
     flex-direction: column;
     width: 100vw;
 }
+.Name_on_img{
+    position: absolute;
+    top: 50vh;
+    font-size: 80px;
+    margin-left: 5vw;
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: white;
+}
+.offer_on_img2{
+    position: absolute;
+    top: 60vh;
+    font-size: 60px;
+    margin-left: 5vw;
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: #57BEBE;
+    padding-top: 2vh;
+}
 
 .nainital__body {
     display: flex;
@@ -12,6 +31,9 @@
 
 .nainital__body>img {
     /* height: ; */
+}
+.nainital__body_img{
+    height: 70vh;
 }
 
 .nainital__body_first {

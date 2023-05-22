@@ -81,7 +81,7 @@
 
 .header__dropdown {
     display: flex;
-    /* z-index: 100; */
+    z-index: 10;
     flex-direction: column;
     position: absolute;
     height: fit-content;
