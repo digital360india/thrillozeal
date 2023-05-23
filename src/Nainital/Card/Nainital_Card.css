@@ -213,7 +213,7 @@
     }
 
     .top__img_c1>img {
-        width: 96%;
+        width: 96% !important;
         padding: 2%;
     }
 

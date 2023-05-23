@@ -27,7 +27,7 @@ function Card({ data }) {
         <div className="top__img_c1">
           {data?.data?.img ? (
             <img
-              style={{ width: "320px", borderRadius: "20px" }}
+              style={{ width: "320px", borderRadius: "20px",height:"180px" }}
               src={data?.data?.img}
               alt=""
             />
