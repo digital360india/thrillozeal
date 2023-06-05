@@ -35,7 +35,7 @@ function SubLocation() {
     const [active, setActive] = useState("first");
     const [data, setData] = useState(null);
     const database = db.collection("Cities")
-        .doc(location_id)
+        .doc("JvH2wjbXOWgoOA17X4GW"+location_id)
         .collection("All_Trek")
         .doc(trek_id)
 

@@ -25,6 +25,10 @@ import background3theme from './img/Ellipse 1 (4).png'
 import background4theme from './img/Ellipse 1 (2).png'
 import background5theme from './img/Ellipse 1 (1).png'
 import background6theme from './img/Ellipse 1 (3).png'
+import facebookIcon from './img/facebook_icon.png'
+import instagramIcon from './img/instagram_icon.png'
+import twitterIcon from './img/twitter_icon.png'
+import linkedinIcon from './img/linkedin_icon.png'
 import menu from './img/menu.png'
 import Secondpage from './Secondpage';
 import { useHistory } from 'react-router-dom';
@@ -170,6 +174,7 @@ function FirstHome() {
                             </div>
                             <div className="text2">
                                 Adventures
+                                <span>!</span>
                             </div>
                         </div>
                         <div className="FirstHome__input" onBlur={onBlur} >
@@ -196,7 +201,14 @@ function FirstHome() {
                             <img className='divider' src={divider} alt="" />
                             <img onClick={Search_Click} className='search' src={search} alt="" />
                         </div>
+                        <div className='SocialLinks'>
+                            <img className='social-link' src={facebookIcon} alt="" />
+                            <img className='social-link' src={instagramIcon} alt="" />
+                            <img className='social-link' src={linkedinIcon} alt="" />
+                            <img className='social-link' src={twitterIcon} alt="" />
+                        </div>
                     </div>
+
                     <div className="secondBox">
                         <div className="secondbox_row">
                             <div className="second_Border">

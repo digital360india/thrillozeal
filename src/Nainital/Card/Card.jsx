@@ -20,7 +20,7 @@ function Card({ data }) {
     <div
       className="nainital__card"
       onClick={() =>
-        history.push(`/${"JvH2wjbXOWgoOA17X4GW"+location}/${data?.id}`)
+        history.push(`/${location}/${data?.id}`)
       }
     >
       <div className="card__c1">

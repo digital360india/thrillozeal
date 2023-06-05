@@ -96,6 +96,9 @@
     align-items: center;
     justify-content: center;
 }
+.Nav-items li:hover{
+    cursor: pointer;
+}
 
 .Header__logo {
     display: flex;
@@ -151,6 +154,9 @@
     line-height: 49px;
     color: #FFFFFF;
 }
+.text2 span{
+    display: none;
+}
 
 .FirstHome__input {
     display: flex;
@@ -170,6 +176,19 @@
     border: none;
     outline: none;
     margin-left: 17px;
+}
+
+.SocialLinks{
+    display: flex;
+    position: absolute;
+    top: 230px;
+    justify-content:space-evenly;
+    width: 120px;
+    align-items: center;
+    padding: 8px;
+}
+.social-link:hover{
+    cursor: pointer;
 }
 
 .divider {
@@ -397,6 +416,10 @@
         height: 40px;
     }
 
+    .text2 span{
+        display: block;
+    }
+
     .sections_forM {
         display: flex;
         width: 20%;
@@ -432,7 +455,9 @@
         /* align-items: center; */
         justify-content: center;
     }
-
+    .SocialLinks{
+        display: none;
+    }
     .FirstHome__input {
         display: flex;
         position: absolute;
@@ -461,6 +486,7 @@
     }
 
     .search {
+        position: inherit;
         right: 15px;
     }
 
@@ -493,7 +519,7 @@
         border: 2px dashed #78e454;
         border-bottom: 0;
         position: absolute;
-        top: 8vh;
+        top: 9vh;
         right: 10vw;
     }
 

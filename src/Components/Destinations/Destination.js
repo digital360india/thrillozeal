@@ -17,16 +17,20 @@ const Destination = () => {
     <div className="slider-splide">
         <Splide className='slider_splide_react' options={ { rewind: true,perPage:4} } aria-label="React Splide Example">
         {/* <Splide options={ { rewind: true,perPage:4} } aria-label="React Splide Example"> */}
+        {/* MODIFIED CARD : According to the design */}
       <SplideSlide className='slider_splide_react1'>
         <img className='slider_splide_react_img' src="/Images/a.png" alt="Image 1"/>
         <div className="one1">
             <p className="head">Auli - Chopta</p>
-            <p>4D/3N</p>
-            <div className='star_text'><img src="/Images/1.svg"></img><p>4.9/5</p></div>
-            <p>₹ 4,499/- </p>
-            <p>₹ 7,499/- </p>
+            <div className='content'>
+              <p className='package_dates'>4D/3N</p>
+              <div className='star_text'><img src="/Images/1.svg"></img><p>4.9/5</p></div>
+              <p className='current_price'>₹ 4,499/- </p>
+              <p className='prev_price'>₹ 7,499/- </p>
+            </div>
         </div>
       </SplideSlide>
+
       <SplideSlide className='slider_splide_react1'>
         <img className='slider_splide_react_img' src="/Images/b.png" alt="Image 2"/>
         <div className="one1">
