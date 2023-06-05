@@ -3,55 +3,42 @@ import { Accordion } from '@mui/material'
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
-
-
+import { useParams } from 'react-router-dom';
+import { useState } from 'react';
+import db from '../../firebase';
+import { useEffect } from 'react';
+import EachDay from '../Trek/EachDay';
 
 const FAQ = () => {
+
+  var { location_id, trek_id } = useParams();
+  const [data, setData] = useState(null);
+
+  useEffect(() => {
+    db.collection("Cities")
+      .doc(location_id)
+      .collection("All_Trek")
+      .doc(trek_id)
+      .collection('Faq')
+      .orderBy('num',"asc")
+      .onSnapshot((snapshot) => (
+        setData(snapshot.docs.map((doc) => ({
+          id: doc.id,
+          data: doc.data(),
+        })))
+      ))
+  }, [trek_id])
+
   return (
     <div className="Card-Wrapper">
-        <h2>FAQs</h2>
-      <Accordion>
-        <AccordionSummary
-          
-          aria-controls="panel1a-content"
-          id="panel1a-header"
-        >
-          <Typography>Things to carry</Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <ul>
-              <li>Basic and Essential items:</li>
-              <li>Backpack</li>
-              <li>ID Card (original &amp; photocopy)</li>
-              <li>Water Bottle</li>
-              <li>Trekking Shoes</li>
-              <li>Meds (by consulting your personal doctor)</li>
-              <li>Power bank</li>
-              <li>Little cash</li>
-          </ul>
-
-          <ul>
-              <li>Clothes</li>
-              <li>Full sleeve t-shirts</li>
-              <li>Warm jackets/sweaters</li>
-              <li>Woolen cap &amp; gloves</li>
-              </ul>
-              <ul>
-              <li>Snacks</li>
-              <li>Energy bars</li>
-              <li>Chocolate/toffee</li>
-              <li>Glucose</li>
-              <li>Biscuits</li>
-              </ul>
-              <ul>
-              <li>Personal Care</li>
-              <li>Toiletries</li>
-              <li>Cold cream</li>
-              <li>Pain relief spray</li>
-              </ul>
-        </AccordionDetails>
-      </Accordion>
-      <Accordion>
+      <h2>FAQs</h2>
+        {data && data?.map((d) => (
+          // <ShowDay data={d}/>
+          <div>
+            <EachDay data={d?.data} />
+          </div>
+        ))}
+      {/* <Accordion>
         <AccordionSummary
          
           aria-controls="panel2a-content"
@@ -185,9 +172,9 @@ const FAQ = () => {
 Besides religious importance, the place offers mesmerizing beauty of colorful flowers, lush green landscapes, high altitude mountains, and some rare bird species if you're lucky. The trek begins from Chopta and takes around 4-5 hours to reach Tungnath Temple. While trekking the Chandrashila range, the humongous Himalayan mountains can be seen covered in snow and standing with all their pride.</p>
 
         </AccordionDetails>
-      </Accordion>
+      </Accordion> */}
 
-     
+
     </div>
   );
 }

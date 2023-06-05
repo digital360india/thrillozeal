@@ -59,7 +59,7 @@ function Testimonials() {
                     {
                         data.map((data, k) => (
                             <>{
-                                (k == 0 || k % 3 == 0) &&
+                                (k % 3 == 0) &&
                                 <SplideSlide className='testimonials_secDiv'>
                                     <img className='imgPro' src={data.imgPro} alt="" />
                                     <img src="/Images/reviewf.png" alt="" />
@@ -74,7 +74,7 @@ function Testimonials() {
                                     </h3>
                                 </SplideSlide>
                             }
-                                {(k == 1 || k == 4 || k == 7) &&
+                                {(k % 3 == 1) &&
                                     <SplideSlide className='testimonials_secDiv' style={{ color: 'white' }} >
                                         <img className='imgPro' src={data.imgPro} alt="" />
                                         <img src="/Images/reviewc.png" alt="" />
@@ -89,7 +89,7 @@ function Testimonials() {
                                         </h3>
                                     </SplideSlide>
                                 }
-                                {(k == 2 || k == 5 || k == 8) &&
+                                {(k % 3 == 2) &&
                                     <SplideSlide className='testimonials_secDiv'>
                                         <img className='imgPro' src={data.imgPro} alt="" />
                                         <img src="/Images/reviewl.png" alt="" />

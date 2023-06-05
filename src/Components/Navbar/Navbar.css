@@ -9,7 +9,6 @@
 }
 .First{
     flex: 2;
-    /* margin: auto; */
     margin-left: 82px;
 }
 .Second{
@@ -36,7 +35,12 @@
 }
 
 @media (max-width:600px){
-
+    .Navbar-Container{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100vw;
+    }
     .Third ul li{
         display: none;
     }
@@ -44,5 +48,18 @@
         display: block;
     }
    
+    .Third {
+        display: none;
+    }
+    .First{
+        margin-left: 110px !important;
+        flex:1;
+        align-items: center;
+        justify-content: center;
+    }
+    .Second{
+        flex: none;
+        margin: 0;
+    }
 
 }

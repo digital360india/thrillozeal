@@ -18,7 +18,7 @@ export const Trek = () => {
         setData(snapshot.data())
       ))
     }, [trek_id])
-    // console.log(data)
+    
   return (
     <div className="Trek">
       <h1 className="box-heading">Trek Highlights</h1>

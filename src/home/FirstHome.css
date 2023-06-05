@@ -8,27 +8,22 @@
     animation: image 2s infinite alternate;
   }
    */
-  @keyframes image {
+@keyframes theme {
     0% {
-      opacity: 0.45;
-      /* background-color: rgba(0, 0, 0, 0.484); */
-      /* z-index: 1; */
-      /* z-index: 100; */
+        opacity: 0;
     }
+
     100% {
         opacity: 1;
-        z-index: 0;
-        /* background-color: rgba(0, 0, 0, 0); */
-        /* z-index: 100; */
     }
-  }
+}
 
 .FirstHome {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100vw !important;
-    height: 100vh ;
+    height: 105vh;
     overflow: hidden;
 }
 
@@ -38,7 +33,8 @@
     top: 0;
     right: 0;
     z-index: 0;
-    animation: image 3s ;
+    animation-name: theme;
+    animation-duration: 1s;
 }
 
 .backimage {
@@ -46,12 +42,46 @@
     top: 0;
     z-index: 0;
     width: 100vw;
-    height: 100vh;
-    animation: image 3s ;
+    height: 105vh;
+    /* animation-name: image;
+    animation-duration: 3s; */
 }
-.sections_forM{
+
+.backimage1 {
+    animation-name: img1;
+    animation-duration: 1s;
+}
+
+.backimage2 {
+    animation-name: img2;
+    animation-duration: 1s;
+    opacity: 0;
+}
+
+@keyframes img1 {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes img2 {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+.sections_forM {
     display: none;
 }
+
 /* .sections_forM */
 .FirstHome__Header {
     display: flex;
@@ -60,21 +90,25 @@
     height: 10vh;
     /* background-color: #1a146a34; */
 }
-.Header__section{
+
+.Header__section {
     display: flex;
     align-items: center;
     justify-content: center;
 }
+
 .Header__logo {
     display: flex;
-    width: 40vw; 
+    width: 40vw;
     /* padding-left: 21px; */
     align-items: center;
 }
-.Header__logo>img{
+
+.Header__logo>img {
     display: flex;
     height: fit-content;
 }
+
 .sections {
     display: flex;
     justify-content: space-around;
@@ -84,7 +118,7 @@
     font-size: 20px;
 }
 
-.call >img{
+.call>img {
     /* padding: 0 20px 0 40px; */
     padding-top: 4px;
     height: 27px;
@@ -148,7 +182,7 @@
     right: 10px;
     padding-left: 10px;
     width: 32px;
-    height:32px;
+    height: 32px;
 }
 
 .dropdown {
@@ -162,7 +196,7 @@
     align-items: center;
     position: absolute;
     right: 5vw;
-    bottom: 0vh;
+    bottom: 5vh;
 }
 
 .changeArrow {
@@ -183,9 +217,30 @@
 }
 
 .changeIcon {
+    position: absolute;
     display: flex;
     width: 280px;
-    height: 228.83px;
+    height: 208.83px;
+    bottom: -14vh;
+    right: 9.3vw;
+    animation-name: activity10;
+    animation-duration: 0.5s;
+}
+
+@keyframes activity10 {
+    0% {
+        bottom: 2vh;
+        right: 32.3vw;
+        width: 150px;
+        height: 150px;
+    }
+
+    100% {
+        bottom: 0vh;
+        bottom: -14vh;
+        width: 280px;
+        height: 208.83px;
+    }
 }
 
 .one {
@@ -194,6 +249,20 @@
     right: 32.3vw;
     width: 150px;
     height: 150px;
+    animation-name: activity21;
+    animation-duration: 0.5s;
+}
+
+@keyframes activity21 {
+    0% {
+        bottom: 26vh;
+        right: 28vw;
+    }
+
+    100% {
+        bottom: 2vh;
+        right: 32.3vw;
+    }
 }
 
 .two {
@@ -202,7 +271,24 @@
     right: 28vw;
     width: 150px;
     height: 150px;
+    animation-name: activity32;
+    animation-duration: 0.5s;
 }
+
+/* animation for icons */
+
+@keyframes activity32 {
+    0% {
+        bottom: 42vh;
+        right: 15vw;
+    }
+
+    100% {
+        bottom: 26vh;
+        right: 28vw;
+    }
+}
+
 
 .three {
     position: absolute;
@@ -210,7 +296,22 @@
     right: 15vw;
     width: 150px;
     height: 150px;
+    animation-name: activity43;
+    animation-duration: 0.5s;
 }
+
+@keyframes activity43 {
+    0% {
+        bottom: 26vh;
+        right: 0vh;
+    }
+
+    100% {
+        bottom: 42vh;
+        right: 15vw;
+    }
+}
+
 
 .four {
     position: absolute;
@@ -218,6 +319,20 @@
     right: 0vh;
     width: 150px;
     height: 150px;
+    animation-name: activity54;
+    animation-duration: 0.5s;
+}
+
+@keyframes activity54 {
+    0% {
+        bottom: 2vh;
+        right: -5vw;
+    }
+
+    100% {
+        bottom: 26vh;
+        right: 0vh;
+    }
 }
 
 .five {
@@ -226,6 +341,24 @@
     right: -5vw;
     width: 150px;
     height: 150px;
+    animation-name: activity05;
+    animation-duration: 0.5s;
+}
+
+@keyframes activity05 {
+    0% {
+        bottom: -15vh;
+        right: 10.3vw;
+        width: 280px;
+        height: 208.83px;
+    }
+
+    100% {
+        bottom: 2vh;
+        right: -5vw;
+        width: 150px;
+        height: 150px;
+    }
 }
 
 .second_Border {
@@ -244,6 +377,7 @@
     .Header__logo {
         padding-left: 21px;
     }
+
     .FirstHome {
         width: 100vw;
         height: 45vh;
@@ -262,15 +396,17 @@
     .Header__logo>img {
         height: 40px;
     }
-    .sections_forM{
+
+    .sections_forM {
         display: flex;
         width: 20%;
         z-index: 10;
         height: 2vh;
         margin-top: -6px;
         justify-content: center;
-        
+
     }
+
     .backimage {
         top: 0;
         width: 100vw;
@@ -340,7 +476,7 @@
         display: flex;
         font-size: large;
     }
-    
+
     .text2 {
         display: flex;
         padding-top: 0px;
@@ -369,19 +505,13 @@
         position: absolute;
         height: fit-content;
         right: 5vw;
-        top: 19vh;
+        top: 21vh;
     }
 
     .changeArrowImg {
         display: flex;
         height: 16px;
         width: 16px;
-    }
-
-    .changeIcon {
-        display: flex;
-        width: 75px;
-        height: 75px;
     }
 
     .changeArrow {
@@ -395,12 +525,47 @@
         /* margin-top: 8vh; */
     }
 
+    .changeIcon {
+        display: flex;
+        width: 75px;
+        height: 75px;
+        /* bottom: -7vh; */
+        top: 15vh;
+        /* right: calc(50vw - 75px); */
+        left: 30vw;
+    }
+
+    @keyframes activity10 {
+        0% {
+            top: 7vh;
+            left: -10vw;
+        }
+
+        100% {
+            top: 15vh;
+            /* right: calc(50vw - 75px); */
+            left: 30vw;
+        }
+    }
+
     .one {
         position: absolute;
         top: 7vh;
         left: -10vw;
         width: 75px;
         height: 75px;
+    }
+
+    @keyframes activity21 {
+        0% {
+            top: -2vh;
+            left: 3vw;
+        }
+
+        100% {
+            top: 7vh;
+            left: -10vw;
+        }
     }
 
     .two {
@@ -412,6 +577,20 @@
         /* background-color: white; */
     }
 
+
+    @keyframes activity32 {
+        0% {
+            top: -5vh;
+            left: 30vw;
+        }
+
+        100% {
+            top: -2vh;
+            left: 3vw;
+        }
+    }
+
+
     .three {
         position: absolute;
         top: -5vh;
@@ -420,20 +599,62 @@
         height: 75px;
     }
 
+    @keyframes activity43 {
+        0% {
+            top: -2vh;
+            left: 53vw;
+        }
+
+        100% {
+            top: -5vh;
+            left: 30vw;
+        }
+    }
+
     .four {
         position: absolute;
         top: -2vh;
-        right: 3vw;
+        left: 53vw;
         width: 75px;
         height: 75px;
+    }
+
+    @keyframes activity54 {
+        0% {
+            top: 7vh;
+            left: 67vw;
+        }
+
+        100% {
+            top: -2vh;
+            right: 53vw;
+        }
     }
 
     .five {
         position: absolute;
         top: 7vh;
-        right: -10vw;
+        left: 67vw;
         width: 75px;
         height: 75px;
+    }
+
+    @keyframes activity05 {
+        0% {
+            top: 15vh;
+            /* right: calc(50vw - 75px); */
+            /* right: 30vw; */
+            left: 30vw;
+            width: 75px;
+            height: 75px;
+        }
+
+        100% {
+            top: 7vh;
+            left: 67vw;
+            width: 75px;
+            height: 75px;
+        }
     }
 
 }

@@ -19,7 +19,7 @@ function Location() {
 
   var { location } = useParams();
 
-  const history=useHistory()
+  const history = useHistory()
   const [{ locations, activities, useFilter_act, filter_Data, useFilter_price, useFilter_style }, dispatch] = useStateValue();
   // const [city,setCity]=useState(location);
 
@@ -93,10 +93,10 @@ function Location() {
   // useState
 
   // useEffect(() => {
-    // dispatch({
-    //   type: actionTypes.SET_USE_ALL_DATA,
-    //   All_Data: dataCard,
-    // });
+  // dispatch({
+  //   type: actionTypes.SET_USE_ALL_DATA,
+  //   All_Data: dataCard,
+  // });
   //   dispatch({
   //     type: actionTypes.SET_USE_FILTER_DATA,
   //     filter_Data: dataCard,
@@ -132,13 +132,13 @@ function Location() {
   //     });
   //   }
   // }
-  useEffect(()=>{
+  useEffect(() => {
     // if(useFilter_price==="All price range")
     dispatch({
       type: actionTypes.SET_USE_FILTER_DATA,
       filter_Data: dataCard,
     });
-  },[dataCard])
+  }, [dataCard])
 
   // filterbyActivities 
   const filterbyActivities = () => {
@@ -179,7 +179,7 @@ function Location() {
     }
   }
 
-// for style filter 
+  // for style filter 
   const filterbyStyles = () => {
     var styvar = '';
     var Stystr = '';
@@ -214,14 +214,12 @@ function Location() {
       setData_Filtered(filter_Data)
     }
   }
-  // filterbyActivities();
   useEffect(() => {
     setData_Filtered(filter_Data);
   }, [filter_Data])
   return (
     <div className='nainital'>
       <Header />
-      {/* <PaginatedItems itemsPerPage={4} /> */}
       <div className="nainital__body">
         <img className='nainital__body_img' src={data?.img} alt="" />
         <div className='Name_on_img'>{data?.Name}</div>
@@ -265,7 +263,7 @@ function Location() {
               <Filter />
             </div>
             <div className="nainital__card_out">
-              {console.log("dataCard", dataCard)}
+              {/* {console.log("dataCard", dataCard)} */}
               {data_Filtered.map((data) => (
                 <Card data={data} />
               ))}

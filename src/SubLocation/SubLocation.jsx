@@ -22,6 +22,10 @@ import Policy from '../Components/Policy/Policy';
 import Destination from '../Components/Destinations/Destination';
 import { useParams } from 'react-router-dom';
 import db from '../firebase';
+import { Splide, SplideSlide } from '@splidejs/react-splide';
+import '@splidejs/react-splide/css';
+import SubLocationImages from '../Components/Destinations/SubLocationsImages';
+// import './Destination.css';
 
 function SubLocation() {
     const param = useParams();
@@ -40,27 +44,18 @@ function SubLocation() {
             setData(snapshot.data())
         ))
     }, [])
-    console.log(data)
+    // console.log(data)
+    useEffect(() => {
+        console.log("hari", (data?.pricecross - data?.price) * 100 / data?.pricecross);
+    }, [data])
 
     return (
         <div className='SubLocation'>
             <Header />
             <div className="subLocation">
-                <div className="sublocation_img">
 
-                    <div className="sub_img_one">
-                        <img src={data?.img} alt="" />
-                    </div>
-                    <div className="sub_img_one">
-                        <img src={data?.img1} alt="" />
-                    </div>
-                    <div className="sub_img_one">
-                        <img src={data?.img2} alt="" />
-                    </div>
-                    <div className="sub_img_one sub_img_last">
-                        <img src={data?.img3} alt="" />
-                    </div>
-                </div>
+                <SubLocationImages data={data} />
+
                 <div className="smallHeader">
                     <div className="header_name">
                         Home
@@ -70,10 +65,10 @@ function SubLocation() {
                         Cities
                         {" > "}
                     </div>
-                    <div className="header_name">
+                    {/* <div className="header_name">
                         Nainital
                         {" > "}
-                    </div>
+                    </div> */}
                     <div className="header_name active">
                         {data?.location}
                     </div>
@@ -125,7 +120,7 @@ function SubLocation() {
                                 </div>
                                 <div className="naini__icons">
                                     <img src={fire} alt='' />
-                                    <p>More</p>
+                                    <p>bonfire</p>
                                 </div>
                                 <div className="naini__icons">
                                     <img src={king} alt='' />
@@ -141,7 +136,7 @@ function SubLocation() {
                             <div className="strike"><p>starting from</p> INR {data?.pricecross}/-</div>
                             <div className='subLocation_price_price'>INR {data?.price}/-</div>
                             <div className="discount">
-                                <p>Flat {parseInt((data?.pricecross-data?.price)*100/data?.pricecross)}% off!</p>
+                                <p>Flat {parseInt((data?.pricecross - data?.price) * 100 / data?.pricecross)}% off!</p>
                             </div>
                         </div>
                     </div>

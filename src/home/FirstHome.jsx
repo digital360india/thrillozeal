@@ -46,15 +46,26 @@ function FirstHome() {
     const [showsearch, setShowsearch] = useState(false);
     const [showdropdown_act, setShowdropdown_act] = useState(false);
     const [showdropdown, setShowdropdown] = useState(false);
+    // const [img1, setimg1] = useState(background1);
+    // const [img2, setimg2] = useState(background1);
+    // const [ind, setind] = useState(01);
 
     const [input, setInput] = useState('');
     const [input2, setInput2] = useState('');
     const [location, setLocation] = useState('')
     const [activity, setActivity] = useState('')
 
+    const [class1, setclass1] = useState('one');
+    const [class2, setclass2] = useState('two');
+    const [class3, setclass3] = useState('three');
+    const [class4, setclass4] = useState('four');
+    const [class5, setclass5] = useState('five');
+    const [class6, setclass6] = useState('changeIcon');
+
     const onFocus = () => {
         setShowdropdown_act(true);
     };
+
     const onBlur = () => {
         const concernedElement = document.querySelector(".FirstHome__input");
 
@@ -68,6 +79,7 @@ function FirstHome() {
             }
         });
     };
+
     const onFocus1 = () => {
         setShowdropdown(true)
     };
@@ -86,59 +98,45 @@ function FirstHome() {
     }
 
     const [newArr, setNewArr] = useState([icon1, icon2, icon3, icon4, icon5, icon6]);
-    const [number, setNumber] = useState(icon1);
+    const [number, setNumber] = useState(1);
 
     const function1 = () => {
-        setNumber(newArr[1])
-        const Nn = newArr;
-        const A = newArr[0];
-        Nn.splice(0, 1);
-        Nn.push(A);
-        setNewArr(Nn)
-        // Nn.splice(0, 1);
-        console.log(Nn, newArr)
 
+        setNumber((number+1)%6)
+        var temp = class6;
+        setclass6(class5);
+        setclass5(class4);
+        setclass4(class3);
+        setclass3(class2);
+        setclass2(class1);
+        setclass1(temp);
+        // setclass1(class2);
     }
+
     return (
         <>
-        <Navbar/>
+            <Navbar />
             <div className='FirstHome'>
-                {number == icon1 &&
-                    <>
-                        <img className='backimage' src={background1} alt="" />
-                        <img className='theme' src={background1theme} alt="" />
-                    </>
-                }
-                {number == icon2 &&
-                    <>
-                        <img className='backimage' src={background2} alt="" />
-                        <img className='theme' src={background2theme} alt="" />
-                    </>
-                }
-                {number == icon3 &&
-                    <>
-                        <img className='backimage' src={background3} alt="" />
-                        <img className='theme' src={background3theme} alt="" />
-                    </>
-                }
-                {number == icon4 &&
-                    <>
-                        <img className='backimage' src={background4} alt="" />
-                        <img className='theme' src={background4theme} alt="" />
-                    </>
-                }
-                {number == icon5 &&
-                    <>
-                        <img className='backimage' src={background5} alt="" />
-                        <img className='theme' src={background5theme} alt="" />
-                    </>
-                }
-                {number == icon6 &&
-                    <>
-                        <img className='backimage' src={background6} alt="" />
-                        <img className='theme' src={background6theme} alt="" />
-                    </>
-                }
+
+                <img className={number == 1 ? "backimage1 backimage" : 'backimage2 backimage'} src={background1} alt="" />
+                <img className={number == 1 ? "backimage1 theme" : 'backimage2 theme'} src={background1theme} alt="" />
+
+
+                <img className={number == 2 ? "backimage1 backimage" : 'backimage2 backimage'} src={background2} alt="" />
+                <img className={number == 2 ? "backimage1 theme" : 'backimage2 theme'} src={background2theme} alt="" />
+
+                <img className={number == 3 ? "backimage1 backimage" : 'backimage2 backimage'} src={background3} alt="" />
+                <img className={number == 3 ? "backimage1 theme" : 'backimage2 theme'} src={background3theme} alt="" />
+
+                <img className={number == 4 ? "backimage1 backimage" : 'backimage2 backimage'} src={background4} alt="" />
+                <img className={number == 4 ? "backimage1 theme" : 'backimage2 theme'} src={background4theme} alt="" />
+
+                <img className={number == 5 ? "backimage1 backimage" : 'backimage2 backimage'} src={background5} alt="" />
+                <img className={number == 5 ? "backimage1 theme" : 'backimage2 theme'} src={background5theme} alt="" />
+
+                <img className={number == 0 ? "backimage1 backimage" : 'backimage2 backimage'} src={background6} alt="" />
+                <img className={number == 0 ? "backimage1 theme" : 'backimage2 theme'} src={background6theme} alt="" />
+
                 <div className="FirstHome__Header">
                     <div className="Header__logo">
                         <img src={logo} alt="" />
@@ -203,7 +201,7 @@ function FirstHome() {
                         <div className="secondbox_row">
                             <div className="second_Border">
 
-                                {newArr.map((arr, k) => (
+                                {/* {newArr.map((arr, k) => (
                                     <>
                                         {k == 1 && <img src={arr} className="one" alt="" />}
                                         {k == 2 && <img src={arr} className="two" alt="" />}
@@ -211,14 +209,21 @@ function FirstHome() {
                                         {k == 4 && <img src={arr} className="four" alt="" />}
                                         {k == 5 && <img src={arr} className="five" alt="" />}
                                     </>
-                                ))}
+                                ))} */}
+                                <img src={icon2} className={class1} alt="" />
+                                <img src={icon3} className={class2} alt="" />
+                                <img src={icon4} className={class3} alt="" />
+                                <img src={icon5} className={class4} alt="" />
+                                <img src={icon6} className={class5} alt="" />
+                                <img src={icon1} className={class6} alt="" />
                             </div>
                         </div>
                         <div className="secondbox_row2">
                             <div className="changeArrow" onClick={function1}>
                                 <img src={arrow} className="changeArrowImg" alt="" />
                             </div>
-                            <img src={number} className="changeIcon" alt="" />
+
+
                             <div className="changeArrow" onClick={function1}>
                                 <img src={arrow} className="changeArrowImg" alt="" />
                             </div>

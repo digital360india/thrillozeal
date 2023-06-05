@@ -6,11 +6,14 @@
 }
 
 .sub_img_one {
-    width: 24.8%;
+    width: 24.3%;
+    /* box-shadow:; */
+    box-shadow: 0 0 15px 2px #d7d4d4;
 }
 
 .sub_img_one>img {
     width: 100%;
+    height: 60vh;
 }
 
 .three_icon_coll {
