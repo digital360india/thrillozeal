@@ -40,6 +40,7 @@
         align-items: center;
         justify-content: center;
         width: 100vw;
+        margin-top: 0px;
     }
     .Third ul li{
         display: none;
