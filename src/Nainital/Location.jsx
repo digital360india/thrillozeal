@@ -20,7 +20,7 @@ function Location() {
   var { location } = useParams();
 
   const history = useHistory()
-  const [{ locations, activities, useFilter_act, filter_Data, useFilter_price, useFilter_style }, dispatch] = useStateValue();
+  const [{ locations, activities, useFilter_act, filter_Data, useFilter_price, useFilter_style, All_Treks }, dispatch] = useStateValue();
   // const [city,setCity]=useState(location);
 
   const [data, setData] = useState(null);
@@ -271,7 +271,9 @@ function Location() {
           </div>
         </div>
       </div>
-      <Destination />
+      <Destination trendingTreks={All_Treks.filter((trek) => {
+                return trek.trek_data.packagetype === "Trending";
+            })}/>
       <Footer />
     </div>
   )

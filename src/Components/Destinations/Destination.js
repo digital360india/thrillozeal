@@ -4,33 +4,40 @@ import '@splidejs/react-splide/css';
 import './Destination.css';
 import progress from './img/progess.png';
 
-const Destination = () => {
+const Destination = (props) => {
+  console.log(props?.trendingTreks);
   return (
-      <>
+    <>
       <div className="secondPage">
         <div className="second_header">
-            <img src={progress} alt="" />
-        Top Trending Destinations
+          <img src={progress} alt="" />
+          Top Trending Destinations
         </div>
-    </div>
-    <div className="slider_splideOut">
-    <div className="slider-splide">
-        <Splide className='slider_splide_react' options={ { rewind: true,perPage:4} } aria-label="React Splide Example">
-        {/* <Splide options={ { rewind: true,perPage:4} } aria-label="React Splide Example"> */}
-        {/* MODIFIED CARD : According to the design */}
-      <SplideSlide className='slider_splide_react1'>
-        <img className='slider_splide_react_img' src="/Images/a.png" alt="Image 1"/>
-        <div className="one1">
-            <p className="head">Auli - Chopta</p>
-            <div className='content'>
-              <p className='package_dates'>4D/3N</p>
-              <div className='star_text'><img src="/Images/1.svg"></img><p>4.9/5</p></div>
-              <p className='current_price'>₹ 4,499/- </p>
-              <p className='prev_price'>₹ 7,499/- </p>
-            </div>
-        </div>
-      </SplideSlide>
+      </div>
+      <div className="slider_splideOut">
+        <div className="slider-splide">
+          <Splide className='slider_splide_react' options={{ rewind: true, perPage: 4 }} aria-label="React Splide Example">
+            {/* <Splide options={ { rewind: true,perPage:4} } aria-label="React Splide Example"> */}
+            {/* MODIFIED CARD : According to the design */}
+            {props?.trendingTreks?.length>0 && props?.trendingTreks?.map(trek => {
 
+              // console.log(trek.trek_id);
+              return (
+                <SplideSlide className='slider_splide_react1'>
+                  <img className='slider_splide_react_img' src="/Images/a.png" alt="Image 1" />
+                  <div className="one1">
+                    <p className="head">{trek.trek_id}</p>
+                    <div className='content'>
+                      <p className='package_dates'>{trek.trek_data.day}D/{trek.trek_data.night}N</p>
+                      <div className='star_text'><img src="/Images/1.svg"></img><p>{trek.trek_data.review}/5</p></div>
+                      <p className='current_price'>₹ {trek.trek_data.price}/- </p>
+                      <p className='prev_price'>₹ {trek.trek_data.pricecross}/- </p>
+                    </div>
+                  </div>
+                </SplideSlide>
+              );
+            })}
+            {/*
       <SplideSlide className='slider_splide_react1'>
         <img className='slider_splide_react_img' src="/Images/b.png" alt="Image 2"/>
         <div className="one1">
@@ -104,18 +111,37 @@ const Destination = () => {
             <p>₹ 4,999/-</p>
         </div>
       </SplideSlide>
-    </Splide>
-    {/* for mobile views */}
-    <Splide className='slider_splide_react_mobile' options={ { rewind: true, perPage:2} } aria-label="React Splide Example">
-        {/* <Splide options={ { rewind: true,perPage:4} } aria-label="React Splide Example"> */}
-      <SplideSlide className='slider_splide_react1'>
+        */}
+          </Splide>
+          {/* for mobile views */}
+          <Splide className='slider_splide_react_mobile' options={{ rewind: true, perPage: 2 }} aria-label="React Splide Example">
+            {/* <Splide options={ { rewind: true,perPage:4} } aria-label="React Splide Example"> */}
+            {props.trendingTreks.map(trek => {
+
+              // console.log(trek.trek_id);
+              return (
+                <SplideSlide className='slider_splide_react1'>
+                  <img className='slider_splide_react_img' src="/Images/a.png" alt="Image 1" />
+                  <div className="one1">
+                    <p className="head">{trek.trek_id}</p>
+                    <div className='content'>
+                      <p className='package_dates'>{trek.trek_data.day}D/{trek.trek_data.night}N</p>
+                      <div className='star_text'><img src="/Images/1.svg"></img><p>{trek.trek_data.review}/5</p></div>
+                      <p className='current_price'>₹ {trek.trek_data.price}/- </p>
+                      <p className='prev_price'>₹ {trek.trek_data.pricecross}/- </p>
+                    </div>
+                  </div>
+                </SplideSlide>
+              );
+            })}
+            {/* <SplideSlide className='slider_splide_react1'>
         <img className='slider_splide_react_img' src="/Images/a.png" alt="Image 1"/>
         <div className="one1">
             <p className="head">Auli - Chopta</p>
             <p>4D/3N</p>
             <div className='star_text'><img src="/Images/1.svg"></img><p>4.9/5</p></div>
-            {/* <p>₹ 4,499/- </p>
-            <p>₹ 7,499/- </p> */}
+            <p>₹ 4,499/- </p>
+            <p>₹ 7,499/- </p> 
         </div>
       </SplideSlide>
       <SplideSlide className='slider_splide_react1'>
@@ -124,8 +150,8 @@ const Destination = () => {
             <p className="head">Auli</p>
             <p>3D/2N</p>
             <div className='star_text'><img src="/Images/1.svg"></img><p>4.9/5</p></div>
-            {/* <p>₹ 3,999/-  </p>
-            <p>₹ 6,999/-  </p> */}
+            <p>₹ 3,999/-  </p>
+            <p>₹ 6,999/-  </p>
         </div>
       </SplideSlide>
 
@@ -135,8 +161,8 @@ const Destination = () => {
             <p className="head">Chopta </p>
             <p>3D/2N</p>
             <div className='star_text'><img src="/Images/1.svg"></img><p>4.9/5</p></div>
-            {/* <p>₹ 3,999/-  </p>
-            <p>₹ 6,999/-  </p> */}
+            <p>₹ 3,999/-  </p>
+            <p>₹ 6,999/-  </p>
         </div>
       </SplideSlide>
       <SplideSlide className='slider_splide_react1'>
@@ -146,8 +172,6 @@ const Destination = () => {
             <p>4D/3N</p>
             <img src="/Images/1.svg"></img>
             <p>4.9/5</p>
-            {/* <p>₹ 2,499/-</p>
-            <p>₹ 4,999/-</p> */}
         </div>
       </SplideSlide>
       <SplideSlide className='slider_splide_react1'>
@@ -157,7 +181,7 @@ const Destination = () => {
             <p>4D/3N</p>
             <div className='star_text'><img src="/Images/1.svg"></img><p>4.9/5</p></div>
             {/* <p>₹ 4,499/- </p>
-            <p>₹ 7,499/- </p> */}
+            <p>₹ 7,499/- </p> 
         </div>
       </SplideSlide>
       <SplideSlide className='slider_splide_react1'>
@@ -167,7 +191,7 @@ const Destination = () => {
             <p>3D/2N</p>
             <div className='star_text'><img src="/Images/1.svg"></img><p>4.9/5</p></div>
             {/* <p>₹ 3,999/-  </p>
-            <p>₹ 6,999/-  </p> */}
+            <p>₹ 6,999/-  </p> 
         </div>
       </SplideSlide>
 
@@ -178,7 +202,7 @@ const Destination = () => {
             <p>3D/2N</p>
             <div className='star_text'><img src="/Images/1.svg"></img><p>4.9/5</p></div>
             {/* <p>₹ 3,999/-  </p>
-            <p>₹ 6,999/-  </p> */}
+            <p>₹ 6,999/-  </p> 
         </div>
       </SplideSlide>
       <SplideSlide className='slider_splide_react1'>
@@ -188,12 +212,13 @@ const Destination = () => {
             <p>4D/3N</p>
             <div className='star_text'><img src="/Images/1.svg"></img><p>4.9/5</p></div>
             {/* <p>₹ 2,499/-</p>
-            <p>₹ 4,999/-</p> */}
+            <p>₹ 4,999/-</p> 
         </div>
       </SplideSlide>
-    </Splide>
-    </div>
-    </div>
+        */}
+          </Splide>
+        </div>
+      </div>
     </>
   );
 }

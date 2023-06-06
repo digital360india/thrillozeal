@@ -25,6 +25,7 @@ import db from '../firebase';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css';
 import SubLocationImages from '../Components/Destinations/SubLocationsImages';
+import { useStateValue } from '../StateProvider';
 // import './Destination.css';
 
 function SubLocation() {
@@ -32,6 +33,7 @@ function SubLocation() {
 
     var { location_id, trek_id } = useParams();
 
+    const [{All_Treks}, dispatch] = useStateValue();
     const [active, setActive] = useState("first");
     const [data, setData] = useState(null);
     const database = db.collection("Cities")
@@ -164,7 +166,9 @@ function SubLocation() {
                     </div>
                 </div>
                 <Policy />
-                <Destination />
+                <Destination trendingTreks={All_Treks.filter((trek) => {
+                return trek.trek_data.packagetype === "Trending";
+            })} />
                 <Footer />
             </div>
         </div>

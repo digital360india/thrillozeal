@@ -4,7 +4,7 @@ import './Adds.css'
 function Add() {
   return (
     <div className='Adds'>
-        <img src="/Images/Add.webp" alt="" style={{width:"100%"}} />
+        <img src="/Images/add.webp" alt="" style={{width:"100%"}} />
     </div>
   )
 }

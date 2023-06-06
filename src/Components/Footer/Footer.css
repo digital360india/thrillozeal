@@ -1,14 +1,13 @@
 .footer-boundary {
     background-color: rgba(87, 190, 190, 1);
     width: 100%;
-    margin-top: 25px;
+    margin-top: 50px;
 }
 
 .footer-container {
-    width: 80%;
+    width: 90%;
     display: flex;
     justify-content: space-around;
-    align-items: center;
     padding: 50px;
     font-family: 'Montserrat';
     font-style: normal;
@@ -16,13 +15,12 @@
     font-size: 16px;
     line-height: 20px;
     margin: auto;
-    justify-content: center;
     align-items: baseline;
     color: #FFFFFF;
 }
 
 .footer-container div {
-    margin-right: 20px;
+    /* margin-right: 20px; */
 }
 
 .footer-container h1 {
@@ -75,6 +73,8 @@
 .combo__link_contact{
     display: flex;
     font-size: 16px !important;
+    width: 40%;
+    line-height: 2rem;
 }
 .footer-form{
     display: flex;
@@ -105,6 +105,8 @@
         flex-direction: row;
         padding: 21px 0;
         justify-content: space-evenly;
+        width: 100%;
+        align-items: baseline;
     }
     .footer-boundary{
         width: 100%;
@@ -112,7 +114,7 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        padding-top: 21px;
+        padding-top: 21px;;
     }
     .footer-container{
         display: flex;
@@ -140,8 +142,12 @@
     }
     .footer-container h1 {
         margin-bottom: 10px;
+        font-size: 20px;
     }
     .newsletter_li{
         font-size: 12px;
+    }
+    .Newsletter{
+        text-align: center;
     }
 }

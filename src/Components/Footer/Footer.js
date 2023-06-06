@@ -1,5 +1,6 @@
 import React from "react";
 import './Footer.css';
+
 const Footer = () => {
   return (
     <div className="footer-boundary">
@@ -29,16 +30,13 @@ const Footer = () => {
         <div className="Contact-div">
           <h1>CONTACT US</h1>
           <span>
-            <img></img>
             <p>+91 83030 22306</p>
           </span>
           <span>
-            <img></img>
             <p >B 36, Nehru Colony, Dehrdun
               Uttarakhand, India 248001</p>
           </span>
           <span>
-            <img></img>
             <p>info@thrillozeal.com</p>
           </span>
         </div>

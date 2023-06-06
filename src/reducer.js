@@ -10,6 +10,7 @@ export const initialState = {
      useFilter_style:[],
      filter_Data:[],
      All_Data:[],
+     All_Treks:[],
   };
   
   export const actionTypes = {
@@ -22,6 +23,7 @@ export const initialState = {
     SET_USE_FILTER_PRICES:'SET_USE_FILTER_PRICES',
     SET_USE_FILTER_DATA:'SET_USE_FILTER_DATA',
     SET_USE_ALL_DATA:'SET_USE_ALL_DATA',
+    SET_USE_ALL_TREKS:'SET_USE_ALL_TREKS',
   };
   
   const reducer = (state, action) => {
@@ -31,6 +33,11 @@ export const initialState = {
         return {
           ...state,
           All_Data: action.All_Data,
+        };
+      case actionTypes.SET_USE_ALL_TREKS:
+        return {
+          ...state,
+          All_Treks: action.All_Treks,
         };
       case actionTypes.SET_USE_FILTER_DATA:
         return {

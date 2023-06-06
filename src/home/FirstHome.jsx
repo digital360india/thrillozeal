@@ -42,10 +42,14 @@ import Add2 from './Add2';
 import Travel from '../Main/Travel';
 import Navbar from '../Components/Navbar/Navbar';
 import Header from '../Nainital/Header';
+import db from '../firebase';
+import { actionTypes } from '../reducer';
+import { all } from 'q';
+
 function FirstHome() {
 
     const history = useHistory();
-    const [{ locations, activities }, dispatch] = useStateValue();
+    const [{ locations, activities, All_Treks }, dispatch] = useStateValue();
 
     const [showsearch, setShowsearch] = useState(false);
     const [showdropdown_act, setShowdropdown_act] = useState(false);
@@ -65,6 +69,31 @@ function FirstHome() {
     const [class4, setclass4] = useState('four');
     const [class5, setclass5] = useState('five');
     const [class6, setclass6] = useState('changeIcon');
+
+    const [allTreks, setAllTreks] = useState([]);
+      
+    useEffect(() => {
+        
+        db.collection('Cities').onSnapshot(snapshot =>{
+           snapshot.docs.map(city =>{
+             db.collection('Cities').doc(city.id).collection('All_Trek').onSnapshot(snapshot =>{
+                snapshot.docs.map(doc => 
+                    setAllTreks(prevTrek => [...prevTrek,{
+                            trek_id: doc.id,
+                            trek_data : doc.data()
+                        }])
+                        );
+             });
+           });
+        });
+     }, []);
+
+    useEffect(() => {
+        dispatch({
+            type: actionTypes.SET_USE_ALL_TREKS,
+            All_Treks: allTreks,
+          });
+      }, [allTreks])
 
     const onFocus = () => {
         setShowdropdown_act(true);
@@ -244,7 +273,9 @@ function FirstHome() {
                     </div>
                 </div>
             </div>
-            <Destination />
+            <Destination trendingTreks={All_Treks.filter((trek) => {
+                return trek.trek_data.packagetype === "Trending";
+            })}/>
             <ExploreCities />
             <Add />
             <Travel />

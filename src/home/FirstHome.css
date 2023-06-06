@@ -26,7 +26,11 @@
     height: 105vh;
     overflow: hidden;
 }
-
+.splide__arrow{
+    opacity: 1 !important;
+    color: #000000 !important;
+    background-color: transparent !important;
+}
 .theme {
     width: 70vw;
     position: absolute;

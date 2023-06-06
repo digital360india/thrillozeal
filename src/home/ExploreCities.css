@@ -43,6 +43,7 @@
     transition: .5s ease;
     opacity: 0;
     position: absolute;
+    color: white;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -56,7 +57,7 @@
 }
 
 .hexa_div:hover .hexa_div_img {
-    opacity: 0.6;
+    filter: brightness(60%);
 }
 
 .hexa_div:hover .hexa_div_p {
@@ -105,7 +106,7 @@
         opacity: 1;
     }
     
-    .hexa_div_p {
+    .hexa_div_p{
         opacity: 1;
         color: white;
     }
