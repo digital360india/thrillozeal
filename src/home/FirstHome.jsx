@@ -9,9 +9,6 @@ import background4 from './img/thrillo 1 (2).webp';
 import background5 from './img/thrillo 1 (1).webp';
 import background6 from './img/thrillo 1 (3).webp';
 import divider from './img/Line 2.png';
-import search from './img/search.png';
-import dropdown from './img/Vector.svg';
-import map from './img/map-pin.png';
 import arrow from './img/Arrow 1.png';
 import icon1 from './img/icon 1.png';
 import icon2 from './img/icon 2.png';
@@ -26,7 +23,6 @@ import background4theme from './img/Ellipse 1 (2).png'
 import background5theme from './img/Ellipse 1 (1).png'
 import background6theme from './img/Ellipse 1 (3).png'
 import facebookIcon from './img/facebook_icon.png'
-import instagramIcon from './img/instagram_icon.png'
 import twitterIcon from './img/twitter_icon.png'
 import linkedinIcon from './img/linkedin_icon.png'
 import menu from './img/menu.png'
@@ -44,6 +40,10 @@ import Navbar from '../Components/Navbar/Navbar';
 import Header from '../Nainital/Header';
 import { actionTypes } from '../reducer';
 import db from '../firebase';
+import {KeyboardArrowDownOutlined as KeyboardArrowDownOutlinedIcon, 
+    LocationOnOutlined as LocationOnOutlinedIcon,
+    SearchOutlined as  SearchOutlinedIcon, Instagram as InstagramIcon,
+} from "@mui/icons-material";
 
 function FirstHome() {
 
@@ -197,9 +197,9 @@ function FirstHome() {
                                 //     )) : <h5 onClick={() => { setActivity(''); setShowdropdown_act(false) }} className='header__dropdown_h5'>No result</h5>}
                                 // </div>
                             }
-                            <img className='dropdown' src={dropdown} alt="" />
+                            <div onClick={() => { setShowdropdown_act(!showdropdown_act) }} className='dropdown' ><KeyboardArrowDownOutlinedIcon/></div>
                             <img className='divider' src={divider} alt="" />
-                            <img className='dropdown' src={map} alt="" />
+                            <div className='dropdown' onClick={() => { setShowdropdown(!showdropdown) }} ><LocationOnOutlinedIcon/></div>
                             <input onFocus={onFocus1} value={location} type="text" placeholder="Location" onChange={onChangeloc} />
                             {showdropdown &&
                                 <div className="header__dropdown header__dropdown2">
@@ -212,11 +212,11 @@ function FirstHome() {
                             }
 
                             <img className='divider' src={divider} alt="" />
-                            <img onClick={Search_Click} className='search' src={search} alt="" />
+                            <div className='search' onClick={Search_Click} ><SearchOutlinedIcon/></div>
                         </div>
                         <div className='SocialLinks'>
                             <img className='social-link' src={facebookIcon} alt="" />
-                            <img className='social-link' src={instagramIcon} alt="" />
+                            <InstagramIcon/>
                             <img className='social-link' src={linkedinIcon} alt="" />
                             <img className='social-link' src={twitterIcon} alt="" />
                         </div>
