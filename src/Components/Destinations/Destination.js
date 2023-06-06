@@ -5,7 +5,7 @@ import './Destination.css';
 import progress from './img/progess.png';
 
 const Destination = (props) => {
-  console.log(props?.trendingTreks);
+  // console.log(props?.trendingTreks);
   return (
     <>
       <div className="secondPage">
@@ -26,12 +26,12 @@ const Destination = (props) => {
                 <SplideSlide className='slider_splide_react1'>
                   <img className='slider_splide_react_img' src="/Images/a.png" alt="Image 1" />
                   <div className="one1">
-                    <p className="head">{trek.trek_id}</p>
+                    <p className="head">{trek?.trek_id}</p>
                     <div className='content'>
-                      <p className='package_dates'>{trek.trek_data.day}D/{trek.trek_data.night}N</p>
-                      <div className='star_text'><img src="/Images/1.svg"></img><p>{trek.trek_data.review}/5</p></div>
-                      <p className='current_price'>₹ {trek.trek_data.price}/- </p>
-                      <p className='prev_price'>₹ {trek.trek_data.pricecross}/- </p>
+                      <p className='package_dates'>{trek.trek_data.day}D/{trek?.trek_data?.night}N</p>
+                      <div className='star_text'><img src="/Images/1.svg"></img><p>{trek?.trek_data?.review}/5</p></div>
+                      <p className='current_price'>₹ {trek?.trek_data?.price}/- </p>
+                      <p className='prev_price'>₹ {trek?.trek_data?.pricecross}/- </p>
                     </div>
                   </div>
                 </SplideSlide>

@@ -15,7 +15,7 @@ function Header() {
     const history = useHistory();
     // JvH2wjbXOWgoOA17X4GWNainital
     
-    const [{ locations, activities }, dispatch] = useStateValue();
+    const [{ globalVariable}, dispatch] = useStateValue();
 
     const [showsearch, setShowsearch] = useState(false);
     const [showdropdown_act, setShowdropdown_act] = useState(false);
@@ -98,7 +98,7 @@ function Header() {
                     <input onFocus={onFocus} value={input}   type="text" placeholder="Activities" onChange={onChangeAct} />
                     
                         <div className={showdropdown_act ? "header__dropdown" : 'header__dropdownnone'}>
-                            {activities.filter((n) => n.toLowerCase().includes(input.toLowerCase())).length > 0 ? activities.filter((n) => n.toLowerCase().includes(input.toLowerCase())).map((loc) => (
+                            {globalVariable?.Activities?.filter((n) => n.toLowerCase().includes(input.toLowerCase())).length > 0 ? globalVariable?.Activities?.filter((n) => n.toLowerCase().includes(input.toLowerCase())).map((loc) => (
                                 <h5 onClick={() => { setActivity(loc); setInput(loc); setShowdropdown_act(false) }} className='header__dropdown_h5'>{loc}</h5>
                             )) : <h5 onClick={() => { setActivity(''); setShowdropdown_act(false) }}className='header__dropdown_h5'>No result</h5>}
                         </div>
@@ -109,7 +109,7 @@ function Header() {
                     <input onFocus={onFocus1} value={location}type="text" placeholder="Location" onChange={onChangeloc} />
                     {showdropdown &&
                         <div className="header__dropdown header__dropdown2">
-                            {locations.filter((n) => n.toLowerCase().includes(input2.toLowerCase())).length > 0 ? locations.filter((n) => n.toLowerCase().includes(input2.toLowerCase())).map((loc) => (
+                            {globalVariable?.Locations.filter((n) => n.toLowerCase().includes(input2.toLowerCase())).length > 0 ? globalVariable?.Locations.filter((n) => n.toLowerCase().includes(input2.toLowerCase())).map((loc) => (
                                 <h5 onClick={() => { setInput2(loc)
                                     setLocation(loc)}} className='header__dropdown_h5'>{loc}</h5>
                             )) : <h5 onClick={() => setLocation("")} className='header__dropdown_h5'>No result</h5>}
