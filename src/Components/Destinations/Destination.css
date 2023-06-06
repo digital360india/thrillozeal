@@ -90,7 +90,7 @@
 }
 
 .slider_splide_react1 {
-    width: 22% !important;
+    width: 250px !important;
     margin: 12px 1.5%;
 }
 .slider_splide_react1N {
@@ -221,7 +221,7 @@
     }
 
     .slider_splide_react1 {
-        width: 46% !important;
+        width: 90% !important;
         margin: 12px 2%;
     }
     .slider_splide_react1N {
@@ -256,7 +256,9 @@
         color: #000000;
         /* padding-top: 6px; */
     }
-
+    .current_price {
+        display: none ;
+    }
     .one1 p:nth-child(1) {
         font-weight: 400;
         font-size: 14px;
@@ -268,7 +270,7 @@
     }
 
     .one1 p:nth-child(4) {
-        font-size: 17px;
+        display: none !important;
     }
 
     .one1 p:nth-child(5) {

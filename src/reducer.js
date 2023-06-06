@@ -8,6 +8,7 @@ export const initialState = {
   filter_Data: [],
   All_Data: [],
   globalVariable: null,
+   All_Treks:[],
 };
 
 export const actionTypes = {
@@ -19,6 +20,7 @@ export const actionTypes = {
   SET_USE_FILTER_DATA: 'SET_USE_FILTER_DATA',
   SET_USE_ALL_DATA: 'SET_USE_ALL_DATA',
   SET_GLOBAL_VARIABLE: 'SET_GLOBAL_VARIABLE',
+    SET_USE_ALL_TREKS:'SET_USE_ALL_TREKS',
 };
 
 const reducer = (state, action) => {
@@ -29,6 +31,11 @@ const reducer = (state, action) => {
         ...state,
         globalVariable: action.globalVariable,
       };
+         case actionTypes.SET_USE_ALL_TREKS:
+        return {
+          ...state,
+          All_Treks: action.All_Treks,
+        };
     case actionTypes.SET_USE_ALL_DATA:
       return {
         ...state,
