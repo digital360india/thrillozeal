@@ -48,7 +48,7 @@ import db from '../firebase';
 function FirstHome() {
 
     const history = useHistory();
-    const [{ globalVariable,All_Treks }, dispatch] = useStateValue();
+    const [{ globalVariable, All_Treks }, dispatch] = useStateValue();
 
     const [showsearch, setShowsearch] = useState(false);
     const [showdropdown_act, setShowdropdown_act] = useState(false);
@@ -56,15 +56,6 @@ function FirstHome() {
     // const [img1, setimg1] = useState(background1);
     // const [img2, setimg2] = useState(background1);
     // const [ind, setind] = useState(01);
-
-    useEffect(() => {
-        db.collection('GlobalVariable').doc("GlobalVariable").onSnapshot((snapshot) => (
-            dispatch({
-                type: actionTypes.SET_USE_ALL_DATA,
-                All_Data: snapshot.data(),
-            })
-        ))
-    }, []);
 
     const [input, setInput] = useState('');
     const [input2, setInput2] = useState('');
@@ -78,30 +69,6 @@ function FirstHome() {
     const [class5, setclass5] = useState('five');
     const [class6, setclass6] = useState('changeIcon');
 
-    const [allTreks, setAllTreks] = useState([]);
-      
-    useEffect(() => {
-        
-        db.collection('Cities').onSnapshot(snapshot =>{
-           snapshot.docs.map(city =>{
-             db.collection('Cities').doc(city.id).collection('All_Trek').onSnapshot(snapshot =>{
-                snapshot.docs.map(doc => 
-                    setAllTreks(prevTrek => [...prevTrek,{
-                            trek_id: doc.id,
-                            trek_data : doc.data()
-                        }])
-                        );
-             });
-           });
-        });
-     }, []);
-
-    useEffect(() => {
-        dispatch({
-            type: actionTypes.SET_USE_ALL_TREKS,
-            All_Treks: allTreks,
-          });
-      }, [allTreks])
 
     const onFocus = () => {
         setShowdropdown_act(true);
@@ -236,9 +203,11 @@ function FirstHome() {
                             <input onFocus={onFocus1} value={location} type="text" placeholder="Location" onChange={onChangeloc} />
                             {showdropdown &&
                                 <div className="header__dropdown header__dropdown2">
-                                    {globalVariable?.locations.filter((n) => n.toLowerCase().includes(input2.toLowerCase())).length > 0 ? globalVariable?.locations.filter((n) => n.toLowerCase().includes(input2.toLowerCase())).map((loc) => (
-                                        <h5 onClick={() => { setInput2(loc); setLocation(loc) }} className='header__dropdown_h5'>{loc}</h5>
-                                    )) : <h5 onClick={() => setLocation("")} className='header__dropdown_h5'>No result</h5>}
+                                    {globalVariable?.Locations
+                                        .filter((n) => n.toLowerCase().includes(input2.toLowerCase())).length > 0 ? globalVariable?.Locations
+                                            .filter((n) => n.toLowerCase().includes(input2.toLowerCase())).map((loc) => (
+                                                <h5 onClick={() => { setInput2(loc); setLocation(loc) }} className='header__dropdown_h5'>{loc}</h5>
+                                            )) : <h5 onClick={() => setLocation("")} className='header__dropdown_h5'>No result</h5>}
                                 </div>
                             }
 
@@ -290,7 +259,7 @@ function FirstHome() {
             </div>
             <Destination trendingTreks={All_Treks.filter((trek) => {
                 return trek.trek_data.packagetype === "Trending";
-            })}/>
+            })} />
             <ExploreCities />
             <Add />
             <Travel />

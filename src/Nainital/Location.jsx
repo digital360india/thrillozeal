@@ -19,8 +19,9 @@ function Location() {
 
   var { location } = useParams();
 
-  const history = useHistory()
-  const [{globalVariable,  useFilter_act, filter_Data, useFilter_price, useFilter_style, All_Treks }, dispatch] = useStateValue();
+  const history = useHistory();
+
+  const [{ globalVariable,All_Treks, useFilter_act, filter_Data, useFilter_price, useFilter_style }, dispatch] = useStateValue();
   // const [city,setCity]=useState(location);
 
 
@@ -37,10 +38,9 @@ function Location() {
           setData(snapshot.data())
         })
   }, [str]);
-  
+
   useEffect(() => {
     db.collection('GlobalVariable').doc("GlobalVariable").onSnapshot((snapshot) => (
-      // setGlobalVariables(snapshot.data())
       dispatch({
         type: actionTypes.SET_USE_ALL_DATA,
         All_Data: snapshot.data(),

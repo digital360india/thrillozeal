@@ -13,7 +13,7 @@ import { actionTypes } from '../../reducer';
 function Filter() {
 
 
-    const [{ locations, activities, Travel_Style, filter_prices,useFilter_price }, dispatch] = useStateValue();
+    const [{ globalVariable, Travel_Style, filter_prices,useFilter_price }, dispatch] = useStateValue();
 
     const [showslider, setShowslider] = useState(false);
     const [showfilter, setShowfilter] = useState(false);
@@ -178,9 +178,9 @@ function Filter() {
                     {/* Categories */}
                     <div className="two_checkbox">
                         <h6>Categories</h6>
-                        {filterArrayact.length > 0 &&
+                        {filterArraysty > 0 &&
                             <div className="show_filterArray">
-                                {filterArrayact.map(arr => (
+                                {filterArraysty.map(arr => (
                                     <h5>
                                         {arr}
                                         {/* <img className='filter_Cross' src={cross} alt="" onClick={()=>remove_from_array(arr)}/> */}
@@ -188,7 +188,7 @@ function Filter() {
                                 ))}
                             </div>
                         }
-                        {activities.map((dest) => (
+                        {globalVariable?.Categories?.map((dest) => (
                             <div className='checkbox'>
                                 <input type="checkbox" onClick={(e) => { check__checkBoxAct(e, dest) }} />
                                 <p>{dest}</p>
@@ -202,7 +202,7 @@ function Filter() {
                     {/* Categories */}
                     <div className="two_checkbox">
                         <h6>Travel Style</h6>
-                        {Travel_Style.map((sty) => (
+                        {globalVariable?.Activities.map((sty) => (
                             <div className='checkbox'>
                                 <input type="checkbox"  onClick={(e)=>check__checkBoxSty(e,sty)} />
                                 <p>{sty}</p>
