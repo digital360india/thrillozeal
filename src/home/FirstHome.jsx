@@ -42,10 +42,12 @@ import Add2 from './Add2';
 import Travel from '../Main/Travel';
 import Navbar from '../Components/Navbar/Navbar';
 import Header from '../Nainital/Header';
+import { actionTypes } from '../reducer';
+import db from '../firebase';
 function FirstHome() {
 
     const history = useHistory();
-    const [{ locations, activities }, dispatch] = useStateValue();
+    const [{ globalVariable }, dispatch] = useStateValue();
 
     const [showsearch, setShowsearch] = useState(false);
     const [showdropdown_act, setShowdropdown_act] = useState(false);
@@ -53,6 +55,15 @@ function FirstHome() {
     // const [img1, setimg1] = useState(background1);
     // const [img2, setimg2] = useState(background1);
     // const [ind, setind] = useState(01);
+
+    useEffect(() => {
+        db.collection('GlobalVariable').doc("GlobalVariable").onSnapshot((snapshot) => (
+            dispatch({
+                type: actionTypes.SET_USE_ALL_DATA,
+                All_Data: snapshot.data(),
+            })
+        ))
+    }, []);
 
     const [input, setInput] = useState('');
     const [input2, setInput2] = useState('');
@@ -105,8 +116,7 @@ function FirstHome() {
     const [number, setNumber] = useState(1);
 
     const function1 = () => {
-
-        setNumber((number+1)%6)
+        setNumber((number + 1) % 6)
         var temp = class6;
         setclass6(class5);
         setclass5(class4);
@@ -181,7 +191,7 @@ function FirstHome() {
                             <input onFocus={onFocus} value={activity} type="text" placeholder="Activities" onChange={onChangeAct} />
                             {
                                 // <div className={showdropdown_act ? "header__dropdown" : 'header__dropdownnone'}>
-                                //     {activities.filter((n) => n.toLowerCase().includes(input.toLowerCase())).length > 0 ? activities.filter((n) => n.toLowerCase().includes(input.toLowerCase())).map((loc) => (
+                                //.filter((n) => n.toLowerCase().includes(input.toLowerCase())).length > 0 ? activities.filter((n) => n.toLowerCase().includes(input.toLowerCase())).map((loc) => (
                                 //         <h5 onClick={() => { console.log("onFocus={onFocus}"); setActivity(loc); setInput(loc) }} className='header__dropdown_h5'>{loc}</h5>
                                 //     )) : <h5 onClick={() => { setActivity(''); setShowdropdown_act(false) }} className='header__dropdown_h5'>No result</h5>}
                                 // </div>
@@ -192,7 +202,7 @@ function FirstHome() {
                             <input onFocus={onFocus1} value={location} type="text" placeholder="Location" onChange={onChangeloc} />
                             {showdropdown &&
                                 <div className="header__dropdown header__dropdown2">
-                                    {locations.filter((n) => n.toLowerCase().includes(input2.toLowerCase())).length > 0 ? locations.filter((n) => n.toLowerCase().includes(input2.toLowerCase())).map((loc) => (
+                                    {globalVariable?.locations.filter((n) => n.toLowerCase().includes(input2.toLowerCase())).length > 0 ? globalVariable?.locations.filter((n) => n.toLowerCase().includes(input2.toLowerCase())).map((loc) => (
                                         <h5 onClick={() => { setInput2(loc); setLocation(loc) }} className='header__dropdown_h5'>{loc}</h5>
                                     )) : <h5 onClick={() => setLocation("")} className='header__dropdown_h5'>No result</h5>}
                                 </div>
