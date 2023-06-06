@@ -44,6 +44,7 @@ import Navbar from '../Components/Navbar/Navbar';
 import Header from '../Nainital/Header';
 import { actionTypes } from '../reducer';
 import db from '../firebase';
+
 function FirstHome() {
 
     const history = useHistory();
@@ -151,6 +152,14 @@ function FirstHome() {
         setclass1(temp);
         // setclass1(class2);
     }
+
+    // Infinite function to call function1 after every 5 seconds
+    useEffect(() => {
+        const interval = setInterval(() => {
+            function1();
+        }, 5000);
+        return () => clearInterval(interval);
+    }, [number]);
 
     return (
         <>

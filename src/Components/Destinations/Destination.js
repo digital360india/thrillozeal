@@ -3,7 +3,7 @@ import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css';
 import './Destination.css';
 import progress from './img/progess.png';
-
+import imgDefault from './img/a.png';
 const Destination = (props) => {
   console.log(props?.trendingTreks);
   return (
@@ -24,7 +24,7 @@ const Destination = (props) => {
               // console.log(trek.trek_id);
               return (
                 <SplideSlide className='slider_splide_react1'>
-                  <img className='slider_splide_react_img' src="/Images/a.png" alt="Image 1" />
+                  <img className='slider_splide_react_img' src={trek.trek_data?.img1 || imgDefault}alt="Image 1" />
                   <div className="one1">
                     <p className="head">{trek.trek_id}</p>
                     <div className='content'>
