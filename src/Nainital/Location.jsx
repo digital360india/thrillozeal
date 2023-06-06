@@ -20,8 +20,9 @@ function Location() {
   var { location } = useParams();
 
   const history = useHistory()
-  const [{ locations, activities, useFilter_act, filter_Data, useFilter_price, useFilter_style, All_Treks }, dispatch] = useStateValue();
+  const [{globalVariable,  useFilter_act, filter_Data, useFilter_price, useFilter_style, All_Treks }, dispatch] = useStateValue();
   // const [city,setCity]=useState(location);
+
 
   const [data, setData] = useState(null);
   const [data_Filtered, setData_Filtered] = useState([]);
@@ -36,6 +37,16 @@ function Location() {
           setData(snapshot.data())
         })
   }, [str]);
+  
+  useEffect(() => {
+    db.collection('GlobalVariable').doc("GlobalVariable").onSnapshot((snapshot) => (
+      // setGlobalVariables(snapshot.data())
+      dispatch({
+        type: actionTypes.SET_USE_ALL_DATA,
+        All_Data: snapshot.data(),
+      })
+    ))
+  }, []);
 
   // geting all the data from the db for card start
   useEffect(() => {
@@ -208,7 +219,7 @@ function Location() {
         }
         Stystr += styvar;
       }
-      console.log("setData_Filtered", Stystr, filter_Data.filter((n) => n?.data?.Tra_Var.toLowerCase().includes(Stystr.toLowerCase())))
+      // console.log("setData_Filtered", Stystr, filter_Data.filter((n) => n?.data?.Tra_Var.toLowerCase().includes(Stystr.toLowerCase())))
       setData_Filtered(filter_Data.filter((n) => n?.data?.Tra_Var.toLowerCase().includes(Stystr.toLowerCase())))
     } else {
       setData_Filtered(filter_Data)
