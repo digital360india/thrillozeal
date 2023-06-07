@@ -54,10 +54,10 @@ function ExploreCities() {
                             </div>
                         </div>
                         <div className="hexa_div img_for_mobile_explore">
-                            <div onClick={() => goToLocation("tehri")}>
+                            <div onClick={() => goToLocation("pauri_garhwal")}>
                                 <img className='hexa_div_img' src="/Images/Polygon 5.png" alt="" />
                                 <div className='hexa_div_p'>
-                                    <p >Tehri</p>
+                                    <p >Pauri Garhwal</p>
                                 </div>
                             </div>
                         </div>
@@ -65,10 +65,10 @@ function ExploreCities() {
                 </div>
                 <div className="ExploreCities_rowtwo">
                     <div className="hexa_div">
-                        <div onClick={() => goToLocation("uttarkashi")}>
+                        <div onClick={() => goToLocation("dehradun")}>
                             <img className='hexa_div_img' src="/Images/Polygon 6.png" alt="" />
                             <div className='hexa_div_p'>
-                                <p >Uttarkashi</p>
+                                <p >Dehradun</p>
                             </div>
                         </div>
                     </div><div className="hexa_div">
@@ -79,10 +79,10 @@ function ExploreCities() {
                             </div>
                         </div>
                     </div><div className="hexa_div">
-                        <div onClick={() => goToLocation("pithoragarh")}>
+                        <div onClick={() => goToLocation("almora")}>
                             <img className='hexa_div_img' src="/Images/Polygon 5.png" alt="" />
                             <div className='hexa_div_p'>
-                                <p >Pithoragarh</p>
+                                <p >Almora</p>
                             </div>
                         </div>
                     </div>

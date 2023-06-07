@@ -14,6 +14,7 @@
 }
 
 .N__Header__logo {
+    cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -171,6 +172,9 @@
 .TruenainitalSearch_img {
     display: none;
 }
+.Header__section{
+    cursor: pointer;
+}
 
 @media(max-width:768px) {
     .N__sections {
@@ -183,10 +187,6 @@
 
     .FirstHome__input_forheader {
         display: none;
-    }
-
-    .dropdown {
-        width: 15px;
     }
 
     .TrueFirstHome__input_forheader {

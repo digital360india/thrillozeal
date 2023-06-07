@@ -99,6 +99,14 @@
     text-transform: bold;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
+.contact-span{    
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+.contact-span> svg{
+    margin-top: 5px;
+}
 @media(max-width:900px) {
     .combo__link_contact{
         display: flex;

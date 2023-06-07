@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import FirstHome from './home/FirstHome';
 import Location from './Nainital/Location';
 import SubLocation from './SubLocation/SubLocation';
+import AboutUs from './AboutUs/AboutUs';
 import Navbar from './Components/Navbar/Navbar';
 import { useEffect } from 'react';
 import db from './firebase';
@@ -51,6 +52,9 @@ function App() {
   return (
     <Router>
       <Switch>
+      <Route path='/about'>
+      <AboutUs />
+      </Route>
         <Route path="/:location_id/:trek_id">
           <SubLocation />
         </Route>
