@@ -1,5 +1,9 @@
 import React from "react";
 import './Footer.css';
+import {PhoneInTalkOutlined as PhoneInTalkOutlinedIcon, LocationOnOutlined as LocationOnOutlinedIcon, EmailOutlined as EmailOutlinedIcon} from "@mui/icons-material";
+// import PhoneInTalkOutlinedIcon from '@mui/icons-material/PhoneInTalkOutlined';
+// import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
+// import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
 
 const Footer = () => {
   return (
@@ -29,14 +33,17 @@ const Footer = () => {
         </div>
         <div className="Contact-div">
           <h1>CONTACT US</h1>
-          <span>
+          <span className="contact-span">
+            <PhoneInTalkOutlinedIcon/>
             <p>+91 83030 22306</p>
           </span>
-          <span>
+          <span className="contact-span">
+            <LocationOnOutlinedIcon/>
             <p >B 36, Nehru Colony, Dehrdun
               Uttarakhand, India 248001</p>
           </span>
-          <span>
+          <span className="contact-span">
+            <EmailOutlinedIcon/>
             <p>info@thrillozeal.com</p>
           </span>
         </div>

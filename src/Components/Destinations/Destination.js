@@ -3,7 +3,8 @@ import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css';
 import './Destination.css';
 import progress from './img/progess.png';
-
+import imgDefault from './img/a.png';
+import StarRoundedIcon from '@mui/icons-material/StarRounded';
 const Destination = (props) => {
   // console.log(props?.trendingTreks);
   return (
@@ -24,12 +25,12 @@ const Destination = (props) => {
               // console.log(trek.trek_id);
               return (
                 <SplideSlide className='slider_splide_react1'>
-                  <img className='slider_splide_react_img' src="/Images/a.png" alt="Image 1" />
+                  <img className='slider_splide_react_img' src={trek.trek_data?.img1 || imgDefault}alt="Image 1" />
                   <div className="one1">
                     <p className="head">{trek?.trek_id}</p>
                     <div className='content'>
                       <p className='package_dates'>{trek.trek_data.day}D/{trek?.trek_data?.night}N</p>
-                      <div className='star_text'><img src="/Images/1.svg"></img><p>{trek?.trek_data?.review}/5</p></div>
+                      <div className='star_text'><StarRoundedIcon sx={{ color: '#E7B80F' }} /><p>{trek?.trek_data?.review}/5</p></div>
                       <p className='current_price'>₹ {trek?.trek_data?.price}/- </p>
                       <p className='prev_price'>₹ {trek?.trek_data?.pricecross}/- </p>
                     </div>
@@ -126,7 +127,7 @@ const Destination = (props) => {
                     <p className="head">{trek.trek_id}</p>
                     <div className='content'>
                       <p className='package_dates'>{trek.trek_data.day}D/{trek.trek_data.night}N</p>
-                      <div className='star_text'><img src="/Images/1.svg"></img><p>{trek.trek_data.review}/5</p></div>
+                      <div className='star_text'><StarRoundedIcon sx={{ color: '#E7B80F' }} /><p>{trek.trek_data.review}/5</p></div>
                       <p className='current_price'>₹ {trek.trek_data.price}/- </p>
                       <p className='prev_price'>₹ {trek.trek_data.pricecross}/- </p>
                     </div>

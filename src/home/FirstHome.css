@@ -183,6 +183,7 @@
 }
 
 .SocialLinks{
+    color: white;
     display: flex;
     position: absolute;
     top: 230px;
@@ -204,12 +205,11 @@
     /* position: absolute; */
     right: 10px;
     padding-left: 10px;
-    width: 32px;
-    height: 32px;
 }
 
 .dropdown {
-    padding: 0 6px;
+    color: #909090 !important;
+    padding-right: 10px;
 }
 
 .secondbox_row2 {
