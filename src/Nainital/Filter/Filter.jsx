@@ -10,17 +10,49 @@ import cross from './img/cross.svg';
 import { useStateValue } from '../../StateProvider';
 import { actionTypes } from '../../reducer';
 
-function Filter() {
+function Filter({ data, setData_Filtered }) {
 
-
-    const [{ globalVariable, Travel_Style, filter_prices,useFilter_price }, dispatch] = useStateValue();
+    const [active, setActive] = useState('a');
+    // console.log(props.filter_by_price_inc)
+    const [{ globalVariable, Travel_Style, filter_prices, useFilter_price }, dispatch] = useStateValue();
 
     const [showslider, setShowslider] = useState(false);
     const [showfilter, setShowfilter] = useState(false);
     const [width, setWidth] = useState(window.screen.width);
     // const [filterArrayloc, setFilterArrayloc] = useState([]);
     const [filterArrayact, setFilterArrayact] = useState([]);
+    const [useFilter_act, setuseFilter_act] = useState('');
     const [filterArraysty, setFilterArraysty] = useState([]);
+    const [useFilter_style, setuseFilter_style] = useState('');
+
+    const trendingPackage = () => {
+        const temp = data.filter((trek) => {
+            return trek?.trek_data?.packagetype === "Trending";
+        });
+        setData_Filtered([...temp])
+    }
+    const filter_by_price_inc = () => {
+        const temp = data;
+        temp.sort((a, b) => {
+            return a?.trek_data?.price - b?.trek_data?.price;
+        });
+        setData_Filtered([...temp])
+    }
+    const filter_by_price_desc = () => {
+        const temp = data;
+        temp.sort((a, b) => {
+            return b?.trek_data?.price - a?.trek_data?.price;
+        });
+        setData_Filtered([...temp])
+    }
+    const increasing_rating = () => {
+        const temp = data;
+        temp.sort((a, b) => {
+            return b?.trek_data?.review - a?.trek_data?.review;
+        });
+        setData_Filtered([...temp])
+    }
+
     // const [filterArraypri, setFilterArraypri] = useState('All price range');
 
     // dispatch({
@@ -36,22 +68,18 @@ function Filter() {
         setShowfilter(!showfilter);
     }
 
-    const check__checkBoxAct = (e, dest) => {
+    const check__checkBoxAct = (e, dest,index) => {
+        // console.log(index)
         const checked = e.target.checked;
-
         if (checked) {
             filterArrayact.push(dest);
             const na = [...filterArrayact]
-            setFilterArrayact(na);
-            dispatch({
-                type: actionTypes.SET_USE_FILTER_ACT,
-                useFilter_act: filterArrayact,
-            });
+            setuseFilter_act(prev=>prev+index)
+            console.log(useFilter_act)
         } else {
             const index = filterArrayact.findIndex(checkAge);
 
             function checkAge(age) {
-                console.log(age)
                 return age == dest;
             }
             if (index >= 0) {
@@ -62,18 +90,12 @@ function Filter() {
                     type: actionTypes.SET_USE_FILTER_ACT,
                     useFilter_act: filterArrayact,
                 });
-            } else {
-                console.warn(
-                    `Cant remove product (id: ) as its not in basket!`
-                )
             }
         }
     }
 
     const check__checkBoxSty = (e, sty) => {
-        console.log("sssssssss");
         const checked = e.target.checked;
-
         if (checked) {
             filterArraysty.push(sty);
             const na = [...filterArraysty]
@@ -103,18 +125,21 @@ function Filter() {
                 )
             }
         }
-
     }
 
     // setting price range by user
-    const price_range=(arr)=>{
+    const price_range = (arr) => {
         dispatch({
             type: actionTypes.SET_USE_FILTER_PRICES,
             useFilter_price: arr,
         });
     }
 
+    const applyFilter = () => {
+
+    }
     return (
+
         <div className="filter">
             <div className='filter__slider'>
                 <img onClick={show_slider} src={slider} alt="" />
@@ -130,22 +155,22 @@ function Filter() {
             </div>
                 <div className="images__list">
                     {/* <img src={group1} alt="" /> */}
-                    <div className='filter_image__div'>
+                    <div className={active == 'a' ? 'filter_image__div filter_image__active' : 'filter_image__div'} onClick={() => { setActive('a'); trendingPackage(); }}>
                         <img src={progress} alt="" />
                         <h6>Popularity</h6>
                         <p>popularity first</p>
                     </div>
-                    <div className='filter_image__div'>
+                    <div className={active == 'b' ? 'filter_image__div filter_image__active' : 'filter_image__div'} onClick={() => { setActive('b'); filter_by_price_inc() }}>
                         <img src={lowhigh} alt="" />
                         <h6>Price</h6>
                         <p>low to high</p>
                     </div>
-                    <div className='filter_image__div'>
+                    <div className={active == 'c' ? 'filter_image__div filter_image__active' : 'filter_image__div'} onClick={() => { setActive('c'); filter_by_price_desc() }}>
                         <img src={highlow} alt="" />
                         <h6>Price</h6>
                         <p>high to low</p>
                     </div>
-                    <div className='filter_image__div'>
+                    <div className={active == 'd' ? 'filter_image__div filter_image__active' : 'filter_image__div'} onClick={() => { setActive('d'); increasing_rating() }}>
                         <img src={star} alt="" />
                         <h6>Ratings</h6>
                         <p>Highest Ratings</p>
@@ -188,9 +213,9 @@ function Filter() {
                                 ))}
                             </div>
                         }
-                        {globalVariable?.Categories?.map((dest) => (
+                        {globalVariable?.Categories?.map((dest,index) => (
                             <div className='checkbox'>
-                                <input type="checkbox" onClick={(e) => { check__checkBoxAct(e, dest) }} />
+                                <input type="checkbox" onClick={(e) => { check__checkBoxAct(e, dest,index) }} />
                                 <p>{dest}</p>
                             </div>
                         ))}
@@ -204,7 +229,7 @@ function Filter() {
                         <h6>Travel Style</h6>
                         {globalVariable?.Activities.map((sty) => (
                             <div className='checkbox'>
-                                <input type="checkbox"  onClick={(e)=>check__checkBoxSty(e,sty)} />
+                                <input type="checkbox" onClick={(e) => check__checkBoxSty(e, sty)} />
                                 <p>{sty}</p>
                             </div>
                         ))}
@@ -233,7 +258,7 @@ function Filter() {
                             {filter_prices.length > 0 &&
                                 <div className="show_filterArray">
                                     {filter_prices.map(arr => (
-                                        <h5 className={useFilter_price === arr && 'dark_box'} onClick={() =>  price_range(arr)}>
+                                        <h5 className={useFilter_price === arr && 'dark_box'} onClick={() => price_range(arr)}>
                                             {arr}
                                         </h5>
                                     ))}
@@ -241,7 +266,12 @@ function Filter() {
                             }
                         </div>
                     </div>
-                </div></>}
+                    <button onClick={applyFilter}>
+                        Apply
+                    </button>
+                </div>
+            </>
+            }
         </div>
     )
 }

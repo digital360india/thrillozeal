@@ -18,101 +18,25 @@ import { useHistory } from 'react-router-dom';
 function Location() {
 
   var { location } = useParams();
-
   const history = useHistory();
 
-  const [{ globalVariable,All_Treks, useFilter_act, filter_Data, useFilter_price, useFilter_style }, dispatch] = useStateValue();
-  // const [city,setCity]=useState(location);
-
+  const [{ globalVariable, All_Treks, useFilter_act, filter_Data, useFilter_price, useFilter_style }, dispatch] = useStateValue();
 
   const [data, setData] = useState(null);
   const [data_Filtered, setData_Filtered] = useState([]);
   const [dataCard, setDataCard] = useState([]);
 
-  const str = location.charAt(0).toUpperCase() + location.slice(1);
+  // const str = location.charAt(0).toUpperCase() + location.slice(1);
 
   useEffect(() => {
-    if (str)
-      db.collection('Cities').doc('JvH2wjbXOWgoOA17X4GW' + str)
-        .onSnapshot((snapshot) => {
-          setData(snapshot.data())
-        })
-  }, [str]);
+    const temp = All_Treks.filter((trek) => {
+      return trek?.trek_data?.city ? trek?.trek_data?.city.toLowerCase() === location.toLowerCase() : false;
+    });
+    setData([...temp])
+    setData_Filtered([...temp]);
 
-  useEffect(() => {
-    db.collection('GlobalVariable').doc("GlobalVariable").onSnapshot((snapshot) => (
-      dispatch({
-        type: actionTypes.SET_USE_ALL_DATA,
-        All_Data: snapshot.data(),
-      })
-    ))
-  }, []);
+  }, [location, All_Treks])
 
-  // geting all the data from the db for card start
-  useEffect(() => {
-    if (str)
-      //  from the 0-5k
-      db.collection('Cities').doc('JvH2wjbXOWgoOA17X4GW' + str).collection('All_Trek').onSnapshot((snapshot) => {
-        // const na=
-        setData_Filtered(
-          snapshot.docs.map((doc) => ({
-            id: doc.id,
-            data: doc.data(),
-          }))
-        )
-      }
-      )
-    //  from the 5-10k
-    // db.collection('Cities').doc('JvH2wjbXOWgoOA17X4GW' + str).collection(str + '_5-10K').onSnapshot((snapshot) => {
-    //   setDataCard2(
-    //     snapshot.docs.map((doc) => ({
-    //       id: doc.id,
-    //       data: doc.data(),
-    //     }))
-    //   )
-    // }
-    // )
-    // //  from the 10-15k
-    // db.collection('Cities').doc('JvH2wjbXOWgoOA17X4GW' + str).collection(str + '_10-15K').onSnapshot((snapshot) => {
-    //   setDataCard3(
-    //     snapshot.docs.map((doc) => ({
-    //       id: doc.id,
-    //       data: doc.data(),
-    //     }))
-    //   )
-    // }
-    // )
-    // //  from the 15k-20k
-    // db.collection('Cities').doc('JvH2wjbXOWgoOA17X4GW' + str).collection(str + '_15-20K').onSnapshot((snapshot) => {
-    //   setDataCard4(
-    //     snapshot.docs.map((doc) => ({
-    //       id: doc.id,
-    //       data: doc.data(),
-    //     }))
-    //   )
-    // }
-    // )
-  }, [str]);
-
-
-  // useEffect(() => {
-  //   // if (dataCard1.length > 0 && dataCard2.length > 0 && dataCard3.length > 0 && dataCard4.length > 0) {
-  //   setDataCard([...dataCard1, ...dataCard2, ...dataCard3, ...dataCard4])
-  //   // }
-  // }, [dataCard4, dataCard3, dataCard2, dataCard1])
-
-  // useState
-
-  // useEffect(() => {
-  // dispatch({
-  //   type: actionTypes.SET_USE_ALL_DATA,
-  //   All_Data: dataCard,
-  // });
-  //   dispatch({
-  //     type: actionTypes.SET_USE_FILTER_DATA,
-  //     filter_Data: dataCard,
-  //   });
-  // }, [dataCard])
 
   // filter by price range
   // const filterbyrange=()=>{
@@ -143,13 +67,7 @@ function Location() {
   //     });
   //   }
   // }
-  useEffect(() => {
-    // if(useFilter_price==="All price range")
-    dispatch({
-      type: actionTypes.SET_USE_FILTER_DATA,
-      filter_Data: dataCard,
-    });
-  }, [dataCard])
+
 
   // filterbyActivities 
   const filterbyActivities = () => {
@@ -184,9 +102,9 @@ function Location() {
         str += actvar;
       }
       console.log("setData_Filtered", str, filter_Data.filter((n) => n?.data?.Act_Var.toLowerCase().includes(str.toLowerCase())))
-      setData_Filtered(filter_Data.filter((n) => n?.data?.Act_Var.toLowerCase().includes(str.toLowerCase())))
+      // setData_Filtered(filter_Data.filter((n) => n?.data?.Act_Var.toLowerCase().includes(str.toLowerCase())))
     } else {
-      setData_Filtered(filter_Data)
+      // setData_Filtered(filter_Data)
     }
   }
 
@@ -198,6 +116,7 @@ function Location() {
     if (useFilter_style?.length > 0) {
 
       for (var i = 0; i < useFilter_style.length; i++) {
+
         if (useFilter_style[i] === "Couples") {
           styvar = 'a';
         } else if (useFilter_style[i] === "Friends") {
@@ -217,17 +136,18 @@ function Location() {
         } else if (useFilter_style[i] === "Bike Trips") {
           styvar = 'i'
         }
+
         Stystr += styvar;
       }
       // console.log("setData_Filtered", Stystr, filter_Data.filter((n) => n?.data?.Tra_Var.toLowerCase().includes(Stystr.toLowerCase())))
       setData_Filtered(filter_Data.filter((n) => n?.data?.Tra_Var.toLowerCase().includes(Stystr.toLowerCase())))
     } else {
-      setData_Filtered(filter_Data)
+      // setData_Filtered(filter_Data)
     }
   }
-  useEffect(() => {
-    setData_Filtered(filter_Data);
-  }, [filter_Data])
+// console.log(globalVariable?.Act)
+// console.log(Object.values(globalVariable?.Act))
+
   return (
     <div className='nainital'>
       <Header />
@@ -235,6 +155,13 @@ function Location() {
         <img className='nainital__body_img' src={data?.img} alt="" />
         <div className='Name_on_img'>{data?.Name}</div>
         <div className='offer_on_img2'>Get Flat 25% off</div>
+        <div>
+          <h2>
+            {
+              // globalVariable?.Act
+            }
+          </h2>
+        </div>
         <div className="nainital__body_first">
           <div className="smallHeader">
             <div className="header_name">
@@ -271,11 +198,12 @@ function Location() {
         <div className="nainital__body_second">
           <div className="nainital__body_secondIn">
             <div className="nainital__filter">
-              <Filter />
+              <Filter setData_Filtered={setData_Filtered} data={data} />
+              {/* <button onClick={trendingPackage}>trendingPackage</button> */}
             </div>
             <div className="nainital__card_out">
               {/* {console.log("dataCard", dataCard)} */}
-              {data_Filtered.map((data) => (
+              {data_Filtered?.map((data) => (
                 <Card data={data} />
               ))}
             </div>
@@ -283,8 +211,8 @@ function Location() {
         </div>
       </div>
       <Destination trendingTreks={All_Treks.filter((trek) => {
-                return trek.trek_data.packagetype === "Trending";
-            })}/>
+        return trek.trek_data.packagetype === "Trending";
+      })} />
       <Footer />
     </div>
   )
