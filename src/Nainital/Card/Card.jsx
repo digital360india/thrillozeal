@@ -11,7 +11,11 @@ import img3 from "../img/img3.jpg";
 import imgmore from "../img/img_more.png";
 import { useHistory } from "react-router-dom";
 import { useParams } from "react-router-dom";
-
+import {
+  AccessTimeRounded as AccessTimeRoundedIcon,
+  LocationOnOutlined as LocationOnOutlinedIcon,
+} from '@mui/icons-material';
+import Stars from "../../Components/Stars/Stars";
 function Card({ data }) {
   const { location } = useParams();
   const history = useHistory();
@@ -19,15 +23,15 @@ function Card({ data }) {
   return (
     <div
       className="nainital__card"
-      onClick={() =>
-        history.push(`/${location}/${data?.id}`)
-      }
+      // onClick={() =>
+      //   history.push(`/${location}/${data?.id}`)
+      // }
     >
       <div className="card__c1">
         <div className="top__img_c1">
           {data?.data?.img ? (
             <img
-              style={{ width: "320px", borderRadius: "20px",height:"180px" }}
+              style={{ width: "320px", borderRadius: "20px", height: "180px" }}
               src={data?.data?.img}
               alt=""
             />
@@ -38,7 +42,7 @@ function Card({ data }) {
         <div className="bott__img_c1">
           {data?.data?.img1 ? (
             <img
-              style={{ width: "100px", height: "80px",paddingTop:"4px", borderRadius: "20px" }}
+              style={{ width: "100px", height: "80px", paddingTop: "4px", borderRadius: "20px" }}
               src={data?.data?.img1}
               alt=""
             />
@@ -47,13 +51,13 @@ function Card({ data }) {
           )}
           {data?.data?.img2 ? (
             <img
-              style={{ width: "100px", height: "80px",paddingTop:"4px", borderRadius: "20px" , marginLeft:"2px" , marginRight:"2px"}}
+              style={{ width: "100px", height: "80px", paddingTop: "4px", borderRadius: "20px", marginLeft: "2px", marginRight: "2px" }}
               src={data?.data?.img2}
               alt=""
             />
           ) : (
             <img
-              style={{ width: "100px ", height: "80px",paddingTop:"4px", borderRadius: "20px" }}
+              style={{ width: "100px ", height: "80px", paddingTop: "4px", borderRadius: "20px" }}
               src={img3}
               alt=""
             />
@@ -63,13 +67,13 @@ function Card({ data }) {
           {/* <img src={imgmore} alt="" /> */}
           {data?.data?.img3 ? (
             <img
-              style={{ width: "100px", height: "80px",paddingTop:"4px", borderRadius: "20px" , marginLeft:"2px" , marginRight:"2px"}}
+              style={{ width: "100px", height: "80px", paddingTop: "4px", borderRadius: "20px", marginLeft: "2px", marginRight: "2px" }}
               src={data?.data?.img3}
               alt=""
             />
           ) : (
             <img
-              style={{ width: "100px ", height: "80px",paddingTop:"4px", borderRadius: "20px" }}
+              style={{ width: "100px ", height: "80px", paddingTop: "4px", borderRadius: "20px" }}
               src={imgmore}
               alt=""
             />
@@ -80,17 +84,17 @@ function Card({ data }) {
         <div class="card__c2_head">{data?.data?.name}</div>
         <div className="card__c2_body">
           <div className="card__c2_innner">
-            <img src="./Images/clock.png"></img>
+            <AccessTimeRoundedIcon sx={{ color: "#57BEBE" }} />
             <div className="c2__text">{data?.data?.day}D/{data?.data?.night}N</div>
           </div>
           <div className="card__c2_innner">
-            <img src="./Images/map-pin.png"></img>
+            <LocationOnOutlinedIcon sx={{ color: "#57BEBE" }} />
             <div className="c2__text">{data?.data?.location}</div>
           </div>
           <br />
           <div className="card__c2_innner card__c2_innner2">
             <div className="naini__stars">
-              <img src="./Images/Group 4.png"></img>
+              <Stars review={data?.data?.review} />
               <p>based on {data?.data?.reviewNo} reviews</p>
             </div>
             <div className="naini__rating">
@@ -130,8 +134,17 @@ function Card({ data }) {
           </div>
         </div>
         <div className="naini__bottons">
-          <button>Send Enquiry</button>
-          <button>View Details</button>
+          <button onClick={() =>
+            history.push({
+              pathname: `/${location}/${data?.id}`,
+              state: {
+                page_loc: 250,
+              }
+            })
+          }>Send Enquiry</button>
+          <button onClick={() =>
+        history.push(`/${location}/${data?.id}`)
+      }>View Details</button>
         </div>
       </div>
     </div>

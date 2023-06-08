@@ -45,6 +45,10 @@
 
 .card__c2_innner {
     display: flex;
+    flex-direction: row !important;
+}
+.card__c2_innner2{
+    flex-direction: column !important;
 }
 
 .card__c2_innner>img {
@@ -56,7 +60,7 @@
     font-family: 'Montserrat';
     font-style: normal;
     font-weight: 500;
-    font-size: 12px;
+    font-size: 18px;
     line-height: 15px;
     color: #909090;
     display: flex;
@@ -219,7 +223,11 @@
 
     .card__c2_innner {
         display: flex;
+        flex-direction: column;
         width: 30% !important;
+    }
+    .star__div{
+        display: flex;
     }
 
     .naini__stars {
@@ -289,9 +297,10 @@
 
     .naini__rating {
         display: flex;
-        padding: 2px;
+        padding: 10px;
         background: #57BEBE;
-        border-radius: 10px;
+        border-radius: 15px;
+        width: max-content;
     }
 
     .naini__rating>p {
@@ -304,6 +313,9 @@
         justify-content: space-around;
         padding: 4px 0;
         margin-bottom: 12px;
+    }
+    .card__c2_innner{
+        align-items: center;
     }
     
     .naini__bottons>button {

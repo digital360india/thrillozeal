@@ -57,6 +57,7 @@
     font-size: 18px;
     line-height: 17px;
     color: #000000;
+    cursor: default;
 }
 
 .active {
@@ -91,13 +92,15 @@
 
 .Read__More {
     display: flex;
-    padding: 0 21px;
+    padding: 15px 0;
     font-family: 'Montserrat';
     font-style: normal;
     font-weight: 600;
-    font-size: 14px;
+    font-size: 16px;
     line-height: 17px;
     color: #57BEBE;
+    cursor: pointer;
+    width: max-content;
 }
 
 .nainitalBody__input {

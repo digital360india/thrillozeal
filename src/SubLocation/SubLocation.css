@@ -44,7 +44,7 @@
     border: 1px solid #909090;
     box-sizing: border-box;
     border-radius: 30px;
-    padding: auto;
+    align-items: center;
     text-align: center;
 }
 
@@ -90,8 +90,18 @@
 
 .discount {
     display: flex;
+    width: max-content;
     justify-content: center;
     align-items: center;
+    border: 2.4px solid #57BEBE;
+    margin: 5px 14px;
+    border-radius: 40px;
+    color: white;
+    background-color: #57BEBE;
+    padding: 10px;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 24px;
 }
 
 .discount>p {
@@ -155,6 +165,11 @@
     padding: 10px;
     margin-bottom: 21px;
 }
+.activeBtn{
+    background: #57BEBE;
+    border: 1px solid #57BEBE;
+    color: white;
+}
 
 @media (max-width:768px) {
     .sublocation_img {
@@ -202,7 +217,6 @@
         font-weight: 600;
         font-size: 10px;
         line-height: 20px;
-        color: #57BEBE;
         border: 1px solid #57BEBE;
         margin: 2px;
         width: fit-content;

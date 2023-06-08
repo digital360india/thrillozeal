@@ -10,6 +10,7 @@
     color: #57BEBE;
 }
 .trek_highlights{
+    color: rgba(0, 0, 0, 0.55);
     display: flex;
     padding: 4px 0 4px 6px;
 }

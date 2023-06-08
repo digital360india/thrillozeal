@@ -31,6 +31,11 @@ function Location() {
 
   const str = location.charAt(0).toUpperCase() + location.slice(1);
 
+  const goToPage = (location) => {
+    history.push(`/${location}`)
+}
+
+
   useEffect(() => {
     if (str)
       db.collection('Cities').doc('JvH2wjbXOWgoOA17X4GW' + str)
@@ -228,6 +233,23 @@ function Location() {
   useEffect(() => {
     setData_Filtered(filter_Data);
   }, [filter_Data])
+
+  const ReadMore = ({ children }) => {
+    const text = children;
+    const [isReadMore, setIsReadMore] = useState(true);
+    const toggleReadMore = () => {
+      setIsReadMore(!isReadMore);
+    };
+    return (
+      <p className="smallContent__body">
+        {isReadMore ? text?.slice(0, 350)+"..." : text}
+        <span onClick={toggleReadMore} className="read-or-hide, Read__More">
+          {isReadMore ? "Read more" : " Show less"}
+        </span>
+      </p>
+    );
+  };
+
   return (
     <div className='nainital'>
       <Header />
@@ -237,11 +259,11 @@ function Location() {
         <div className='offer_on_img2'>Get Flat 25% off</div>
         <div className="nainital__body_first">
           <div className="smallHeader">
-            <div className="header_name">
+            <div onClick={() => goToPage('')} className="header_name">
               Home
               {" >"}
             </div>
-            <div className="header_name">
+            <div onClick={() => goToPage('cities')} className="header_name">
               Cities
               {" > "}
             </div>
@@ -253,12 +275,7 @@ function Location() {
             <div className="smallContent__head">
               ABOUT {data?.Name}
             </div>
-            <div className="smallContent__body">
-              {data?.About}
-            </div>
-          </div>
-          <div className="Read__More">
-            Read  More
+            <ReadMore>{data?.About}</ReadMore>
           </div>
           <div className="nainitalBody__input">
             <img src={search} alt="" />

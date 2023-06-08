@@ -188,12 +188,12 @@ function Filter() {
                                 ))}
                             </div>
                         }
-                        {globalVariable?.Categories?.map((dest) => (
+                        {/* {globalVariable?.Categories?.map((dest) => (
                             <div className='checkbox'>
                                 <input type="checkbox" onClick={(e) => { check__checkBoxAct(e, dest) }} />
                                 <p>{dest}</p>
                             </div>
-                        ))}
+                        ))} */}
 
                         <div className="loadMore">
                             Load More..
@@ -202,12 +202,12 @@ function Filter() {
                     {/* Categories */}
                     <div className="two_checkbox">
                         <h6>Travel Style</h6>
-                        {globalVariable?.Activities.map((sty) => (
+                        {/* {globalVariable?.Activities.map((sty) => (
                             <div className='checkbox'>
                                 <input type="checkbox"  onClick={(e)=>check__checkBoxSty(e,sty)} />
                                 <p>{sty}</p>
                             </div>
-                        ))}
+                        ))} */}
                         {/* <div className='checkbox'>
                             <input type="checkbox" />
                             <p>Friends</p>

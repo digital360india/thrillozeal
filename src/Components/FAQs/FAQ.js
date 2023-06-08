@@ -8,6 +8,7 @@ import { useState } from 'react';
 import db from '../../firebase';
 import { useEffect } from 'react';
 import EachDay from '../Trek/EachDay';
+import './FAQ.css';
 
 const FAQ = () => {
 
@@ -31,11 +32,18 @@ const FAQ = () => {
 
   return (
     <div className="Card-Wrapper">
-      <h2>FAQs</h2>
+      <h2 className='box-heading'>FAQs</h2>
+      <EachDay listStyle="faq__list" expanded="true" data={{num:"What Kind Of Weather You Can Expect In Chopta?", desc : ["The climate is generally cold throughout the year. Winter clothes are advisable. For emergency purposes, you may carry a raincoats and rain shoes."]}} />
+      <EachDay listStyle="faq__list" data={{num:"Is it safe to travel to Chopta?", desc : ["It is safe to travel to Chopta as the roads are motorable and well built. Although, unforeseen circumstances may occur any time. It is considerably safe to travel during the summers as there are negligible chances of any mishappenings."]}} />
+      <EachDay listStyle="faq__list" data={{num:"How to reach Dehardun?", desc:["Road - Dehradun is easily accessible by road from other towns of Uttarakhand as well as the rest of the country. By road, the town is about 280 km from Delhi.","Railway - The Dehradun railway station is merely situated at a well connected part of the town. Trains from all cities of India provide connectivity to Dehradun through its railway station.","Airway - The Jolly Grant airport from Dehradun is about 27 km away provides greater accessibility through the air route."]}} />
+      <EachDay listStyle="faq__list" data={{num:"Hospital &amp; medical facilities in Chopta.", desc:["Proper healthcare facilities are not in Chopta. Also, community health centers and government hospitals are situated near Gopeshwar and Ukhimath (nearest towns from Chopta). Rudraprayag has multiple medical stores for necessary medicines. Those with breathing problems are advised to avoid such treks."]}} />
+      <EachDay listStyle="faq__list" data={{num:"ATM", desc:["The last ATM before reaching Chopta is situated in Ukhimath. About 30 km from Chopta, it'll take around an hour's drive to reach the ATM in Ukhimath."]}} />
+      <EachDay listStyle="faq__list" data={{num:"How is the mobile network connectivity?", desc:["There is a good network connectivity in most part of the journey and Chopta, however while trekking you may lose connectivity as it is at a high altitude. You may also experience  low connectivity in a few areas for a few minutes while travelling."]}} />
+      <EachDay listStyle="faq__list" data={{num:"About", desc:["<span>Chopta</span> - is a small region located in the northern part of the Rudraprayag district. Chopta is popular as a pasture land where there is immense lush green beauty and red &amp; pink flower beds of Rhododendron. Due to this beauty, Chopta is also known as the Mini Switzerland of India. It is situated at an elevation of 2,638 m above sea level and is the base camp (starting point) for trekking to Tungnath temple. Chopta is blessed with the existence of some rare species of birds, and if you're lucky enough, you might get a sight of them or at least get to hear them chirping.<br/> <br/>","<span>Tungnath</span> - is the highest temple dedicated to Lord Shiva in the world. The Tungnath temple is situated on Chandrashila mountain and is one of the Panch Kedar temples. The peak of Chandrashila is at an altitude of 4,090 m, and the temple is situated just below the peak at 3,680 m. Trekkers usually continue their trek to reach the peak after worshipping Lord Shiva in the temple. From the Peak of Chandrashila, the glorious sight of surrounding mountains can be witnessed. <br/> <br/>","<span>About Chopta Tungnath Trek</span> <br/> Generally conducted during spring (summers) and autumn (winter) seasons, the Chopta Tungnath Trek is a very popular trekking route set in the Garhwal region of Uttarakhand. This trek route holds extreme value for the followers of Lord Shiva since it takes them to the highest Shiva temple in the world.Besides religious importance, the place offers mesmerizing beauty of colorful flowers, lush green landscapes, high altitude mountains, and some rare bird species if you're lucky. The trek begins from Chopta and takes around 4-5 hours to reach Tungnath Temple. While trekking the Chandrashila range, the humongous Himalayan mountains can be seen covered in snow and standing with all their pride."]}} />
         {data && data?.map((d) => (
           // <ShowDay data={d}/>
           <div>
-            <EachDay data={d?.data} />
+            <EachDay listStyle="faq__list" data={d?.data} />
           </div>
         ))}
       {/* <Accordion>

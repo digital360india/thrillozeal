@@ -15,6 +15,7 @@ import king from './img/Kayaking.png';
 import Form from './Form';
 import { Trek } from '../Components/Trek/Trek';
 import Itinerary from '../Components/Trek/Itinerary';
+import Review from '../Components/Review';
 import FAQ from '../Components/FAQs/FAQ';
 import Package from '../Components/Trek/Package';
 import Footer from '../Components/Footer/Footer';
@@ -26,10 +27,18 @@ import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css';
 import SubLocationImages from '../Components/Destinations/SubLocationsImages';
 import { useStateValue } from '../StateProvider';
-// import './Destination.css';
+import Stars from '../Components/Stars/Stars';
+import { useLocation, useHistory } from 'react-router-dom';
+import {
+    AccessTimeRounded as AccessTimeRoundedIcon,
+    LocationOnOutlined as LocationOnOutlinedIcon,
+} from '@mui/icons-material';
 
 function SubLocation() {
+
     const param = useParams();
+    const location = useLocation();
+    const history = useHistory();
 
     var { location_id, trek_id } = useParams();
 
@@ -39,7 +48,28 @@ function SubLocation() {
     const database = db.collection("Cities")
         .doc("JvH2wjbXOWgoOA17X4GW"+location_id)
         .collection("All_Trek")
-        .doc(trek_id)
+        .doc(trek_id);
+    
+        const goToPage = (location) => {
+            history.push(`/${location}`)
+        }
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+        // console.log("inside useeffect");
+        // console.log(location.state);
+        if(location.state && location.state.page_loc){
+            // window.scrollTo(0, location.state.page_loc);
+            window.scrollTo({
+                top: location.state.page_loc,
+                behavior: 'smooth',
+              });
+        }
+        else{
+            window.scrollTo(0, 0);
+        }
+        
+    }, [])
 
     useEffect(() => {
         database.onSnapshot((snapshot) => (
@@ -51,6 +81,8 @@ function SubLocation() {
         console.log("hari", (data?.pricecross - data?.price) * 100 / data?.pricecross);
     }, [data])
 
+    // console.log(data?.review+" dr")
+
     return (
         <div className='SubLocation'>
             <Header />
@@ -59,11 +91,11 @@ function SubLocation() {
                 <SubLocationImages data={data} />
 
                 <div className="smallHeader">
-                    <div className="header_name">
+                    <div onClick={() => goToPage('')} className="header_name">
                         Home
                         {" >"}
                     </div>
-                    <div className="header_name">
+                    <div onClick={() => goToPage('cities')} className="header_name">
                         Cities
                         {" > "}
                     </div>
@@ -82,17 +114,17 @@ function SubLocation() {
                         </div>
                         <div className="card__c2_body">
                             <div className="card__c2_innner">
-                                <img src="/Images/clock.png"></img>
+                            <AccessTimeRoundedIcon sx={{ color: "#57BEBE" }} />
                                 <div className="c2__text">{data?.day}D/{data?.night}N</div>
                             </div>
                             <div className="card__c2_innner">
-                                <img src="/Images/map-pin.png" alt='map'></img>
+                            <LocationOnOutlinedIcon sx={{ color: "#57BEBE" }} />
                                 <div className="c2__text">{data?.location}</div>
                             </div>
                             <br />
                             <div className="card__c2_innner card__c2_innner2">
                                 <div className="naini__stars">
-                                    <img src="/Images/Group 4.png"></img>
+                                <Stars review={data?.review} />
                                     <p>based on {data?.reviewNo} reviews</p>
                                 </div>
                                 <div className="naini__rating">
@@ -146,11 +178,11 @@ function SubLocation() {
                 <div className="sublocation_SecondDiv">
                     <div className="sublocation_SecondDiv_first">
                         <div className="sublocation_button">
-                            <a className="sublocation_button_a" onClick={() => setActive("first")}>Highlights</a>
-                            <a className="sublocation_button_a" onClick={() => setActive("second")}>Itinerary</a>
-                            <a className="sublocation_button_a" onClick={() => setActive("third")}>FAQs</a>
-                            <a className="sublocation_button_a" onClick={() => setActive("fourth")}>Bookings</a>
-                            <a className="sublocation_button_a" onClick={() => setActive("fifth")}>Reviews</a>
+                            <a className={`${active == "first" && 'activeBtn'} sublocation_button_a`} onClick={() => setActive("first")}>Highlights</a>
+                            <a className={`${active == "second" && 'activeBtn'} sublocation_button_a`} onClick={() => setActive("second")}>Itinerary</a>
+                            <a className={`${active == "third" && 'activeBtn'} sublocation_button_a`} onClick={() => setActive("third")}>FAQs</a>
+                            <a className={`${active == "fourth" && 'activeBtn'} sublocation_button_a`} onClick={() => setActive("fourth")}>Bookings</a>
+                            <a className={`${active == "fifth" && 'activeBtn'} sublocation_button_a`} onClick={() => setActive("fifth")}>Reviews</a>
                         </div>
 
                         <div className="sublocation_btnOne">
@@ -158,7 +190,7 @@ function SubLocation() {
                             {active === "second" && <Itinerary />}
                             {active === "third" && <FAQ />}
                             {active === "fourth" && <Package />}
-                            {active === "fifth" && <></>}
+                            {active === "fifth" && <Review />}
                         </div>
                     </div>
                     <div className="sublocation_SecondDiv_form">

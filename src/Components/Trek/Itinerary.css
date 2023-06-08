@@ -25,9 +25,42 @@ padding: 20px;
 
 color: #57BEBE;
 }
+.typography_header{
+    width: 100%;
+    padding: 10px 0;
+    color: #57BEBE !important;
+}
+.AccordionDetails{
+    color: #0000008C;
+}
+.AccordionDetails ul{
+    border-top: 1px solid #0000008C;
+    padding-top: 16px;
+}
+.eachday__gallery{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding: 10px 0;
+}
+.itineray__list{
+    padding-left: 20px;
+}
+.faq__list{
+    list-style-type: none;
+}
 
 @media (max-width:600px){
     .Accordian-Wrapper .not-mobile{
         display: none;
+    }
+    .eachday__gallery > img{
+        width: 25% !important;
+        padding: 5px;
+    }
+    .eachday__gallery{
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: nowrap;
     }
 }
