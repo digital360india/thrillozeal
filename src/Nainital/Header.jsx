@@ -4,7 +4,7 @@ import divider from '../home/img/Line 2.png'
 import search from '../home/img/search.png';
 import call from '../home/img/phone-call.png';
 import menu from '../home/img/menu.png';
-import { useHistory } from 'react-router-dom';
+import { useHistory,useLocation } from 'react-router-dom';
 import { useStateValue } from '../StateProvider';
 import { actionTypes } from '../reducer';
 import {KeyboardArrowDownOutlined as KeyboardArrowDownOutlinedIcon, 
@@ -13,8 +13,10 @@ import {KeyboardArrowDownOutlined as KeyboardArrowDownOutlinedIcon,
 } from "@mui/icons-material";
 function Header() {
     const history = useHistory();
-    // JvH2wjbXOWgoOA17X4GWNainital
     
+    // const routerData=useLocation();
+    // JvH2wjbXOWgoOA17X4GWNainital
+    // console.log(routerData?.state?.activity)
     const [{ globalVariable}, dispatch] = useStateValue();
 
     const [showsearch, setShowsearch] = useState(false);
@@ -23,8 +25,8 @@ function Header() {
     
     const [input, setInput] = useState('');
     const [input2, setInput2] = useState('');
-    const [location, setLocation] = useState('')
-    const [activity, setActivity] = useState('')
+    const [location, setLocation] = useState('All_Location')
+    const [activity, setActivity] = useState('All_Activities')
     
     const onFocus = () => {
         setShowdropdown_act(true);
@@ -53,19 +55,19 @@ function Header() {
     }
     
     const Search_Click = () => {
-        history.push(`/${location}`)
+        history.push(`/${location ? location:"All_Location"}/${activity ? activity:"All_Activities"}/All_Styles`);
     }
 
     const goToPage = (location) => {
         history.push(`/${location}`)
     }
     
-    const searchByClick = (loc) => {
-        setInput2(loc);
-        setLocation(loc);
-        history.push(`/${loc}`);
-        setShowdropdown(false);
-    }
+    // const searchByClick = (loc) => {
+    //     setInput2(loc);
+    //     setLocation(loc);
+    //     history.push(`/${loc}`);
+    //     setShowdropdown(false);
+    // }
     
     var btn = document.getElementById("sub");
     btn?.addEventListener("keydown", function (e) {
@@ -102,9 +104,9 @@ function Header() {
                     <input onFocus={onFocus} value={input}   type="text" placeholder="Activities" onChange={onChangeAct} />
                     
                         <div className={showdropdown_act ? "header__dropdown" : 'header__dropdownnone'}>
-                            {globalVariable?.Activities?.filter((n) => n.toLowerCase().includes(input.toLowerCase())).length > 0 ? globalVariable?.Activities?.filter((n) => n.toLowerCase().includes(input.toLowerCase())).map((loc) => (
-                                <h5 onClick={() => { setActivity(loc); setInput(loc); setShowdropdown_act(false) }} className='header__dropdown_h5'>{loc}</h5>
-                            )) : <h5 onClick={() => { setActivity(''); setShowdropdown_act(false) }}className='header__dropdown_h5'>No result</h5>}
+                            {globalVariable?.Activities && Object.entries(globalVariable?.Activities).filter((n) => n[1].toLowerCase().includes(input.toLowerCase())).length > 0 ? Object.entries(globalVariable?.Activities).filter((n) => n[1].toLowerCase().includes(input.toLowerCase())).map((loc) => (
+                                <h5 onClick={() => { setActivity(loc[1]); setInput(loc[1]); setShowdropdown_act(false) }} className='header__dropdown_h5'>{loc[1]}</h5>
+                            )) : <h5 onClick={() => { setActivity("All_Activities"); setShowdropdown_act(false) }}className='header__dropdown_h5'>No result</h5>}
                         </div>
                     
                     <div onClick={() => { setShowdropdown_act(!showdropdown_act) }} className='dropdown' ><KeyboardArrowDownOutlinedIcon/></div>
@@ -116,7 +118,7 @@ function Header() {
                             {globalVariable?.Locations.filter((n) => n.toLowerCase().includes(input2.toLowerCase())).length > 0 ? globalVariable?.Locations.filter((n) => n.toLowerCase().includes(input2.toLowerCase())).map((loc) => (
                                 <h5 onClick={() => { setInput2(loc)
                                     setLocation(loc)}} className='header__dropdown_h5'>{loc}</h5>
-                            )) : <h5 onClick={() => setLocation("")} className='header__dropdown_h5'>No result</h5>}
+                            )) : <h5 onClick={() => setLocation("All_Location")} className='header__dropdown_h5'>No result</h5>}
                         </div>
                     }
                     <img className='N__divider' src={divider} alt="" />

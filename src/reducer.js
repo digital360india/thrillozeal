@@ -2,8 +2,8 @@ export const initialState = {
   Travel_Style: ["Couples", "Friends", "Family", "Corporate", "School Trips", "Workation", "Solo", "Bike Trips"],
   filter_season: ["Trending Packages", "Lightening Deals"],
   filter_prices: ["All price range", "0-5K", "5K-10K", "10K-15K", "15K-20K"],
-  useFilter_act: '',
-  useFilter_style: '',
+  activity: '',
+  Trek_style: '',
   useFilter_price: "All price range",
   filter_Data: [],
   All_Data: [],
@@ -13,8 +13,8 @@ export const initialState = {
 
 export const actionTypes = {
   SET_PRICES: 'SET_PRICES',
-  SET_USE_FILTER_ACT: 'SET_USE_FILTER_ACT',
-  SET_USE_FILTER_STY: 'SET_USE_FILTER_STY',
+  SET_ACTIVITY: 'SET_ACTIVITY',
+  SET_STYLE: 'SET_STYLE',
   SET_USE_FILTER_ACT_STRING: 'SET_USE_FILTER_ACT_STRING',
   SET_USE_FILTER_PRICES: 'SET_USE_FILTER_PRICES',
   SET_USE_FILTER_DATA: 'SET_USE_FILTER_DATA',
@@ -46,15 +46,15 @@ const reducer = (state, action) => {
         ...state,
         filter_Data: action.filter_Data,
       };
-    case actionTypes.SET_USE_FILTER_ACT:
+    case actionTypes.SET_ACTIVITY:
       return {
         ...state,
-        useFilter_act: action.useFilter_act,
+        activity: action.activity,
       };
-    case actionTypes.SET_USE_FILTER_STY:
+    case actionTypes.SET_STYLE:
       return {
         ...state,
-        useFilter_style: action.useFilter_style,
+        Trek_style: action.Trek_style,
       };
     case actionTypes.SET_USE_FILTER_PRICES:
       return {

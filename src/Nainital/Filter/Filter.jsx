@@ -9,52 +9,86 @@ import lowhigh from './img/low-high.png';
 import cross from './img/cross.svg';
 import { useStateValue } from '../../StateProvider';
 import { actionTypes } from '../../reducer';
+import { useParams } from 'react-router-dom';
+import db from '../../firebase';
 
-function Filter({ data, setData_Filtered }) {
+function Filter({ data, data_Filtered, setData_Filtered, activity }) {
+    var { location, activity, styles } = useParams();
+    const [active, setActive] = useState(' ');
 
-    const [active, setActive] = useState('a');
     // console.log(props.filter_by_price_inc)
     const [{ globalVariable, Travel_Style, filter_prices, useFilter_price }, dispatch] = useStateValue();
-
+    // console.log()
     const [showslider, setShowslider] = useState(false);
     const [showfilter, setShowfilter] = useState(false);
     const [width, setWidth] = useState(window.screen.width);
     // const [filterArrayloc, setFilterArrayloc] = useState([]);
     const [filterArrayact, setFilterArrayact] = useState([]);
-    const [useFilter_act, setuseFilter_act] = useState('');
-    const [filterArraysty, setFilterArraysty] = useState([]);
-    const [useFilter_style, setuseFilter_style] = useState('');
+    const [useFilter_act, setuseFilter_act] = useState('')
+    const [filterArraycate, setFilterArraycate] = useState([]);
+    const [useFilter_cate, setuseFilter_cate] = useState('');
 
-    const trendingPackage = () => {
-        const temp = data.filter((trek) => {
-            return trek?.trek_data?.packagetype === "Trending";
-        });
-        setData_Filtered([...temp])
+    useEffect(() => {
+
+        if (globalVariable?.Activities) {
+            if (activity == "All_Activities" || !activity) {
+                setFilterArrayact([...Object.values(globalVariable.Activities)]);
+                setuseFilter_act(
+                    globalVariable.Activities && Object.keys(globalVariable.Activities).find(key => globalVariable.Activities[key])
+                );
+            } else {
+                setFilterArrayact([activity]);
+                console.log(filterArrayact)
+                setuseFilter_act(
+                    globalVariable.Activities && Object.keys(globalVariable.Activities).find(key => globalVariable.Activities[key] === activity)
+                );
+            }
+            if (styles == "All_Styles" || !styles) {
+                setFilterArraycate([...Object.values(globalVariable.Categories)]);
+                setuseFilter_cate(
+                    globalVariable.Categories && Object.keys(globalVariable.Categories).find(key => globalVariable.Categories[key])
+                );
+            } else {
+                setFilterArraycate([styles]);
+                setuseFilter_cate(
+                    globalVariable.Categories && Object.keys(globalVariable.Categories).find(key => globalVariable.Categories[key] === styles)
+                );
+            }
+
+        }
+    }, [activity, globalVariable?.Activities]);
+    // console.log(filterArrayact)
+
+
+    const trendingPackage = (trek) => {
+        // const temp = data.filter((trek) => {
+        return trek?.trek_data?.packagetype === "Trending";
+        // });
+        // setData_Filtered([...temp])
     }
-    const filter_by_price_inc = () => {
-        const temp = data;
-        temp.sort((a, b) => {
-            return a?.trek_data?.price - b?.trek_data?.price;
-        });
-        setData_Filtered([...temp])
+    const filter_by_price_inc = (a, b) => {
+        // const temp = data;
+        // temp.sort((a, b) => {
+        return a?.trek_data?.price - b?.trek_data?.price;
+        // });
+        // setData_Filtered([...temp])
     }
-    const filter_by_price_desc = () => {
-        const temp = data;
-        temp.sort((a, b) => {
-            return b?.trek_data?.price - a?.trek_data?.price;
-        });
-        setData_Filtered([...temp])
+    const filter_by_price_desc = (a, b) => {
+        // const temp = data;
+        // temp.sort((a, b) => {
+        return b?.trek_data?.price - a?.trek_data?.price;
+        // });
+        // setData_Filtered([...temp])
     }
-    const increasing_rating = () => {
-        const temp = data;
-        temp.sort((a, b) => {
-            return b?.trek_data?.review - a?.trek_data?.review;
-        });
-        setData_Filtered([...temp])
+    const increasing_rating = (a, b) => {
+        // const temp = data;
+        // temp.sort((a, b) => {
+        return b?.trek_data?.review - a?.trek_data?.review;
+        // });
+        // setData_Filtered([...temp])
     }
 
     // const [filterArraypri, setFilterArraypri] = useState('All price range');
-
     // dispatch({
     //     type: actionTypes.SET_USER,
     //     user: auth,
@@ -68,17 +102,19 @@ function Filter({ data, setData_Filtered }) {
         setShowfilter(!showfilter);
     }
 
-    const check__checkBoxAct = (e, dest,index) => {
+    const check__checkBoxAct = (e, dest, val) => {
         // console.log(index)
         const checked = e.target.checked;
         if (checked) {
             filterArrayact.push(dest);
             const na = [...filterArrayact]
-            setuseFilter_act(prev=>prev+index)
+            setuseFilter_act(prev => prev + val)
             console.log(useFilter_act)
         } else {
-            const index = filterArrayact.findIndex(checkAge);
+            const ind = useFilter_act.indexOf(val);
+            setuseFilter_act(useFilter_act.slice(0, ind) + useFilter_act.slice(ind + 1));
 
+            const index = filterArrayact.findIndex(checkAge);
             function checkAge(age) {
                 return age == dest;
             }
@@ -86,43 +122,32 @@ function Filter({ data, setData_Filtered }) {
                 filterArrayact.splice(index, 1);
                 const na = [...filterArrayact]
                 setFilterArrayact(na)
-                dispatch({
-                    type: actionTypes.SET_USE_FILTER_ACT,
-                    useFilter_act: filterArrayact,
-                });
             }
         }
     }
 
-    const check__checkBoxSty = (e, sty) => {
+    const check__checkBoxCate = (e, dest, val) => {
+
         const checked = e.target.checked;
         if (checked) {
-            filterArraysty.push(sty);
-            const na = [...filterArraysty]
-            setFilterArraysty(na);
-            dispatch({
-                type: actionTypes.SET_USE_FILTER_STY,
-                useFilter_style: filterArraysty,
-            });
+            filterArraycate.push(dest);
+            const na = [...filterArraycate]
+            setuseFilter_cate(prev => prev + val)
+            setFilterArraycate(na);
         } else {
-            const index = filterArraysty.findIndex(checkAge);
+            const ind = useFilter_cate.indexOf(val);
+            setuseFilter_cate(useFilter_cate.slice(0, ind) + useFilter_cate.slice(ind + 1));
+
+            const index = filterArraycate.findIndex(checkAge);
 
             function checkAge(age) {
-                console.log(age)
-                return age == sty;
+                return age == dest;
             }
+
             if (index >= 0) {
-                filterArraysty.splice(index, 1);
-                const na = [...filterArraysty]
-                setFilterArraysty(na)
-                dispatch({
-                    type: actionTypes.SET_USE_FILTER_STY,
-                    useFilter_style: filterArraysty,
-                });
-            } else {
-                console.warn(
-                    `Cant remove product (id: ) as its not in basket!`
-                )
+                filterArraycate.splice(index, 1);
+                const na = [...filterArraycate]
+                setFilterArraycate(na)
             }
         }
     }
@@ -135,8 +160,54 @@ function Filter({ data, setData_Filtered }) {
         });
     }
 
-    const applyFilter = () => {
+    const filter_by_categories = (trek) => {
+        if (useFilter_cate == "" && activity == "All_Activities") {
+            return true;
+        }
+        return trek?.trek_data?.categories?.toLowerCase().includes(useFilter_cate.split("").sort().join(""));
+    }
 
+    const filter_by_styles = (trek) => {
+        if (useFilter_act == "" && styles == "All_Styles") {
+            return true;
+        }
+        return trek?.trek_data?.activities?.toLowerCase()?.includes(useFilter_act.split("").sort().join(""));
+    }
+
+    const allFilter = (trek) => {
+        return filter_by_styles(trek) && filter_by_categories(trek);
+    }
+
+    const applyFilter = (chr) => {
+
+        console.log("", chr, "useFilter_cate.split", useFilter_cate.split("").sort().join(""), useFilter_act.split("").sort().join(""))
+
+        var temp = data;
+
+        if (chr == 'a') {
+
+            setData_Filtered(temp.filter((trek) => {
+                return allFilter(trek) && trendingPackage(trek);
+            }))
+
+        } else if (chr == 'b') {
+
+            setData_Filtered(temp.filter((trek) => {
+                return allFilter(trek);
+            }).sort((a, b) => filter_by_price_inc(a, b)));
+
+        } else if (chr == 'c') {
+
+            setData_Filtered(temp.filter((trek) => {
+                return allFilter(trek);
+            }).sort((a, b) => filter_by_price_desc(a, b)));
+
+        } else if (chr == 'd') {
+
+            setData_Filtered(temp.filter((trek) => {
+                return allFilter(trek);
+            }).sort((a, b) => increasing_rating(a, b)))
+        }
     }
     return (
 
@@ -155,22 +226,22 @@ function Filter({ data, setData_Filtered }) {
             </div>
                 <div className="images__list">
                     {/* <img src={group1} alt="" /> */}
-                    <div className={active == 'a' ? 'filter_image__div filter_image__active' : 'filter_image__div'} onClick={() => { setActive('a'); trendingPackage(); }}>
+                    <div className={active == 'a' ? 'filter_image__div filter_image__active' : 'filter_image__div'} onClick={() => { setActive('a'); applyFilter('a'); }}>
                         <img src={progress} alt="" />
                         <h6>Popularity</h6>
                         <p>popularity first</p>
                     </div>
-                    <div className={active == 'b' ? 'filter_image__div filter_image__active' : 'filter_image__div'} onClick={() => { setActive('b'); filter_by_price_inc() }}>
+                    <div className={active == 'b' ? 'filter_image__div filter_image__active' : 'filter_image__div'} onClick={() => { setActive('b'); applyFilter('b') }}>
                         <img src={lowhigh} alt="" />
                         <h6>Price</h6>
                         <p>low to high</p>
                     </div>
-                    <div className={active == 'c' ? 'filter_image__div filter_image__active' : 'filter_image__div'} onClick={() => { setActive('c'); filter_by_price_desc() }}>
+                    <div className={active == 'c' ? 'filter_image__div filter_image__active' : 'filter_image__div'} onClick={() => { setActive('c'); applyFilter('c') }}>
                         <img src={highlow} alt="" />
                         <h6>Price</h6>
                         <p>high to low</p>
                     </div>
-                    <div className={active == 'd' ? 'filter_image__div filter_image__active' : 'filter_image__div'} onClick={() => { setActive('d'); increasing_rating() }}>
+                    <div className={active == 'd' ? 'filter_image__div filter_image__active' : 'filter_image__div'} onClick={() => { setActive('d'); applyFilter('d') }}>
                         <img src={star} alt="" />
                         <h6>Ratings</h6>
                         <p>Highest Ratings</p>
@@ -203,52 +274,46 @@ function Filter({ data, setData_Filtered }) {
                     {/* Categories */}
                     <div className="two_checkbox">
                         <h6>Categories</h6>
-                        {filterArraysty > 0 &&
+                        {filterArraycate.length > 0 &&
                             <div className="show_filterArray">
-                                {filterArraysty.map(arr => (
+                                {filterArraycate.map(arr => (
                                     <h5>
                                         {arr}
-                                        {/* <img className='filter_Cross' src={cross} alt="" onClick={()=>remove_from_array(arr)}/> */}
                                     </h5>
                                 ))}
                             </div>
                         }
-                        {globalVariable?.Categories?.map((dest,index) => (
+                        {globalVariable?.Categories && Object.entries(globalVariable?.Categories)?.map((dest) => (
                             <div className='checkbox'>
-                                <input type="checkbox" onClick={(e) => { check__checkBoxAct(e, dest,index) }} />
-                                <p>{dest}</p>
+                                <input type="checkbox" onClick={(e) => { check__checkBoxCate(e, dest[1], dest[0]) }} />
+                                <p>{dest[1]}</p>
                             </div>
                         ))}
 
-                        <div className="loadMore">
+                        {/* <div className="loadMore">
                             Load More..
-                        </div>
+                        </div> */}
                     </div>
                     {/* Categories */}
                     <div className="two_checkbox">
                         <h6>Travel Style</h6>
-                        {globalVariable?.Activities.map((sty) => (
+                        {filterArrayact.length > 0 &&
+                            <div className="show_filterArray">
+                                {filterArrayact.map(arr => (
+                                    <h5>
+                                        {arr}
+                                    </h5>
+                                ))}
+                            </div>
+                        }
+                        {globalVariable?.Activities && Object.entries(globalVariable?.Activities)?.map((sty) => (
                             <div className='checkbox'>
-                                <input type="checkbox" onClick={(e) => check__checkBoxSty(e, sty)} />
-                                <p>{sty}</p>
+                                <input type="checkbox" checked={filterArrayact.filter((data) => {
+                                    return data.includes(sty[1]);
+                                }).length > 0} onClick={(e) => check__checkBoxAct(e, sty[1], sty[0])} />
+                                <p>{sty[1]}</p>
                             </div>
                         ))}
-                        {/* <div className='checkbox'>
-                            <input type="checkbox" />
-                            <p>Friends</p>
-                        </div>
-                        <div className='checkbox'>
-                            <input type="checkbox" />
-                            <p>Family</p>
-                        </div>
-                        <div className='checkbox'>
-                            <input type="checkbox" />
-                            <p>Couple</p>
-                        </div> */}
-
-                        <div className="loadMore">
-                            Load More..
-                        </div>
                     </div>
 
                     {/* Price Range */}

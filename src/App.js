@@ -54,11 +54,11 @@ function App() {
       <Route path='/about'>
       <AboutUs />
       </Route>
+        <Route path="/:location/:activity/:styles">
+          <Location />
+        </Route>
         <Route path="/:location_id/:trek_id">
           <SubLocation />
-        </Route>
-        <Route path="/:location">
-          <Location />
         </Route>
         <Route path="/">
           <FirstHome />
