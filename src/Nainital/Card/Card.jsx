@@ -19,7 +19,7 @@ import Stars from "../../Components/Stars/Stars";
 function Card({ data }) {
   const { location } = useParams();
   const history = useHistory();
-  console.log("data", data?.data);
+  // console.log("data", data?.data);
   return (
     <div
       className="nainital__card"
@@ -29,10 +29,10 @@ function Card({ data }) {
     >
       <div className="card__c1">
         <div className="top__img_c1">
-          {data?.data?.img ? (
+          {data?.trek_data?.img ? (
             <img
-              style={{ width: "320px", borderRadius: "20px", height: "180px" }}
-              src={data?.data?.img}
+              style={{ width: "320px", borderRadius: "20px",height:"180px" }}
+              src={data?.trek_data?.img}
               alt=""
             />
           ) : (
@@ -40,19 +40,19 @@ function Card({ data }) {
           )}
         </div>
         <div className="bott__img_c1">
-          {data?.data?.img1 ? (
+          {data?.trek_data?.img1 ? (
             <img
-              style={{ width: "100px", height: "80px", paddingTop: "4px", borderRadius: "20px" }}
-              src={data?.data?.img1}
+              style={{ width: "100px", height: "80px",paddingTop:"4px", borderRadius: "20px" }}
+              src={data?.trek_data?.img1}
               alt=""
             />
           ) : (
             <img src={img2} alt="" />
           )}
-          {data?.data?.img2 ? (
+          {data?.trek_data?.img2 ? (
             <img
-              style={{ width: "100px", height: "80px", paddingTop: "4px", borderRadius: "20px", marginLeft: "2px", marginRight: "2px" }}
-              src={data?.data?.img2}
+              style={{ width: "100px", height: "80px",paddingTop:"4px", borderRadius: "20px" , marginLeft:"2px" , marginRight:"2px"}}
+              src={data?.trek_data?.img2}
               alt=""
             />
           ) : (
@@ -65,10 +65,10 @@ function Card({ data }) {
 
 
           {/* <img src={imgmore} alt="" /> */}
-          {data?.data?.img3 ? (
+          {data?.trek_data?.img3 ? (
             <img
-              style={{ width: "100px", height: "80px", paddingTop: "4px", borderRadius: "20px", marginLeft: "2px", marginRight: "2px" }}
-              src={data?.data?.img3}
+              style={{ width: "100px", height: "80px",paddingTop:"4px", borderRadius: "20px" , marginLeft:"2px" , marginRight:"2px"}}
+              src={data?.trek_data?.img3}
               alt=""
             />
           ) : (
@@ -81,24 +81,24 @@ function Card({ data }) {
         </div>
       </div>
       <div className="card__c2">
-        <div class="card__c2_head">{data?.data?.name}</div>
+        <div class="card__c2_head">{data?.trek_data?.name}</div>
         <div className="card__c2_body">
           <div className="card__c2_innner">
-            <AccessTimeRoundedIcon sx={{ color: "#57BEBE" }} />
-            <div className="c2__text">{data?.data?.day}D/{data?.data?.night}N</div>
+             <AccessTimeRoundedIcon sx={{ color: "#57BEBE" }} />
+            <div className="c2__text">{data?.trek_data?.day}D/{data?.trek_data?.night}N</div>
           </div>
           <div className="card__c2_innner">
             <LocationOnOutlinedIcon sx={{ color: "#57BEBE" }} />
-            <div className="c2__text">{data?.data?.location}</div>
+            <div className="c2__text">{data?.trek_data?.location}</div>
           </div>
           <br />
           <div className="card__c2_innner card__c2_innner2">
             <div className="naini__stars">
-              <Stars review={data?.data?.review} />
-              <p>based on {data?.data?.reviewNo} reviews</p>
+             <Stars review={data?.data?.review} />
+              <p>based on {data?.trek_data?.reviewNo} reviews</p>
             </div>
             <div className="naini__rating">
-              <p>{data?.data?.review}</p>
+              <p>{data?.trek_data?.review}</p>
             </div>
           </div>
         </div>
@@ -126,10 +126,10 @@ function Card({ data }) {
         </div>
         <div className="nain__pricing">
           <div className="pricing1">
-            Starting from <span>INR {data?.data?.pricecross}</span>
+            Starting from <span>INR {data?.trek_data?.pricecross}</span>
           </div>
           <div className="pricing2">
-            INR {data?.data?.price}
+            INR {data?.trek_data?.price}
             <span>per adult</span>
           </div>
         </div>

@@ -13,243 +13,51 @@ import { useStateValue } from '../StateProvider';
 import PaginatedItems from './PaginatedItems';
 import { actionTypes } from '../reducer';
 import { useHistory } from 'react-router-dom';
-// import { filterbyActivities } from './FilterFunction';
+import ArrowRightRoundedIcon from '@mui/icons-material/ArrowRightRounded';
+import ArrowLeftRoundedIcon from '@mui/icons-material/ArrowLeftRounded';
 
 function Location() {
 
   var { location } = useParams();
-
   const history = useHistory();
 
-  const [{ globalVariable,All_Treks, useFilter_act, filter_Data, useFilter_price, useFilter_style }, dispatch] = useStateValue();
-  // const [city,setCity]=useState(location);
-
+  const [{All_Treks}, dispatch] = useStateValue();
 
   const [data, setData] = useState(null);
   const [data_Filtered, setData_Filtered] = useState([]);
   const [dataCard, setDataCard] = useState([]);
-
-  const str = location.charAt(0).toUpperCase() + location.slice(1);
-
-  const goToPage = (location) => {
-    history.push(`/${location}`)
-}
-
-
-  useEffect(() => {
-    if (str)
-      db.collection('Cities').doc('JvH2wjbXOWgoOA17X4GW' + str)
-        .onSnapshot((snapshot) => {
-          setData(snapshot.data())
-        })
-  }, [str]);
-
-  useEffect(() => {
-    db.collection('GlobalVariable').doc("GlobalVariable").onSnapshot((snapshot) => (
-      dispatch({
-        type: actionTypes.SET_USE_ALL_DATA,
-        All_Data: snapshot.data(),
-      })
-    ))
-  }, []);
-
-  // geting all the data from the db for card start
-  useEffect(() => {
-    if (str)
-      //  from the 0-5k
-      db.collection('Cities').doc('JvH2wjbXOWgoOA17X4GW' + str).collection('All_Trek').onSnapshot((snapshot) => {
-        // const na=
-        setData_Filtered(
-          snapshot.docs.map((doc) => ({
-            id: doc.id,
-            data: doc.data(),
-          }))
-        )
-      }
-      )
-    //  from the 5-10k
-    // db.collection('Cities').doc('JvH2wjbXOWgoOA17X4GW' + str).collection(str + '_5-10K').onSnapshot((snapshot) => {
-    //   setDataCard2(
-    //     snapshot.docs.map((doc) => ({
-    //       id: doc.id,
-    //       data: doc.data(),
-    //     }))
-    //   )
-    // }
-    // )
-    // //  from the 10-15k
-    // db.collection('Cities').doc('JvH2wjbXOWgoOA17X4GW' + str).collection(str + '_10-15K').onSnapshot((snapshot) => {
-    //   setDataCard3(
-    //     snapshot.docs.map((doc) => ({
-    //       id: doc.id,
-    //       data: doc.data(),
-    //     }))
-    //   )
-    // }
-    // )
-    // //  from the 15k-20k
-    // db.collection('Cities').doc('JvH2wjbXOWgoOA17X4GW' + str).collection(str + '_15-20K').onSnapshot((snapshot) => {
-    //   setDataCard4(
-    //     snapshot.docs.map((doc) => ({
-    //       id: doc.id,
-    //       data: doc.data(),
-    //     }))
-    //   )
-    // }
-    // )
-  }, [str]);
-
-
-  // useEffect(() => {
-  //   // if (dataCard1.length > 0 && dataCard2.length > 0 && dataCard3.length > 0 && dataCard4.length > 0) {
-  //   setDataCard([...dataCard1, ...dataCard2, ...dataCard3, ...dataCard4])
-  //   // }
-  // }, [dataCard4, dataCard3, dataCard2, dataCard1])
-
-  // useState
-
-  // useEffect(() => {
-  // dispatch({
-  //   type: actionTypes.SET_USE_ALL_DATA,
-  //   All_Data: dataCard,
-  // });
-  //   dispatch({
-  //     type: actionTypes.SET_USE_FILTER_DATA,
-  //     filter_Data: dataCard,
-  //   });
-  // }, [dataCard])
-
-  // filter by price range
-  // const filterbyrange=()=>{
-  //   if(useFilter_price==="All price range"){
-  //     dispatch({
-  //       type: actionTypes.SET_USE_FILTER_DATA,
-  //       filter_Data: dataCard,
-  //     });
-  //   }else if(useFilter_price==="0-5K"){
-  //     dispatch({
-  //       type: actionTypes.SET_USE_FILTER_DATA,
-  //       filter_Data: dataCard1,
-  //     });
-  //   }else if(useFilter_price==="5K-10K"){
-  //     dispatch({
-  //       type: actionTypes.SET_USE_FILTER_DATA,
-  //       filter_Data: dataCard2,
-  //     });
-  //   }else if(useFilter_price==="10K-15K"){
-  //     dispatch({
-  //       type: actionTypes.SET_USE_FILTER_DATA,
-  //       filter_Data: dataCard3,
-  //     });
-  //   }else if(useFilter_price==="15K-20K"){
-  //     dispatch({
-  //       type: actionTypes.SET_USE_FILTER_DATA,
-  //       filter_Data: dataCard4,
-  //     });
-  //   }
-  // }
-  useEffect(() => {
-    // if(useFilter_price==="All price range")
-    dispatch({
-      type: actionTypes.SET_USE_FILTER_DATA,
-      filter_Data: dataCard,
-    });
-  }, [dataCard])
-
-  // filterbyActivities 
-  const filterbyActivities = () => {
-    var actvar = '';
-    var str = '';
-    // useFilter_act
-    if (useFilter_act.length > 0) {
-      for (var i = 0; i < useFilter_act.length; i++) {
-        if (useFilter_act[i] === "Trekking") {
-          actvar = 'a';
-        } else if (useFilter_act[i] === "Rafting") {
-          actvar = 'b';
-        } else if (useFilter_act[i] === "Camping") {
-          actvar = 'c';
-        } else if (useFilter_act[i] === "Expeditions") {
-          actvar = 'd';
-        } else if (useFilter_act[i] === "Tours") {
-          actvar = 'e';
-        } else if (useFilter_act[i] === "Explore") {
-          actvar = 'f';
-        } else if (useFilter_act[i] === "Water Sports") {
-          actvar = 'g';
-        } else if (useFilter_act[i] === "Adventure Sports") {
-          actvar = 'h'
-        } else if (useFilter_act[i] === "Picnics") {
-          actvar = 'i'
-        } else if (useFilter_act[i] === "Day-outs") {
-          actvar = 'j';
-        } else if (useFilter_act[i] === "Skiing") {
-          actvar = 'k';
-        }
-        str += actvar;
-      }
-      console.log("setData_Filtered", str, filter_Data.filter((n) => n?.data?.Act_Var.toLowerCase().includes(str.toLowerCase())))
-      setData_Filtered(filter_Data.filter((n) => n?.data?.Act_Var.toLowerCase().includes(str.toLowerCase())))
-    } else {
-      setData_Filtered(filter_Data)
+  const [currentIndex, setCurrentIndex] = useState(0);
+  
+  const increaseIndex = () => {
+    if (currentIndex + 8 < data_Filtered.length) {
+      setCurrentIndex(currentIndex + 8);
+      window.scrollTo(0, 450.5);
     }
   }
 
-  // for style filter 
-  const filterbyStyles = () => {
-    var styvar = '';
-    var Stystr = '';
-    // useFilter_style
-    if (useFilter_style?.length > 0) {
 
-      for (var i = 0; i < useFilter_style.length; i++) {
-        if (useFilter_style[i] === "Couples") {
-          styvar = 'a';
-        } else if (useFilter_style[i] === "Friends") {
-          styvar = 'b';
-        } else if (useFilter_style[i] === "Family") {
-          styvar = 'c';
-        } else if (useFilter_style[i] === "Corporate") {
-          styvar = 'd';
-        } else if (useFilter_style[i] === "School Trips") {
-          styvar = 'e';
-        } else if (useFilter_style[i] === "Workation") {
-          styvar = 'f';
-        } else if (useFilter_style[i] === "Solo") {
-          styvar = 'g';
-        } else if (useFilter_style[i] === "Adventure Sports") {
-          styvar = 'h'
-        } else if (useFilter_style[i] === "Bike Trips") {
-          styvar = 'i'
-        }
-        Stystr += styvar;
-      }
-      // console.log("setData_Filtered", Stystr, filter_Data.filter((n) => n?.data?.Tra_Var.toLowerCase().includes(Stystr.toLowerCase())))
-      setData_Filtered(filter_Data.filter((n) => n?.data?.Tra_Var.toLowerCase().includes(Stystr.toLowerCase())))
-    } else {
-      setData_Filtered(filter_Data)
+  const decreaseIndex = () => {
+    if (currentIndex - 8 >= 0) {
+      setCurrentIndex(currentIndex - 8);
+      window.scrollTo(0, 450.5);
     }
   }
+
+
   useEffect(() => {
-    setData_Filtered(filter_Data);
-  }, [filter_Data])
+    if(location!='All_Location'){
+      const temp = All_Treks.filter((trek) => {
+        return trek?.trek_data?.city ? trek?.trek_data?.city.toLowerCase() === location.toLowerCase() : false;
+      });
+      setData([...temp])
+      setData_Filtered([...temp]);
+    }else{
+      setData([...All_Treks])
+      setData_Filtered([...All_Treks]);
+    }
 
-  const ReadMore = ({ children }) => {
-    const text = children;
-    const [isReadMore, setIsReadMore] = useState(true);
-    const toggleReadMore = () => {
-      setIsReadMore(!isReadMore);
-    };
-    return (
-      <p className="smallContent__body">
-        {isReadMore ? text?.slice(0, 350)+"..." : text}
-        <span onClick={toggleReadMore} className="read-or-hide, Read__More">
-          {isReadMore ? "Read more" : " Show less"}
-        </span>
-      </p>
-    );
-  };
-
+  }, [location, All_Treks]);
+  
   return (
     <div className='nainital'>
       <Header />
@@ -257,6 +65,13 @@ function Location() {
         <img className='nainital__body_img' src={data?.img} alt="" />
         <div className='Name_on_img'>{data?.Name}</div>
         <div className='offer_on_img2'>Get Flat 25% off</div>
+        <div>
+          <h2>
+            {
+              // globalVariable?.Act
+            }
+          </h2>
+        </div>
         <div className="nainital__body_first">
           <div className="smallHeader">
             <div onClick={() => goToPage('')} className="header_name">
@@ -280,7 +95,7 @@ function Location() {
           <div className="nainitalBody__input">
             <img src={search} alt="" />
             <input type="" placeholder='Search...' />
-            <div onClick={filterbyStyles} >
+            <div onClick={()=>{}} >
               49 Packages Found
             </div>
           </div>
@@ -288,20 +103,33 @@ function Location() {
         <div className="nainital__body_second">
           <div className="nainital__body_secondIn">
             <div className="nainital__filter">
-              <Filter />
+              <Filter data_Filtered={data_Filtered} setData_Filtered={setData_Filtered} data={data} />
+              {/* <button onClick={trendingPackage}>trendingPackage</button> */}
             </div>
             <div className="nainital__card_out">
               {/* {console.log("dataCard", dataCard)} */}
-              {data_Filtered.map((data) => (
+              {data_Filtered.slice(currentIndex, currentIndex + 8)?.map((data) => (
                 <Card data={data} />
               ))}
+              <div className="ListingNumber">
+                  <div className="BackArrowofList">
+                    <ArrowLeftRoundedIcon fontSize="medium" onClick={decreaseIndex} />
+                  </div>
+                  <div className="BackArrowofList">
+                    <ArrowRightRoundedIcon fontSize="medium" onClick={increaseIndex} />
+                  </div>
+                  <div className="numberInList">
+                    {currentIndex}-{currentIndex + 8 > data_Filtered?.length ? data_Filtered?.length : currentIndex + 8} of {data_Filtered?.length}
+                  </div>
+                </div>
+                <hr style={{margin:'10px 0 32px 0'}}/>
             </div>
           </div>
         </div>
       </div>
       <Destination trendingTreks={All_Treks.filter((trek) => {
-                return trek.trek_data.packagetype === "Trending";
-            })}/>
+        return trek.trek_data.packagetype === "Trending";
+      })} />
       <Footer />
     </div>
   )

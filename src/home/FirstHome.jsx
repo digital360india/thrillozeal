@@ -40,9 +40,10 @@ import Navbar from '../Components/Navbar/Navbar';
 import Header from '../Nainital/Header';
 import { actionTypes } from '../reducer';
 import db from '../firebase';
-import {KeyboardArrowDownOutlined as KeyboardArrowDownOutlinedIcon, 
+import {
+    KeyboardArrowDownOutlined as KeyboardArrowDownOutlinedIcon,
     LocationOnOutlined as LocationOnOutlinedIcon,
-    SearchOutlined as  SearchOutlinedIcon, Instagram as InstagramIcon,
+    SearchOutlined as SearchOutlinedIcon, Instagram as InstagramIcon,
 } from "@mui/icons-material";
 
 function FirstHome() {
@@ -53,14 +54,11 @@ function FirstHome() {
     const [showsearch, setShowsearch] = useState(false);
     const [showdropdown_act, setShowdropdown_act] = useState(false);
     const [showdropdown, setShowdropdown] = useState(false);
-    // const [img1, setimg1] = useState(background1);
-    // const [img2, setimg2] = useState(background1);
-    // const [ind, setind] = useState(01);
 
     const [input, setInput] = useState('');
     const [input2, setInput2] = useState('');
-    const [location, setLocation] = useState('')
-    const [activity, setActivity] = useState('')
+    const [location, setLocation] = useState('All_Location')
+    const [activity, setActivity] = useState('All_Activities')
 
     const [class1, setclass1] = useState('one');
     const [class2, setclass2] = useState('two');
@@ -96,19 +94,22 @@ function FirstHome() {
         setInput(e.target.value)
         setActivity(e.target.value)
     }
-    const onChangeloc = (e) => {
+const onChangeloc = (e) => {
         setInput2(e.target.value)
         setLocation(e.target.value)
     }
 
     const Search_Click = () => {
-        history.push(`/${location}`)
+        console.log("'first'")
+        history.push(`/${location && 'All_Location'}/${activity && 'All_Activities'}/All_Styles`);
     }
 
     const [newArr, setNewArr] = useState([icon1, icon2, icon3, icon4, icon5, icon6]);
     const [number, setNumber] = useState(1);
+    const [currentClass, setCurrentClass] = useState(false);
 
     const function1 = () => {
+        setCurrentClass(!currentClass);
         setNumber((number + 1) % 6)
         var temp = class6;
         setclass6(class5);
@@ -120,13 +121,12 @@ function FirstHome() {
         // setclass1(class2);
     }
 
-    // Infinite function to call function1 after every 5 seconds
     useEffect(() => {
         const interval = setInterval(() => {
             function1();
         }, 5000);
         return () => clearInterval(interval);
-    }, [number]);
+    }, [currentClass]);
 
     return (
         <>
@@ -189,34 +189,38 @@ function FirstHome() {
                             </div>
                         </div>
                         <div className="FirstHome__input" onBlur={onBlur} >
-                            <input onFocus={onFocus} value={activity} type="text" placeholder="Activities" onChange={onChangeAct} />
-                            {
-                                // <div className={showdropdown_act ? "header__dropdown" : 'header__dropdownnone'}>
-                                //.filter((n) => n.toLowerCase().includes(input.toLowerCase())).length > 0 ? activities.filter((n) => n.toLowerCase().includes(input.toLowerCase())).map((loc) => (
-                                //         <h5 onClick={() => { console.log("onFocus={onFocus}"); setActivity(loc); setInput(loc) }} className='header__dropdown_h5'>{loc}</h5>
-                                //     )) : <h5 onClick={() => { setActivity(''); setShowdropdown_act(false) }} className='header__dropdown_h5'>No result</h5>}
-                                // </div>
+                            <input onFocus={onFocus} value={input} type="text" placeholder="Activities" onChange={onChangeAct} />
+                            {/* this for activities dropdown */}
+                            <div onClick={() => { setShowdropdown_act(!showdropdown_act) }} className='dropdown' ><KeyboardArrowDownOutlinedIcon /></div>
+                            {showdropdown_act &&
+                                <div className="header__dropdown header__dropdown1">
+                                    {globalVariable?.Activities && Object.entries(globalVariable?.Activities)
+                                        .filter((n) => n[1].toLowerCase().includes(input?.toLowerCase())).length > 0 ? Object.entries(globalVariable?.Activities)
+                                            .filter((n) => n[1].toLowerCase().includes(input.toLowerCase())).map((act) => (
+                                                <h5 onClick={() => { setInput(act[1]); setActivity(act[1]) }} className='header__dropdown_h5'>{act[1]}</h5>
+                                            )) : <h5 onClick={() => { setInput(""); setActivity("All_Activities"); }} className='header__dropdown_h5'>No result</h5>}
+                                </div>
                             }
-                            <div onClick={() => { setShowdropdown_act(!showdropdown_act) }} className='dropdown' ><KeyboardArrowDownOutlinedIcon/></div>
                             <img className='divider' src={divider} alt="" />
-                            <div className='dropdown' onClick={() => { setShowdropdown(!showdropdown) }} ><LocationOnOutlinedIcon/></div>
-                            <input onFocus={onFocus1} value={location} type="text" placeholder="Location" onChange={onChangeloc} />
+                            <div className='dropdown' onClick={() => { setShowdropdown(!showdropdown) }} ><LocationOnOutlinedIcon /></div>
+                            <input onFocus={onFocus1} type="text" placeholder="Location" onChange={onChangeloc} />
+                            {/* this is for location dropdown */}
                             {showdropdown &&
                                 <div className="header__dropdown header__dropdown2">
                                     {globalVariable?.Locations
                                         .filter((n) => n.toLowerCase().includes(input2.toLowerCase())).length > 0 ? globalVariable?.Locations
                                             .filter((n) => n.toLowerCase().includes(input2.toLowerCase())).map((loc) => (
                                                 <h5 onClick={() => { setInput2(loc); setLocation(loc) }} className='header__dropdown_h5'>{loc}</h5>
-                                            )) : <h5 onClick={() => setLocation("")} className='header__dropdown_h5'>No result</h5>}
+                                            )) : <h5 onClick={() => setLocation("All_Location")} className='header__dropdown_h5'>No result</h5>}
                                 </div>
                             }
 
                             <img className='divider' src={divider} alt="" />
-                            <div className='search' onClick={Search_Click} ><SearchOutlinedIcon/></div>
+                            <div className='search' onClick={Search_Click} ><SearchOutlinedIcon /></div>
                         </div>
                         <div className='SocialLinks'>
                             <img className='social-link' src={facebookIcon} alt="" />
-                            <InstagramIcon/>
+                            <InstagramIcon />
                             <img className='social-link' src={linkedinIcon} alt="" />
                             <img className='social-link' src={twitterIcon} alt="" />
                         </div>
