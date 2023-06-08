@@ -21,13 +21,34 @@ function Location() {
   var { location } = useParams();
   const history = useHistory();
 
-  const [{All_Treks}, dispatch] = useStateValue();
+  const [{ All_Treks }, dispatch] = useStateValue();
 
   const [data, setData] = useState(null);
+  const [dataTrek, setDataTrek] = useState(null);
   const [data_Filtered, setData_Filtered] = useState([]);
   const [dataCard, setDataCard] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
-  
+  const [searchByName, setSearchByName] = useState('');
+  const str = location.charAt(0).toUpperCase() + location.slice(1);
+
+  useEffect(() => {
+    if (str)
+      db.collection('Cities').doc('JvH2wjbXOWgoOA17X4GW' + str)
+        .onSnapshot((snapshot) => {
+          setData(snapshot.data())
+        })
+  }, [str]);
+
+  useEffect(() => {
+    if (dataTrek?.length > 0 && searchByName?.length > 0) {
+      setData_Filtered(dataTrek?.filter((trek) => {
+        return trek?.trek_data?.name ? trek?.trek_data?.name?.toLowerCase().includes(searchByName.toLowerCase()) : true;
+      }))
+    } else {
+      setData_Filtered(dataTrek);
+    }
+  }, [searchByName]);
+
   const increaseIndex = () => {
     if (currentIndex + 8 < data_Filtered.length) {
       setCurrentIndex(currentIndex + 8);
@@ -35,6 +56,9 @@ function Location() {
     }
   }
 
+  const goToPage = (loc) => {
+    history.push(`/loc`);
+  }
 
   const decreaseIndex = () => {
     if (currentIndex - 8 >= 0) {
@@ -45,19 +69,27 @@ function Location() {
 
 
   useEffect(() => {
-    if(location!='All_Location'){
+    if (location != 'All_Location') {
       const temp = All_Treks.filter((trek) => {
         return trek?.trek_data?.city ? trek?.trek_data?.city.toLowerCase() === location.toLowerCase() : false;
       });
-      setData([...temp])
+      setDataTrek([...temp])
       setData_Filtered([...temp]);
-    }else{
-      setData([...All_Treks])
+    } else {
+      setDataTrek([...All_Treks])
       setData_Filtered([...All_Treks]);
     }
 
   }, [location, All_Treks]);
-  
+
+  const ReadMore = ({ children }) => {
+    const text = children;
+    const [isReadMore, setIsReadMore] = useState(true);
+    const toggleReadMore = () => {
+      setIsReadMore(!isReadMore);
+    }
+  }
+
   return (
     <div className='nainital'>
       <Header />
@@ -94,35 +126,35 @@ function Location() {
           </div>
           <div className="nainitalBody__input">
             <img src={search} alt="" />
-            <input type="" placeholder='Search...' />
-            <div onClick={()=>{}} >
-              49 Packages Found
+            <input onChange={(e) => { setSearchByName(e.target.value)}} placeholder='Search by Trek name ...' />
+            <div onClick={() => { }} >
+              {data_Filtered?.length} Packages Found
             </div>
           </div>
         </div>
         <div className="nainital__body_second">
           <div className="nainital__body_secondIn">
             <div className="nainital__filter">
-              <Filter data_Filtered={data_Filtered} setData_Filtered={setData_Filtered} data={data} />
+              <Filter data_Filtered={data_Filtered} setData_Filtered={setData_Filtered} data={dataTrek} />
               {/* <button onClick={trendingPackage}>trendingPackage</button> */}
             </div>
             <div className="nainital__card_out">
               {/* {console.log("dataCard", dataCard)} */}
-              {data_Filtered.length>0 && data_Filtered?.slice(currentIndex, currentIndex + 8)?.map((data) => (
+              {data_Filtered.length > 0 && data_Filtered?.slice(currentIndex, currentIndex + 8)?.map((data) => (
                 <Card data={data} />
               ))}
               <div className="ListingNumber">
-                  <div className="BackArrowofList">
-                    <ArrowLeftRoundedIcon fontSize="medium" onClick={decreaseIndex} />
-                  </div>
-                  <div className="BackArrowofList">
-                    <ArrowRightRoundedIcon fontSize="medium" onClick={increaseIndex} />
-                  </div>
-                  <div className="numberInList">
-                    {currentIndex}-{currentIndex + 8 > data_Filtered?.length ? data_Filtered?.length : currentIndex + 8} of {data_Filtered?.length}
-                  </div>
+                <div className="BackArrowofList">
+                  <ArrowLeftRoundedIcon fontSize="medium" onClick={decreaseIndex} />
                 </div>
-                <hr style={{margin:'10px 0 32px 0'}}/>
+                <div className="BackArrowofList">
+                  <ArrowRightRoundedIcon fontSize="medium" onClick={increaseIndex} />
+                </div>
+                <div className="numberInList">
+                  {currentIndex}-{currentIndex + 8 > data_Filtered?.length ? data_Filtered?.length : currentIndex + 8} of {data_Filtered?.length}
+                </div>
+              </div>
+              <hr style={{ margin: '10px 0 32px 0' }} />
             </div>
           </div>
         </div>

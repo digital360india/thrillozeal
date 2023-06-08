@@ -101,7 +101,7 @@ const onChangeloc = (e) => {
 
     const Search_Click = () => {
         console.log("'first'")
-        history.push(`/${location && 'All_Location'}/${activity && 'All_Activities'}/All_Styles`);
+        history.push(`/${location ? location:'All_Location'}/${activity ? activity:'All_Activities'}/All_Styles`);
     }
 
     const [newArr, setNewArr] = useState([icon1, icon2, icon3, icon4, icon5, icon6]);
@@ -203,7 +203,7 @@ const onChangeloc = (e) => {
                             }
                             <img className='divider' src={divider} alt="" />
                             <div className='dropdown' onClick={() => { setShowdropdown(!showdropdown) }} ><LocationOnOutlinedIcon /></div>
-                            <input onFocus={onFocus1} type="text" placeholder="Location" onChange={onChangeloc} />
+                            <input onFocus={onFocus1} value={input2} type="text" placeholder="Location" onChange={onChangeloc} />
                             {/* this is for location dropdown */}
                             {showdropdown &&
                                 <div className="header__dropdown header__dropdown2">

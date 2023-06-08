@@ -191,6 +191,14 @@ function Filter({ data, data_Filtered, setData_Filtered, activity }) {
         applyFilter(active ? active:'e');
     }, [useFilter_act, useFilter_cate]);
 
+    const resetFunction=()=>{
+        setFilterArrayact([]);
+        setuseFilter_act('');
+        setFilterArraycate([]);
+        setuseFilter_cate('');
+        applyFilter();
+    }
+
     return (
 
         <div className="filter">
@@ -202,7 +210,7 @@ function Filter({ data, data_Filtered, setData_Filtered, activity }) {
                 <div className="filter__t1">
                     Sort By
                 </div>
-                <div className="filter__t2">
+                <div className="filter__t2" onClick={()=>{setActive('e');applyFilter('e')}}>
                     Reset
                 </div>
             </div>
@@ -234,7 +242,7 @@ function Filter({ data, data_Filtered, setData_Filtered, activity }) {
 
                 <div className={(showfilter || width > 900) ? "filter_top2" : ' filter_top2 filter_top2_left'}>
 
-                    <div className="filter__two1">
+                    <div className="filter__two1" onClick={resetFunction}>
                         Reset Filter
                     </div>
 
@@ -271,7 +279,7 @@ function Filter({ data, data_Filtered, setData_Filtered, activity }) {
                                     return data.includes(dest[1])}).length>0} onClick={(e) => { check__checkBoxCate(e, dest[1], dest[0]) }} />
                                 <p>{dest[1]}</p>
                             </div>
-                        ))} */}
+                        ))}
 
                         {/* <div className="loadMore">
                             Load More..

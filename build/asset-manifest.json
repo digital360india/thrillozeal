@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.4b2a9c51.css",
-    "main.js": "/static/js/main.f6e33656.js",
+    "main.css": "/static/css/main.15e0b2ca.css",
+    "main.js": "/static/js/main.540b5bee.js",
     "static/js/787.f74ef88a.chunk.js": "/static/js/787.f74ef88a.chunk.js",
     "static/media/thrillo 1 (3).webp": "/static/media/thrillo 1 (3).674edbb2293e099bb0f3.webp",
     "static/media/thrillo 1 (4).webp": "/static/media/thrillo 1 (4).d8d37651ed4a35374ac4.webp",
@@ -14,6 +14,7 @@
     "static/media/Rectangle 56.png": "/static/media/Rectangle 56.ac9a24d6c9dd9cf6e90b.png",
     "static/media/Rectangle 59.png": "/static/media/Rectangle 59.3eb3da3d831d251b9fc6.png",
     "static/media/thrillo 1.webp": "/static/media/thrillo 1.f230b4c67e0eb1ab3f20.webp",
+    "static/media/a.png": "/static/media/a.6dc371baca532e806575.png",
     "static/media/img1.jpg": "/static/media/img1.ee1ead313f48ead31ab4.jpg",
     "static/media/icon 1.png": "/static/media/icon 1.df2ae174ab1bc5291515.png",
     "static/media/img2.jpg": "/static/media/img2.a5a7922388f6143dc389.jpg",
@@ -27,13 +28,12 @@
     "static/media/Ellipse 1 (3).png": "/static/media/Ellipse 1 (3).1f883603169d6fe78731.png",
     "index.html": "/index.html",
     "static/media/cross.svg": "/static/media/cross.149c4b767131713842c682d5cc2aca51.svg",
-    "static/media/Vector.svg": "/static/media/Vector.14c357ec70a62e56f5950989690d00f8.svg",
-    "main.4b2a9c51.css.map": "/static/css/main.4b2a9c51.css.map",
-    "main.f6e33656.js.map": "/static/js/main.f6e33656.js.map",
+    "main.15e0b2ca.css.map": "/static/css/main.15e0b2ca.css.map",
+    "main.540b5bee.js.map": "/static/js/main.540b5bee.js.map",
     "787.f74ef88a.chunk.js.map": "/static/js/787.f74ef88a.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.4b2a9c51.css",
-    "static/js/main.f6e33656.js"
+    "static/css/main.15e0b2ca.css",
+    "static/js/main.540b5bee.js"
   ]
 }

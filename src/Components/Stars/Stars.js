@@ -6,7 +6,8 @@ StarHalfRounded as StarHalfRoundedIcon
 function Stars(props){
 
   var star_num = props?.review;
-  console.log("starnum "+props?.review+" "+ typeof(props?.review));
+  console.log("starnum "+props?.review);
+  
   var isInteger = !(star_num?.indexOf('.') == -1);
   var whole_stars = []
   for (let i = 0; i < Math.floor(star_num); i++) {
