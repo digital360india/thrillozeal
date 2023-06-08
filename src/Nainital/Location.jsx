@@ -112,7 +112,7 @@ function Location() {
             </div>
             <div className="nainital__card_out">
               {/* {console.log("dataCard", dataCard)} */}
-              {data_Filtered.slice(currentIndex, currentIndex + 8)?.map((data) => (
+              {data_Filtered.length>0 && data_Filtered?.slice(currentIndex, currentIndex + 8)?.map((data) => (
                 <Card data={data} />
               ))}
               <div className="ListingNumber">

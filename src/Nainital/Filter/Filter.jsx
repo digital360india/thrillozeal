@@ -16,13 +16,10 @@ function Filter({ data, data_Filtered, setData_Filtered, activity }) {
     var { location, activity, styles } = useParams();
     const [active, setActive] = useState(' ');
 
-    // console.log(props.filter_by_price_inc)
     const [{ globalVariable, Travel_Style, filter_prices, useFilter_price }, dispatch] = useStateValue();
-    // console.log()
     const [showslider, setShowslider] = useState(false);
     const [showfilter, setShowfilter] = useState(false);
     const [width, setWidth] = useState(window.screen.width);
-    // const [filterArrayloc, setFilterArrayloc] = useState([]);
     const [filterArrayact, setFilterArrayact] = useState([]);
     const [useFilter_act, setuseFilter_act] = useState('')
     const [filterArraycate, setFilterArraycate] = useState([]);
@@ -32,10 +29,10 @@ function Filter({ data, data_Filtered, setData_Filtered, activity }) {
 
         if (globalVariable?.Activities) {
             if (activity == "All_Activities" || !activity) {
-                setFilterArrayact([...Object.values(globalVariable.Activities)]);
-                setuseFilter_act(
-                    globalVariable.Activities && Object.keys(globalVariable.Activities).find(key => globalVariable.Activities[key])
-                );
+                // setFilterArrayact([...Object.values(globalVariable.Activities)]);
+                // setuseFilter_act(
+                //     globalVariable.Activities && Object.keys(globalVariable.Activities).find(key => globalVariable.Activities[key])
+                // );
             } else {
                 setFilterArrayact([activity]);
                 console.log(filterArrayact)
@@ -44,10 +41,10 @@ function Filter({ data, data_Filtered, setData_Filtered, activity }) {
                 );
             }
             if (styles == "All_Styles" || !styles) {
-                setFilterArraycate([...Object.values(globalVariable.Categories)]);
-                setuseFilter_cate(
-                    globalVariable.Categories && Object.keys(globalVariable.Categories).find(key => globalVariable.Categories[key])
-                );
+                // setFilterArraycate([...Object.values(globalVariable.Categories)]);
+                // setuseFilter_cate(
+                //     globalVariable.Categories && Object.keys(globalVariable.Categories).find(key => globalVariable.Categories[key])
+                // );
             } else {
                 setFilterArraycate([styles]);
                 setuseFilter_cate(
@@ -57,42 +54,19 @@ function Filter({ data, data_Filtered, setData_Filtered, activity }) {
 
         }
     }, [activity, globalVariable?.Activities]);
-    // console.log(filterArrayact)
-
 
     const trendingPackage = (trek) => {
-        // const temp = data.filter((trek) => {
         return trek?.trek_data?.packagetype === "Trending";
-        // });
-        // setData_Filtered([...temp])
     }
     const filter_by_price_inc = (a, b) => {
-        // const temp = data;
-        // temp.sort((a, b) => {
         return a?.trek_data?.price - b?.trek_data?.price;
-        // });
-        // setData_Filtered([...temp])
     }
     const filter_by_price_desc = (a, b) => {
-        // const temp = data;
-        // temp.sort((a, b) => {
         return b?.trek_data?.price - a?.trek_data?.price;
-        // });
-        // setData_Filtered([...temp])
     }
     const increasing_rating = (a, b) => {
-        // const temp = data;
-        // temp.sort((a, b) => {
         return b?.trek_data?.review - a?.trek_data?.review;
-        // });
-        // setData_Filtered([...temp])
     }
-
-    // const [filterArraypri, setFilterArraypri] = useState('All price range');
-    // dispatch({
-    //     type: actionTypes.SET_USER,
-    //     user: auth,
-    //   });
 
     const show_slider = () => {
         setShowslider(!showslider);
@@ -103,7 +77,6 @@ function Filter({ data, data_Filtered, setData_Filtered, activity }) {
     }
 
     const check__checkBoxAct = (e, dest, val) => {
-        // console.log(index)
         const checked = e.target.checked;
         if (checked) {
             filterArrayact.push(dest);
@@ -152,7 +125,6 @@ function Filter({ data, data_Filtered, setData_Filtered, activity }) {
         }
     }
 
-    // setting price range by user
     const price_range = (arr) => {
         dispatch({
             type: actionTypes.SET_USE_FILTER_PRICES,
@@ -161,21 +133,21 @@ function Filter({ data, data_Filtered, setData_Filtered, activity }) {
     }
 
     const filter_by_categories = (trek) => {
-        if (useFilter_cate == "" && activity == "All_Activities") {
+        if (useFilter_cate == "" && styles == "All_Styles") {
             return true;
         }
-        return trek?.trek_data?.categories?.toLowerCase().includes(useFilter_cate.split("").sort().join(""));
+        return trek?.trek_data?.categories ? trek?.trek_data?.categories?.toLowerCase().includes(useFilter_cate.split("").sort().join("")): true;
     }
 
-    const filter_by_styles = (trek) => {
-        if (useFilter_act == "" && styles == "All_Styles") {
+    const filter_by_activities = (trek) => {
+        if (useFilter_act == "" && activity == "All_Activities") {
             return true;
         }
-        return trek?.trek_data?.activities?.toLowerCase()?.includes(useFilter_act.split("").sort().join(""));
+        return trek?.trek_data?.activities ? trek?.trek_data?.activities?.toLowerCase()?.includes(useFilter_act.split("").sort().join("")):true;
     }
 
     const allFilter = (trek) => {
-        return filter_by_styles(trek) && filter_by_categories(trek);
+        return filter_by_activities(trek) && filter_by_categories(trek);
     }
 
     const applyFilter = (chr) => {
@@ -186,29 +158,39 @@ function Filter({ data, data_Filtered, setData_Filtered, activity }) {
 
         if (chr == 'a') {
 
-            setData_Filtered(temp.filter((trek) => {
+            setData_Filtered(data.filter((trek) => {
                 return allFilter(trek) && trendingPackage(trek);
             }))
 
         } else if (chr == 'b') {
 
-            setData_Filtered(temp.filter((trek) => {
+            setData_Filtered(data.filter((trek) => {
                 return allFilter(trek);
             }).sort((a, b) => filter_by_price_inc(a, b)));
 
         } else if (chr == 'c') {
 
-            setData_Filtered(temp.filter((trek) => {
+            setData_Filtered(data.filter((trek) => {
                 return allFilter(trek);
             }).sort((a, b) => filter_by_price_desc(a, b)));
 
         } else if (chr == 'd') {
 
-            setData_Filtered(temp.filter((trek) => {
+            setData_Filtered(data.filter((trek) => {
                 return allFilter(trek);
             }).sort((a, b) => increasing_rating(a, b)))
+        }else{
+            setData_Filtered(data?.length>0 &&  data.filter((trek) => {
+                return allFilter(trek);
+            }))
         }
     }
+    
+    useEffect(() => {
+        // console.log('first',useFilter_act,useFilter_cate)
+        applyFilter(active ? active:'e');
+    }, [useFilter_act, useFilter_cate]);
+
     return (
 
         <div className="filter">
@@ -285,7 +267,8 @@ function Filter({ data, data_Filtered, setData_Filtered, activity }) {
                         }
                         {globalVariable?.Categories && Object.entries(globalVariable?.Categories)?.map((dest) => (
                             <div className='checkbox'>
-                                <input type="checkbox" onClick={(e) => { check__checkBoxCate(e, dest[1], dest[0]) }} />
+                                <input type="checkbox" checked={filterArraycate?.length>0 && filterArraycate.filter((data) => {
+                                    return data.includes(dest[1])}).length>0} onClick={(e) => { check__checkBoxCate(e, dest[1], dest[0]) }} />
                                 <p>{dest[1]}</p>
                             </div>
                         ))}
@@ -308,7 +291,7 @@ function Filter({ data, data_Filtered, setData_Filtered, activity }) {
                         }
                         {globalVariable?.Activities && Object.entries(globalVariable?.Activities)?.map((sty) => (
                             <div className='checkbox'>
-                                <input type="checkbox" checked={filterArrayact.filter((data) => {
+                                <input type="checkbox" checked={filterArrayact?.length>0 && filterArrayact.filter((data) => {
                                     return data.includes(sty[1]);
                                 }).length > 0} onClick={(e) => check__checkBoxAct(e, sty[1], sty[0])} />
                                 <p>{sty[1]}</p>
@@ -323,7 +306,7 @@ function Filter({ data, data_Filtered, setData_Filtered, activity }) {
                             {filter_prices.length > 0 &&
                                 <div className="show_filterArray">
                                     {filter_prices.map(arr => (
-                                        <h5 className={useFilter_price === arr && 'dark_box'} onClick={() => price_range(arr)}>
+                                        <h5 className={useFilter_price === arr ? 'dark_box' : 'Not_dark_box'} onClick={() => price_range(arr)}>
                                             {arr}
                                         </h5>
                                     ))}
@@ -331,9 +314,6 @@ function Filter({ data, data_Filtered, setData_Filtered, activity }) {
                             }
                         </div>
                     </div>
-                    <button onClick={applyFilter}>
-                        Apply
-                    </button>
                 </div>
             </>
             }

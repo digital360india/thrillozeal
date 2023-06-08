@@ -203,7 +203,7 @@
     animation: 1s ease  ;
     float: left;
     padding: 6px;
-    background: rgb(144, 139, 139);
+    background: #57bebe;
     color: white;
     padding: 6px 8px;
     border-radius: 3px;
@@ -217,15 +217,28 @@
     margin-bottom: 10px;
     letter-spacing: 0.2px;
 }
+.Not_dark_box{
+    background: rgb(144, 139, 139) !important;
+    cursor: pointer;
+}
 .dark_box{
     background: #57bebe!important;
-    color: white; 
+    cursor: pointer;
 }
 .filter_Cross{
     display: flex;
     height: 20px;
     padding-left: 6px;
     color: white;
+}
+.filter_button{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    margin:12px 0;
+    font-family: 'Montserrat';
 }
 @media(max-width:900px) {
     .filter__slider{
