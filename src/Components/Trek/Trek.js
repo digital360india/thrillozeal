@@ -2,6 +2,18 @@ import React, { useEffect, useState } from 'react';
 import './Trek.css';
 import db from '../../firebase';
 import { useParams } from 'react-router-dom';
+import {LocationOnOutlined as LocationOnOutlinedIcon,
+  Height as HeightIcon,
+  SportsScore as SportsScoreIcon,
+  EditCalendarRounded as EditCalendarRoundedIcon,
+  SignalCellular3BarOutlined as SignalCellular3BarOutlinedIcon,
+  SocialDistance as SocialDistanceIcon,
+  Map as MapIcon,
+  Payments as PaymentsIcon,
+  Stars as StarsIcon,
+  DeviceThermostat as DeviceThermostatIcon,
+  LocationOn as LocationOnIcon,
+} from '@mui/icons-material';
 
 export const Trek = () => {
   var { location_id, trek_id } = useParams();
@@ -23,37 +35,37 @@ export const Trek = () => {
     <div className="Trek">
       <h1 className="box-heading">Trek Highlights</h1>
       <div className="trek_highlights">
-        <img src="/Images/Resize Vertical.png"></img>
+        <HeightIcon />
           <div>
             <span>Elevation -</span> {data?.eli}
             </div>
       </div>
       <div className='trek_highlights'>
-        <img src="/Images/Location.png"></img>
+      <LocationOnOutlinedIcon/>
         <div>
         <span>District -</span>{data?.dis}
         </div>
       </div>
       <div className='trek_highlights'>
-        <img src="/Images/Finish Flag.png"></img>
+      <SportsScoreIcon/>
         <div>
         <span>Starting point -</span> {data?.sp}
         </div>
       </div>
       <div className='trek_highlights'>
-        <img src="/Images/Sign Up in Calendar.png"></img>
+      <EditCalendarRoundedIcon/>
         <div>
         <span>No. of days - </span>{data?.days}
         </div>
         </div>
       <div className='trek_highlights'>
-        <img src="/Images/Signal.png"></img>
+        <SignalCellular3BarOutlinedIcon/>
         <div>
         <span>Difficulty level -</span> {data?.dl}
         </div>
       </div>
       <div className='trek_highlights'>
-        <img src="/Images/Distance.png"></img>
+        <MapIcon/>
         <div>
         <span>Total trekking distance - </span>{data?.distance}
         </div>
@@ -65,25 +77,25 @@ export const Trek = () => {
         </div>
       </div> */}
       <div className='trek_highlights'>
-        <img src="/Images/Expensive.png"></img>
+        <PaymentsIcon/>
         <div>{
         <span>Average cost - </span>}INR {data?.cost}
         </div>
       </div>
       <div className='trek_highlights'>
-        <img src="/Images/Love Time.png"></img>
+        <StarsIcon/>
         <div>
         <span>Best time to visit - </span>{data?.time_to_visit}
         </div>
       </div>
       <div className='trek_highlights'>
-        <img src="/Images/Hygrometer.png"></img>
+        <DeviceThermostatIcon/>
         <div>
         <span>Climate -</span>{data?.climate}
         </div>
       </div>
       <div className='trek_highlights'>
-        <img src="/Images/Location (1).png"></img>
+        <LocationOnIcon/>
         <div>
         <span>Geolocation - </span>{data?.geolocation}
         </div>

@@ -271,7 +271,7 @@ function Filter({ data, data_Filtered, setData_Filtered, activity }) {
                                     return data.includes(dest[1])}).length>0} onClick={(e) => { check__checkBoxCate(e, dest[1], dest[0]) }} />
                                 <p>{dest[1]}</p>
                             </div>
-                        ))}
+                        ))} */}
 
                         {/* <div className="loadMore">
                             Load More..

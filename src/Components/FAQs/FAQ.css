@@ -1,0 +1,13 @@
+.box-heading{
+  font-family: 'Montserrat';
+font-style: normal;
+font-weight: 600;
+font-size: 28px;
+line-height: 34px;
+padding: 20px;
+
+color: #57BEBE;
+}
+li > span{
+  color: #57BEBE;
+}

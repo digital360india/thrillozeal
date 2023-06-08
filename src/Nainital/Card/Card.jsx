@@ -11,7 +11,11 @@ import img3 from "../img/img3.jpg";
 import imgmore from "../img/img_more.png";
 import { useHistory } from "react-router-dom";
 import { useParams } from "react-router-dom";
-
+import {
+  AccessTimeRounded as AccessTimeRoundedIcon,
+  LocationOnOutlined as LocationOnOutlinedIcon,
+} from '@mui/icons-material';
+import Stars from "../../Components/Stars/Stars";
 function Card({ data }) {
   const { location } = useParams();
   const history = useHistory();
@@ -19,9 +23,9 @@ function Card({ data }) {
   return (
     <div
       className="nainital__card"
-      onClick={() =>
-        history.push(`/${location}/${data?.id}`)
-      }
+      // onClick={() =>
+      //   history.push(`/${location}/${data?.id}`)
+      // }
     >
       <div className="card__c1">
         <div className="top__img_c1">
@@ -53,7 +57,7 @@ function Card({ data }) {
             />
           ) : (
             <img
-              style={{ width: "100px ", height: "80px",paddingTop:"4px", borderRadius: "20px" }}
+              style={{ width: "100px ", height: "80px", paddingTop: "4px", borderRadius: "20px" }}
               src={img3}
               alt=""
             />
@@ -69,7 +73,7 @@ function Card({ data }) {
             />
           ) : (
             <img
-              style={{ width: "100px ", height: "80px",paddingTop:"4px", borderRadius: "20px" }}
+              style={{ width: "100px ", height: "80px", paddingTop: "4px", borderRadius: "20px" }}
               src={imgmore}
               alt=""
             />
@@ -80,17 +84,17 @@ function Card({ data }) {
         <div class="card__c2_head">{data?.trek_data?.name}</div>
         <div className="card__c2_body">
           <div className="card__c2_innner">
-            <img src="./Images/clock.png"></img>
+             <AccessTimeRoundedIcon sx={{ color: "#57BEBE" }} />
             <div className="c2__text">{data?.trek_data?.day}D/{data?.trek_data?.night}N</div>
           </div>
           <div className="card__c2_innner">
-            <img src="./Images/map-pin.png"></img>
+            <LocationOnOutlinedIcon sx={{ color: "#57BEBE" }} />
             <div className="c2__text">{data?.trek_data?.location}</div>
           </div>
           <br />
           <div className="card__c2_innner card__c2_innner2">
             <div className="naini__stars">
-              <img src="./Images/Group 4.png"></img>
+             <Stars review={data?.data?.review} />
               <p>based on {data?.trek_data?.reviewNo} reviews</p>
             </div>
             <div className="naini__rating">
@@ -130,8 +134,17 @@ function Card({ data }) {
           </div>
         </div>
         <div className="naini__bottons">
-          <button>Send Enquiry</button>
-          <button>View Details</button>
+          <button onClick={() =>
+            history.push({
+              pathname: `/${location}/${data?.id}`,
+              state: {
+                page_loc: 250,
+              }
+            })
+          }>Send Enquiry</button>
+          <button onClick={() =>
+        history.push(`/${location}/${data?.id}`)
+      }>View Details</button>
         </div>
       </div>
     </div>

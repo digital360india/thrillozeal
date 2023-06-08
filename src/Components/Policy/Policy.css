@@ -9,14 +9,26 @@ background: rgba(87, 190, 190, 0.56);
 border: 1px solid #909090;
 border-radius: 50px;
 margin:30px;
+display: flex;
+flex-direction: column;
+align-items: center;
+color: #0000008C;
+font-size: 18px;
 }
 .policy-container{
     padding:50px;
+    width: 85%;
+}
+.policy-container > div{
+    margin: 20px 0;
 }
 
 .policy-container p{
     color: white;
+}
 
+.policy-container ul{
+    padding-left: 1.5rem;
 }
 
 @media (max-width:600px)

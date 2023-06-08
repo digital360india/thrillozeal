@@ -102,7 +102,7 @@ function Header() {
                 </div>
                 <div className={!showsearch ? "FirstHome__input_forheader" : "TrueFirstHome__input_forheader"}>
                     <input onFocus={onFocus} value={input}   type="text" placeholder="Activities" onChange={onChangeAct} />
-                    
+                    {/*
                         <div className={showdropdown_act ? "header__dropdown" : 'header__dropdownnone'}>
                             {globalVariable?.Activities && Object.entries(globalVariable?.Activities).filter((n) => n[1].toLowerCase().includes(input.toLowerCase())).length > 0 ? Object.entries(globalVariable?.Activities).filter((n) => n[1].toLowerCase().includes(input.toLowerCase())).map((loc) => (
                                 <h5 onClick={() => { setActivity(loc[1]); setInput(loc[1]); setShowdropdown_act(false) }} className='header__dropdown_h5'>{loc[1]}</h5>
@@ -120,7 +120,7 @@ function Header() {
                                     setLocation(loc)}} className='header__dropdown_h5'>{loc}</h5>
                             )) : <h5 onClick={() => setLocation("All_Location")} className='header__dropdown_h5'>No result</h5>}
                         </div>
-                    }
+                    } */}
                     <img className='N__divider' src={divider} alt="" />
                     <div className='search' onClick={Search_Click} ><SearchOutlinedIcon/></div>
                 </div>

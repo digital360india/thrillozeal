@@ -33,10 +33,13 @@ const Itinerary = () => {
     <div className="Card-Wrapper">
       <h2 className=" box-heading">Trek Itinerary </h2>
       <div className="Accordian-Wrapper">
-        {data && data?.map((d) => (
+      <EachDay listStyle="itineray__list" expanded="true" data={{n:1, dayHead: "Delhi to Baniyakund, Chopta (430 km/11 hrs)", daydesc : ["We'll begin our journey at 6 a.m from Delhi.","We'll have our overnight at Baniyakund in Chopta either at a lodging facility or a campsite, depending on your tour package.","En route to Chopta from Delhi, we'll pass Devprayag, Srinagar, Rudraprayag, and Ukhimath. We'll make a small halt at Devprayag to witness the beauty of Alaknanda and Bhagirathi streams when they confluence to become Ganga.","By 5 in the evening, we'll reach Baniyakund and relax there with the overnight stay."]}} />
+      <EachDay listStyle="itineray__list" data={{n:2, dayHead: "Delhi to Baniyakund, Chopta (430 km/11 hrs)", daydesc : ["We'll begin our journey at 6 a.m from Delhi.","We'll have our overnight at Baniyakund in Chopta either at a lodging facility or a campsite, depending on your tour package.","En route to Chopta from Delhi, we'll pass Devprayag, Srinagar, Rudraprayag, and Ukhimath. We'll make a small halt at Devprayag to witness the beauty of Alaknanda and Bhagirathi streams when they confluence to become Ganga.","By 5 in the evening, we'll reach Baniyakund and relax there with the overnight stay."]}} />
+      <EachDay listStyle="itineray__list" data={{num:3, dayHead: "Delhi to Baniyakund, Chopta (430 km/11 hrs)", daydesc : ["We'll begin our journey at 6 a.m from Delhi.","We'll have our overnight at Baniyakund in Chopta either at a lodging facility or a campsite, depending on your tour package.","En route to Chopta from Delhi, we'll pass Devprayag, Srinagar, Rudraprayag, and Ukhimath. We'll make a small halt at Devprayag to witness the beauty of Alaknanda and Bhagirathi streams when they confluence to become Ganga.","By 5 in the evening, we'll reach Baniyakund and relax there with the overnight stay."]}} />
+        {data && data?.map((d, index) => (
           // <ShowDay data={d}/>
           <div>
-            <EachDay data={d?.data} />
+            <EachDay listStyle="itineray__list" expanded={index === 0 ? "true" : "false"}  data={d?.data} />
           </div>
         ))}
       </div>

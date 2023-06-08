@@ -72,10 +72,10 @@ const Footer = () => {
         </div>
       </div>
       <div className="socials">
-        <img src="./Images/Facebook.png"></img>
-        <img src="./Images/Instagram.png"></img>
-        <img src="./Images/Twitter Circled.png"></img>
-        <img src="./Images/LinkedIn.png"></img>
+        <img src="/Images/Facebook.png"></img>
+        <img src="/Images/Instagram.png"></img>
+        <img src="/Images/Twitter Circled.png"></img>
+        <img src="/Images/LinkedIn.png"></img>
       </div>
     </div>
   );

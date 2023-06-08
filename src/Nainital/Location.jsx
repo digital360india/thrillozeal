@@ -27,13 +27,14 @@ function Location() {
   const [data_Filtered, setData_Filtered] = useState([]);
   const [dataCard, setDataCard] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
-
+  
   const increaseIndex = () => {
     if (currentIndex + 8 < data_Filtered.length) {
       setCurrentIndex(currentIndex + 8);
       window.scrollTo(0, 450.5);
     }
   }
+
 
   const decreaseIndex = () => {
     if (currentIndex - 8 >= 0) {
@@ -56,7 +57,7 @@ function Location() {
     }
 
   }, [location, All_Treks]);
-
+  
   return (
     <div className='nainital'>
       <Header />
@@ -73,11 +74,11 @@ function Location() {
         </div>
         <div className="nainital__body_first">
           <div className="smallHeader">
-            <div className="header_name">
+            <div onClick={() => goToPage('')} className="header_name">
               Home
               {" >"}
             </div>
-            <div className="header_name">
+            <div onClick={() => goToPage('cities')} className="header_name">
               Cities
               {" > "}
             </div>
@@ -89,12 +90,7 @@ function Location() {
             <div className="smallContent__head">
               ABOUT {data?.Name}
             </div>
-            <div className="smallContent__body">
-              {data?.About}
-            </div>
-          </div>
-          <div className="Read__More">
-            Read  More
+            <ReadMore>{data?.About}</ReadMore>
           </div>
           <div className="nainitalBody__input">
             <img src={search} alt="" />
