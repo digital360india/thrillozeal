@@ -136,14 +136,14 @@ function Filter({ data, data_Filtered, setData_Filtered, activity }) {
         if (useFilter_cate == "" && styles == "All_Styles") {
             return true;
         }
-        return trek?.trek_data?.categories ? trek?.trek_data?.categories?.toLowerCase().includes(useFilter_cate.split("").sort().join("")): true;
+        return trek?.trek_data?.categories ? trek?.trek_data?.categories?.toLowerCase().includes(useFilter_cate?.split("")?.sort()?.join("")): true;
     }
 
     const filter_by_activities = (trek) => {
         if (useFilter_act == "" && activity == "All_Activities") {
             return true;
         }
-        return trek?.trek_data?.activities ? trek?.trek_data?.activities?.toLowerCase()?.includes(useFilter_act.split("").sort().join("")):true;
+        return trek?.trek_data?.activities ? trek?.trek_data?.activities?.toLowerCase()?.includes(useFilter_act?.split("")?.sort()?.join("")):true;
     }
 
     const allFilter = (trek) => {
@@ -152,7 +152,7 @@ function Filter({ data, data_Filtered, setData_Filtered, activity }) {
 
     const applyFilter = (chr) => {
 
-        console.log("", chr, "useFilter_cate.split", useFilter_cate.split("").sort().join(""), useFilter_act.split("").sort().join(""))
+        console.log("", chr, "useFilter_cate.split", useFilter_cate?.split("")?.sort()?.join(""), useFilter_act?.split("")?.sort()?.join(""))
 
         var temp = data;
 
@@ -180,7 +180,7 @@ function Filter({ data, data_Filtered, setData_Filtered, activity }) {
                 return allFilter(trek);
             }).sort((a, b) => increasing_rating(a, b)))
         }else{
-            setData_Filtered(data?.length>0 &&  data.filter((trek) => {
+            setData_Filtered(data?.length>0 &&  data?.filter((trek) => {
                 return allFilter(trek);
             }))
         }
