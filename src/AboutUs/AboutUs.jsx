@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import './AboutUs.css';
 import Header from '../Nainital/Header';
-
+import Footer from '../Components/Footer/Footer';
+import Destination from '../Components/Destinations/Destination';
+import { useStateValue } from '../StateProvider';
 function AboutUs() {
-
+  const [{All_Treks }, dispatch] = useStateValue();
   return (
     <div className='aboutUs'>
       <Header />
@@ -48,7 +50,12 @@ Thrillozeal - Where every step leads to a new thrill, and every experience becom
           </div>
           </div>
       </div>
+      <Destination trendingTreks={All_Treks.filter((trek) => {
+                return trek.trek_data.packagetype === "Trending";
+            })}/>
+      <Footer />
     </div>
+
   )
 }
 
