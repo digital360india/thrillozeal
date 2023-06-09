@@ -122,8 +122,8 @@
         display: flex;
         flex-direction: row;
         padding: 21px 0;
-        justify-content: space-evenly;
-        width: 85%;
+    justify-content: space-evenly;
+    width: 65%;
         align-items: baseline;
     }
     .footer-boundary{
@@ -163,9 +163,6 @@
         height: fit-content;
         font-size: 14px;
         text-align: center;
-    }
-    .footer-container div {
-        padding-right: 14px;
     }
     .footer-container h1 {
         margin-bottom: 10px;
