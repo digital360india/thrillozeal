@@ -45,6 +45,7 @@ import {
     LocationOnOutlined as LocationOnOutlinedIcon,
     SearchOutlined as SearchOutlinedIcon, Instagram as InstagramIcon,
 } from "@mui/icons-material";
+import Loading from '../Components/Loader/Loading';
 
 function FirstHome() {
 

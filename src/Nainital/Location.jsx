@@ -15,11 +15,13 @@ import { actionTypes } from '../reducer';
 import { useHistory } from 'react-router-dom';
 import ArrowRightRoundedIcon from '@mui/icons-material/ArrowRightRounded';
 import ArrowLeftRoundedIcon from '@mui/icons-material/ArrowLeftRounded';
+import Loading from '../Components/Loader/Loading';
 
 function Location() {
 
   var { location } = useParams();
   const history = useHistory();
+  const [loading, setLoading] = useState(false);
 
   const [{ All_Treks }, dispatch] = useStateValue();
 
@@ -32,12 +34,22 @@ function Location() {
   const str = location.charAt(0).toUpperCase() + location.slice(1);
 
   useEffect(() => {
-    if (str)
+    if (str) {
       db.collection('Cities').doc('JvH2wjbXOWgoOA17X4GW' + str)
-        .onSnapshot((snapshot) => {
+      .onSnapshot((snapshot) => {
+          // setLoading(true);
           setData(snapshot.data())
         })
+    }
   }, [str]);
+
+  useEffect(() => {
+    if (data) {
+      setInterval(() => {
+        setLoading(false);
+      }, 1000)
+    }
+  }, [data])
 
   useEffect(() => {
     if (dataTrek?.length > 0 && searchByName?.length > 0) {
@@ -87,12 +99,25 @@ function Location() {
     const [isReadMore, setIsReadMore] = useState(true);
     const toggleReadMore = () => {
       setIsReadMore(!isReadMore);
-    }
-  }
+    };
+
+    return (
+      <p className="smallContent__body">
+        {isReadMore ? text?.slice(0, 350) + "..." : text}
+        <span onClick={toggleReadMore} className="read-or-hide, Read__More">
+          {isReadMore ? "Read more" : " Show less"}
+        </span>
+      </p>
+    );
+  };
 
   return (
+    <>
+    {
+      loading && <Loading/>
+    }
     <div className='nainital'>
-      <Header />
+      <Header setLoading={setLoading}/>
       <div className="nainital__body">
         <img className='nainital__body_img' src={data?.img} alt="" />
         <div className='Name_on_img'>{data?.Name}</div>
@@ -126,7 +151,7 @@ function Location() {
           </div>
           <div className="nainitalBody__input">
             <img src={search} alt="" />
-            <input onChange={(e) => { setSearchByName(e.target.value)}} placeholder='Search by Trek name ...' />
+            <input onChange={(e) => { setSearchByName(e.target.value) }} placeholder='Search by Trek name ...' />
             <div onClick={() => { }} >
               {data_Filtered?.length} Packages Found
             </div>
@@ -136,10 +161,8 @@ function Location() {
           <div className="nainital__body_secondIn">
             <div className="nainital__filter">
               <Filter data_Filtered={data_Filtered} setData_Filtered={setData_Filtered} data={dataTrek} />
-              {/* <button onClick={trendingPackage}>trendingPackage</button> */}
             </div>
             <div className="nainital__card_out">
-              {/* {console.log("dataCard", dataCard)} */}
               {data_Filtered.length > 0 && data_Filtered?.slice(currentIndex, currentIndex + 8)?.map((data) => (
                 <Card data={data} />
               ))}
@@ -164,6 +187,7 @@ function Location() {
       })} />
       <Footer />
     </div>
+              </>
   )
 }
 

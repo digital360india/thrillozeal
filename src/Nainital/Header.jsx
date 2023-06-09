@@ -12,7 +12,7 @@ import {KeyboardArrowDownOutlined as KeyboardArrowDownOutlinedIcon,
     SearchOutlined as  SearchOutlinedIcon,
 } from "@mui/icons-material";
 import { useParams } from 'react-router-dom';
-function Header() {
+function Header({setLoading}) {
     const history = useHistory();
     var param = useParams();
     // const routerData=useLocation();
@@ -56,6 +56,7 @@ function Header() {
     }
     
     const Search_Click = () => {
+        setLoading(true)
         history.push(`/${location ? location:"All_Location"}/${activity ? activity:"All_Activities"}/All_Styles`);
     }
 
