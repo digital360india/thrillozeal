@@ -136,14 +136,14 @@ function Card({ data }) {
         <div className="naini__bottons">
           <button onClick={() =>
             history.push({
-              pathname: `/${location}/${data?.trek_id}`,
+              pathname: `/${data?.trek_id}`,
               state: {
                 page_loc: 900,
               }
             })
           }>Send Enquiry</button>
           <button onClick={() =>
-        history.push(`/${location}/${data?.trek_id}`)
+        history.push(`/${data?.trek_id}`)
       }>View Details</button>
         </div>
       </div>

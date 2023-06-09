@@ -1,6 +1,6 @@
 .nainital_header {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     background: #57BEBE;
     align-items: center;
     height: 8vh;
@@ -147,7 +147,7 @@
 .N__sections {
     display: flex;
     justify-content: space-around;
-    width: 37vw;
+    width: 30vw;
     color: white;
     font-weight: 500;
     font-size: 18px;

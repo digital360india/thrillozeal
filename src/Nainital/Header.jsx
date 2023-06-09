@@ -4,37 +4,38 @@ import divider from '../home/img/Line 2.png'
 import search from '../home/img/search.png';
 import call from '../home/img/phone-call.png';
 import menu from '../home/img/menu.png';
-import { useHistory,useLocation } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 import { useStateValue } from '../StateProvider';
 import { actionTypes } from '../reducer';
-import {KeyboardArrowDownOutlined as KeyboardArrowDownOutlinedIcon, 
+import {
+    KeyboardArrowDownOutlined as KeyboardArrowDownOutlinedIcon,
     LocationOnOutlined as LocationOnOutlinedIcon,
-    SearchOutlined as  SearchOutlinedIcon,
+    SearchOutlined as SearchOutlinedIcon,
 } from "@mui/icons-material";
 import { useParams } from 'react-router-dom';
-function Header({setLoading}) {
+function Header({ setLoading }) {
     const history = useHistory();
     var param = useParams();
     // const routerData=useLocation();
     // JvH2wjbXOWgoOA17X4GWNainital
     // console.log(routerData?.state?.activity)
-    const [{ globalVariable}, dispatch] = useStateValue();
+    const [{ globalVariable }, dispatch] = useStateValue();
 
     const [showsearch, setShowsearch] = useState(false);
     const [showdropdown_act, setShowdropdown_act] = useState(false);
     const [showdropdown, setShowdropdown] = useState(false);
-    
+
     const [input, setInput] = useState('');
     const [input2, setInput2] = useState('');
     const [location, setLocation] = useState(param?.location)
     const [activity, setActivity] = useState(param?.activity)
-    
+
     const onFocus = () => {
         setShowdropdown_act(true);
     };
     const onBlur = () => {
         const concernedElement = document.querySelector(".click-text");
-        
+
         document.addEventListener("mousedown", (event) => {
             if (concernedElement.contains(event.target)) {
             } else {
@@ -54,23 +55,23 @@ function Header({setLoading}) {
         setInput2(e.target.value)
         setLocation(e.target.value)
     }
-    
+
     const Search_Click = () => {
         setLoading(true)
-        history.push(`/${location ? location:"All_Location"}/${activity ? activity:"All_Activities"}/All_Styles`);
+        history.push(`/${location ? location : "All_Location"}/${activity ? activity : "All_Activities"}/All_Styles`);
     }
 
     const goToPage = (location) => {
         history.push(`/${location}`)
     }
-    
+
     // const searchByClick = (loc) => {
     //     setInput2(loc);
     //     setLocation(loc);
     //     history.push(`/${loc}`);
     //     setShowdropdown(false);
     // }
-    
+
     var btn = document.getElementById("sub");
     btn?.addEventListener("keydown", function (e) {
         if (e.code === "Enter") {  //checks whether the pressed key is "Enter"
@@ -103,50 +104,49 @@ function Header({setLoading}) {
                     <img className='Nainital_logo' src="/Images/Logo-white.png" alt="" />
                 </div>
                 <div className={!showsearch ? "FirstHome__input_forheader" : "TrueFirstHome__input_forheader"}>
-                    <input onFocus={onFocus} value={input}   type="text" placeholder="Activities" onChange={onChangeAct} />
-                    
-                        <div className={showdropdown_act ? "header__dropdown" : 'header__dropdownnone'}>
-                            {globalVariable?.Activities && Object.entries(globalVariable?.Activities).filter((n) => n[1].toLowerCase().includes(input.toLowerCase())).length > 0 ? Object.entries(globalVariable?.Activities).filter((n) => n[1].toLowerCase().includes(input.toLowerCase())).map((loc) => (
-                                <h5 onClick={() => { setActivity(loc[1]); setInput(loc[1]); setShowdropdown_act(false) }} className='header__dropdown_h5'>{loc[1]}</h5>
-                            )) : <h5 onClick={() => { setActivity("All_Activities"); setShowdropdown_act(false) }}className='header__dropdown_h5'>No result</h5>}
-                        </div>
-                    
-                    <div onClick={() => { setShowdropdown_act(!showdropdown_act) }} className='dropdown' ><KeyboardArrowDownOutlinedIcon/></div>
+                    <input onFocus={onFocus} value={input} type="text" placeholder="Activities" onChange={onChangeAct} />
+
+                    <div className={showdropdown_act ? "header__dropdown" : 'header__dropdownnone'}>
+                        {globalVariable?.Activities && Object.entries(globalVariable?.Activities).filter((n) => n[1].toLowerCase().includes(input.toLowerCase())).length > 0 ? Object.entries(globalVariable?.Activities).filter((n) => n[1].toLowerCase().includes(input.toLowerCase())).map((loc) => (
+                            <h5 onClick={() => { setActivity(loc[1]); setInput(loc[1]); setShowdropdown_act(false) }} className='header__dropdown_h5'>{loc[1]}</h5>
+                        )) : <h5 onClick={() => { setActivity("All_Activities"); setShowdropdown_act(false) }} className='header__dropdown_h5'>No result</h5>}
+                    </div>
+
+                    <div onClick={() => { setShowdropdown_act(!showdropdown_act) }} className='dropdown' ><KeyboardArrowDownOutlinedIcon /></div>
                     <img className='N__divider' src={divider} alt="" />
                     <input onFocus={onFocus1} value={input2} type="text" placeholder="Location" onChange={onChangeloc} />
-                    <div className='dropdown' onClick={() => { setShowdropdown(!showdropdown) }} ><LocationOnOutlinedIcon/></div>
+                    <div className='dropdown' onClick={() => { setShowdropdown(!showdropdown) }} ><LocationOnOutlinedIcon /></div>
                     {showdropdown &&
                         <div className="header__dropdown header__dropdown2">
                             {globalVariable?.Locations.filter((n) => n.toLowerCase().includes(input2.toLowerCase())).length > 0 ? globalVariable?.Locations.filter((n) => n.toLowerCase().includes(input2.toLowerCase())).map((loc) => (
-                                <h5 onClick={() => { setInput2(loc)
-                                    setLocation(loc)}} className='header__dropdown_h5'>{loc}</h5>
+                                <h5 onClick={() => {
+                                    setInput2(loc)
+                                    setLocation(loc)
+                                }} className='header__dropdown_h5'>{loc}</h5>
                             )) : <h5 onClick={() => setLocation("All_Location")} className='header__dropdown_h5'>No result</h5>}
                         </div>
                     }
                     <img className='N__divider' src={divider} alt="" />
-                    <div className='search' onClick={Search_Click} ><SearchOutlinedIcon/></div>
+                    <div className='search' onClick={Search_Click} ><SearchOutlinedIcon /></div>
                 </div>
                 <div className="sections_forM">
                     <img src={menu} alt="" />
                 </div>
             </div>
             <div className="N__sections">
-                <div  onClick={() => goToPage("")} className="Header__section">
+                <div onClick={() => goToPage("")} className="Header__section">
                     Home
                 </div>
                 <div onClick={() => goToPage("about")} className="Header__section">
                     About Us
                 </div>
-                <div onClick={() => goToPage("cities")} className="Header__section">
+                <div onClick={() => history.push(`/All_Location/All_Activities/All_Styles`)} className="Header__section">
                     Cities
                 </div>
-                <div onClick={() => goToPage("contact")} className="Header__section">
-                    Contact
-                </div>
                 <a href="tel:83030 22306">
-                <div className="call">
-                    <img src={call} alt="" />
-                </div>
+                    <div className="call">
+                        <img src={call} alt="" />
+                    </div>
                 </a>
             </div>
         </div>

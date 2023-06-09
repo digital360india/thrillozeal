@@ -230,16 +230,6 @@ const onChangeloc = (e) => {
                     <div className="secondBox">
                         <div className="secondbox_row">
                             <div className="second_Border">
-
-                                {/* {newArr.map((arr, k) => (
-                                    <>
-                                        {k == 1 && <img src={arr} className="one" alt="" />}
-                                        {k == 2 && <img src={arr} className="two" alt="" />}
-                                        {k == 3 && <img src={arr} className="three" alt="" />}
-                                        {k == 4 && <img src={arr} className="four" alt="" />}
-                                        {k == 5 && <img src={arr} className="five" alt="" />}
-                                    </>
-                                ))} */}
                                 <img src={icon2} className={class1} alt="" />
                                 <img src={icon3} className={class2} alt="" />
                                 <img src={icon4} className={class3} alt="" />
