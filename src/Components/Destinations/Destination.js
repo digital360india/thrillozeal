@@ -9,7 +9,7 @@ const Destination = (props) => {
   // console.log(props?.trendingTreks);
   return (
     <>
-      <div className="secondPage">
+      <div id="destination" className="secondPage">
         <div className="second_header">
           <img src={progress} alt="" />
           Top Trending Destinations
@@ -25,7 +25,10 @@ const Destination = (props) => {
               // console.log(trek.trek_id);
               return (
                 <SplideSlide className='slider_splide_react1'>
-                  <img className='slider_splide_react_img' src={trek.trek_data?.img1 || imgDefault}alt="Image 1" />
+                  <div className='slider_splide_react_img'>
+                    <p className='trek__cursive'>{trek?.trek_id}</p>
+                    <img src={trek.trek_data?.img1 || "/Images/aboutus-bg.png"} alt="Image 1" />
+                  </div>
                   <div className="one1">
                     <p className="head">{trek?.trek_id}</p>
                     <div className='content'>
@@ -122,7 +125,10 @@ const Destination = (props) => {
               // console.log(trek.trek_id);
               return (
                 <SplideSlide className='slider_splide_react1'>
-                  <img className='slider_splide_react_img' src="/Images/a.png" alt="Image 1" />
+                  <div className='slider_splide_react_img'>
+                    <p className='trek__cursive'>{trek?.trek_id}</p>
+                    <img src={trek.trek_data?.img1 || "/Images/aboutus-bg.png"} alt="Image 1" />
+                  </div>
                   <div className="one1">
                     <p className="head">{trek.trek_id}</p>
                     <div className='content'>
