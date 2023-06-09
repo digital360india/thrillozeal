@@ -77,10 +77,6 @@ function SubLocation() {
             setData(snapshot.data())
         ))
     }, [])
-    // console.log(data)
-    useEffect(() => {
-        console.log("hari", (data?.pricecross - data?.price) * 100 / data?.pricecross);
-    }, [data])
 
     // console.log(data?.review+" dr")
 

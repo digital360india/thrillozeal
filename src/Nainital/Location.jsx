@@ -69,7 +69,7 @@ function Location() {
   }
 
   const goToPage = (loc) => {
-    history.push(`/loc`);
+    history.push(`/${loc}`);
   }
 
   const decreaseIndex = () => {

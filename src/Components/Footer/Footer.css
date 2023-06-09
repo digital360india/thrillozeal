@@ -27,14 +27,10 @@
     font-family: 'Montserrat';
     font-style: normal;
     font-weight: 600;
-    font-size: 24px;
+    font-size: 20px;
     line-height: 29px;
-    color: #000000 !important;
+    color: #585454 !important;
     margin-bottom: 20px;
-}
-
-.Thrillo-div {
-    flex: 1;
 }
 
 .Thrillo-div p {
@@ -45,19 +41,19 @@
 }
 
 .Links-div {
-    flex: 1;
+    min-width: 50% !important;
 }
 
 .Contact-div {
-    flex: 1;
+ 
 }
 
 .Legal {
-    flex: 1;
+    width: 17%;
 }
 
 .Newsletter {
-    flex: 1;
+  
     max-width: 194px;
 }
 
@@ -70,11 +66,16 @@
     text-align: center;
     padding-bottom: 20px;
 }
+.socials img{
+    width: 50px;
+    height: 50px;
+}
 .combo__link_contact{
     display: flex;
     font-size: 16px !important;
-    width: 40%;
+    width: 30%;
     line-height: 2rem;
+    justify-content: space-between;
 }
 .footer-form{
     display: flex;
@@ -107,13 +108,22 @@
 .contact-span> svg{
     margin-top: 5px;
 }
+.thankyou__span{
+    color: #585454;
+    font-size: 12px;
+    line-height: 1rem;
+    padding: 2px 0;
+}
+.Thrillo-div img{
+    display: none;
+}
 @media(max-width:900px) {
     .combo__link_contact{
         display: flex;
         flex-direction: row;
         padding: 21px 0;
-        justify-content: space-evenly;
-        width: 100%;
+    justify-content: space-evenly;
+    width: 65%;
         align-items: baseline;
     }
     .footer-boundary{
@@ -126,13 +136,21 @@
     }
     .footer-container{
         display: flex;
-        width: 90%;
+        width: 100%;
         padding: 2%;
         flex-direction: column;
+        justify-content: space-around;
         align-items: center;
     }
     .Legal{
         display: none;
+    }
+    .Thrillo-div > h1{
+        display: none;
+    }
+    .Thrillo-div img{
+        display: block;
+        padding-bottom: 12px;
     }
     .Thrillo-div{
         display: flex;
@@ -141,16 +159,15 @@
         justify-content: center;
     }
     .Thrillo-div p {
-        width: 100%;
+        width: 80%;
         height: fit-content;
         font-size: 14px;
-    }
-    .footer-container div {
-        margin-right: 0px;
+        text-align: center;
     }
     .footer-container h1 {
         margin-bottom: 10px;
         font-size: 20px;
+
     }
     .newsletter_li{
         font-size: 12px;

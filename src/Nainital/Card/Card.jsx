@@ -19,7 +19,7 @@ import Stars from "../../Components/Stars/Stars";
 function Card({ data }) {
   const { location } = useParams();
   const history = useHistory();
-  // console.log("data", data?.data);
+  console.log("data", data);
   return (
     <div
       className="nainital__card"
@@ -94,7 +94,7 @@ function Card({ data }) {
           <br />
           <div className="card__c2_innner card__c2_innner2">
             <div className="naini__stars">
-             <Stars review={data?.trek_data?.review} />
+             <Stars review={data?.data?.review} />
               <p>based on {data?.trek_data?.reviewNo} reviews</p>
             </div>
             <div className="naini__rating">
@@ -136,14 +136,14 @@ function Card({ data }) {
         <div className="naini__bottons">
           <button onClick={() =>
             history.push({
-              pathname: `/${location}/${data?.id}`,
+              pathname: `/${location}/${data?.trek_id}`,
               state: {
-                page_loc: 250,
+                page_loc: 900,
               }
             })
           }>Send Enquiry</button>
           <button onClick={() =>
-        history.push(`/${location}/${data?.id}`)
+        history.push(`/${location}/${data?.trek_id}`)
       }>View Details</button>
         </div>
       </div>
