@@ -124,9 +124,9 @@ function SubLocation() {
                                 <Stars review={data?.review} />
                                     <p>based on {data?.reviewNo} reviews</p>
                                 </div>
-                                <div className="naini__rating">
+                                {/* <div className="naini__rating">
                                     <p>{data?.review}</p>
-                                </div>
+                                </div> */}
                             </div>
                         </div>
                         <div className="naini__icons_collection naini__iconsBlock">
