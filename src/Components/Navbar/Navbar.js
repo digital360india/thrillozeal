@@ -22,7 +22,7 @@ const Navbar = () => {
           <li onClick={() => goToPage("")}>Home</li>
           <li onClick={() => goToPage("about")}>About Us</li>
           <li onClick={() => goToPage("cities")}>Cities</li>
-          <li onClick={() => goToPage("contact")}> Contact</li>
+          {/* <li onClick={() => goToPage("contact")}> Contact</li> */}
           <li>
             <a href="tel:83030 22306">
               <img className="show" src="/Images/phone-call.png">
