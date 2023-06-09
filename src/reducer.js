@@ -8,7 +8,7 @@ export const initialState = {
   filter_Data: [],
   All_Data: [],
   globalVariable: null,
-   All_Treks:[],
+  All_Treks:[],
 };
 
 export const actionTypes = {

@@ -39,6 +39,7 @@ function SubLocation() {
     const param = useParams();
     const location = useLocation();
     const history = useHistory();
+    const [loading, setLoading] = useState(false);
 
     var { location_id, trek_id } = useParams();
 
@@ -85,7 +86,7 @@ function SubLocation() {
 
     return (
         <div className='SubLocation'>
-            <Header />
+            <Header setLoading={setLoading}/>
             <div className="subLocation">
 
                 <SubLocationImages data={data} />

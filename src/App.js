@@ -12,6 +12,7 @@ import db from './firebase';
 import { useStateValue } from './StateProvider';
 import { actionTypes } from './reducer';
 import { useState } from 'react';
+import Loading from './Components/Loader/Loading';
 
 function App() {
   const [{ globalVariable, All_Treks }, dispatch] = useStateValue();
@@ -57,11 +58,12 @@ function App() {
         <Route path="/:location/:activity/:styles">
           <Location />
         </Route>
-        <Route path="/:location_id/:trek_id">
+        <Route path="/:trek_id">
           <SubLocation />
         </Route>
         <Route path="/">
           <FirstHome />
+          {/* <Loading/> */}
         </Route>
       </Switch>
     </Router>
