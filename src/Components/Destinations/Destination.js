@@ -5,6 +5,7 @@ import './Destination.css';
 import progress from './img/progess.png';
 import imgDefault from './img/a.png';
 import StarRoundedIcon from '@mui/icons-material/StarRounded';
+// import { url } from 'inspector';
 const Destination = (props) => {
   // console.log(props?.trendingTreks);
   return (
@@ -25,9 +26,8 @@ const Destination = (props) => {
               // console.log(trek.trek_id);
               return (
                 <SplideSlide className='slider_splide_react1'>
-                  <div className='slider_splide_react_img'>
+                  <div style={{backgroundImage: `url(${trek.trek_data?.img1 || "/Images/aboutus-bg.png"})` }} className='slider_splide_react_img'>
                     <p className='trek__cursive'>{trek?.trek_id}</p>
-                    <img src={trek.trek_data?.img1 || "/Images/aboutus-bg.png"} alt="Image 1" />
                   </div>
                   <div className="one1">
                     <p className="head">{trek?.trek_id}</p>
@@ -125,9 +125,8 @@ const Destination = (props) => {
               // console.log(trek.trek_id);
               return (
                 <SplideSlide className='slider_splide_react1'>
-                  <div className='slider_splide_react_img'>
+                  <div style={{backgroundImage: `url(${trek.trek_data?.img1 || "/Images/aboutus-bg.png"})` }} className='slider_splide_react_img'>
                     <p className='trek__cursive'>{trek?.trek_id}</p>
-                    <img src={trek.trek_data?.img1 || "/Images/aboutus-bg.png"} alt="Image 1" />
                   </div>
                   <div className="one1">
                     <p className="head">{trek.trek_id}</p>
