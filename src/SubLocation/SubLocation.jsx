@@ -43,49 +43,44 @@ function SubLocation() {
 
     var { location_id, trek_id } = useParams();
 
-    const [{All_Treks}, dispatch] = useStateValue();
+    const [{ All_Treks }, dispatch] = useStateValue();
     const [active, setActive] = useState("first");
     const [data, setData] = useState(null);
-    const database = db.collection("Cities")
-        .doc("JvH2wjbXOWgoOA17X4GW"+location_id)
-        .collection("All_Trek")
-        .doc(trek_id);
-    
-        const goToPage = (location) => {
-            history.push(`/${location}`)
-        }
+    // const database = db.collection("Cities")
+    //     .doc("JvH2wjbXOWgoOA17X4GW"+location_id)
+    //     .collection("All_Trek")
+    //     .doc(trek_id);
+
+    const goToPage = (location) => {
+        history.push(`/${location}`)
+    }
 
     useEffect(() => {
         window.scrollTo(0, 0);
-        // console.log("inside useeffect");
-        // console.log(location.state);
-        if(location.state && location.state.page_loc){
-            // window.scrollTo(0, location.state.page_loc);
+        if (location.state && location.state.page_loc) {
             window.scrollTo({
                 top: location.state.page_loc,
                 behavior: 'smooth',
-              });
+            });
         }
-        else{
+        else {
             window.scrollTo(0, 0);
         }
-        
     }, [])
 
     useEffect(() => {
-        database.onSnapshot((snapshot) => (
-            setData(snapshot.data())
-        ))
-    }, [])
-
-    // console.log(data?.review+" dr")
+        setData(All_Treks.filter((data) => {
+            return data?.trek_id == trek_id;
+        })[0])
+    }, [All_Treks])
+console.log(data?.trek_data)
 
     return (
         <div className='SubLocation'>
-            <Header setLoading={setLoading}/>
+            <Header setLoading={setLoading} />
             <div className="subLocation">
 
-                <SubLocationImages data={data} />
+                <SubLocationImages data={data?.trek_data} />
 
                 <div className="smallHeader">
                     <div onClick={() => goToPage('')} className="header_name">
@@ -101,32 +96,32 @@ function SubLocation() {
                         {" > "}
                     </div> */}
                     <div className="header_name active">
-                        {data?.location}
+                        {data?.trek_data?.location}
                     </div>
                 </div>
                 <div className="sublocation_firstDiv">
                     <div className="card__c2">
                         <div className="card__c2_head">
-                            {data?.name}
+                            {data?.trek_data?.name}
                         </div>
                         <div className="card__c2_body">
                             <div className="card__c2_innner">
-                            <AccessTimeRoundedIcon sx={{ color: "#57BEBE" }} />
-                                <div className="c2__text">{data?.day}D/{data?.night}N</div>
+                                <AccessTimeRoundedIcon sx={{ color: "#57BEBE" }} />
+                                <div className="c2__text">{data?.trek_data?.day}D/{data?.trek_data?.night}N</div>
                             </div>
                             <div className="card__c2_innner">
-                            <LocationOnOutlinedIcon sx={{ color: "#57BEBE" }} />
-                                <div className="c2__text">{data?.location}</div>
+                                <LocationOnOutlinedIcon sx={{ color: "#57BEBE" }} />
+                                <div className="c2__text">{data?.trek_data?.location}</div>
                             </div>
                             <br />
                             <div className="card__c2_innner card__c2_innner2">
                                 <div className="naini__stars">
-                                <Stars review={data?.review} />
-                                    <p>based on {data?.reviewNo} reviews</p>
+                                    <Stars review={data?.trek_data?.review} />
+                                    <p>based on {data?.trek_data?.reviewNo} reviews</p>
                                 </div>
-                                {/* <div className="naini__rating">
-                                    <p>{data?.review}</p>
-                                </div> */}
+                                <div className="naini__rating">
+                                    <p>{data?.trek_data?.review}</p>
+                                </div>
                             </div>
                         </div>
                         <div className="naini__icons_collection naini__iconsBlock">
@@ -164,10 +159,10 @@ function SubLocation() {
 
                     <div className="subLocation_price">
                         <div className="subLocation_price_box">
-                            <div className="strike"><p>starting from</p> INR {data?.pricecross}/-</div>
-                            <div className='subLocation_price_price'>INR {data?.price}/-</div>
+                            <div className="strike"><p>starting from</p> INR {data?.trek_data?.pricecross}/-</div>
+                            <div className='subLocation_price_price'>INR {data?.trek_data?.price}/-</div>
                             <div className="discount">
-                                <p>Flat {parseInt((data?.pricecross - data?.price) * 100 / data?.pricecross)}% off!</p>
+                                <p>Flat {parseInt((data?.trek_data?.pricecross - data?.trek_data?.price) * 100 / data?.trek_data?.pricecross)}% off!</p>
                             </div>
                         </div>
                     </div>
@@ -196,8 +191,8 @@ function SubLocation() {
                 </div>
                 <Policy />
                 <Destination trendingTreks={All_Treks.filter((trek) => {
-                return trek.trek_data.packagetype === "Trending";
-            })} />
+                    return trek.trek_data.packagetype === "Trending";
+                })} />
                 <Footer />
             </div>
         </div>

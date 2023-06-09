@@ -79,6 +79,9 @@ function Location() {
     }
   }
 
+  useEffect(()=>{
+    window.scrollTo(0, 0.5);
+  },[])
 
   useEffect(() => {
     if (location != 'All_Location') {
@@ -94,6 +97,7 @@ function Location() {
 
   }, [location, All_Treks]);
 
+  
   const ReadMore = ({ children }) => {
     const text = children;
     const [isReadMore, setIsReadMore] = useState(true);

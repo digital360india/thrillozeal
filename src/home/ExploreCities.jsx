@@ -7,7 +7,7 @@ function ExploreCities() {
     const history = useHistory();
 
     const goToLocation = (location) => {
-        history.push(`/${location}`)
+        history.push(`/${location}/All_Activities/All_Styles`);
     }
 
     return (
@@ -20,7 +20,7 @@ function ExploreCities() {
                 <div className="ExploreCities_rowone">
                     <div className='ExploreCities_imgrow'>
                         <div className="hexa_div">
-                            <div onClick={() => goToLocation("rishikesh")}>
+                            <div onClick={() => goToLocation("Rishikesh")}>
                                 <img className='hexa_div_img' src="/Images/Polygon 1.png" alt="" />
                                 <div className='hexa_div_p'>
                                     <p>Rishikesh</p>
@@ -28,7 +28,7 @@ function ExploreCities() {
                             </div>
                         </div>
                         <div className="hexa_div">
-                            <div onClick={() => goToLocation("nainital")}>
+                            <div onClick={() => goToLocation("Nainital")}>
                                 <img className='hexa_div_img' src="/Images/Polygon 2.png" alt="" />
                                 <div className='hexa_div_p'>
                                     <p >Nainital</p>
@@ -36,7 +36,7 @@ function ExploreCities() {
                             </div>
                         </div>
                         <div className="hexa_div">
-                            <div onClick={() => goToLocation("haridwar")}>
+                            <div onClick={() => goToLocation("Haridwar")}>
                                 <img className='hexa_div_img' src="/Images/Polygon 3.png" alt="" />
                                 <div className='hexa_div_p'>
                                     <p >Haridwar</p>
@@ -46,7 +46,7 @@ function ExploreCities() {
                     </div>
                     <div className='ExploreCities_imgrow ExploreCities_imgrow2'>
                         <div className="hexa_div">
-                            <div onClick={() => goToLocation("mussoorie")}>
+                            <div onClick={() => goToLocation("Mussoorie")}>
                                 <img className='hexa_div_img' src="/Images/Polygon 4.png" alt="" />
                                 <div className='hexa_div_p'>
                                     <p >Mussoorie</p>
@@ -54,7 +54,7 @@ function ExploreCities() {
                             </div>
                         </div>
                         <div className="hexa_div img_for_mobile_explore">
-                            <div onClick={() => goToLocation("pauri_garhwal")}>
+                            <div onClick={() => goToLocation("Pauri Garhwal")}>
                                 <img className='hexa_div_img' src="/Images/Polygon 5.png" alt="" />
                                 <div className='hexa_div_p'>
                                     <p >Pauri Garhwal</p>
@@ -65,21 +65,21 @@ function ExploreCities() {
                 </div>
                 <div className="ExploreCities_rowtwo">
                     <div className="hexa_div">
-                        <div onClick={() => goToLocation("dehradun")}>
+                        <div onClick={() => goToLocation("Dehradun")}>
                             <img className='hexa_div_img' src="/Images/Polygon 6.png" alt="" />
                             <div className='hexa_div_p'>
                                 <p >Dehradun</p>
                             </div>
                         </div>
                     </div><div className="hexa_div">
-                        <div onClick={() => goToLocation("pithoragarh")}>
+                        <div onClick={() => goToLocation("Pithoragarh")}>
                             <img className='hexa_div_img' src="/Images/Polygon 7.png" alt="" />
                             <div className='hexa_div_p'>
                                 <p >Pithoragarh</p>
                             </div>
                         </div>
                     </div><div className="hexa_div">
-                        <div onClick={() => goToLocation("almora")}>
+                        <div onClick={() => goToLocation("Almora")}>
                             <img className='hexa_div_img' src="/Images/Polygon 5.png" alt="" />
                             <div className='hexa_div_p'>
                                 <p >Almora</p>

@@ -63,7 +63,6 @@ function App() {
         </Route>
         <Route path="/">
           <FirstHome />
-          {/* <Loading/> */}
         </Route>
       </Switch>
     </Router>

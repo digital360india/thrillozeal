@@ -6,7 +6,6 @@ StarHalfRounded as StarHalfRoundedIcon
 function Stars(props){
 
   var star_num = props?.review;
-  console.log("starnum "+props?.review);
   
   var isInteger = !(star_num?.indexOf('.') == -1);
   var whole_stars = []
