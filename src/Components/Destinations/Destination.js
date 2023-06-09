@@ -5,9 +5,12 @@ import './Destination.css';
 import progress from './img/progess.png';
 import imgDefault from './img/a.png';
 import StarRoundedIcon from '@mui/icons-material/StarRounded';
-// import { url } from 'inspector';
+import { useHistory } from "react-router-dom";
 const Destination = (props) => {
-  // console.log(props?.trendingTreks);
+  const history = useHistory();
+  const goToPage = (loc) => {
+    history.push(`/${loc}`);
+  }
   return (
     <>
       <div id="destination" className="secondPage">
@@ -25,7 +28,7 @@ const Destination = (props) => {
 
               // console.log(trek.trek_id);
               return (
-                <SplideSlide className='slider_splide_react1'>
+                <SplideSlide onClick={() => goToPage("")} className='slider_splide_react1'>
                   <div style={{backgroundImage: `url(${trek.trek_data?.img1 || "/Images/aboutus-bg.png"})` }} className='slider_splide_react_img'>
                     <p className='trek__cursive'>{trek?.trek_id}</p>
                   </div>

@@ -39,7 +39,7 @@
     border: 1px solid #909090;
     border-radius: 12px;
     width: 30%;
-    min-width: 300px;
+    max-width: 300px;
     height: 50px;
     margin: 12px 2%;
     padding-left: 2%;
@@ -75,8 +75,17 @@ textarea{
 .star__rating{
     margin: 12px 2%;
 }
+.person__div_container{
+    padding: 5px 0;
+    /* border-top: 1px solid #0000008C; */
+    border-bottom: 1px solid #0000008C;
+}
 
 @media (max-width:600px){
+    .person__div_container{
+        flex-direction: column;
+        align-items: center;
+    }
     .review_div_form {
         flex-direction: column !important;
         align-items: flex-start !important;
@@ -87,5 +96,12 @@ textarea{
     }  
     .person__right_div{
         padding: 20px;
+    }
+    .review_form input[type]:not([type="submit"]){
+        width: 100%;
+    }
+    .box-heading{
+        padding: 0px;
+        text-align: center;
     }
 }
