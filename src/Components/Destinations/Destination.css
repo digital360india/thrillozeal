@@ -1,12 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Euphoria+Script&display=swap');
-.trek__cursive{
-    font-family: 'Euphoria Script', cursive;
-    position: absolute;
-    top:30%;
-    font-size: 3rem;
-    color: white;
-    font-weight: 600;
-}
 .secondPage {
     display: flex;
     width: 100vw;
@@ -208,13 +200,24 @@
 .slider_splide_react_img {
     display: flex;
     justify-content: center;
+    align-items: center;
     height: 360px;
     width: 15vw;
     border-radius: 30px !important;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+.trek__cursive{
+    font-family: 'Euphoria Script', cursive;
+    /* position: absolute; */
+    /* top:30%; */
+    font-size: 3rem;
+    color: white;
+    font-weight: 600;
 }
 .slider_splide_react_img img{
-    height: 100%;
-    width: 100%;
+    z-index: -1;
+    position: absolute;
     object-fit: cover;
     border-radius: 30px !important;
 }
