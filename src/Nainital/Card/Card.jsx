@@ -97,9 +97,9 @@ function Card({ data }) {
              <Stars review={data?.data?.review} />
               <p>based on {data?.trek_data?.reviewNo} reviews</p>
             </div>
-            <div className="naini__rating">
+            {/* <div className="naini__rating">
               <p>{data?.trek_data?.review}</p>
-            </div>
+            </div> */}
           </div>
         </div>
         <div className="naini__icons_collection">
