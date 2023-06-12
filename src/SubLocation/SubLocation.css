@@ -1,3 +1,6 @@
+.smallHeader{
+    padding-left:25px;
+}
 .sublocation_img {
     display: flex;
     justify-content: space-between;

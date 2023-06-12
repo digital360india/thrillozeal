@@ -6,10 +6,12 @@ import progress from './img/progess.png';
 import imgDefault from './img/a.png';
 import StarRoundedIcon from '@mui/icons-material/StarRounded';
 import { useHistory } from "react-router-dom";
+
 const Destination = (props) => {
+  
   const history = useHistory();
   const goToPage = (loc) => {
-    history.push(`/${loc}`);
+    history.push({pathname:`/${loc}`,state:{page_loc:0}});
   }
   return (
     <>
@@ -26,9 +28,9 @@ const Destination = (props) => {
             {/* MODIFIED CARD : According to the design */}
             {props?.trendingTreks?.length>0 && props?.trendingTreks?.map(trek => {
 
-              // console.log(trek.trek_id);
+              console.log(trek);
               return (
-                <SplideSlide onClick={() => goToPage("")} className='slider_splide_react1'>
+                <SplideSlide onClick={() => goToPage(trek?.trek_id)} className='slider_splide_react1'>
                   <div style={{backgroundImage: `url(${trek.trek_data?.img1 || "/Images/aboutus-bg.png"})` }} className='slider_splide_react_img'>
                     <p className='trek__cursive'>{trek?.trek_id}</p>
                   </div>

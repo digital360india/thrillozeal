@@ -9,7 +9,7 @@ const Footer = () => {
   const [email, setEmail] = useState("");
   const [messgaeToggle, setMessgaeToggle] = useState(false);
   const goToPage = (location,pos=0) => {
-    history.push({pathname:`/${location}`,state:{position:pos}})
+    history.push({pathname:`/${location}`,state:{page_loc:pos}})
   }
 
   const addEmailToList = (e) =>{
@@ -68,10 +68,10 @@ const Footer = () => {
         <div className="Legal">
           <h1>LEGAL</h1>
           <ul>
-            <li onClick={() => goToPage("legal",100)}>Privacy Policies</li>
-            <li onClick={() => goToPage("legal",200)}>Terms &amp; Conditions</li>
-            <li onClick={() => goToPage("legal",300)}>Terms &amp; Conditions For Guide Registeration</li>
-            <li onClick={() => goToPage("legal",400)}>Data Deletion Policy</li>
+            <li onClick={() => goToPage("privacy_policy",800)}>Confirmation Policy</li>
+            <li onClick={() => goToPage("privacy_policy",970)}>Payments Policy</li>
+            <li onClick={() => goToPage("privacy_policy",1100)}>Cancellation and Refund Policy</li>
+            <li onClick={() => goToPage("privacy_policy",1400)}>Privacy Policies</li>
           </ul>
         </div>
         <div className="Newsletter">

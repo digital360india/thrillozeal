@@ -1,0 +1,115 @@
+.aboutUs {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    font-size: 16px;
+}
+.Name_on_img{
+    position: absolute;
+    top: 50vh;
+    font-size: 80px;
+    margin-left: 5vw;
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: white;
+}
+
+.aboutUs__body {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+}
+
+.aboutUs__body_img{
+    height: 60vh;
+}
+
+.aboutUs__body_first {
+    display: flex;
+    flex-direction: column;
+    padding: 21px;
+}
+
+.smallHeader {
+    display: flex;
+}
+
+.header_name {
+    display: flex;
+    padding: 6px;
+    width: fit-content;
+    height: 17px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 17px;
+    color: #000000;
+}
+
+.active {
+    color: #57BEBE !important;
+}
+
+.aboutUs__body_second {
+    display: flex;
+}
+
+.aboutUs__body_secondIn {
+    display: flex;
+    width: 90vw;
+    justify-content: space-around;
+}
+
+.aboutUs__body_secondIn > div{
+    width: 50%;
+}
+
+.aboutUs__header {
+    color: #57BEBE;
+    line-height: 1.5rem;
+    font-weight: bold;
+}
+.aboutUs__header_1{
+    font-size: 18px;
+}
+
+.aboutUs__header_2{
+    font-size: 30px;
+    padding: 20px 0;
+}
+.aboutUs__header_3{
+    color: #57BEBE;
+}
+
+@media(max-width:900px) {
+
+    .Name_on_img{
+        font-size: 60px;
+    }
+
+    .header_name {
+        padding: 6px 6px;
+        font-weight: 500;
+        font-size: 15px;
+    }
+
+    .aboutUs__body_first {
+        padding: 11px;
+    }
+
+    .aboutUs__body_secondIn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        width: 100vh;
+    }
+    .aboutUs__body_secondIn > div{
+        width: 80%;
+    }
+    .aboutUs__header_2{
+        padding: 10px 0;
+        line-height: 2rem;
+    }
+}

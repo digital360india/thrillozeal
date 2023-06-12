@@ -51,11 +51,12 @@ function SubLocation() {
     //     .collection("All_Trek")
     //     .doc(trek_id);
 
-    const goToPage = (location) => {
-        history.push(`/${location}`)
+    const goToPage = (loc) => {
+        history.push(`/${loc}`)
     }
 
     useEffect(() => {
+        console.log("location:",location.state?.page_loc)
         window.scrollTo(0, 0);
         if (location.state && location.state.page_loc) {
             window.scrollTo({
@@ -66,7 +67,7 @@ function SubLocation() {
         else {
             window.scrollTo(0, 0);
         }
-    }, [])
+    }, [location])
 
     useEffect(() => {
         setData(All_Treks.filter((data) => {
@@ -119,9 +120,9 @@ console.log(data?.trek_data)
                                     <Stars review={data?.trek_data?.review} />
                                     <p>based on {data?.trek_data?.reviewNo} reviews</p>
                                 </div>
-                                <div className="naini__rating">
+                                {/* <div className="naini__rating">
                                     <p>{data?.trek_data?.review}</p>
-                                </div>
+                                </div> */}
                             </div>
                         </div>
                         <div className="naini__icons_collection naini__iconsBlock">
