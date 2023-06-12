@@ -7,7 +7,7 @@ import firebase from "firebase";
 const Footer = () => {
   const history = useHistory();
   const [email, setEmail] = useState("");
-  const [messgaeToggle, setMessgaeToggle] = useState(false);
+  const [messageToggle, setMessageToggle] = useState(false);
   const goToPage = (location,pos=0) => {
     history.push({pathname:`/${location}`,state:{page_loc:pos}})
   }
@@ -20,8 +20,8 @@ const Footer = () => {
   });
   document.getElementById('email_id').value = "";
   setEmail("");
-  setMessgaeToggle(true);
-  setInterval(()=>{setMessgaeToggle(false)}, 3000)
+  setMessageToggle(true);
+  setInterval(()=>{setMessageToggle(false)}, 3000)
   }
 
   return (
@@ -83,7 +83,7 @@ const Footer = () => {
               privacy</li>
             <form className="footer-form">
               <input id="email_id" onChange={(e) => setEmail(e.target.value)} type="text" placeholder="you@awesome.com"></input>
-              {messgaeToggle && <span className="thankyou__span">Thank you for subscribing to Thrillozeal Newsletter!</span>}
+              {messageToggle && <span className="thankyou__span">Thank you for subscribing to Thrillozeal Newsletter!</span>}
               {/* <span className="thankyou__span">Thank you for subscribing to Thrillozeal Newsletter!</span> */}
               <button className="submit-btn" type="submit" onClick={addEmailToList}>SUBMIT</button>
             </form>
