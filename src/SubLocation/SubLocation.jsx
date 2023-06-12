@@ -183,7 +183,7 @@ console.log(data?.trek_data)
                             {active === "second" && <Itinerary />}
                             {active === "third" && <FAQ />}
                             {active === "fourth" && <Package />}
-                            {active === "fifth" && <Review />}
+                            {active === "fifth" && <Review city_id={'JvH2wjbXOWgoOA17X4GW'+data?.trek_data?.city} trek_id={trek_id} />}
                         </div>
                     </div>
                     <div className="sublocation_SecondDiv_form">

@@ -1,10 +1,43 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Slider from "react-slick";
 import './Review.css';
 import Rating from '@mui/material/Rating';
 import TextField from '@mui/material/TextField';
+import db from '../firebase';
+import firebase from "firebase";
 
-const Review = () => {
+const Review = (props) => {
+  const [reviewFormData, setReviewFormData] = useState({name: "",email: "",mobile: "",experience_message:"",rating:0});
+  const [starValue, setStarValue] = React.useState(0);
+  const [messageToggle, setMessageToggle] = useState(false);
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setReviewFormData((prevReviewFormData) => ({ ...prevReviewFormData, [name]: value }));
+  };
+
+   const handleSubmit = (event) => {
+    event.preventDefault();
+    var timestmp = firebase.firestore.FieldValue.serverTimestamp();
+    if(reviewFormData.name === "" || reviewFormData.email === "" || reviewFormData.mobile === "" || reviewFormData.experience_message === ""){
+      alert("Please fill all the fields");
+      return;
+    }
+    db.collection('Cities').doc(props.city_id).collection('All_Trek').doc(props.trek_id).collection('Reviews').doc(reviewFormData.email,timestmp).set({
+      name: reviewFormData.name,
+      email: reviewFormData.email,
+      mobile: reviewFormData.mobile,
+      experience_message: reviewFormData.experience_message,
+      rating: starValue,
+      timestamp: timestmp,
+      approved: false,
+    });
+    setReviewFormData({name: "",email: "",mobile: "",experience_message:"",rating:0});
+    setMessageToggle(true);
+    setInterval(()=>{setMessageToggle(false)}, 2000)
+
+};
+
   const PersonReview = () => {
     return (
       <div className="person__div_container">
@@ -19,39 +52,28 @@ const Review = () => {
       </div>
     );
   }
-  const [value, setValue] = React.useState(0);
   return (
     <>
     <div className="Card-Wrapper">
       <h2 className=" box-heading">Reviews </h2>
       <PersonReview/>
       <PersonReview/>
-      {/* <div className="Accordian-Wrapper">
-      <EachDay listStyle="itineray__list" expanded="true" data={{n:1, dayHead: "Delhi to Baniyakund, Chopta (430 km/11 hrs)", daydesc : ["We'll begin our journey at 6 a.m from Delhi.","We'll have our overnight at Baniyakund in Chopta either at a lodging facility or a campsite, depending on your tour package.","En route to Chopta from Delhi, we'll pass Devprayag, Srinagar, Rudraprayag, and Ukhimath. We'll make a small halt at Devprayag to witness the beauty of Alaknanda and Bhagirathi streams when they confluence to become Ganga.","By 5 in the evening, we'll reach Baniyakund and relax there with the overnight stay."]}} />
-      <EachDay listStyle="itineray__list" data={{n:2, dayHead: "Delhi to Baniyakund, Chopta (430 km/11 hrs)", daydesc : ["We'll begin our journey at 6 a.m from Delhi.","We'll have our overnight at Baniyakund in Chopta either at a lodging facility or a campsite, depending on your tour package.","En route to Chopta from Delhi, we'll pass Devprayag, Srinagar, Rudraprayag, and Ukhimath. We'll make a small halt at Devprayag to witness the beauty of Alaknanda and Bhagirathi streams when they confluence to become Ganga.","By 5 in the evening, we'll reach Baniyakund and relax there with the overnight stay."]}} />
-      <EachDay listStyle="itineray__list" data={{num:3, dayHead: "Delhi to Baniyakund, Chopta (430 km/11 hrs)", daydesc : ["We'll begin our journey at 6 a.m from Delhi.","We'll have our overnight at Baniyakund in Chopta either at a lodging facility or a campsite, depending on your tour package.","En route to Chopta from Delhi, we'll pass Devprayag, Srinagar, Rudraprayag, and Ukhimath. We'll make a small halt at Devprayag to witness the beauty of Alaknanda and Bhagirathi streams when they confluence to become Ganga.","By 5 in the evening, we'll reach Baniyakund and relax there with the overnight stay."]}} />
-        {data && data?.map((d, index) => (
-          // <ShowDay data={d}/>
-          <div>
-            <EachDay listStyle="itineray__list" expanded={index === 0 ? "true" : "false"}  data={d?.data} />
-          </div>
-        ))}
-      </div> */}
     </div>
     <div className='Card-Wrapper'>
       <h2 className=" box-heading">Submit Review </h2>
       <div className="review_form">
       <div className="review_div_form">
 
-      <input type="text" name="input" placeholder="Full Name*"></input>
-        <input type="text" name="mobile" placeholder="Mobile Number*"></input>
-        <input type="email" name="input" placeholder="Email Id*"></input>
-        <textarea name="Text1" placeholder="Share details of your personal experience of this package."
-            id="standard-multiline-flexible" cols="200" rows="10"></textarea>
+      <input type="text" id="name" name="name" value={reviewFormData.name} onChange={handleChange} placeholder="Full Name*" required></input>
+      <input type="text" id="mobile" name="mobile" value={reviewFormData.mobile} onChange={handleChange} placeholder="Mobile Number*" required></input>
+      <input type="email" id="email" name="email" value={reviewFormData.email} onChange={handleChange} placeholder="Email Id*" required></input>
+        <textarea name="experience_message" placeholder="Share details of your personal experience of this package."
+            id="standard-multiline-flexible" cols="200" rows="10" onChange={handleChange} value={reviewFormData.experience_message}></textarea>
         <div className='star__rating' >
-        <Rating name="simple-controlled" value={value} onChange={(event, newValue) => { setValue(newValue); }}/>
+        <Rating name="simple-controlled" value={starValue} onChange={(event, newValue) => { setStarValue(newValue); }}/>
         </div>
-        <input type="submit" name="submit" value="Send"></input>
+        {messageToggle && <span className="thankyou__span">Thank you for sharing your Experience!</span>}
+        <input type="submit" name="submit" value="Send" onClick={handleSubmit}></input>
      </div>
       </div>
     </div>
@@ -61,36 +83,3 @@ const Review = () => {
 
 
 export default Review
-
-
-// <div className="blue1"> <img src="./Images/Vector 5.svg"></img></div>
-//         <div className="yellow1"><img src="./Images/Vector 2.svg"></img></div>
-//         <div className="review1"><img src="./Images/Ellipse 31.png"></img>
-//         <p>Thank you thrillozeal for organizing such a great trip! I had a lot of fun with everyone and also made a few friends.</p>
-//         <p>-Karan Godara</p>
-//         <p>22nd Jan, 2022</p>
-//         </div>
-        
-//       </div>
-//       <div>
-//         <div className="blue2">
-//         <img src="./Images/Vector 4.svg"></img></div>
-//         <div className="review2">
-//             <img src="./Images/Ellipse 32.png"></img>
-//             <p>Awesome blossom and a lot of fun! Had an amazing experienve.
-// Auli is truly a heavenly place, full of snow and surrounded by enchanting mountains. A must visit!</p>
-//             <p>-Noushin Aslam</p>
-//             <p>15th Jan, 2022</p>
-//         </div>
-//       </div>
-//       <div>
-//       <img src="./Images/Vector 6.png"></img>
-//       <img src="./Images/Vector 3.png"></img>
-//       <div className="review3">
-//             <img src="./Images/Ellipse 33.png"></img>
-//             <p>One of the best trips of my life! Had loads of fun. The arrangements were smooth and we did not have to worry about anything!</p>
-//             <p>-Shalini Bisht</p>
-//             <p>10th Feb, 2022</p>
-//         </div>
-
-      
