@@ -87,7 +87,7 @@
     position: absolute;
     height: fit-content;
     width: 180px;
-    top: 50px;
+    top: 75%;
     margin-left: 10px;
     background-color: white;
     border: 1px solid lightgray;
@@ -127,16 +127,16 @@
 }
 
 .header__dropdown2 {
-    margin-left: 220px;
+    margin-left: 230px;
 }
 
 .header__dropdown_h5 {
     display: flex;
-    padding: 6px;
+    padding: 6px 14px;
     width: fit-content;
     height: fit-content;
     align-items: center;
-    justify-content: center;
+    width: 100%;
 }
 
 .N__divider {

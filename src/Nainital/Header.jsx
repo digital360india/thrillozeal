@@ -111,7 +111,7 @@ function Header({ setLoading }) {
                         <img onClick={() => setShowsearch(!showsearch)} style={{ height: '40px' }} src={search} alt="" />
                     </div>
                     <div onClick={() => goToPage("")} className={!showsearch ? "N__Header__logo" : "TrueN__Header__logo"}>
-                        <img className='Nainital_logo' src="/Images/Logo-white.png" alt="" />
+                        <img className='Nainital_logo' src="Images/logo.png" alt="" />
                     </div>
                     <div className={!showsearch ? "FirstHome__input_forheader" : "TrueFirstHome__input_forheader"}>
                         <input onFocus={onFocus} value={input} type="text" placeholder="Activities" onChange={onChangeAct} />

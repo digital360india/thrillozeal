@@ -11,35 +11,7 @@ const SubLocationImages = ({ data }) => {
         <>
             <div className="slider_splideOut">
                 <div className="slider-splide">
-                    
-                {/* <span className='desktop'>
-                    <SplideSlide className='slider_splide_react1N'>
-                            <div class="side-crop">
-                                <img className='testClass' src={data?.img} alt="Image 1" />
-                            </div>
-                        </SplideSlide>
-
-                        <SplideSlide className='slider_splide_react1N'>
-                            <div class="side-crop">
-                                <img className='testClass' src={data?.img1} alt="Image 1" />
-                            </div>
-                        </SplideSlide>
-
-                        <SplideSlide className='slider_splide_react1N'>
-                            <div class="side-crop">
-                                <img className='testClass' src={data?.img2} alt="Image 1" />
-                            </div>
-                        </SplideSlide>
-
-                        <SplideSlide className='slider_splide_react1N'>
-                            <div class="side-crop">
-                                <img className='testClass' src={data?.img3} alt="Image 1" />
-                            </div>
-                        </SplideSlide>
-                     </span> 
-    */}
-
-                    <Splide className='mobile slider_splide_reactN'>
+                    <Splide className='  slider_splide_reactN'>
 
                         <SplideSlide className='slider_splide_react1N'>
                             <div class="side-crop">
