@@ -13,7 +13,7 @@ import { useParams } from 'react-router-dom';
 import db from '../../firebase';
 
 function Filter({ data, data_Filtered, setData_Filtered, activity }) {
-    var { location, activity, styles } = useParams();
+    var { location, activity, categories } = useParams();
     const [active, setActive] = useState(' ');
 
     const [{ globalVariable, Travel_Style, filter_prices, useFilter_price }, dispatch] = useStateValue();
@@ -40,15 +40,15 @@ function Filter({ data, data_Filtered, setData_Filtered, activity }) {
                     globalVariable.Activities && Object.keys(globalVariable.Activities).find(key => globalVariable.Activities[key] === activity)
                 );
             }
-            if (styles == "All_Styles" || !styles) {
+            if (categories == "All_Styles" || !categories) {
                 // setFilterArraycate([...Object.values(globalVariable.Categories)]);
                 // setuseFilter_cate(
                 //     globalVariable.Categories && Object.keys(globalVariable.Categories).find(key => globalVariable.Categories[key])
                 // );
             } else {
-                setFilterArraycate([styles]);
+                setFilterArraycate([categories]);
                 setuseFilter_cate(
-                    globalVariable.Categories && Object.keys(globalVariable.Categories).find(key => globalVariable.Categories[key] === styles)
+                    globalVariable.Categories && Object.keys(globalVariable.Categories).find(key => globalVariable.Categories[key] === categories)
                 );
             }
 
@@ -133,7 +133,7 @@ function Filter({ data, data_Filtered, setData_Filtered, activity }) {
     }
 
     const filter_by_categories = (trek) => {
-        if (useFilter_cate == "" && styles == "All_Styles") {
+        if (useFilter_cate == "" && categories == "All_Styles") {
             return true;
         }
         return trek?.trek_data?.categories ? trek?.trek_data?.categories?.toLowerCase().includes(useFilter_cate?.split("")?.sort()?.join("")): true;
