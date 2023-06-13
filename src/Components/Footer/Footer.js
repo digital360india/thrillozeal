@@ -25,9 +25,9 @@ const Footer = () => {
   }
 
   return (
-    <div className="footer-boundary">
-      <div className="footer-container">
-        <div className="Thrillo-div">
+    <div className="footer_boundary">
+      <div className="footer_container">
+        <div className="Thrillo_div">
           <h1>THRILLOZEAL</h1>
           <img src="/Images/thrillozeal_logo_mobile.png"/>
           <p>
@@ -40,26 +40,26 @@ const Footer = () => {
         </div>
       
       <div className="combo__link_contact">
-      <div className="Links-div">
-          <h1>USEFUL LINKS</h1>
+      <div className="Links_div">
+          <h1>LINKS</h1>
           <ul>
             <li onClick={() => goToPage("",0)}>Home</li>
             <li onClick={ () => document.getElementById('destination').scrollIntoView({ behavior: "smooth"})} >Trending </li>
             <li onClick={() => goToPage("about",0)}>About Us</li>
           </ul>
         </div>
-        <div className="Contact-div">
+        <div className="Contact_div">
           <h1>CONTACT US</h1>
-          <span className="contact-span">
+          <span className="contact_span">
             <PhoneInTalkOutlinedIcon/>
             <p>+91 83030 22306</p>
           </span>
-          <span className="contact-span">
+          <span className="contact_span">
             <LocationOnOutlinedIcon/>
             <p >B 36, Nehru Colony, Dehrdun
               Uttarakhand, India 248001</p>
           </span>
-          <span className="contact-span">
+          <span className="contact_span">
             <EmailOutlinedIcon/>
             <p>info@thrillozeal.com</p>
           </span>
@@ -81,7 +81,7 @@ const Footer = () => {
               list</li>
             <li className="newsletter_li">We respect your
               privacy</li>
-            <form className="footer-form">
+            <form className="footer_form">
               <input id="email_id" onChange={(e) => setEmail(e.target.value)} type="text" placeholder="you@awesome.com"></input>
               {messageToggle && <span className="thankyou__span">Thank you for subscribing to Thrillozeal Newsletter!</span>}
               {/* <span className="thankyou__span">Thank you for subscribing to Thrillozeal Newsletter!</span> */}
@@ -95,6 +95,9 @@ const Footer = () => {
         <img onClick={() => window.open("https://www.instagram.com/thrillozeal/")} src="/Images/Instagram.png"></img>
         <img onClick={() => goToPage("",0)} src="/Images/Twitter Circled.png"></img>
         <img onClick={() => goToPage("",0)} src="/Images/LinkedIn.png"></img>
+      </div>
+      <div className='socials'>
+          copyright@thrillozeal.com
       </div>
     </div>
   );
