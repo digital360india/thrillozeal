@@ -4,7 +4,8 @@
     width: 100%;
     justify-content: center;
     align-items: center;
-    padding-top: 42px;
+    /* padding-top: 42px; */
+    margin-top: 5%;
 }
 
 .ExploreCities_sec {

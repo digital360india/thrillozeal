@@ -6,11 +6,14 @@ import progress from './img/progess.png';
 import imgDefault from './img/a.png';
 import StarRoundedIcon from '@mui/icons-material/StarRounded';
 import { useHistory } from "react-router-dom";
+
 const Destination = (props) => {
+
   const history = useHistory();
   const goToPage = (loc) => {
     history.push(`/${loc}`);
   }
+
   return (
     <>
       <div id="destination" className="secondPage">
@@ -22,14 +25,10 @@ const Destination = (props) => {
       <div className="slider_splideOut">
         <div className="slider-splide">
           <Splide className='slider_splide_react' options={{ rewind: true, perPage: 4 }} aria-label="React Splide Example">
-            {/* <Splide options={ { rewind: true,perPage:4} } aria-label="React Splide Example"> */}
-            {/* MODIFIED CARD : According to the design */}
-            {props?.trendingTreks?.length>0 && props?.trendingTreks?.map(trek => {
-
-              // console.log(trek.trek_id);
+            {props?.trendingTreks?.length > 0 && props?.trendingTreks?.map(trek => {
               return (
                 <SplideSlide onClick={() => goToPage("")} className='slider_splide_react1'>
-                  <div style={{backgroundImage: `url(${trek.trek_data?.img1 || "/Images/aboutus-bg.png"})` }} className='slider_splide_react_img'>
+                  <div style={{ backgroundImage: `url(${trek.trek_data?.img1 || "/Images/aboutus-bg.png"})` }} className='slider_splide_react_img'>
                     <p className='trek__cursive'>{trek?.trek_id}</p>
                   </div>
                   <div className="one1">
@@ -128,7 +127,7 @@ const Destination = (props) => {
               // console.log(trek.trek_id);
               return (
                 <SplideSlide className='slider_splide_react1'>
-                  <div style={{backgroundImage: `url(${trek.trek_data?.img1 || "/Images/aboutus-bg.png"})` }} className='slider_splide_react_img'>
+                  <div style={{ backgroundImage: `url(${trek.trek_data?.img1 || "/Images/aboutus-bg.png"})` }} className='slider_splide_react_img'>
                     <p className='trek__cursive'>{trek?.trek_id}</p>
                   </div>
                   <div className="one1">

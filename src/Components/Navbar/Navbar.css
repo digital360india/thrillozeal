@@ -1,67 +1,70 @@
-.Navbar-Container{
+.Navbar_Container {
     display: flex;
-    background: transparent;
-    /* color: rgb(145, 144, 144); */
-    width: 100%;
+    width: 95%;
+    margin: 15px 2.5%;
+    /* margin-top: 15px; */
     position: absolute;
     z-index: 10;
-    margin-top: 12px;
+    justify-content: space-between;
+
+
 }
-.First{
-    flex: 2;
-    margin-left: 82px;
+
+.logo_thrillo {
+    height: 55px;
+    margin-left: 12px;
 }
-.Second{
-    flex: 3;
+
+.First {
+    display: flex;
+    /* margin-left: 82px; */
 }
-.Third{
-    flex: 3;
+
+.Third {
     margin-right: 22px;
+    width: 30%;
 }
-.Nav-items{
+
+.Nav_items {
     display: flex;
     justify-content: space-around;
     align-items: center;
 }
-.Nav-items img{
+
+.Nav_items img {
     vertical-align: middle;
-    /* padding-right: 5%; */
-}
-.Nav-items li{
-    list-style: none;
-    font-size: 18px;
-    color: white;
-    letter-spacing: 1px;
-    font-weight: 500;
 }
 
-@media (max-width:600px){
-    .Navbar-Container{
+.Nav_items li {
+    list-style: none;
+    font-size: 19px;
+    color: white;
+    letter-spacing: 1px;
+    font-weight: 400;
+    margin: 0 5%;
+}
+
+.Menu_forMobile {
+    display: none;
+}
+
+@media (max-width:600px) {
+    .Navbar_Container {
         display: flex;
+        margin-top: 6px;
         align-items: center;
-        justify-content: center;
-        width: 100vw;
-        margin-top: 0px;
     }
-    .Third ul li{
-        display: none;
+
+    .logo_thrillo {
+        height: 30px;
+        margin-top: 8px;
     }
-    .Third ul li:last-child{
-        display: block;
-    }
-   
+
     .Third {
         display: none;
     }
-    .First{
-        margin-left: 110px !important;
-        flex:1;
-        align-items: center;
-        justify-content: center;
-    }
-    .Second{
-        flex: none;
-        margin: 0;
-    }
 
+    .Menu_forMobile {
+        display: flex;
+    }
 }

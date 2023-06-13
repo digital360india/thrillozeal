@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './FirstHome.css';
+import './FirstHomeAnimation.css';
 import logo from './img/logo.png';
 import call from './img/phone-call.png';
 import background1 from './img/thrillo 1.webp';
@@ -47,6 +48,7 @@ import {
 } from "@mui/icons-material";
 import Loading from '../Components/Loader/Loading';
 
+
 function FirstHome() {
 
     const history = useHistory();
@@ -60,14 +62,20 @@ function FirstHome() {
     const [input2, setInput2] = useState('');
     const [location, setLocation] = useState('All_Location')
     const [activity, setActivity] = useState('All_Activities')
+    const [class1, setclass1] = useState('one icon_size');
+    const [class2, setclass2] = useState('two icon_size');
+    const [class3, setclass3] = useState('three icon_size');
+    const [class4, setclass4] = useState('four icon_size');
+    const [class5, setclass5] = useState('five icon_size');
+    const [class6, setclass6] = useState('changeIcon icon_size');
 
-    const [class1, setclass1] = useState('one');
-    const [class2, setclass2] = useState('two');
-    const [class3, setclass3] = useState('three');
-    const [class4, setclass4] = useState('four');
-    const [class5, setclass5] = useState('five');
-    const [class6, setclass6] = useState('changeIcon');
-
+    const [animation1, setanimation1] = useState('one onerev icon_size');
+    const [animation2, setanimation2] = useState('two tworev icon_size');
+    const [animation3, setanimation3] = useState('three threerev icon_size');
+    const [animation4, setanimation4] = useState('four fourrev icon_size');
+    const [animation5, setanimation5] = useState('five fiverev icon_size');
+    const [animation6, setanimation6] = useState('changeIcon changeIconrev icon_size');
+    const [active, setActive] = useState(false)
 
     const onFocus = () => {
         setShowdropdown_act(true);
@@ -95,14 +103,14 @@ function FirstHome() {
         setInput(e.target.value)
         setActivity(e.target.value)
     }
-const onChangeloc = (e) => {
+    const onChangeloc = (e) => {
         setInput2(e.target.value)
         setLocation(e.target.value)
     }
 
     const Search_Click = () => {
         console.log("'first'")
-        history.push(`/${location ? location:'All_Location'}/${activity ? activity:'All_Activities'}/All_Styles`);
+        history.push(`/${location ? location : 'All_Location'}/${activity ? activity : 'All_Activities'}/All_Styles`);
     }
 
     const [newArr, setNewArr] = useState([icon1, icon2, icon3, icon4, icon5, icon6]);
@@ -110,6 +118,7 @@ const onChangeloc = (e) => {
     const [currentClass, setCurrentClass] = useState(false);
 
     const function1 = () => {
+        setActive(false);
         setCurrentClass(!currentClass);
         setNumber((number + 1) % 6)
         var temp = class6;
@@ -119,6 +128,40 @@ const onChangeloc = (e) => {
         setclass3(class2);
         setclass2(class1);
         setclass1(temp);
+
+        var temp = animation6
+        setanimation6(animation5);
+        setanimation5(animation4);
+        setanimation4(animation3);
+        setanimation3(animation2);
+        setanimation2(animation1);
+        setanimation1(temp);
+        // setclass1(class2);
+    }
+
+    const function2 = () => {
+        setActive(true)
+        setCurrentClass(!currentClass);
+        if (number == 0) {
+            setNumber(5);
+        } else {
+            setNumber((number - 1) % 6);
+        }
+        var temp = class1;
+        setclass1(class2);
+        setclass2(class3);
+        setclass3(class4);
+        setclass4(class5);
+        setclass5(class6);
+        setclass6(temp);
+
+        var temp = animation1;
+        setanimation1(animation2);
+        setanimation2(animation3);
+        setanimation3(animation4);
+        setanimation4(animation5);
+        setanimation5(animation6);
+        setanimation6(temp);
         // setclass1(class2);
     }
 
@@ -153,31 +196,6 @@ const onChangeloc = (e) => {
                 <img className={number == 0 ? "backimage1 backimage" : 'backimage2 backimage'} src={background6} alt="" />
                 <img className={number == 0 ? "backimage1 theme" : 'backimage2 theme'} src={background6theme} alt="" />
 
-                <div className="FirstHome__Header">
-                    <div className="Header__logo">
-                        <img src={logo} alt="" />
-                    </div>
-                    <div className="sections">
-                        <div className="Header__section">
-                            About Us
-                        </div>
-                        <div className="Header__section">
-                            Category
-                        </div>
-                        <div className="Header__section">
-                            Cities
-                        </div>
-                        <div className="Header__section">
-                            Contact
-                        </div>
-                        <div className="call">
-                            <a href="tel:8303022306"> <img src={call} alt="" /></a>
-                        </div>
-                    </div>
-                    <div className="sections_forM">
-                        <img src={menu} alt="" />
-                    </div>
-                </div>
                 <div className="secRow">
                     <div className="firstBox">
                         <div className='combText'>
@@ -230,12 +248,12 @@ const onChangeloc = (e) => {
                     <div className="secondBox">
                         <div className="secondbox_row">
                             <div className="second_Border">
-                                <img src={icon2} className={class1} alt="" />
-                                <img src={icon3} className={class2} alt="" />
-                                <img src={icon4} className={class3} alt="" />
-                                <img src={icon5} className={class4} alt="" />
-                                <img src={icon6} className={class5} alt="" />
-                                <img src={icon1} className={class6} alt="" />
+                                <img src={icon1} className={active ? animation1 : class1} alt="" />
+                                <img src={icon2} className={active ? animation2 : class2} alt="" />
+                                <img src={icon3} className={active ? animation3 : class3} alt="" />
+                                <img src={icon4} className={active ? animation4 : class4} alt="" />
+                                <img src={icon5} className={active ? animation5 : class5} alt="" />
+                                <img src={icon6} className={active ? animation6 : class6} alt="" />
                             </div>
                         </div>
                         <div className="secondbox_row2">
@@ -244,7 +262,7 @@ const onChangeloc = (e) => {
                             </div>
 
 
-                            <div className="changeArrow" onClick={function1}>
+                            <div className="changeArrow" onClick={function2}>
                                 <img src={arrow} className="changeArrowImg" alt="" />
                             </div>
                         </div>

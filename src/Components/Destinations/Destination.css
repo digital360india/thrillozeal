@@ -5,6 +5,7 @@
     align-items: center;
     justify-content: center;
     padding: 21px 0;
+    margin-top: 5%;
 }
 
 .second_header {
@@ -92,7 +93,8 @@
 
 .slider_splide_react1 {
     width: 250px !important;
-    margin: 12px 1.5%;
+    margin: 12px 0;
+    height: 500px;
 }
 .slider_splide_react1N {
     width: 22% !important;
@@ -103,7 +105,6 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding-left: 10%;
     font-weight: 400;
     font-family: 'Montserrat';
     font-style: normal;
@@ -134,7 +135,7 @@
     align-items: flex-start;
 }
 .package_dates{
-    padding: 8px 0;
+    padding: 10px 0;
 }
 .current_price{
     font-weight: 600;
@@ -209,12 +210,11 @@
 }
 .trek__cursive{
     font-family: 'Euphoria Script', cursive;
-    /* position: absolute; */
-    /* top:30%; */
     font-size: 3rem;
     color: white;
     font-weight: 600;
 }
+
 .slider_splide_react_img img{
     z-index: -1;
     position: absolute;
@@ -243,8 +243,10 @@
     }
 
     .slider_splide_react1 {
-        width: 90% !important;
+        width: 50% !important;
         margin: 12px 2%;
+        margin-top: 0;
+        height: 370px;
     }
     .slider_splide_react1N {
         width: 100% !important;
@@ -252,7 +254,7 @@
     }
 
     .slider_splide_react_img {
-        width: 30vw;
+        width: 100%;
         height: 250px;
     }
 
@@ -285,6 +287,9 @@
     .one1 p:nth-child(1) {
         font-weight: 400;
         font-size: 14px;
+        margin: 0;
+        padding: 0;
+        margin-top: 12px;
     }
 
     .one1 p:nth-child(2) {
@@ -314,5 +319,7 @@
     .trek__cursive{
         font-size: 1.5em; 
         word-wrap: normal;
+        padding: 0;
+        margin: 0;
     }
 }

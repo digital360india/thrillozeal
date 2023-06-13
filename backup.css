@@ -1,0 +1,243 @@
+.icon_size {
+    height: 120px;
+    max-width: 120px;
+    object-fit: cover;
+    color: white;
+    font-size: 30px;
+    display: flex;
+    font-weight: bold;
+    align-items: center;
+    justify-content: center;
+}
+
+.changeIcon {
+    position: absolute;
+    height: 160px;
+    bottom: -15vh;
+    right: 15vw;
+    animation-name: activity10;
+    animation-duration: 0.5s;
+}
+
+.changeIconrev {
+    animation-name: reverse_activity10 !important;
+}
+
+@keyframes reverse_activity10 {
+    0% {
+        bottom: 5vh;
+        right: -4vw;
+        height: 120px;
+    }
+
+    100% {
+        /* bottom: 0vh; */
+        bottom: -15vh;
+        right: 15vw;
+        height: 160px;
+    }
+}
+
+@keyframes activity10 {
+    0% {
+        bottom: 5vh;
+        right: 33vw;
+        height: 120px;
+    }
+
+    100% {
+        /* bottom: 0vh; */
+        bottom: -15vh;
+        right: 15vw;
+        height: 160px;
+    }
+}
+
+.one {
+    position: absolute;
+    bottom: 5vh;
+    right: 33vw;
+    animation-name: activity21;
+    animation-duration: 0.5s;
+}
+
+.onerev {
+    animation-name: reverse_activity21 !important;
+}
+
+@keyframes reverse_activity21 {
+    0% {
+        bottom: -15vh;
+        right: 15vw;
+        height: 160px;
+    }
+
+    100% {
+        bottom: 5vh;
+        right: 33vw;
+    }
+}
+
+@keyframes activity21 {
+    0% {
+        bottom: 33vh;
+        right: 28vw;
+    }
+
+    100% {
+        bottom: 5vh;
+        right: 33vw;
+    }
+}
+
+.two {
+    position: absolute;
+    bottom: 33vh;
+    right: 28vw;
+    animation-name: activity32;
+    animation-duration: 0.5s;
+}
+
+.tworev {
+    animation-name: reverse_activity32 !important;
+}
+
+/* animation for icons */
+
+@keyframes reverse_activity32 {
+    0% {
+        bottom: 5vh;
+        right: 33vw;
+    }
+
+    100% {
+        bottom: 33vh;
+        right: 28vw;
+    }
+}
+
+@keyframes activity32 {
+    0% {
+        bottom: 42vh;
+        right: 15vw;
+    }
+
+    100% {
+        bottom: 33vh;
+        right: 28vw;
+    }
+}
+
+
+.three {
+    position: absolute;
+    bottom: 42vh;
+    right: 15vw;
+    animation-name: activity43;
+    animation-duration: 0.5s;
+}
+
+.threerev {
+    animation-name: reverse_activity43 !important;
+}
+
+@keyframes reverse_activity43 {
+    0% {
+        bottom: 33vh;
+        right: 28vw;
+    }
+
+    100% {
+        bottom: 42vh;
+        right: 15vw;
+    }
+}
+
+@keyframes activity43 {
+    0% {
+        bottom: 33vh;
+        right: 4vh;
+    }
+
+    100% {
+        bottom: 42vh;
+        right: 15vw;
+    }
+}
+
+
+.four {
+    position: absolute;
+    bottom: 33vh;
+    right: 4vh;
+    animation-name: activity54;
+    animation-duration: 0.5s;
+}
+
+.fourrev {
+    animation-name: reverse_activity54 !important;
+}
+
+@keyframes reverse_activity54 {
+    0% {
+        bottom: 42vh;
+        right: 15vw;
+    }
+
+    100% {
+        bottom: 33vh;
+        right: 4vh;
+    }
+}
+
+@keyframes activity54 {
+    0% {
+        bottom: 5vh;
+        right: -4vw;
+    }
+
+    100% {
+        bottom: 33vh;
+        right: 4vh;
+    }
+}
+
+.five {
+    position: absolute;
+    bottom: 5vh;
+    right: -4vw;
+    animation-name: activity05;
+    animation-duration: 0.5s;
+}
+
+.fiverev {
+    animation-name: reverse_activity05 !important;
+}
+
+@keyframes reverse_activity05 {
+    0% {
+        bottom: 33vh;
+        right: 4vh;
+        height: 120px;
+    }
+
+    100% {
+        bottom: 5vh;
+        right: -4vw;
+        height: 120px;
+    }
+}
+
+@keyframes activity05 {
+    0% {
+        bottom: -15vh;
+        right: 15vw;
+        height: 160px;
+    }
+
+    100% {
+        bottom: 5vh;
+        right: -4vw;
+        height: 120px;
+    }
+}

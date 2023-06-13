@@ -5,10 +5,10 @@
 }
 
 .footer-container {
-    width: 90%;
+    width:90%;
     display: flex;
     justify-content: space-around;
-    padding: 50px;
+    /* padding: 50px; */
     font-family: 'Montserrat';
     font-style: normal;
     font-weight: 500;
@@ -29,7 +29,7 @@
     font-weight: 600;
     font-size: 20px;
     line-height: 29px;
-    color: #585454 !important;
+    color: black !important;
     margin-bottom: 20px;
 }
 
@@ -137,7 +137,7 @@
     .footer-container{
         display: flex;
         width: 100%;
-        padding: 2%;
+        /* padding: 2%; */
         flex-direction: column;
         justify-content: space-around;
         align-items: center;

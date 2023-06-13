@@ -12,7 +12,6 @@
     0% {
         opacity: 0;
     }
-
     100% {
         opacity: 1;
     }
@@ -133,9 +132,11 @@
 }
 
 .firstBox {
+    display: flex;
+    flex-direction: column;
     position: absolute;
     width: 500px;
-    height: 240px;
+    height: 270px;
     left: 103px;
     bottom: 5vh;
 }
@@ -164,11 +165,11 @@
 
 .FirstHome__input {
     display: flex;
-    position: absolute;
+    /* position: absolute; */
     width: 500px;
     height: 50px;
     top: 150px;
-    background: #FFFFFF;
+    background: #fff;
     border-radius: 30px;
     align-items: center;
     padding: 5px;
@@ -230,7 +231,7 @@
     padding: 16px;
     align-items: center;
     justify-content: center;
-    margin-top: 8vh;
+    /* margin-top: 8vh; */
 }
 
 .changeArrowImg {
@@ -239,150 +240,6 @@
     width: 30px;
 }
 
-.changeIcon {
-    position: absolute;
-    display: flex;
-    width: 280px;
-    height: 208.83px;
-    bottom: -14vh;
-    right: 9.3vw;
-    animation-name: activity10;
-    animation-duration: 0.5s;
-}
-
-@keyframes activity10 {
-    0% {
-        bottom: 2vh;
-        right: 32.3vw;
-        width: 150px;
-        height: 150px;
-    }
-
-    100% {
-        bottom: 0vh;
-        bottom: -14vh;
-        width: 280px;
-        height: 208.83px;
-    }
-}
-
-.one {
-    position: absolute;
-    bottom: 2vh;
-    right: 32.3vw;
-    width: 150px;
-    height: 150px;
-    animation-name: activity21;
-    animation-duration: 0.5s;
-}
-
-@keyframes activity21 {
-    0% {
-        bottom: 26vh;
-        right: 28vw;
-    }
-
-    100% {
-        bottom: 2vh;
-        right: 32.3vw;
-    }
-}
-
-.two {
-    position: absolute;
-    bottom: 26vh;
-    right: 28vw;
-    width: 150px;
-    height: 150px;
-    animation-name: activity32;
-    animation-duration: 0.5s;
-}
-
-/* animation for icons */
-
-@keyframes activity32 {
-    0% {
-        bottom: 42vh;
-        right: 15vw;
-    }
-
-    100% {
-        bottom: 26vh;
-        right: 28vw;
-    }
-}
-
-
-.three {
-    position: absolute;
-    bottom: 42vh;
-    right: 15vw;
-    width: 150px;
-    height: 150px;
-    animation-name: activity43;
-    animation-duration: 0.5s;
-}
-
-@keyframes activity43 {
-    0% {
-        bottom: 26vh;
-        right: 0vh;
-    }
-
-    100% {
-        bottom: 42vh;
-        right: 15vw;
-    }
-}
-
-
-.four {
-    position: absolute;
-    bottom: 26vh;
-    right: 0vh;
-    width: 150px;
-    height: 150px;
-    animation-name: activity54;
-    animation-duration: 0.5s;
-}
-
-@keyframes activity54 {
-    0% {
-        bottom: 2vh;
-        right: -5vw;
-    }
-
-    100% {
-        bottom: 26vh;
-        right: 0vh;
-    }
-}
-
-.five {
-    position: absolute;
-    bottom: 2vh;
-    right: -5vw;
-    width: 150px;
-    height: 150px;
-    animation-name: activity05;
-    animation-duration: 0.5s;
-}
-
-@keyframes activity05 {
-    0% {
-        bottom: -15vh;
-        right: 10.3vw;
-        width: 280px;
-        height: 208.83px;
-    }
-
-    100% {
-        bottom: 2vh;
-        right: -5vw;
-        width: 150px;
-        height: 150px;
-    }
-}
 
 .second_Border {
     width: 37vw;
@@ -395,6 +252,18 @@
     bottom: 20vh;
     right: 6vw;
 }
+.combText {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 30px;
+}
+
+/* 00000000000000000000000000000000000000000000000000 */
+/* 00000000000000000000000000000000000000000000000000 */
+/* 00000000000000000000000000000000000000000000000000 */
+/* 00000000000000000000000000000000000000000000000000 */
+/* 00000000000000000000000000000000000000000000000000 */
+
 
 @media (max-width:768px) {
     .Header__logo {
@@ -403,7 +272,7 @@
 
     .FirstHome {
         width: 100vw;
-        height: 45vh;
+        height: 60vh;
     }
 
     .theme {
@@ -437,7 +306,7 @@
     .backimage {
         top: 0;
         width: 100vw;
-        height: 40vh;
+        height: 55vh;
     }
 
     .sections {
@@ -452,19 +321,18 @@
     .firstBox {
         position: absolute;
         width: 100vw;
-        height: 200px;
+        height: 150px;
         left: 0px;
-        bottom: 55vh;
-        display: flex;
-        /* align-items: center; */
+        bottom: calc(33vh);
         justify-content: center;
+        align-items: center;
     }
     .SocialLinks{
         display: none;
     }
     .FirstHome__input {
         display: flex;
-        position: absolute;
+        /* position: absolute; */
         width: 90vw;
         height: 40px;
         bottom: 0vh !important;
@@ -488,18 +356,17 @@
         height: 40px;
         width: 1.5px !important;
     }
-
     .search {
-        position: inherit;
-        right: 15px;
+        /* position: inherit; */
+        /* right: 15px; */
+        margin: 0;
+        padding: 0 5px;
     }
 
     .combText {
         display: flex;
-        position: absolute;
-        bottom: 40px;
-        align-items: flex-start;
-        justify-content: flex-end;
+        flex-direction: row;
+        margin-bottom: 0;
     }
 
     .text1 {
@@ -517,13 +384,13 @@
 
     .second_Border {
         width: 80vw;
-        height: 20vh;
+        height: 25vh;
         border-top-left-radius: 30vh;
         border-top-right-radius: 30vh;
         border: 2px dashed #78e454;
         border-bottom: 0;
         position: absolute;
-        top: 9vh;
+        top: 13vh;
         right: 10vw;
     }
 
@@ -533,9 +400,9 @@
         justify-content: space-between;
         align-items: center;
         position: absolute;
-        height: fit-content;
+        height: 46px;
         right: 5vw;
-        top: 21vh;
+        top: 40vh;
     }
 
     .changeArrowImg {
@@ -554,137 +421,4 @@
         justify-content: center;
         /* margin-top: 8vh; */
     }
-
-    .changeIcon {
-        display: flex;
-        width: 75px;
-        height: 75px;
-        /* bottom: -7vh; */
-        top: 15vh;
-        /* right: calc(50vw - 75px); */
-        left: 30vw;
-    }
-
-    @keyframes activity10 {
-        0% {
-            top: 7vh;
-            left: -10vw;
-        }
-
-        100% {
-            top: 15vh;
-            /* right: calc(50vw - 75px); */
-            left: 30vw;
-        }
-    }
-
-    .one {
-        position: absolute;
-        top: 7vh;
-        left: -10vw;
-        width: 75px;
-        height: 75px;
-    }
-
-    @keyframes activity21 {
-        0% {
-            top: -2vh;
-            left: 3vw;
-        }
-
-        100% {
-            top: 7vh;
-            left: -10vw;
-        }
-    }
-
-    .two {
-        position: absolute;
-        top: -2vh;
-        left: 3vw;
-        width: 75px;
-        height: 75px;
-        /* background-color: white; */
-    }
-
-
-    @keyframes activity32 {
-        0% {
-            top: -5vh;
-            left: 30vw;
-        }
-
-        100% {
-            top: -2vh;
-            left: 3vw;
-        }
-    }
-
-
-    .three {
-        position: absolute;
-        top: -5vh;
-        left: 30vw;
-        width: 75px;
-        height: 75px;
-    }
-
-    @keyframes activity43 {
-        0% {
-            top: -2vh;
-            left: 53vw;
-        }
-
-        100% {
-            top: -5vh;
-            left: 30vw;
-        }
-    }
-
-    .four {
-        position: absolute;
-        top: -2vh;
-        left: 53vw;
-        width: 75px;
-        height: 75px;
-    }
-
-    @keyframes activity54 {
-        0% {
-            top: 7vh;
-            left: 67vw;
-        }
-
-        100% {
-            top: -2vh;
-            right: 53vw;
-        }
-    }
-
-    .five {
-        position: absolute;
-        top: 7vh;
-        left: 67vw;
-        width: 75px;
-        height: 75px;
-    }
-
-    @keyframes activity05 {
-        0% {
-            top: 15vh;
-            /* right: calc(50vw - 75px); */
-            /* right: 30vw; */
-            left: 30vw;
-            width: 75px;
-            height: 75px;
-        }
-
-        100% {
-            top: 7vh;
-            left: 67vw;
-            width: 75px;
-            height: 75px;
-        }
-    }
-
 }

@@ -1,9 +1,8 @@
 .Adds{
     display: flex;
-    padding: 21px;
-    margin: 0 5%;
     align-items: center;
     justify-content: center;
+    margin-top: 5%;
 }
 .Adds>img{
     width: 100% !important;
@@ -11,6 +10,6 @@
 @media(max-width:769px) {
     .Adds{
         display: flex;
-        padding: 21px 4px;
+        margin-top: 10%;
     }
 }

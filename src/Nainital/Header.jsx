@@ -9,11 +9,16 @@ import { useStateValue } from '../StateProvider';
 import { actionTypes } from '../reducer';
 import {
     KeyboardArrowDownOutlined as KeyboardArrowDownOutlinedIcon,
-    LocationOnOutlined as LocationOnOutlinedIcon,
-    SearchOutlined as SearchOutlinedIcon,
+    LocationOnOutlined as LocationOnOutlinedIcon,SearchOutlined as SearchOutlinedIcon,
 } from "@mui/icons-material";
 import { useParams } from 'react-router-dom';
+import MenuForMobile from '../Components/Navbar/MenuForMobile';
+import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
+
 function Header({ setLoading }) {
+
+    const [mobileOpen, setMobileOpen] = useState(false);
+
     const history = useHistory();
     var param = useParams();
     // const routerData=useLocation();
@@ -95,61 +100,67 @@ function Header({ setLoading }) {
     });
 
     return (
-        <div id="sub" onBlur={onBlur} className='nainital_header click-text'>
-            <div className="firstDiv">
-                <div className={!showsearch ? "nainitalSearch_img" : "TruenainitalSearch_img"}>
-                    <img onClick={() => setShowsearch(!showsearch)} style={{ height: '40px' }} src={search} alt="" />
-                </div>
-                <div onClick={() => goToPage("")} className={!showsearch ? "N__Header__logo" : "TrueN__Header__logo"}>
-                    <img className='Nainital_logo' src="/Images/Logo-white.png" alt="" />
-                </div>
-                <div className={!showsearch ? "FirstHome__input_forheader" : "TrueFirstHome__input_forheader"}>
-                    <input onFocus={onFocus} value={input} type="text" placeholder="Activities" onChange={onChangeAct} />
-
-                    <div className={showdropdown_act ? "header__dropdown" : 'header__dropdownnone'}>
-                        {globalVariable?.Activities && Object.entries(globalVariable?.Activities).filter((n) => n[1].toLowerCase().includes(input.toLowerCase())).length > 0 ? Object.entries(globalVariable?.Activities).filter((n) => n[1].toLowerCase().includes(input.toLowerCase())).map((loc) => (
-                            <h5 onClick={() => { setActivity(loc[1]); setInput(loc[1]); setShowdropdown_act(false) }} className='header__dropdown_h5'>{loc[1]}</h5>
-                        )) : <h5 onClick={() => { setActivity("All_Activities"); setShowdropdown_act(false) }} className='header__dropdown_h5'>No result</h5>}
+        <>
+            {
+                mobileOpen &&
+                <MenuForMobile setMobileOpen={setMobileOpen} mobileOpen={mobileOpen} />
+            }
+            <div id="sub" onBlur={onBlur} className='nainital_header click-text'>
+                <div className="firstDiv">
+                    <div className={!showsearch ? "nainitalSearch_img" : "TruenainitalSearch_img"}>
+                        <img onClick={() => setShowsearch(!showsearch)} style={{ height: '40px' }} src={search} alt="" />
                     </div>
+                    <div onClick={() => goToPage("")} className={!showsearch ? "N__Header__logo" : "TrueN__Header__logo"}>
+                        <img className='Nainital_logo' src="/Images/Logo-white.png" alt="" />
+                    </div>
+                    <div className={!showsearch ? "FirstHome__input_forheader" : "TrueFirstHome__input_forheader"}>
+                        <input onFocus={onFocus} value={input} type="text" placeholder="Activities" onChange={onChangeAct} />
 
-                    <div onClick={() => { setShowdropdown_act(!showdropdown_act) }} className='dropdown' ><KeyboardArrowDownOutlinedIcon /></div>
-                    <img className='N__divider' src={divider} alt="" />
-                    <input onFocus={onFocus1} value={input2} type="text" placeholder="Location" onChange={onChangeloc} />
-                    <div className='dropdown' onClick={() => { setShowdropdown(!showdropdown) }} ><LocationOnOutlinedIcon /></div>
-                    {showdropdown &&
-                        <div className="header__dropdown header__dropdown2">
-                            {globalVariable?.Locations.filter((n) => n.toLowerCase().includes(input2.toLowerCase())).length > 0 ? globalVariable?.Locations.filter((n) => n.toLowerCase().includes(input2.toLowerCase())).map((loc) => (
-                                <h5 onClick={() => {
-                                    setInput2(loc)
-                                    setLocation(loc)
-                                }} className='header__dropdown_h5'>{loc}</h5>
-                            )) : <h5 onClick={() => setLocation("All_Location")} className='header__dropdown_h5'>No result</h5>}
+                        <div className={showdropdown_act ? "header__dropdown" : 'header__dropdownnone'}>
+                            {globalVariable?.Activities && Object.entries(globalVariable?.Activities).filter((n) => n[1].toLowerCase().includes(input.toLowerCase())).length > 0 ? Object.entries(globalVariable?.Activities).filter((n) => n[1].toLowerCase().includes(input.toLowerCase())).map((loc) => (
+                                <h5 onClick={() => { setActivity(loc[1]); setInput(loc[1]); setShowdropdown_act(false) }} className='header__dropdown_h5'>{loc[1]}</h5>
+                            )) : <h5 onClick={() => { setActivity("All_Activities"); setShowdropdown_act(false) }} className='header__dropdown_h5'>No result</h5>}
                         </div>
-                    }
-                    <img className='N__divider' src={divider} alt="" />
-                    <div className='search' onClick={Search_Click} ><SearchOutlinedIcon /></div>
-                </div>
-                <div className="sections_forM">
-                    <img src={menu} alt="" />
-                </div>
-            </div>
-            <div className="N__sections">
-                <div onClick={() => goToPage("")} className="Header__section">
-                    Home
-                </div>
-                <div onClick={() => goToPage("about")} className="Header__section">
-                    About Us
-                </div>
-                <div onClick={() => history.push(`/All_Location/All_Activities/All_Styles`)} className="Header__section">
-                    Cities
-                </div>
-                <a href="tel:83030 22306">
-                    <div className="call">
-                        <img src={call} alt="" />
+
+                        <div onClick={() => { setShowdropdown_act(!showdropdown_act) }} className='dropdown' ><KeyboardArrowDownOutlinedIcon /></div>
+                        <img className='N__divider' src={divider} alt="" />
+                        <input onFocus={onFocus1} value={input2} type="text" placeholder="Location" onChange={onChangeloc} />
+                        <div className='dropdown' onClick={() => { setShowdropdown(!showdropdown) }} ><LocationOnOutlinedIcon /></div>
+                        {showdropdown &&
+                            <div className="header__dropdown header__dropdown2">
+                                {globalVariable?.Locations.filter((n) => n.toLowerCase().includes(input2.toLowerCase())).length > 0 ? globalVariable?.Locations.filter((n) => n.toLowerCase().includes(input2.toLowerCase())).map((loc) => (
+                                    <h5 onClick={() => {
+                                        setInput2(loc)
+                                        setLocation(loc)
+                                    }} className='header__dropdown_h5'>{loc}</h5>
+                                )) : <h5 onClick={() => setLocation("All_Location")} className='header__dropdown_h5'>No result</h5>}
+                            </div>
+                        }
+                        <img className='N__divider' src={divider} alt="" />
+                        <div className='search' onClick={Search_Click} ><SearchOutlinedIcon /></div>
                     </div>
-                </a>
+                    <div className="sections_forM" onClick={() => setMobileOpen(!mobileOpen)}>
+                        <MenuRoundedIcon style={{ color: 'white', fontSize: '30px', marginTop: "-3px" }} />
+                    </div>
+                </div>
+                <div className="N__sections">
+                    <div onClick={() => goToPage("")} className="Header__section">
+                        Home
+                    </div>
+                    <div onClick={() => goToPage("about")} className="Header__section">
+                        About Us
+                    </div>
+                    <div onClick={() => history.push(`/All_Location/All_Activities/All_Styles`)} className="Header__section">
+                        Cities
+                    </div>
+                    <a href="tel:83030 22306">
+                        <div className="call">
+                            <img src={call} alt="" />
+                        </div>
+                    </a>
+                </div>
             </div>
-        </div>
+        </>
     )
 }
 
