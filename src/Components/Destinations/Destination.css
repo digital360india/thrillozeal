@@ -39,7 +39,6 @@
 
 .side-crop {
     max-width: 100%;
-    /* height:600px !important; */
     overflow: hidden;
 }
 .testClass{
@@ -234,7 +233,7 @@
     }
 
     .slider_splide_react_mobile {
-        display: flex;
+        display: block;
         width: 90vw !important;
     }
 
