@@ -1,15 +1,12 @@
 .splide__arrow{
   display: none ;
 }
-
-.splide__pagination li{
-  display: none ;
-}
+/* 
 @media (max-width: 600px) {
-  .splide__arrow{
+  .applyHide>.splide__arrow{
     display: block;
   }
-  .splide__pagination li{
+  .applyHide>.splide__pagination li{
     display: block;
   }
-}
+} */
