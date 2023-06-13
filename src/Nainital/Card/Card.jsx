@@ -94,7 +94,7 @@ function Card({ data }) {
           <br />
           <div className="card__c2_innner card__c2_innner2">
             <div className="naini__stars">
-             <Stars review={data?.data?.review} />
+             <Stars review={data?.trek_data?.review} />
               <p>based on {data?.trek_data?.reviewNo} reviews</p>
             </div>
             {/* <div className="naini__rating">

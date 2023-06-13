@@ -1,0 +1,15 @@
+.splide__arrow{
+  display: none ;
+}
+
+.splide__pagination li{
+  display: none ;
+}
+@media (max-width: 600px) {
+  .splide__arrow{
+    display: block;
+  }
+  .splide__pagination li{
+    display: block;
+  }
+}

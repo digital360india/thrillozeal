@@ -7,6 +7,7 @@ import './Itinerary.css'
 import {ArrowForwardIosRounded as ArrowForwardIosRoundedIcon,
 ExpandMore as ExpandMoreIcon} from '@mui/icons-material';
 const EachDay = ({ data,expanded,listStyle }) => {
+  console.log("data:::",data)
   return (
     <Accordion defaultExpanded={expanded}>
       <AccordionSummary
@@ -39,10 +40,14 @@ const EachDay = ({ data,expanded,listStyle }) => {
           }
         </ul>
         <div className="eachday__gallery">
-          <img src="/Images/sqImg2.png" alt="" />
-          <img src="/Images/sqImg3.png" alt="" />
+          { data?.dayImg?.map((img) =>{ 
+            console.log(img)
+            return(
+          <img src={img} alt="" />
+          )})}
+          {/* <img src="/Images/sqImg3.png" alt="" />
           <img src="/Images/sqImg4.png" alt="" />
-          <img src="/Images/sqImg1.png" alt="" />
+          <img src="/Images/sqImg1.png" alt="" /> */}
         </div>
       </AccordionDetails>
     </Accordion>

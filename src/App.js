@@ -13,6 +13,7 @@ import { useStateValue } from './StateProvider';
 import { actionTypes } from './reducer';
 import { useState } from 'react';
 import Loading from './Components/Loader/Loading';
+import Privacy from './Privacy/Privacy';
 
 function App() {
   const [{ globalVariable, All_Treks }, dispatch] = useStateValue();
@@ -54,6 +55,9 @@ function App() {
       <Switch>
       <Route path='/about'>
       <AboutUs />
+      </Route>
+      <Route path='/privacy_policy'>
+      <Privacy />
       </Route>
         <Route path="/:location/:activity/:styles">
           <Location />
