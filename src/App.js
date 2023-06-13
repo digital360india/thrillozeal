@@ -59,7 +59,7 @@ function App() {
       <Route path='/privacy_policy'>
       <Privacy />
       </Route>
-        <Route path="/:location/:activity/:styles">
+        <Route path="/:location/:activity/:categories">
           <Location />
         </Route>
         <Route path="/:trek_id">

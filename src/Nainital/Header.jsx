@@ -63,7 +63,7 @@ function Header({ setLoading }) {
 
     const Search_Click = () => {
         setLoading(true)
-        history.push(`/${location ? location : "All_Location"}/${activity ? activity : "All_Activities"}/All_Styles`);
+        history.push(`/${location ? location : "All_Location"}/${activity ? activity : "All_Activities"}/All_Categories`);
     }
 
     const goToPage = (location) => {
@@ -111,7 +111,7 @@ function Header({ setLoading }) {
                         <img onClick={() => setShowsearch(!showsearch)} style={{ height: '40px' }} src={search} alt="" />
                     </div>
                     <div onClick={() => goToPage("")} className={!showsearch ? "N__Header__logo" : "TrueN__Header__logo"}>
-                        <img className='Nainital_logo' src="Images/logo.png" alt="" />
+                        <img className='Nainital_logo' src="/Images/logo.png" alt="" />
                     </div>
                     <div className={!showsearch ? "FirstHome__input_forheader" : "TrueFirstHome__input_forheader"}>
                         <input onFocus={onFocus} value={input} type="text" placeholder="Activities" onChange={onChangeAct} />
@@ -150,7 +150,7 @@ function Header({ setLoading }) {
                     <div onClick={() => goToPage("about")} className="Header__section">
                         About Us
                     </div>
-                    <div onClick={() => history.push(`/All_Location/All_Activities/All_Styles`)} className="Header__section">
+                    <div onClick={() => history.push(`/All_Location/All_Activities/All_Categories`)} className="Header__section">
                         Cities
                     </div>
                     <a href="tel:83030 22306">

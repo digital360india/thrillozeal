@@ -87,7 +87,7 @@
     position: absolute;
     height: fit-content;
     width: 180px;
-    top: 75%;
+    top: 200px;
     margin-left: 10px;
     background-color: white;
     border: 1px solid lightgray;
@@ -235,7 +235,7 @@
         position: absolute;
         height: fit-content;
         width: 40%;
-        top: 45px;
+        top: 120px;
         margin-left: 0px;
         background-color: white;
         border: 1px solid lightgray;
@@ -248,7 +248,7 @@
         position: absolute;
         height: fit-content;
         width: 40%;
-        top: 45px;
+        top: 120px;
         margin-left: 45%;
         background-color: white;
         border: 1px solid lightgray;

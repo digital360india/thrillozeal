@@ -32,7 +32,7 @@ const Navbar = () => {
           <ul className="Nav_items">
             <li onClick={() => goToPage("")}>Home</li>
             <li onClick={() => goToPage("about")}>About Us</li>
-            <li onClick={() => goToPage("cities")}>Cities</li>
+            <li onClick={() => goToPage("All_Location/All_Activities/All_Categories")}>Cities</li>
             <li>
               <a href="tel:83030 22306">
                 <img className="show" src="/Images/phone-call.png">
