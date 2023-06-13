@@ -5,6 +5,7 @@ import Rating from '@mui/material/Rating';
 import TextField from '@mui/material/TextField';
 import db from '../firebase';
 import firebase from "firebase";
+import { Avatar } from '@mui/material';
 
 const Review = (props) => {
   const [reviewFormData, setReviewFormData] = useState({name: "",email: "",mobile: "",experience_message:"",rating:0});
@@ -23,7 +24,7 @@ const Review = (props) => {
       alert("Please fill all the fields");
       return;
     }
-    db.collection('Cities').doc(props.city_id).collection('All_Trek').doc(props.trek_id).collection('Reviews').doc(reviewFormData.email,timestmp).set({
+    db.collection('Cities').doc(props.city_id).collection('All_Trek').doc(props.trek_id).collection('Reviews').add({
       name: reviewFormData.name,
       email: reviewFormData.email,
       mobile: reviewFormData.mobile,
@@ -38,17 +39,49 @@ const Review = (props) => {
 
 };
 
+function stringToColor(string) {
+  let hash = 0;
+  let i;
+
+  /* eslint-disable no-bitwise */
+  for (i = 0; i < string.length; i += 1) {
+    hash = string.charCodeAt(i) + ((hash << 5) - hash);
+  }
+
+  let color = '#';
+
+  for (i = 0; i < 3; i += 1) {
+    const value = (hash >> (i * 8)) & 0xff;
+    color += `00${value.toString(16)}`.slice(-2);
+  }
+  /* eslint-enable no-bitwise */
+
+  return color;
+}
+
+function stringAvatar(name) {
+  return {
+    sx: {
+      bgcolor: stringToColor(name),
+    },
+    children: `${name.split(' ')[0][0]}${name.split(' ')[1][0]}`,
+  };
+}
+
   const PersonReview = () => {
     return (
       <div className="person__div_container">
-        <div className="person__left_div">
-          <img className='person__img' src="/Images/Ellipse 31.png" alt=""></img>
-        </div>
-        <div className="person__right_div">
-          <h3 className='person__name'>Karan Godara</h3>
+        {/* <div className="person__left_div"> */}
+          {/* <img className='person__img' src="/Images/Ellipse 31.png" alt=""></img> */}
+        {/* </div> */}
+        {/* <div className="person__right_div"> */}
+          <div className='person__div_1'>
+            <Avatar {...stringAvatar('Karan Godara')} />
+            <h3 className='person__name'>Karan Godara</h3>
+          </div>
           <Rating className='person__star_review' name="read-only" value="4" readOnly/>
           <p className='person__text_review'>Thank you thrillozeal for organizing such a great trip! I had a lot of fun with everyone and also made a few friends.</p>
-        </div>
+        {/* </div> */}
       </div>
     );
   }

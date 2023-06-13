@@ -6,9 +6,14 @@
 }
 .person__div_container{
     display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.person__div_1{
+        display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: flex-start;
+    align-items: baseline;
     width: 100%;
 }
 .person__right_div{
@@ -16,7 +21,12 @@
     flex-direction: column;
     align-items: flex-start;
 }
+.person__star_review{
+    padding-top: 16px;
+    padding-bottom: 8px;
+}
 .person__name{
+    padding: 0 6px;
     font-size: 20px;
 }
 .review_form {
@@ -76,7 +86,7 @@ textarea{
     margin: 12px 2%;
 }
 .person__div_container{
-    padding: 5px 0;
+    padding: 12px 0;
     /* border-top: 1px solid #0000008C; */
     border-bottom: 1px solid #0000008C;
 }
@@ -84,7 +94,6 @@ textarea{
 @media (max-width:600px){
     .person__div_container{
         flex-direction: column;
-        align-items: center;
     }
     .review_div_form {
         flex-direction: column !important;
