@@ -23,15 +23,18 @@ const EachDay = ({ data,expanded,listStyle }) => {
           fontSize: '17px',
           lineHeight: '21px',
         }}>
-          {data?.num ? data?.num : "Day " + data?.n + "-"} {data?.dayHead ? data?.dayHead : data?.ques}
+          {data?.num ? data?.num+". " : "Day " + data?.n + "-"} {data?.dayHead ? data?.dayHead : data?.ques}
         </Typography>
       </AccordionSummary>
       <AccordionDetails className="AccordionDetails">
         <ul className={listStyle}>
           {
-            data?.daydesc?.map((desc) => (
-              <li>{desc}</li>
-            ))
+            data?.daydesc?.map((desc) => {
+              if(desc != "")
+                return(<li>{desc}</li>);
+              
+                return <></>
+            })
           }
           {
             data?.desc?.map((desc) => (
@@ -40,11 +43,15 @@ const EachDay = ({ data,expanded,listStyle }) => {
           }
         </ul>
         <div className="eachday__gallery">
-          { data?.dayImg?.map((img) =>{ 
+        <img src={data?.img} alt="" />
+        <img src={data?.img1} alt="" />
+        <img src={data?.img2} alt="" />
+        <img src={data?.img3} alt="" />
+          {/* { data?.dayImg?.map((img) =>{ 
             console.log(img)
             return(
-          <img src={img} alt="" />
-          )})}
+          <img src={data?.img} alt="" />
+          )})} */}
           {/* <img src="/Images/sqImg3.png" alt="" />
           <img src="/Images/sqImg4.png" alt="" />
           <img src="/Images/sqImg1.png" alt="" /> */}

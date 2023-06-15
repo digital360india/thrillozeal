@@ -41,8 +41,7 @@ function SubLocation() {
     const history = useHistory();
     const [loading, setLoading] = useState(false);
 
-    var { location_id, trek_id } = useParams();
-
+    var { trek_id } = useParams();
     const [{ All_Treks }, dispatch] = useStateValue();
     const [active, setActive] = useState("first");
     const [data, setData] = useState(null);
@@ -56,7 +55,6 @@ function SubLocation() {
     }
 
     useEffect(() => {
-        console.log("location:",location.state?.page_loc)
         window.scrollTo(0, 0);
         if (location.state && location.state.page_loc) {
             window.scrollTo({
@@ -74,7 +72,7 @@ function SubLocation() {
             return data?.trek_id == trek_id;
         })[0])
     }, [All_Treks])
-console.log(data?.trek_data)
+console.log("SUBLOC ",data?.trek_data)
 
     return (
         <div className='SubLocation'>
@@ -174,14 +172,18 @@ console.log(data?.trek_data)
                             <a className={`${active == "first" && 'activeBtn'} sublocation_button_a`} onClick={() => setActive("first")}>Highlights</a>
                             <a className={`${active == "second" && 'activeBtn'} sublocation_button_a`} onClick={() => setActive("second")}>Itinerary</a>
                             <a className={`${active == "third" && 'activeBtn'} sublocation_button_a`} onClick={() => setActive("third")}>FAQs</a>
-                            <a className={`${active == "fourth" && 'activeBtn'} sublocation_button_a`} onClick={() => setActive("fourth")}>Bookings</a>
-                            <a className={`${active == "fifth" && 'activeBtn'} sublocation_button_a`} onClick={() => setActive("fifth")}>Reviews</a>
+                            <a className={`${active == "fourth" && 'activeBtn'} sublocation_button_a`}  
+                            // onClick={() => setActive("fourth")}
+                            >Bookings</a>
+                            <a className={`${active == "fifth" && 'activeBtn'} sublocation_button_a`} 
+                            // onClick={() => setActive("fifth")}
+                            >Reviews</a>
                         </div>
 
                         <div className="sublocation_btnOne">
-                            {active === "first" && <Trek />}
-                            {active === "second" && <Itinerary />}
-                            {active === "third" && <FAQ />}
+                            {active === "first" && <Trek location_id={'JvH2wjbXOWgoOA17X4GW'+data?.trek_data?.city}/>}
+                            {active === "second" && <Itinerary location_id={'JvH2wjbXOWgoOA17X4GW'+data?.trek_data?.city} />}
+                            {active === "third" && <FAQ location_id={'JvH2wjbXOWgoOA17X4GW'+data?.trek_data?.city} />}
                             {active === "fourth" && <Package />}
                             {active === "fifth" && <Review city_id={'JvH2wjbXOWgoOA17X4GW'+data?.trek_data?.city} trek_id={trek_id} />}
                         </div>
