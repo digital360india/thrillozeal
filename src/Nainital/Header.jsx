@@ -116,7 +116,7 @@ function Header({ setLoading }) {
                     <div className={!showsearch ? "FirstHome__input_forheader" : "TrueFirstHome__input_forheader"}>
                         <input onFocus={onFocus} value={input} type="text" placeholder="Activities" onChange={onChangeAct} />
 
-                        <div className={showdropdown_act ? "header__dropdown" : 'header__dropdownnone'}>
+                        <div className={showdropdown_act ? "header__dropdownNew" : 'header__dropdownnone'}>
                             {globalVariable?.Activities && Object.entries(globalVariable?.Activities).filter((n) => n[1].toLowerCase().includes(input.toLowerCase())).length > 0 ? Object.entries(globalVariable?.Activities).filter((n) => n[1].toLowerCase().includes(input.toLowerCase())).map((loc) => (
                                 <h5 onClick={() => { setActivity(loc[1]); setInput(loc[1]); setShowdropdown_act(false) }} className='header__dropdown_h5'>{loc[1]}</h5>
                             )) : <h5 onClick={() => { setActivity("All_Activities"); setShowdropdown_act(false) }} className='header__dropdown_h5'>No result</h5>}
@@ -127,7 +127,7 @@ function Header({ setLoading }) {
                         <input onFocus={onFocus1} value={input2} type="text" placeholder="Location" onChange={onChangeloc} />
                         <div className='dropdown' onClick={() => { setShowdropdown(!showdropdown) }} ><LocationOnOutlinedIcon /></div>
                         {showdropdown &&
-                            <div className="header__dropdown header__dropdown2">
+                            <div className="header__dropdownNew header__dropdown2">
                                 {globalVariable?.Locations.filter((n) => n.toLowerCase().includes(input2.toLowerCase())).length > 0 ? globalVariable?.Locations.filter((n) => n.toLowerCase().includes(input2.toLowerCase())).map((loc) => (
                                     <h5 onClick={() => {
                                         setInput2(loc)
