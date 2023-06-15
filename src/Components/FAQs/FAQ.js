@@ -35,7 +35,7 @@ const FAQ = (props) => {
       <h2 className='box-heading'>FAQs</h2>
         {data && data?.map((d,index) => (
           <div>
-            <EachDay listStyle="faq__list" data={d?.data} expanded={index === 0 ? "true" : "false"} />
+            <EachDay listStyle="faq__list" data={d?.data} expanded={index === 0 ? true : false} />
           </div>
         ))}
     </div>

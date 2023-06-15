@@ -35,7 +35,7 @@ const Itinerary = (props) => {
       <div className="Accordian-Wrapper">
         {data && data?.map((d, index) => (
           <div>
-            <EachDay listStyle="itineray__list" expanded={index === 0 ? "true" : "false"}  data={d?.data} />
+            <EachDay listStyle="itineray__list" expanded={index === 0 ? true : false}  data={d?.data} />
           </div>
         ))}
       </div>

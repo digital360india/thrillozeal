@@ -29,9 +29,12 @@ const EachDay = ({ data,expanded,listStyle }) => {
       <AccordionDetails className="AccordionDetails">
         <ul className={listStyle}>
           {
-            data?.daydesc?.map((desc) => (
-              <li>{desc}</li>
-            ))
+            data?.daydesc?.map((desc) => {
+              if(desc != "")
+                return(<li>{desc}</li>);
+              
+                return <></>
+            })
           }
           {
             data?.desc?.map((desc) => (
