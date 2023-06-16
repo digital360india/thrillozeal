@@ -4,7 +4,7 @@
     flex-direction: column;
     width: 100%;
     align-items: center;
-    padding-top: 21px;
+    padding-top: 40px;
 }
 
 .testimonials_sec {
@@ -59,7 +59,7 @@
     height: 120px !important;
     width: 120px !important;
     z-index: 10 !important;
-    left: 34%;
+    left: 35%;
     top: 0;
 }
 
@@ -110,7 +110,7 @@
         width: 50%;
     }
     .imgPro {
-        left: 29%;
+        left: 30%;
         top: 0;
     }
 

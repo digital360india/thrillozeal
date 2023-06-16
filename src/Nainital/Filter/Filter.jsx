@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import './Filter.css';
 import star from './img/Vector.png'
-import progress from './img/progess.png'
-import filter from './img/filter.png';
-import slider from './img/sliders.png';
+import progress from './img/progress.png'
 import highlow from './img/high-low.png';
 import lowhigh from './img/low-high.png';
 import cross from './img/cross.svg';
 import { useStateValue } from '../../StateProvider';
 import { actionTypes } from '../../reducer';
 import { useParams } from 'react-router-dom';
+import {Tune as TuneIcon, FilterAltSharp as FilterAltSharpIcon} from '@mui/icons-material';
 import db from '../../firebase';
 
 function Filter({ data, data_Filtered, setData_Filtered, activity }) {
@@ -203,8 +202,8 @@ function Filter({ data, data_Filtered, setData_Filtered, activity }) {
 
         <div className="filter">
             <div className='filter__slider'>
-                <img onClick={show_slider} src={slider} alt="" />
-                <img onClick={show_filter} src={filter} alt="" />
+                <TuneIcon className='filter__slider__icon' onClick={show_slider} />
+                <FilterAltSharpIcon className='filter__slider__icon' onClick={show_filter} />
             </div>
             {(showslider || width > 900) && <> <div className="filter_top">
                 <div className="filter__t1">

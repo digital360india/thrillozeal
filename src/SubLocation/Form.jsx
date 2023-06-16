@@ -3,7 +3,7 @@ import './Form.css';
 import db from '../firebase';
 import firebase from "firebase";
 function Form() {
-  const [formData, setFormData] = useState({name: "",email: "",mobile: "",tripDate:"none",travellers:0});
+  const [formData, setFormData] = useState({name: "",email: "",mobile: "",tripDate:"none",travellers:null});
   const [messageToggle, setMessageToggle] = useState(false);
 
   const handleChange = (event) => {

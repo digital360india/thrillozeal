@@ -170,6 +170,7 @@ function Location() {
               {data_Filtered.length > 0 && data_Filtered?.slice(currentIndex, currentIndex + 8)?.map((data) => (
                 <Card data={data} />
               ))}
+              {data_Filtered.length === 0 && <div className="noData">No Data Found</div>}
               <div className="ListingNumber">
                 <div className="BackArrowofList">
                   <ArrowLeftRoundedIcon fontSize="medium" onClick={decreaseIndex} />

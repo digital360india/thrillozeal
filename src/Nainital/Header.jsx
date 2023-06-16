@@ -122,18 +122,19 @@ function Header({ setLoading }) {
                             )) : <h5 onClick={() => { setActivity("All_Activities"); setShowdropdown_act(false) }} className='header__dropdown_h5'>No result</h5>}
                         </div>
 
-                        <div onClick={() => { setShowdropdown_act(!showdropdown_act) }} className='dropdown' ><KeyboardArrowDownOutlinedIcon /></div>
+                        <div onClick={() => {setInput(''); setShowdropdown_act(!showdropdown_act) }} className='dropdown' ><KeyboardArrowDownOutlinedIcon /></div>
                         <img className='N__divider' src={divider} alt="" />
                         <input onFocus={onFocus1} value={input2} type="text" placeholder="Location" onChange={onChangeloc} />
-                        <div className='dropdown' onClick={() => { setShowdropdown(!showdropdown) }} ><LocationOnOutlinedIcon /></div>
+                        <div className='dropdown' onClick={() => {setInput2(''); setShowdropdown(!showdropdown) }} ><LocationOnOutlinedIcon /></div>
                         {showdropdown &&
                             <div className="header__dropdownNew header__dropdown2">
                                 {globalVariable?.Locations.filter((n) => n.toLowerCase().includes(input2.toLowerCase())).length > 0 ? globalVariable?.Locations.filter((n) => n.toLowerCase().includes(input2.toLowerCase())).map((loc) => (
                                     <h5 onClick={() => {
                                         setInput2(loc)
                                         setLocation(loc)
+                                        setShowdropdown(!showdropdown)
                                     }} className='header__dropdown_h5'>{loc}</h5>
-                                )) : <h5 onClick={() => setLocation("All_Location")} className='header__dropdown_h5'>No result</h5>}
+                                )) : <h5 onClick={() => {setLocation("All_Location"); setShowdropdown(!showdropdown)}} className='header__dropdown_h5'>No result</h5>}
                             </div>
                         }
                         <img className='N__divider' src={divider} alt="" />

@@ -92,6 +92,9 @@ textarea{
 }
 
 @media (max-width:600px){
+    .Card-Wrapper {
+       padding: 0px;
+    }
     .person__div_container{
         flex-direction: column;
     }

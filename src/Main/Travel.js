@@ -47,12 +47,12 @@ const Travel = () => {
 
   return (
     <div className="Travel-Container">
-      <div className="flex-destination">
+      {/* <div className="flex-destination"> */}
         <div className="second_header">
           <img src='/Images/progess.png' alt="" />
           Travel Style
         </div>
-      </div>
+      {/* </div> */}
 
       <div className="travel-img-container">
 

@@ -210,18 +210,18 @@ function FirstHome() {
                         <div className="FirstHome__input" onBlur={onBlur} >
                             <input onFocus={onFocus} value={input} type="text" placeholder="Activities" onChange={onChangeAct} />
                             {/* this for activities dropdown */}
-                            <div onClick={() => { setShowdropdown_act(!showdropdown_act) }} className='dropdown' ><KeyboardArrowDownOutlinedIcon /></div>
+                            <div onClick={() => { setShowdropdown_act(!showdropdown_act) }} className='dropdown' ><KeyboardArrowDownOutlinedIcon onClick={() => { setInput(""); setShowdropdown_act(!showdropdown_act) }} /></div>
                             {showdropdown_act &&
                                 <div className="header__dropdown header__dropdown1">
                                     {globalVariable?.Activities && Object.entries(globalVariable?.Activities)
                                         .filter((n) => n[1].toLowerCase().includes(input?.toLowerCase())).length > 0 ? Object.entries(globalVariable?.Activities)
                                             .filter((n) => n[1].toLowerCase().includes(input.toLowerCase())).map((act) => (
-                                                <h5 onClick={() => { setInput(act[1]); setActivity(act[1]) }} className='header__dropdown_h5'>{act[1]}</h5>
+                                                <h5 onClick={() => { setInput(act[1]); setActivity(act[1]);  setShowdropdown_act(!showdropdown_act); }} className='header__dropdown_h5'>{act[1]}</h5>
                                             )) : <h5 onClick={() => { setInput(""); setActivity("All_Activities"); }} className='header__dropdown_h5'>No result</h5>}
                                 </div>
                             }
                             <img className='divider' src={divider} alt="" />
-                            <div className='dropdown' onClick={() => { setShowdropdown(!showdropdown) }} ><LocationOnOutlinedIcon /></div>
+                            <div className='dropdown' onClick={() => { setInput2(''); setShowdropdown(!showdropdown) }} ><LocationOnOutlinedIcon /></div>
                             <input onFocus={onFocus1} value={input2} type="text" placeholder="Location" onChange={onChangeloc} />
                             {/* this is for location dropdown */}
                             {showdropdown &&
@@ -229,8 +229,8 @@ function FirstHome() {
                                     {globalVariable?.Locations
                                         .filter((n) => n.toLowerCase().includes(input2.toLowerCase())).length > 0 ? globalVariable?.Locations
                                             .filter((n) => n.toLowerCase().includes(input2.toLowerCase())).map((loc) => (
-                                                <h5 onClick={() => { setInput2(loc); setLocation(loc) }} className='header__dropdown_h5'>{loc}</h5>
-                                            )) : <h5 onClick={() => setLocation("All_Location")} className='header__dropdown_h5'>No result</h5>}
+                                                <h5 onClick={() => { setInput2(loc); setLocation(loc);  setShowdropdown(!showdropdown) }} className='header__dropdown_h5'>{loc}</h5>
+                                            )) : <h5 onClick={() => { setLocation("All_Location")}} className='header__dropdown_h5'>No result</h5>}
                                 </div>
                             }
 

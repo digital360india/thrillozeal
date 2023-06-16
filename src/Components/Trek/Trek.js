@@ -79,7 +79,7 @@ export const Trek = (props) => {
       <div className='trek_highlights'>
         <PaymentsIcon/>
         <div>{
-        <span>Average cost - </span>} INR {data?.cost}
+        <span>Average cost - </span>} {data?.cost}
         </div>
       </div>
       <div className='trek_highlights'>

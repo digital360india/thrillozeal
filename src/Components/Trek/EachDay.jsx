@@ -20,7 +20,7 @@ const EachDay = ({ data,expanded,listStyle }) => {
           fontFamily: 'Montserrat',
           fontStyle: 'normal',
           fontWeight: 600,
-          fontSize: '17px',
+          fontSize: '16px',
           lineHeight: '21px',
         }}>
           {data?.num ? data?.num+". " : "Day " + data?.n + "-"} {data?.dayHead ? data?.dayHead : data?.ques}

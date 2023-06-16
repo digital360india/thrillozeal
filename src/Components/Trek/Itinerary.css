@@ -59,12 +59,21 @@ color: #57BEBE;
         display: none;
     }
     .eachday__gallery > img{
-        width: 25% !important;
+        width: 100% !important;
         padding: 5px;
     }
     .eachday__gallery{
-        flex-direction: row;
-        justify-content: center;
-        flex-wrap: nowrap;
+            flex-direction: column;
+            justify-content: center;
+            flex-wrap: nowrap;
+            align-items: center;
+
     }
+    .itineray__list{
+        font-size: 13px;
+    }
+    .faq__list{
+        font-size: 13px;
+    }
+    
 }
