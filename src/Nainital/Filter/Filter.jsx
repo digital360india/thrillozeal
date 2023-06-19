@@ -184,9 +184,10 @@ function Filter({ data, data_Filtered, setData_Filtered, activity }) {
             }))
         }
     }
+
+    
     
     useEffect(() => {
-        // console.log('first',useFilter_act,useFilter_cate)
         applyFilter(active ? active:'e');
     }, [useFilter_act, useFilter_cate]);
 
@@ -284,6 +285,7 @@ function Filter({ data, data_Filtered, setData_Filtered, activity }) {
                             Load More..
                         </div> */}
                     </div>
+                    
                     {/* Categories */}
                     <div className="two_checkbox">
                         <h6>Travel Style</h6>

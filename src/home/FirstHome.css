@@ -193,6 +193,9 @@
     align-items: center;
     padding: 8px;
 }
+.social-link{
+    height: 20px;
+}
 .social-link:hover{
     cursor: pointer;
 }

@@ -13,7 +13,7 @@
 .changeIcon {
     position: absolute;
     height: 160px;
-    bottom: -15vh;
+    bottom: -10vh;
     right: 15vw;
     animation-name: activity10;
     animation-duration: 0.5s;
@@ -32,7 +32,7 @@
 
     100% {
         /* bottom: 0vh; */
-        bottom: -15vh;
+        bottom: -10vh;
         right: 15vw;
         height: 160px;
     }
@@ -47,7 +47,7 @@
 
     100% {
         /* bottom: 0vh; */
-        bottom: -15vh;
+        bottom: -10vh;
         right: 15vw;
         height: 160px;
     }
@@ -67,7 +67,7 @@
 
 @keyframes reverse_activity21 {
     0% {
-        bottom: -15vh;
+        bottom: -10vh;
         right: 15vw;
         height: 160px;
     }
@@ -230,7 +230,7 @@
 
 @keyframes activity05 {
     0% {
-        bottom: -15vh;
+        bottom: -10vh;
         right: 15vw;
         height: 160px;
     }
@@ -262,7 +262,7 @@
 
     .changeIcon {
         display: flex;
-        top: 20vh;
+        top: 18vh;
         left: 28vw;
         height: 80px;
         max-width: 80px;
@@ -271,11 +271,11 @@
     @keyframes activity10 {
         0% {
             top: 14.65vh;
-            left: -10vw;
+            left: -7vw;
         }
 
         100% {
-            top: 20vh;
+            top: 18vh;
             left: 28vw;
             height: 80px;
             max-width: 80px;
@@ -285,13 +285,13 @@
     @keyframes reverse_activity10 {
         0% {
             top: 14.65vh;
-            left: 70vw;
+            left: 72vw;
             height: 60px;
             max-width: 60px;
         }
 
         100% {
-            top: 20vh;
+            top: 18vh;
             left: 28vw;
             height: 80px;
             max-width: 80px;
@@ -302,13 +302,13 @@
         position: absolute;
         top: 14.65vh;
         /* top: 14.65vh; */
-        left: -10vw;
+        left: -7vw;
     }
 
 
     @keyframes reverse_activity21 {
         0% {
-            top: 20vh;
+            top: 18vh;
             left: 28vw;
             height: 80px;
             max-width: 80px;
@@ -323,19 +323,19 @@
     @keyframes activity21 {
         0% {
             top: 2vh;
-            left: -2vw;
+            left: 1vw;
         }
 
         100% {
             top: 14.65vh;
-            left: -10vw;
+            left: -7vw;
         }
     }
 
     .two {
         position: absolute;
         top: 2vh;
-        left: -2vw;
+        left: 1vw;
         /* background-color: white; */
     }
 
@@ -343,24 +343,24 @@
     @keyframes reverse_activity32 {
         0% {
             top: 14.65vh;
-            left: -10vw;
+            left: -7vw;
         }
 
         100% {
             top: 2vh;
-            left: -2vw;
+            left: 1vw;
         }
     }
 
     @keyframes activity32 {
         0% {
             top: -5vh;
-            left: calc(28vw + 10px);
+            left: calc(28vw + 15px);
         }
 
         100% {
             top: 2vh;
-            left: -2vw;
+            left: 1vw;
         }
     }
 
@@ -368,18 +368,18 @@
     .three {
         position: absolute;
         top: -5vh;
-        left: calc(28vw + 10px);
+        left: calc(28vw + 15px);
     }
 
     @keyframes reverse_activity43 {
         0% {
             top: 2vh;
-            left: -2vw;
+            left: 1vw;
         }
 
         100% {
             top: -5vh;
-            left: calc(28vw + 10px);
+            left: calc(28vw + 15px);
         }
     }
 
@@ -391,7 +391,7 @@
 
         100% {
             top: -5vh;
-            left: calc(28vw + 10px);
+            left: calc(28vw + 15px);
         }
     }
 
@@ -404,7 +404,7 @@
     @keyframes reverse_activity54 {
         0% {
             top: -5vh;
-            left: calc(28vw + 10px);
+            left: calc(28vw + 15px);
         }
 
         100% {
@@ -416,7 +416,7 @@
     @keyframes activity54 {
         0% {
             top: 14.65vh;
-            left: 70vw;
+            left: 72vw;
         }
 
         100% {
@@ -428,7 +428,7 @@
     .five {
         position: absolute;
         top: 14.65vh;
-        left: 70vw;
+        left: 72vw;
     }
 
     @keyframes reverse_activity05 {
@@ -439,13 +439,13 @@
 
         100% {
             top: 14.65vh;
-            left: 70vw;
+            left: 72vw;
         }
     }
 
     @keyframes activity05 {
         0% {
-            top: 20vh;
+            top: 18vh;
             left: 28vw;
             height: 80px;
             max-width: 80px;
@@ -453,7 +453,7 @@
 
         100% {
             top: 14.65vh;
-            left: 70vw;
+            left: 72vw;
         }
     }
 

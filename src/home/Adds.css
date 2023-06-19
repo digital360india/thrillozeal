@@ -5,11 +5,14 @@
     margin-top: 5%;
 }
 .Adds>img{
-    width: 100% !important;
+    width: 90% !important;
 }
 @media(max-width:769px) {
     .Adds{
         display: flex;
         margin-top: 10%;
+    }
+    .Adds>img{
+        width: 100% !important;
     }
 }

@@ -16,6 +16,7 @@ import { useHistory } from 'react-router-dom';
 import ArrowRightRoundedIcon from '@mui/icons-material/ArrowRightRounded';
 import ArrowLeftRoundedIcon from '@mui/icons-material/ArrowLeftRounded';
 import Loading from '../Components/Loader/Loading';
+import Add2 from '../home/Add2';
 
 function Location() {
 
@@ -187,6 +188,7 @@ function Location() {
           </div>
         </div>
       </div>
+      <Add2 />
       <Destination trendingTreks={All_Treks.filter((trek) => {
         return trek.trek_data.packagetype === "Trending";
       })} />

@@ -3,20 +3,20 @@ import './FirstHome.css';
 import './FirstHomeAnimation.css';
 import logo from './img/logo.png';
 import call from './img/phone-call.png';
-import background1 from './img/thrillo 1.webp';
-import background2 from './img/thrillo 1 (5).webp';
-import background3 from './img/thrillo 1 (4).webp';
-import background4 from './img/thrillo 1 (2).webp';
-import background5 from './img/thrillo 1 (1).webp';
-import background6 from './img/thrillo 1 (3).webp';
-import divider from './img/Line 2.png';
-import arrow from './img/Arrow 1.png';
-import icon1 from './img/icon 1.png';
-import icon2 from './img/icon 2.png';
-import icon3 from './img/icon 3.png';
-import icon4 from './img/icon 4.png';
-import icon5 from './img/icon 5.png';
-import icon6 from './img/icon 6.png';
+import background1 from "./img/campingBackground.webp";
+import background2 from "./img/raftingBackground.webp";
+import background3 from "./img/skiingBackground.webp";
+import background4 from "./img/toursBackground.webp";
+import background5 from "./img/trekkingBackground.webp";
+import background6 from "./img/exploreFunBackground.webp";
+import divider from "./img/Line 2.png";
+import arrow from "./img/Arrow 1.png";
+import icon1 from "./img/camping.png";
+import icon2 from "./img/rafting.png";
+import icon3 from "./img/skiing.png";
+import icon4 from "./img/tours.png";
+import icon5 from "./img/trekking.png";
+import icon6 from "./img/exploreFun.png";
 import background1theme from './img/Ellipse 1 (5).png'
 import background2theme from './img/Ellipse 1.png'
 import background3theme from './img/Ellipse 1 (4).png'
@@ -238,8 +238,8 @@ function FirstHome() {
                             <div className='search' onClick={Search_Click} ><SearchOutlinedIcon /></div>
                         </div>
                         <div className='SocialLinks'>
-                            <img className='social-link' src={facebookIcon} alt="" />
-                            <InstagramIcon />
+                            <img className='social-link' onClick={() => window.open("https://www.facebook.com/thrillozealofficial/")} src={facebookIcon} alt="" />
+                            <InstagramIcon className='social-link' onClick={() => window.open("https://www.instagram.com/thrillozeal/")}/>
                             <img className='social-link' src={linkedinIcon} alt="" />
                             <img className='social-link' src={twitterIcon} alt="" />
                         </div>
