@@ -25,11 +25,13 @@
     height: 105vh;
     overflow: hidden;
 }
+
 .splide__arrow{
     opacity: 1 !important;
     color: #000000 !important;
     background-color: transparent !important;
 }
+
 .theme {
     width: 70vw;
     position: absolute;
@@ -41,6 +43,7 @@
 }
 
 .backimage {
+    filter: blur(1px);
     position: absolute;
     top: 0;
     z-index: 0;
@@ -132,6 +135,7 @@
 }
 
 .firstBox {
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     display: flex;
     flex-direction: column;
     position: absolute;
@@ -326,9 +330,9 @@
         width: 100vw;
         height: 150px;
         left: 0px;
-        bottom: calc(33vh);
         justify-content: center;
         align-items: center;
+        top: 42vh;
     }
     .SocialLinks{
         display: none;

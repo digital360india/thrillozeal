@@ -1,15 +1,11 @@
 .slider_splideOut{
   width: 100%;
 }
-.splide__arrow{
+.slider_splide_reactN > .splide__arrow{
   display: none ;
 }
-/* 
 @media (max-width: 600px) {
-  .applyHide>.splide__arrow{
-    display: block;
+  .slider_splide_reactN > .splide__arrow{
+    display: block ;
   }
-  .applyHide>.splide__pagination li{
-    display: block;
-  }
-} */
+} 

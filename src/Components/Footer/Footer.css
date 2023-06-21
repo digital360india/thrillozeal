@@ -8,26 +8,25 @@
 }
 
 .footer_container {
-    width: 100%;
+    width: 85%;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     font-style: normal;
     font-size: 16px;
     line-height: 20px;
     margin: auto;
 }
-
 .footer_container h1 {
     font-weight: 600;
     font-style: normal;
-    font-size: 24px;
+    font-size: 18px;
     line-height: 29px;
     color: black !important;
     margin-bottom: 20px;
 }
 
 .Thrillo_div p {
-    font-size: 16px;
+    font-size: 14px;
     line-height: 20px;
     width: 284px;
     height: 180px;
@@ -50,7 +49,7 @@
     list-style: none;
     line-height: 20px;
     margin-bottom: 12px;
-    font-size: 16px;
+    font-size: 14px;
 }
 
 .socials {
@@ -92,6 +91,7 @@
     margin: 6px 0;
     align-items: center;
     justify-content: center;
+    background-color: #FFFFFF;
     color: #57BEBE;
     text-transform: bold;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -109,8 +109,8 @@
 }
 
 .contact_span>p {
-    line-height: 20px;
-    font-size: 16px;
+    line-height: initial;
+    font-size: 14px;
     margin-left: 4px;
 }
 
@@ -185,13 +185,14 @@
     .Thrillo_div p {
         width: 80%;
         height: fit-content;
+        line-height: initial;
         font-size: 12px;
         text-align: center;
     }
 
     .footer_container h1 {
         margin-bottom: 10px;
-        font-size: 20px;
+        font-size: 18px;
 
     }
 
@@ -204,7 +205,7 @@
     }
 
     .footer_container ul li {
-        line-height: 18px;
+        line-height: initial;
         font-size: 12px;
     }
 }

@@ -4,7 +4,7 @@
     align-items: center;
     justify-content: center;
     padding: 21px 0;
-    margin-top: 5%;
+    margin-top: 2%;
 }
 
 .second_header {
@@ -75,7 +75,7 @@
 
 .slider-splide {
     display: flex;
-    width: 90vw;
+    width: 75vw;
     text-align: center;
     justify-content: center;
 }
@@ -204,8 +204,7 @@
     align-items: center;
     height: 360px;
     width: 15vw;
-    border-radius: 30px !important;
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 55px !important;
     overflow: hidden;
 }
 @import url('https://fonts.googleapis.com/css2?family=Euphoria+Script&display=swap');
@@ -226,6 +225,15 @@
 .slider_splide_react_mobile {
     display: none;
 }
+/* .slider_splide_react */
+.sliderDestination .slider-splide .splide .splide__arrows .splide__arrow--next {
+    top: 40%;
+    right: -3em !important;
+}
+.sliderDestination .slider-splide .splide .splide__arrows .splide__arrow--prev {
+    top: 40%;
+    left: -3rem;
+}
 
 @media(max-width:900px) {
     .slider-splide {
@@ -244,10 +252,10 @@
     }
 
     .slider_splide_react1 {
-        width: 50% !important;
+        width: 46% !important;
         margin: 12px 2%;
         margin-top: 0;
-        height: 370px;
+        height: 360px;
     }
     .slider_splide_react1N {
         width: 100% !important;
@@ -323,4 +331,14 @@
         padding: 0;
         margin: 0;
     }
+
+    /* .slider_splide_react */
+.sliderDestination .slider-splide .splide .splide__arrows .splide__arrow--next {
+    right: -1rem !important;
+    top: 37%;
+}
+.sliderDestination .slider-splide .splide .splide__arrows .splide__arrow--prev {
+    left: -1rem;
+    top: 37%;
+}
 }

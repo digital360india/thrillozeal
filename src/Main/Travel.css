@@ -48,5 +48,7 @@
         height: 100px !important;
         padding: 16px 12px;
     }
-    
+    .travel-img-container {
+        width: 100%;
+    }
 }
