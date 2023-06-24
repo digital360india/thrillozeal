@@ -234,6 +234,13 @@
     top: 40%;
     left: -3rem;
 }
+.splide__arrow{
+    height: 4em;
+    width: 4em;
+    border: solid 1px #a3a3a3ad;;
+    background-color: #a3a3a3ad;
+    opacity: 0.6;
+}
 
 @media(max-width:900px) {
     .slider-splide {
