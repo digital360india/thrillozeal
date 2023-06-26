@@ -6,7 +6,41 @@
 }
 .Adds>img{
     width: 90% !important;
+    border-radius: 30px;
 }
+
+.addAnimation>img{
+    margin: 0;
+    animation-name: addAnimation;
+    animation-duration: 3s;
+}
+
+@keyframes addAnimation {
+    0% {
+        margin-left: -100vw;
+    }
+
+    100% {
+        margin-left: 0;
+    }
+}
+
+.addAnimationRight>img{
+    margin: 0;
+    animation-name: addAnimationRight;
+    animation-duration: 3s;
+}
+
+@keyframes addAnimationRight {
+    0% {
+        margin-right: -100vw;
+    }
+
+    100% {
+        margin-right: 0;
+    }
+}
+
 @media(max-width:769px) {
     .Adds{
         display: flex;
@@ -14,5 +48,6 @@
     }
     .Adds>img{
         width: 100% !important;
+        border-radius: 0px;
     }
 }

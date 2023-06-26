@@ -263,7 +263,7 @@
     .changeIcon {
         display: flex;
         top: 18vh;
-        left: 28vw;
+        left: calc(28vw + 5px);
         height: 80px;
         max-width: 80px;
     }
@@ -276,7 +276,7 @@
 
         100% {
             top: 18vh;
-            left: 28vw;
+            left: calc(28vw + 5px);
             height: 80px;
             max-width: 80px;
         }
@@ -292,7 +292,7 @@
 
         100% {
             top: 18vh;
-            left: 28vw;
+            left: calc(28vw + 5px);
             height: 80px;
             max-width: 80px;
         }
@@ -309,7 +309,7 @@
     @keyframes reverse_activity21 {
         0% {
             top: 18vh;
-            left: 28vw;
+            left: calc(28vw + 5px);
             height: 80px;
             max-width: 80px;
         }
