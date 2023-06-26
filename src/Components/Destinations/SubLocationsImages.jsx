@@ -11,7 +11,7 @@ const SubLocationImages = ({ data }) => {
         <>
             <div className="slider_splideOut">
                 <div className="slider-splide">
-                    <Splide className='  slider_splide_reactN'>
+                    <Splide className='slider_splide_reactN'>
 
                         <SplideSlide className='slider_splide_react1N'>
                             <div class="side-crop">

@@ -12,7 +12,7 @@
     display: flex;
     flex-direction: column;
     width: fit-content;
-    padding-top: 12px;
+    margin-top: 4%;
 }
 
 .ExploreCities_rowone {
@@ -27,8 +27,8 @@
 .hexa_div {
     position: relative;
     width: 194px;
-    /* height: 211px; */
     padding: 12px;
+    margin-top: -17px;
 }
 
 .hexa_div_img {
@@ -38,6 +38,7 @@
     height: auto;
     transition: .5s ease;
     backface-visibility: hidden;
+    /* margin-top: -17px; */
 }
 
 .hexa_div_p {
@@ -75,6 +76,9 @@
 }
 
 @media(max-width:760px) {
+    .ExploreCities_sec{
+        margin-top: 33px;
+    }
 
     .img_for_mobile_explore {
         display: flex;

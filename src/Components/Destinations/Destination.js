@@ -22,7 +22,7 @@ const Destination = (props) => {
           Top Trending Destinations
         </div>
       </div>
-      <div className="slider_splideOut">
+      <div className="sliderDestination slider_splideOut">
         <div className="slider-splide">
           <Splide className='slider_splide_react' options={{ rewind: true, perPage: 4 }} aria-label="React Splide Example">
             {props?.trendingTreks?.length > 0 && props?.trendingTreks?.map(trek => {

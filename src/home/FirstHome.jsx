@@ -3,12 +3,12 @@ import './FirstHome.css';
 import './FirstHomeAnimation.css';
 import logo from './img/logo.png';
 import call from './img/phone-call.png';
-import background1 from "./img/campingBackground.webp";
-import background2 from "./img/raftingBackground.webp";
-import background3 from "./img/skiingBackground.webp";
-import background4 from "./img/toursBackground.webp";
-import background5 from "./img/trekkingBackground.webp";
-import background6 from "./img/exploreFunBackground.webp";
+import background1 from "./img/compressed/campingBackground.webp";
+import background2 from "./img/compressed/raftingBackground.webp";
+import background3 from "./img/compressed/skiingBackground.webp";
+import background4 from "./img/compressed/toursBackground.webp";
+import background5 from "./img/compressed/trekkingBackground.webp";
+import background6 from "./img/compressed/exploreFunBackground.webp";
 import divider from "./img/Line 2.png";
 import arrow from "./img/Arrow 1.png";
 import icon1 from "./img/camping.png";
@@ -197,7 +197,32 @@ function FirstHome() {
                 <img className={number == 0 ? "backimage1 theme" : 'backimage2 theme'} src={background6theme} alt="" />
 
                 <div className="secRow">
-                    <div className="firstBox">
+                    <div className="secondBox">
+                        <div className="secondbox_row">
+                            <div className="second_Border">
+                                <img src={icon1} className={active ? animation1 : class1} alt="" />
+                                <img src={icon2} className={active ? animation2 : class2} alt="" />
+                                <img src={icon3} className={active ? animation3 : class3} alt="" />
+                                <img src={icon4} className={active ? animation4 : class4} alt="" />
+                                <img src={icon5} className={active ? animation5 : class5} alt="" />
+                                <img src={icon6} className={active ? animation6 : class6} alt="" />
+                            </div>
+                        </div>
+                        <div className="secondbox_row2">
+                            <div className="changeArrow" onClick={function1}>
+                                <img src={arrow} className="changeArrowImg" alt="" />
+                            </div>
+
+
+                            <div className="changeArrow" onClick={function2}>
+                                <img src={arrow} className="changeArrowImg" alt="" />
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div className="firstBox">
                         <div className='combText'>
                             <div className="text1">
                                 Explore New
@@ -245,30 +270,6 @@ function FirstHome() {
                         </div>
                     </div>
 
-                    <div className="secondBox">
-                        <div className="secondbox_row">
-                            <div className="second_Border">
-                                <img src={icon1} className={active ? animation1 : class1} alt="" />
-                                <img src={icon2} className={active ? animation2 : class2} alt="" />
-                                <img src={icon3} className={active ? animation3 : class3} alt="" />
-                                <img src={icon4} className={active ? animation4 : class4} alt="" />
-                                <img src={icon5} className={active ? animation5 : class5} alt="" />
-                                <img src={icon6} className={active ? animation6 : class6} alt="" />
-                            </div>
-                        </div>
-                        <div className="secondbox_row2">
-                            <div className="changeArrow" onClick={function1}>
-                                <img src={arrow} className="changeArrowImg" alt="" />
-                            </div>
-
-
-                            <div className="changeArrow" onClick={function2}>
-                                <img src={arrow} className="changeArrowImg" alt="" />
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
             </div>
             <Destination trendingTreks={All_Treks.filter((trek) => {
                 return trek.trek_data.packagetype === "Trending";
