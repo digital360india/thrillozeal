@@ -86,7 +86,7 @@ console.log("SUBLOC ",data?.trek_data)
                         Home
                         {" >"}
                     </div>
-                    <div onClick={() => goToPage('cities')} className="header_name">
+                    <div onClick={() => goToPage('All_Location/All_Activities/All_Styles')} className="header_name">
                         Cities
                         {" > "}
                     </div>
@@ -118,9 +118,6 @@ console.log("SUBLOC ",data?.trek_data)
                                     <Stars review={data?.trek_data?.review} />
                                     <p>based on {data?.trek_data?.reviewNo} reviews</p>
                                 </div>
-                                {/* <div className="naini__rating">
-                                    <p>{data?.trek_data?.review}</p>
-                                </div> */}
                             </div>
                         </div>
                         <div className="naini__icons_collection naini__iconsBlock">

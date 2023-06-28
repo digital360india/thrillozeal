@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './Location.css';
 import Header from './Header';
 import NainitalImage from './img/nainitalimg.jpg';
-import search from '../home/img/search.png';
+import search from '../home/img/search-black.png';
 import Card from './Card/Card';
 import Filter from './Filter/Filter';
 import Footer from '../Components/Footer/Footer';
@@ -140,7 +140,7 @@ function Location() {
               Home
               {" >"}
             </div>
-            <div onClick={() => goToPage('cities')} className="header_name">
+            <div onClick={() => goToPage('All_Location/All_Activities/All_Styles')} className="header_name">
               Cities
               {" > "}
             </div>

@@ -128,9 +128,10 @@
     background: #FFFFFF;
     border: 1px solid #909090;
     border-radius: 10px !important;
+    appearance: none;
     margin: 8px;
-    height: 25px;
-    width: 25px;
+    height: 27px;
+    width: 28px;
 }
 
 .checkbox>p {
@@ -240,7 +241,19 @@
     margin:12px 0;
     font-family: 'Montserrat';
 }
+.slider_splideOut{
+    display: none;
+}
 @media(max-width:900px) {
+    .card__c2_body {
+        justify-content: flex-start;
+    }
+    .slider_splideOut{
+        display: flex;
+    }
+    .top__img_c1{
+        display: none;
+    }
     .filter__slider{
         display: flex;
         padding: 12px 0;
@@ -248,6 +261,8 @@
     }
     .filter__slider__icon{
         padding: 0 12px;
+        height: 30px !important;
+        width: 30px !important;
     }
 
 }

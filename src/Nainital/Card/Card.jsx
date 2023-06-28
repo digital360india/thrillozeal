@@ -11,11 +11,13 @@ import img3 from "../img/img3.jpg";
 import imgmore from "../img/img_more.png";
 import { useHistory } from "react-router-dom";
 import { useParams } from "react-router-dom";
+import { Splide, SplideSlide } from '@splidejs/react-splide';
 import {
   AccessTimeRounded as AccessTimeRoundedIcon,
   LocationOnOutlined as LocationOnOutlinedIcon,
 } from '@mui/icons-material';
 import Stars from "../../Components/Stars/Stars";
+import SubLocationImages from "../../Components/Destinations/SubLocationsImages";
 function Card({ data }) {
   const { location } = useParams();
   const history = useHistory();
@@ -28,6 +30,7 @@ function Card({ data }) {
       // }
     >
       <div className="card__c1">
+        <SubLocationImages className="mobile__img_gallery" data={data?.trek_data} />
         <div className="top__img_c1">
           {data?.trek_data?.img ? (
             <img
@@ -62,9 +65,6 @@ function Card({ data }) {
               alt=""
             />
           )}
-
-
-          {/* <img src={imgmore} alt="" /> */}
           {data?.trek_data?.img3 ? (
             <img
               style={{ width: "100px", height: "80px",paddingTop:"4px", borderRadius: "20px" , marginLeft:"2px" , marginRight:"2px"}}
@@ -91,17 +91,25 @@ function Card({ data }) {
             <LocationOnOutlinedIcon sx={{ color: "#57BEBE" }} />
             <div className="c2__text">{data?.trek_data?.location}</div>
           </div>
-          <br />
-          <div className="card__c2_innner card__c2_innner2">
+          <div className="card__c2_inner">
             <div className="naini__stars">
-             <Stars review={data?.trek_data?.review} />
+              <Stars review={data?.trek_data?.review} />
               <p>based on {data?.trek_data?.reviewNo} reviews</p>
             </div>
-            {/* <div className="naini__rating">
-              <p>{data?.trek_data?.review}</p>
-            </div> */}
+          </div>
+          <div className="card__c2_inner naini__rating">
+          {data?.trek_data?.review}
           </div>
         </div>
+        {/* <div className="card__c2_body">
+          <div className="naini__stars">
+            <Stars review={data?.trek_data?.review} />
+            <p>based on {data?.trek_data?.reviewNo} reviews</p>
+          </div>
+          <div className="naini__rating">
+          {data?.trek_data?.review}
+          </div>
+        </div> */}
         <div className="naini__icons_collection">
           <div className="naini__icons">
             <img src={fastfood} />

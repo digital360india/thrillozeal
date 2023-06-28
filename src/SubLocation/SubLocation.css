@@ -1,5 +1,5 @@
-.smallHeader{
-    padding-left:25px;
+.SubLocation{
+    overflow-x: hidden;
 }
 .sublocation_img {
     display: flex;

@@ -3,6 +3,9 @@
     flex-direction: column;
     width: 100vw;
     font-size: 16px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
 }
 .Name_on_img{
     position: absolute;
@@ -52,6 +55,7 @@
 }
 
 .aboutUs__body_second {
+    margin-top: 5vh;
     display: flex;
 }
 
@@ -80,7 +84,9 @@
 }
 
 @media(max-width:900px) {
-
+    .aboutUs__body_img {
+        height: 50vh !important;
+    }
     .Name_on_img{
         font-size: 60px;
     }

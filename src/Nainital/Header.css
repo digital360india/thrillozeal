@@ -3,7 +3,7 @@
     justify-content: space-around;
     background: #57BEBE;
     align-items: center;
-    height: 8vh;
+    height: 10vh;
 }
 
 .firstDiv {
@@ -22,7 +22,7 @@
 
 .Nainital_logo {
     display: flex;
-    height: 44px !important;
+    height: 36px !important;
     padding-left: 32px ;
 }
 
@@ -34,7 +34,7 @@
     background: #FFFFFF;
     border-radius: 30px;
     align-items: center;
-    padding: 5px;
+    padding: 3px;
     margin-left: 10vw;
 }
 
@@ -208,6 +208,9 @@
 }
 
 @media(max-width:768px) {
+    .nainital_header {
+        height: 6vh;
+    }
     .N__sections {
         display: none;
     }
@@ -306,7 +309,7 @@
     }
     .Nainital_logo {
         display: flex;
-        height: 44px !important;
+        height: 32px !important;
         padding-left: 0px ;
     }
 }

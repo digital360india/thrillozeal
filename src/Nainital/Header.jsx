@@ -108,7 +108,7 @@ function Header({ setLoading }) {
             <div id="sub" onBlur={onBlur} className='nainital_header click-text'>
                 <div className="firstDiv">
                     <div className={!showsearch ? "nainitalSearch_img" : "TruenainitalSearch_img"}>
-                        <img onClick={() => setShowsearch(!showsearch)} style={{ height: '40px' }} src={search} alt="" />
+                        <img onClick={() => setShowsearch(!showsearch)} style={{ height: '25px' }} src={search} alt="" />
                     </div>
                     <div onClick={() => goToPage("")} className={!showsearch ? "N__Header__logo" : "TrueN__Header__logo"}>
                         <img className='Nainital_logo' src="/Images/logo.png" alt="" />

@@ -171,6 +171,17 @@
     font-size: large;
 }
 @media(max-width:900px) {
+    .Read__More{
+    font-size: 11px;
+    }
+    .nainitalBody__input>img {
+        width: 18px;
+    }
+    .slider_splide_react1N {
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
     .nainital__body_img{
         height: 40vh;
     }
@@ -230,7 +241,7 @@
     }
 
     .nainitalBody__input>input {
-        width: 70%;
+        width: 60%;
     }
 
     .nainitalBody__input>div {

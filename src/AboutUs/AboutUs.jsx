@@ -4,8 +4,15 @@ import Header from '../Nainital/Header';
 import Footer from '../Components/Footer/Footer';
 import Destination from '../Components/Destinations/Destination';
 import { useStateValue } from '../StateProvider';
+import { useHistory } from 'react-router-dom';
+
 function AboutUs() {
+  const history = useHistory();
   const [{All_Treks }, dispatch] = useStateValue();
+
+  const goToPage = (loc) => {
+    history.push(`/${loc}`);
+  }
   return (
     <div className='aboutUs'>
       <Header />
@@ -14,12 +21,12 @@ function AboutUs() {
         <div className='Name_on_img'>ABOUT US</div>
         <div className="aboutUs__body_first">
           <div className="smallHeader">
-            <div className="header_name">
+            <div onClick={() => goToPage('')}  className="header_name">
               Home
               {" >"}
             </div>
             <div className="header_name active">
-              AboutUs
+              About
             </div>
           </div>
         </div>

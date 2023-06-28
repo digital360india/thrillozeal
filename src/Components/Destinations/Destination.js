@@ -48,7 +48,7 @@ const Destination = (props) => {
           <Splide className='slider_splide_react_mobile' options={{ rewind: true, perPage: 2 }} aria-label="React Splide Example">
             {props.trendingTreks.map(trek => {
               return (
-                <SplideSlide className='slider_splide_react1'>
+                <SplideSlide onClick={() => goToPage(trek?.trek_id)} className='slider_splide_react1'>
                   <div style={{ backgroundImage: `url(${trek.trek_data?.img1 || "/Images/aboutus-bg.png"})` }} className='slider_splide_react_img'>
                     <p className='trek__cursive'>{trek?.trek_id}</p>
                   </div>
