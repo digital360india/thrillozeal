@@ -7,21 +7,19 @@ import Card from './Card/Card';
 import Filter from './Filter/Filter';
 import Footer from '../Components/Footer/Footer';
 import Destination from '../Components/Destinations/Destination';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import db from '../firebase';
 import { useStateValue } from '../StateProvider';
 import PaginatedItems from './PaginatedItems';
 import { actionTypes } from '../reducer';
-import { useHistory } from 'react-router-dom';
 import ArrowRightRoundedIcon from '@mui/icons-material/ArrowRightRounded';
 import ArrowLeftRoundedIcon from '@mui/icons-material/ArrowLeftRounded';
 import Loading from '../Components/Loader/Loading';
 import Add2 from '../home/Add2';
 
 function Location() {
-
   var { location } = useParams();
-  const history = useHistory();
+  const history=useNavigate();
   const [loading, setLoading] = useState(false);
 
   const [{ All_Treks }, dispatch] = useStateValue();
@@ -70,7 +68,7 @@ function Location() {
   }
 
   const goToPage = (loc) => {
-    history.push(`/${loc}`);
+    history(`/${loc}`);
   }
 
   const decreaseIndex = () => {

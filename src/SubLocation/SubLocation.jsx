@@ -21,14 +21,14 @@ import Package from '../Components/Trek/Package';
 import Footer from '../Components/Footer/Footer';
 import Policy from '../Components/Policy/Policy';
 import Destination from '../Components/Destinations/Destination';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import db from '../firebase';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css';
 import SubLocationImages from '../Components/Destinations/SubLocationsImages';
 import { useStateValue } from '../StateProvider';
 import Stars from '../Components/Stars/Stars';
-import { useLocation, useHistory } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import {
     AccessTimeRounded as AccessTimeRoundedIcon,
     LocationOnOutlined as LocationOnOutlinedIcon,
@@ -38,7 +38,7 @@ function SubLocation() {
 
     const param = useParams();
     const location = useLocation();
-    const history = useHistory();
+    const history = useNavigate();
     const [loading, setLoading] = useState(false);
 
     var { trek_id } = useParams();
@@ -51,7 +51,7 @@ function SubLocation() {
     //     .doc(trek_id);
 
     const goToPage = (loc) => {
-        history.push(`/${loc}`)
+        history(`/${loc}`)
     }
 
     useEffect(() => {

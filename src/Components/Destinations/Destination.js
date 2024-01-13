@@ -5,13 +5,13 @@ import './Destination.css';
 import progress from './img/progess.png';
 import imgDefault from './img/a.png';
 import StarRoundedIcon from '@mui/icons-material/StarRounded';
-import { useHistory } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 
 const Destination = (props) => {
 
-  const history = useHistory();
+  const navigate = useNavigate();
   const goToPage = (loc) => {
-    history.push({ pathname: `/${loc}`, state: { page_loc: 0 } });
+    navigate(`/${loc}`, { state: { page_loc: 0 } });
   }
 
   return (

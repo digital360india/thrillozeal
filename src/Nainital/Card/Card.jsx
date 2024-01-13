@@ -9,7 +9,7 @@ import img1 from "../img/img1.jpg";
 import img2 from "../img/img2.jpg";
 import img3 from "../img/img3.jpg";
 import imgmore from "../img/img_more.png";
-import { useHistory } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import {
@@ -20,7 +20,7 @@ import Stars from "../../Components/Stars/Stars";
 import SubLocationImages from "../../Components/Destinations/SubLocationsImages";
 function Card({ data }) {
   const { location } = useParams();
-  const history = useHistory();
+  const history = useNavigate();
   console.log("data", data);
   return (
     <div

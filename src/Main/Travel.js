@@ -1,6 +1,6 @@
 import React from 'react'
 import './Travel.css'
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Travel = () => {
 
@@ -39,10 +39,10 @@ const Travel = () => {
     },
   ]
 
-  const history = useHistory();
+  const history = useNavigate();
 
   const goToLocation = (sty) => {
-    history.push(`/All_Location/All_Activities/${sty}`)
+    history(`/All_Location/All_Activities/${sty}`)
   }
 
   return (

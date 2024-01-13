@@ -1,13 +1,13 @@
 import React from 'react';
 import "./ExploreCities.css";
-import { useHistory } from "react-router-dom"
+import {  useNavigate } from "react-router-dom"
 
 function ExploreCities() {
 
-    const history = useHistory();
+    const history = useNavigate();
 
     const goToLocation = (location) => {
-        history.push(`/${location}/All_Activities/All_Styles`);
+        history(`/${location}/All_Activities/All_Styles`);
     }
 
     return (

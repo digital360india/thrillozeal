@@ -28,7 +28,7 @@ import twitterIcon from './img/twitter_icon.png'
 import linkedinIcon from './img/linkedin_icon.png'
 import menu from './img/menu.png'
 import Secondpage from './Secondpage';
-import { useHistory } from 'react-router-dom';
+import {useNavigate } from 'react-router-dom';
 import { useStateValue } from '../StateProvider';
 import Destination from '../Components/Destinations/Destination';
 import Footer from '../Components/Footer/Footer';
@@ -51,7 +51,7 @@ import Loading from '../Components/Loader/Loading';
 
 function FirstHome() {
 
-    const history = useHistory();
+    const history = useNavigate();
     const [{ globalVariable, All_Treks }, dispatch] = useStateValue();
 
     const [showsearch, setShowsearch] = useState(false);
@@ -110,7 +110,7 @@ function FirstHome() {
 
     const Search_Click = () => {
         console.log("'first'")
-        history.push(`/${location ? location : 'All_Location'}/${activity ? activity : 'All_Activities'}/All_Styles`);
+        history(`/${location ? location : 'All_Location'}/${activity ? activity : 'All_Activities'}/All_Styles`);
     }
 
     const [newArr, setNewArr] = useState([icon1, icon2, icon3, icon4, icon5, icon6]);

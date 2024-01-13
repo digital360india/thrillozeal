@@ -4,14 +4,14 @@ import Header from '../Nainital/Header';
 import Footer from '../Components/Footer/Footer';
 import Destination from '../Components/Destinations/Destination';
 import { useStateValue } from '../StateProvider';
-import { useHistory,useLocation } from 'react-router-dom/cjs/react-router-dom.min';
+import { useLocation, useNavigate} from 'react-router-dom';
 function Privacy() {
-  const history = useHistory();
+  const history = useNavigate();
   const location = useLocation();
   const [{ All_Treks }, dispatch] = useStateValue();
 
   const goToPage = (loc) => {
-    history.push(`/${loc}`);
+    history(`/${loc}`);
   };
 
   useEffect(() => {

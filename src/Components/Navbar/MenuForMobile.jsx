@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Box, Divider, Drawer, List, ListItem, ListItemButton, ListItemText, Typography } from "@mui/material";
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
 
 const MenuForMobile = ({setMobileOpen,mobileOpen}) => {
@@ -10,10 +10,10 @@ const MenuForMobile = ({setMobileOpen,mobileOpen}) => {
         setMobileOpen((prevState) => !prevState);
     };
 
-    const history = useHistory();
+    const history = useNavigate();
 
     const goToPage = (location) => {
-        history.push(`/${location}`)
+        history(`/${location}`)
         setMobileOpen(false);
     }
 

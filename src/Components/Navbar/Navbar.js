@@ -1,17 +1,18 @@
 import React,{useState} from "react";
 import "./Navbar.css";
-import { useHistory } from 'react-router-dom';
+import { useNavigate} from 'react-router-dom';
 import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
 import MenuForMobile from "./MenuForMobile";
+import { useLocation } from "react-router-dom/dist";
 
 const Navbar = () => {
-
+ const {pathname}=useLocation();
   const [mobileOpen, setMobileOpen] = useState(false);
 
-  const history = useHistory();
+  const history = useNavigate();
 
   const goToPage = (location) => {
-    history.push(`/${location}`)
+    history(`/${location}`)
   }
 
 
@@ -22,7 +23,7 @@ const Navbar = () => {
       mobileOpen && 
       <MenuForMobile setMobileOpen={setMobileOpen} mobileOpen={mobileOpen} />
     }
-      <div className="Navbar_Container">
+      <div className={`Navbar_Container ${pathname.startsWith("/spin")?"bg-[#57BEBE] ":"bg-transparent"} `}>
         <div className="First">
           <a href="/">
             <img className="logo_thrillo" src="Images/logo.png"></img>

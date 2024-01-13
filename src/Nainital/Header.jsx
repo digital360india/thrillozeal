@@ -4,7 +4,7 @@ import divider from '../home/img/Line 2.png'
 import search from '../home/img/search.png';
 import call from '../home/img/phone-call.png';
 import menu from '../home/img/menu.png';
-import { useHistory, useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { useStateValue } from '../StateProvider';
 import { actionTypes } from '../reducer';
 import {
@@ -19,7 +19,7 @@ function Header({ setLoading }) {
 
     const [mobileOpen, setMobileOpen] = useState(false);
 
-    const history = useHistory();
+    const history = useNavigate();
     var param = useParams();
     // const routerData=useLocation();
     // JvH2wjbXOWgoOA17X4GWNainital
@@ -63,11 +63,11 @@ function Header({ setLoading }) {
 
     const Search_Click = () => {
         setLoading(true)
-        history.push(`/${location ? location : "All_Location"}/${activity ? activity : "All_Activities"}/All_Categories`);
+        history(`/${location ? location : "All_Location"}/${activity ? activity : "All_Activities"}/All_Categories`);
     }
 
     const goToPage = (location) => {
-        history.push(`/${location}`)
+        history(`/${location}`)
     }
 
     // const searchByClick = (loc) => {

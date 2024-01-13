@@ -4,14 +4,15 @@ import Header from '../Nainital/Header';
 import Footer from '../Components/Footer/Footer';
 import Destination from '../Components/Destinations/Destination';
 import { useStateValue } from '../StateProvider';
-import { useHistory } from 'react-router-dom';
+import {useNavigate } from 'react-router-dom';
 
 function AboutUs() {
-  const history = useHistory();
+  
+  const navigate=useNavigate()
   const [{All_Treks }, dispatch] = useStateValue();
 
   const goToPage = (loc) => {
-    history.push(`/${loc}`);
+    navigate(`/${loc}`);
   }
   return (
     <div className='aboutUs'>

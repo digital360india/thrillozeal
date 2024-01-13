@@ -1,7 +1,7 @@
 import './App.css';
 import Home from './home/Home';
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import FirstHome from './home/FirstHome';
 import Location from './Nainital/Location';
 import SubLocation from './SubLocation/SubLocation';
@@ -14,6 +14,10 @@ import { actionTypes } from './reducer';
 import { useState } from 'react';
 import Loading from './Components/Loader/Loading';
 import Privacy from './Privacy/Privacy';
+import OtpPage from "./pages/OtpPage/OtpPage.js";
+import NextOtpPage from "./pages/NextOtpPage/NextOtpPage.js";
+import TandC from "./pages/TandC/TandC.js";
+import WheelPage from "./pages/WheelPage/WheelPage.js";
 
 function App() {
   const [{ globalVariable, All_Treks }, dispatch] = useStateValue();
@@ -51,25 +55,22 @@ function App() {
   }, [allTreks])
 
   return (
+    <>
     <Router>
-      <Switch>
-      <Route path='/about'>
-      <AboutUs />
-      </Route>
-      <Route path='/privacy_policy'>
-      <Privacy />
-      </Route>
-        <Route path="/:location/:activity/:categories">
-          <Location />
-        </Route>
-        <Route path="/:trek_id">
-          <SubLocation />
-        </Route>
-        <Route path="/">
-          <FirstHome />
-        </Route>
-      </Switch>
-    </Router>
+      <Routes>
+      <Route path='/about' element={<AboutUs />}/>
+  
+      <Route path='/privacy_policy' element={<Privacy />}/>
+        <Route path="/:location/:activity/:categories" element={<Location />}/>
+        <Route path="/:trek_id" element={<SubLocation />}/>
+        <Route path="/" element={<FirstHome />}/>
+          <Route path="/spin" element={<OtpPage  />}></Route>
+          <Route path="/spin/next" element={<NextOtpPage  />}></Route>
+          <Route path="/spin/TandC" element={<TandC  />}></Route>
+          <Route path="/spin/spinpage" element={<WheelPage  />}></Route>
+          </Routes>
+      </Router>
+    </>
   );
 }
 

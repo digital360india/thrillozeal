@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from "react";
 import './Footer.css';
 import {PhoneInTalkOutlined as PhoneInTalkOutlinedIcon, LocationOnOutlined as LocationOnOutlinedIcon, EmailOutlined as EmailOutlinedIcon} from "@mui/icons-material";
-import { useHistory } from "react-router-dom";
+import { useNavigate} from "react-router-dom";
 import db from '../../firebase';
 import firebase from "firebase";
 const Footer = () => {
-  const history = useHistory();
+  const history = useNavigate();
   const [email, setEmail] = useState("");
   const [messageToggle, setMessageToggle] = useState(false);
   const goToPage = (location,pos=0) => {
-    history.push({pathname:`/${location}`,state:{page_loc:pos}})
+    history(`/${location}`,{state:{page_loc:pos}})
   }
 
   const addEmailToList = (e) =>{
